@@ -1,0 +1,41 @@
+// UI-kit
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./ui-kit/functions";
+
+@layer base {
+  @import "./ui-kit/fonts";
+  @import "./ui-kit/variables";
+  @import "./ui-kit/reset";
+  @import "./ui-kit/scrollbar";
+}
+
+@layer components {
+  @import "./ui-kit/content";
+  @import "./ui-kit/card";
+  @import "./ui-kit/inverted";
+  @import "./ui-kit/postcards";
+  @import "./ui-kit/like";
+  @import "./ui-kit/listing";
+  @import "./ui-kit/load";
+  @import "./ui-kit/icon";
+  @import "./ui-kit/link";
+  @import "./ui-kit/button";
+  @import "./ui-kit/switch";
+  @import "./ui-kit/form";
+  @import "./ui-kit/input";
+  @import "./ui-kit/quantity";
+  @import "./ui-kit/rating";
+  @import "./ui-kit/range";
+  @import "./ui-kit/animation";
+}
+
+@import "./ui-kit/custom";
+@import "./ui-kit/waved";
+@import "./ui-kit/movement";
+
+// Frontend
+// @import "./frontend/templates";
+@import "./frontend/main";

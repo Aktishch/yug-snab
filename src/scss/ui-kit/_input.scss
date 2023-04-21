@@ -1,0 +1,51 @@
+// Поле
+.input {
+  flex-grow       : 1;
+  width           : 100%;
+  height          : var(--size-lg);
+  background-color: theme("colors.white.DEFAULT");
+  padding         : 12px 16px;
+  border          : 1px solid theme("colors.gray.DEFAULT / 30%");
+  transition      : 0.2s ease;
+  user-select     : none;
+
+  &-cover {
+    display: flex;
+    width  : 100%;
+  }
+
+  &--textarea {
+    height: auto;
+  }
+
+  &--error {
+    border-color: theme("colors.red.DEFAULT");
+  }
+
+  &:first-of-type {
+    border: {
+      top-left-radius   : 8px;
+      bottom-left-radius: 8px;
+    }
+  }
+
+  &:last-of-type {
+    border: {
+      top-right-radius   : 8px;
+      bottom-right-radius: 8px;
+    }
+  }
+
+  &:not(&--error):focus {
+    border-color: theme("colors.gray.DEFAULT");
+  }
+
+  &::placeholder {
+    color: theme("colors.gray.DEFAULT");
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity       : 0.5;
+  }
+}

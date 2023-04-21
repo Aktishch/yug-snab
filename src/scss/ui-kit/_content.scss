@@ -1,0 +1,48 @@
+// Содержимое
+.content {
+  --padding-block : 40px;
+  --padding-inline: 100vw - 30px;
+  padding         : var(--padding-block) calc(50% - ((var(--padding-inline)) / 2));
+
+  @screen xs {
+    &--xs {
+      --padding-inline: var(--xs);
+    }
+  }
+
+  @screen sm {
+    & {
+      --padding-block : 50px;
+      --padding-inline: var(--sm);
+    }
+  }
+
+  @screen md {
+    & {
+      --padding-block : 60px;
+      --padding-inline: var(--md);
+    }
+  }
+
+  @screen lg {
+    & {
+      --padding-block : 70px;
+      --padding-inline: var(--lg);
+    }
+  }
+
+  @screen xl {
+    & {
+      --padding-block : 80px;
+      --padding-inline: var(--xl);
+
+      &--distance {
+        --width         : var(--xl);
+        --distance      : 20px;
+        --padding-inline: calc(var(--width) + (var(--distance) * 2));
+        margin          : var(--distance);
+        border-radius   : var(--distance);
+      }
+    }
+  }
+}

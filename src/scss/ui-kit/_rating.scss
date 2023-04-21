@@ -1,0 +1,29 @@
+// Рейтинг
+.rating {
+  display       : flex;
+  align-items   : center;
+  flex-direction: row-reverse;
+  width         : max-content;
+
+  &-star {
+    @apply text-second text-opacity-50 text-2xl;
+    transition: color 0.2s ease;
+    cursor    : pointer;
+
+    &~& {
+      margin-right: 12px;
+    }
+  }
+
+  &-input:checked~&-star {
+    @apply text-opacity-100;
+  }
+
+  @media(hover) {
+
+    &-star:hover,
+    &-star:hover~&-star {
+      @apply text-opacity-100;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+// Air-datepicker
+.air-datepicker-global-container {
+  z-index: 1100;
+}
+
+// Fancybox
+.fancybox {
+  &__spinner {
+    width : auto;
+    height: auto;
+  }
+
+  &__content {
+    padding   : 0;
+    background: none;
+    max-width : 100%;
+
+    & :focus:not(.carousel__button.is-close) {
+      outline: none;
+    }
+
+    &>.carousel__button.is-close {
+      position        : fixed;
+      top             : 8px;
+      right           : 8px;
+      color           : theme("colors.black.DEFAULT");
+      background-color: theme("colors.white.DEFAULT");
+      box-shadow      : 0 4px 8px theme("colors.black.DEFAULT / 10%");
+    }
+  }
+
+  @screen md {
+    &__content>.carousel__button.is-close {
+      position: absolute;
+    }
+  }
+}
+
+// Slider-swiper
+.swiper {
+  &--overwrap {
+    margin : -15px;
+    padding: 15px;
+  }
+
+  &-pagination {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    position       : static;
+
+    &-bullet {
+      width           : 12px;
+      height          : 12px;
+      background-color: currentColor;
+      transition      : background-color 0.2s ease;
+    }
+  }
+
+  &-button {
+
+    &-prev,
+    &-next {
+      &::after {
+        display: none;
+      }
+    }
+
+    &-prev:not(.default),
+    &-next:not(.default) {
+      width        : 50px;
+      height       : 50px;
+      position     : absolute;
+      border-radius: 50%;
+    }
+
+    @screen md {
+      &-prev:not(.default) {
+        left: -25px;
+      }
+
+      &-next:not(.default) {
+        right: -25px;
+      }
+    }
+  }
+}

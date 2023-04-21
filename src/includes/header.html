@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="dark" lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="autor" content="Александр Актищев (Студия КИТ)"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+  <title><%= data.title %></title>
+</head>
+<body class="dark:bg-black dark:text-white">
+
+  <!-- Прогресс прокрутки страницы -->
+
+  <div class="hidden lg:block fixed inset-0 z-[400] bg-primary w-0 h-1" data-progress-line></div>
+
+  <!-- Шапка документа -->
+
+  <header class="header content flex items-center justify-between sticky z-[300] top-0 left-0 right-0 bg-black py-4 ease-linear duration-3" data-header>
+    <a class="btn w-[150px] mr-10" data-waved="light" href="/">
+      <picture>
+        <source srcset="img/pictures/logo.webp" type="image/webp">
+        <img class="w-full" src="img/pictures/logo.png" alt="">
+      </picture>
+    </a>
+    <nav class="nav hidden lg:flex items-center justify-between gap-4 w-full max-w-[800px] ml-auto">
+      <a class="btn btn--second link text-sm font-normal uppercase p-1" data-waved="light" href="index.html">Front-page</a>
+      <a class="btn btn--second link text-sm font-normal uppercase p-1" data-waved="light" href="primary.html">Primary-page</a>
+      <a class="btn btn--second link text-sm font-normal uppercase p-1" data-waved="light" href="second.html">Second-page</a>
+      <div class="nav__accordion relative" data-accordion="hidden" data-accordion-close="scroll">
+        <div class="btn btn--second link text-sm font-normal uppercase p-1" data-accordion-toggle data-waved="light">
+          Navigation
+          <span class="nav__arrow flex items-center justify-center text-xs ml-2 ease-linear duration-3">
+            <svg class="icon">
+              <use xlink:href="img/icons.svg#arrow-right">
+            </svg>
+          </span>
+        </div>
+        <div class="nav__items absolute top-10 right-0 bg-white rounded-2 shadow-md w-full" data-accordion-content>
+          <div class="flex flex-col gap-4 p-4">
+            <a class="btn btn--gray link text-sm" data-waved="dark" data-scroll="top" href="#header">Header</a>
+            <a class="btn btn--gray link text-sm" data-waved="dark" data-scroll="top" href="#player">Player</a>
+            <a class="btn btn--gray link text-sm" data-waved="dark" data-scroll="top" href="#footer">Footer</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <button class="btn btn--second lg:hidden text-5xl" data-burger data-waved="light">
+      <svg class="icon">
+        <use xlink:href="img/icons.svg#burger">
+      </svg>
+    </button>
+  </header>
+
+  <!-- Мобильное меню -->
+
+  <% var social = ['ok', 'yt', 'inst', 'tw', 'fb', 'vk'] %>
+
+  <section class="mobile-menu fixed inset-0 z-[600] duration-1" data-mobile="hidden">
+    <div class="mobile-menu__content flex flex-col bg-black bg-opacity-90 overflow-auto backdrop-blur-sm w-full max-w-[375px] h-full duration-3">
+      <div class="mobile-menu__head flex items-center justify-between gap-2 relative bg-black p-4 duration-5 delay-3">
+        <a class="btn w-[150px] mr-10" data-waved="light" href="/">
+          <picture>
+            <source srcset="img/pictures/logo.webp" type="image/webp">
+            <img class="w-full" src="img/pictures/logo.png" alt="">
+          </picture>
+        </a>
+        <input class="switch switch--toggle" data-theme="toggle" type="checkbox">
+        <button class="btn btn--second text-2xl text-white p-1" data-mobile-close data-waved="light">
+          <svg class="icon">
+            <use xlink:href="img/icons.svg#close">
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-menu__nav flex flex-col gap-4 relative text-white mb-10 p-4 duration-9 delay-5">
+        <a class="link text-xl w-max" href="index.html">Front-page</a>
+        <a class="link text-xl w-max" href="primary.html">Primary</a>
+        <a class="link text-xl w-max" href="second.html">Second</a>
+        <div class="mobile-menu__accordion" data-accordion="hidden" data-accordion-close="click">
+          <div class="flex items-center link text-xl w-max" data-accordion-toggle>
+            Navigation
+            <span class="mobile-menu__arrow flex items-center justify-center text-sm opacity-60 ml-2 ease-linear duration-3">
+              <svg class="icon">
+                <use xlink:href="img/icons.svg#arrow-right">
+              </svg>
+            </span>
+          </div>
+          <div data-accordion-content>
+            <div class="flex flex-col gap-2 mt-2 pl-5">
+              <a class="link text-lg w-max" data-scroll="top" href="#header">Header</a>
+              <a class="link text-lg w-max" data-scroll="top" href="#player">Player</a>
+              <a class="link text-lg w-max" data-scroll="top" href="#header">Header</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mobile-menu__footer relative mt-auto px-4 pt-4 pb-10 duration-5 delay-9">
+        <div class="flex items-center justify-center gap-4">
+          <% for (var i = 0; i < social.length; i++) { %>
+            <button class="btn btn--second text-3xl rounded-max" data-waved="dark">
+              <svg class="icon">
+                <use xlink:href="img/icons.svg#<%= social[i] %>">
+              </svg>
+            </button>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Умное меню -->
+
+  <nav class="smart-menu content relative z-[100] <%= data.status ? '' : 'hidden' %> py-4 anim anim--down" data-anim="hidden">
+    <div class="smart-menu__block flex items-center justify-between w-full" data-menu>
+      <h2 class="font-alt font-bold text-lg" data-menu-title>Smart-menu items</h2>
+      <ul class="flex justify-between gap-3" data-menu-length>
+        <% for (var i = 1; i < 9; i++) { %>
+          <li>
+            <button class="btn btn--primary btn--lg btn--light font-semibold shadow-md min-w-max dark:bg-dark" data-waved="dark">Smart-menu item <%= i %></button>
+          </li>
+        <% } %>
+      </ul>
+      <div class="smart-menu__nav relative min-w-max" data-menu-nav data-accordion="hidden" data-accordion-close="scroll">
+        <button class="btn btn--primary btn--lg btn--fill" data-accordion-toggle data-bubbles="hidden">
+          more <span class="ml-1" data-menu-count>0</span>
+        </button>
+        <div class="smart-menu__content absolute top-12 right-0 bg-white rounded-2 shadow-md min-w-[210px] dark:bg-opacity-0" data-accordion-content>
+          <ul class="flex flex-col gap-3 p-3" data-menu-list></ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Перетаскиваемое социальное меню -->
+
+  <nav class="social flex flex-col items-center justify-center fixed z-[200] bottom-0 rounded-max pointer-events-none touch-none select-none w-[200px] h-[200px]" data-social data-draggable>
+    <div class="social__round absolute inset-0 bg-primary bg-opacity-30 opacity-0 rounded-max overflow-hidden pointer-events-auto ease-in-out duration-4" data-social-round="hidden">
+      <% for (var i = 0; i < social.length; i++) { %>
+        <button class="btn btn--second absolute text-3xl rounded-max" data-social-link data-waved="dark">
+          <svg class="icon">
+            <use xlink:href="img/icons.svg#<%= social[i] %>">
+          </svg>
+        </button>
+      <% } %>
+    </div>
+    <button class="social__btn btn btn--primary btn--contur rounded-max shadow-md overflow-hidden pointer-events-auto w-[40px] h-[40px] p-1" data-social-button data-waved="light" id="draggable"></button>
+  </nav>
+
+  <!-- Переключатель темы -->
+
+  <div class="theme hidden lg:flex items-center justify-center fixed bottom-2 z-[500] bg-white rounded-4 border border-solid border-gray shadow-md w-[210px] p-4 dark:bg-black dark:border-white">
+    <span class="text-sm mr-2">Темная тема</span>
+    <input class="switch switch--toggle" data-theme="toggle" type="checkbox">
+  </div>
+
+  <!-- Снежинки -->
+
+  <div class="fixed inset-0 z-[500] pointer-events-none" data-snow></div>

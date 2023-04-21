@@ -1,0 +1,30 @@
+<div class="dialog dialog--xs rounded-3 py-10 px-5 dark:bg-black dark:text-white">
+  <form class="form" data-form="submit">
+    <input type="hidden" value="Авторизация" name="theme">
+    <label class="form-label mb-5" data-label="input">
+      <span class="text-xl mb-3">Telephone</span>
+      <div class="form-wrapper">
+        <div class="input-cover">
+          <input class="input" data-input="tel" type="tel" placeholder="+7 (" name="tel">
+        </div>
+        <span class="form-error anim anim--fade" data-error>Пожалуйста, введите ваш номер!</span>
+      </div>
+    </label>
+    <label class="form-label mb-5" data-label="input">
+      <span class="text-xl mb-3">Password</span>
+      <div class="form-wrapper">
+        <div class="input-cover">
+          <input class="input pr-10" data-input="password" type="password" placeholder="Your password here" autocomplete="off" name="password">
+        </div>
+        <span class="form-error anim anim--fade" data-error>Пожалуйста, введите пароль!</span>
+        <div class="form-icon form-icon--pointer form-icon--right text-black text-xl cursor-pointer" data-password>
+          <svg class="icon">
+            <use xlink:href="img/icons.svg#eye-visible">
+          </svg>
+        </div>
+      </div>
+    </label>
+    <button class="btn btn--second btn--lg btn--fill mb-5" data-waved="dark" type="submit">Enter</button>
+    <div class="link text-second text-lg w-max mx-auto" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-politics.html">Privacy policy</div>
+  </form>
+</div>

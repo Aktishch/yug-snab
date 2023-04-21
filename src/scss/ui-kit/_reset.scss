@@ -1,0 +1,137 @@
+// Обнуление
+* {
+
+  &,
+  &::before,
+  &::after {
+    margin                     : 0;
+    padding                    : 0;
+    box-sizing                 : border-box;
+    font-family                : var(--font-base);
+    -webkit-tap-highlight-color: var(--color-none);
+  }
+}
+
+html {
+  font-size      : 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-black bg-white;
+}
+
+::selection {
+  @apply text-white bg-primary;
+}
+
+h1:empty,
+h2:empty,
+h3:empty,
+h4:empty,
+h5:empty,
+h6:empty,
+p:empty {
+  display: none;
+}
+
+ul {
+  list-style: none outside;
+}
+
+ol {
+  list-style: decimal inside;
+}
+
+picture {
+  position: static !important;
+}
+
+img {
+  user-select: none;
+
+  &:is([src=""], [src="/"]) {
+    display: none;
+  }
+}
+
+dialog {
+  position: static;
+  width   : auto;
+  height  : auto;
+  border  : none;
+}
+
+address {
+  font-style: normal;
+}
+
+q {
+  quotes: "\201c""\201E";
+}
+
+button,
+input,
+textarea,
+select {
+  @apply text-black;
+  outline         : none;
+  border          : none;
+  background-color: var(--color-none);
+
+  &:-webkit-autofill {
+
+    &,
+    &:hover,
+    &:focus {
+      -webkit-text-fill-color: theme("colors.black.DEFAULT");
+      box-shadow             : inset 0 0 0 1000px theme("colors.white.DEFAULT");
+      border                 : 1px solid theme("colors.gray.DEFAULT");
+      transition             : background-color 5000s ease-in-out 0s;
+    }
+  }
+}
+
+textarea {
+  resize  : none;
+  overflow: auto;
+}
+
+select,
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"] {
+  appearance: none;
+}
+
+input[type="range"] {
+  &::-webkit-slider-thumb {
+    appearance    : none;
+    border        : none;
+    background    : none;
+    pointer-events: all;
+    width         : var(--bubble-size);
+    height        : var(--bubble-size);
+    cursor        : ew-resize;
+  }
+
+  &::-moz-range-thumb {
+    appearance    : none;
+    border        : none;
+    background    : none;
+    pointer-events: all;
+    width         : var(--bubble-size);
+    height        : var(--bubble-size);
+    cursor        : ew-resize;
+  }
+
+  &::-ms-thumb {
+    appearance    : none;
+    border        : none;
+    background    : none;
+    pointer-events: all;
+    width         : var(--bubble-size);
+    height        : var(--bubble-size);
+    cursor        : ew-resize;
+  }
+}

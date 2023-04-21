@@ -1,0 +1,16 @@
+// Функции
+@function rgbValuesFromHex($hex) {
+  @return red($hex),
+  green($hex),
+  blue($hex);
+}
+
+@mixin getBtn($name, $color) {
+  &--#{$name} {
+    $rgb        : rgbValuesFromHex($color);
+    --btn-color : #{$color};
+    --btn-fade  : rgba(#{$rgb}, 0.3);
+    --btn-dark  : #{darken($color, 10%)};
+    --btn-focus : rgba(#{$rgb}, 0.4);
+  }
+}

@@ -1,0 +1,14 @@
+  <!-- Шапка страницы -->
+
+  <main class="content content--distance flex flex-col items-center justify-center bg-grey min-h-[250px] py-0 dark:bg-dark" id="header">
+    <div class="flex flex-col flex-grow items-center justify-center relative w-full h-full py-5">
+      <div class="flex items-center gap-1 absolute top-5 left-0 text-sm">
+        <a class="link" href="index.html">Main</a>>
+        <span class="opacity-60 pointer-events-none"><%= data.title %></span>
+      </div>
+      <h1 class="font-alt font-bold text-center text-4xl lg:text-5xl leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden"><%= data.title %></h1>
+      <div class="w-full anim anim--up" data-anim="hidden">
+        <a class="btn btn--primary btn--lg btn--fill btn--glow max-w-[200px] w-full mx-auto" data-waved="light" data-scroll="top" href="#content">Show more</a>
+      </div>
+    </div>
+  </main>
