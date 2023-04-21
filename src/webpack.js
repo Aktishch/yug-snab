@@ -42,7 +42,7 @@ import quiz from './ts/quiz'
 import compare from './ts/compare'
 import timeCounter from './ts/time-counter'
 import timer from './ts/timer'
-// import worldMap from './ts/world-map'
+import worldMap from './ts/world-map'
 
 // Style
 import './scss/index.scss'
@@ -91,6 +91,6 @@ window.addEventListener('DOMContentLoaded', () => {
   compare.init()
   timeCounter.init()
   timer.init()
-  // worldMap.init()
+  worldMap.init()
 
 })

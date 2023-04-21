@@ -4,7 +4,7 @@
     pointer-events: none
   }
 
-  @apply text-base;
+  @apply text-16;
   --btn-color    : theme("colors.black.DEFAULT");
   --btn-accent   : theme("colors.white.DEFAULT");
   color          : var(--btn-color);

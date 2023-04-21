@@ -7,7 +7,7 @@
   padding         : 12px 16px;
   border          : 1px solid theme("colors.gray.DEFAULT / 30%");
   transition      : 0.2s ease;
-  user-select     : none;
+  user-select     : initial;
 
   &-cover {
     display: flex;

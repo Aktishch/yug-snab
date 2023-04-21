@@ -23,7 +23,7 @@ const init = () => {
 
       return {
 
-        classes: window.excludeDates.includes(+date) ? 'btn btn--primary btn--fill text-sm' : 'pointer-events-none',
+        classes: window.excludeDates.includes(+date) ? 'btn btn--primary btn--fill text-14' : 'pointer-events-none',
 
         attrs: {
 

@@ -24,13 +24,13 @@
       </picture>
     </a>
     <nav class="nav hidden lg:flex items-center justify-between gap-4 w-full max-w-[800px] ml-auto">
-      <a class="btn btn--second link text-sm font-normal uppercase p-1" data-waved="light" href="index.html">Front-page</a>
-      <a class="btn btn--second link text-sm font-normal uppercase p-1" data-waved="light" href="primary.html">Primary-page</a>
-      <a class="btn btn--second link text-sm font-normal uppercase p-1" data-waved="light" href="second.html">Second-page</a>
+      <a class="btn btn--second link text-14 font-normal uppercase p-1" data-waved="light" href="index.html">Front-page</a>
+      <a class="btn btn--second link text-14 font-normal uppercase p-1" data-waved="light" href="primary.html">Primary-page</a>
+      <a class="btn btn--second link text-14 font-normal uppercase p-1" data-waved="light" href="second.html">Second-page</a>
       <div class="nav__accordion relative" data-accordion="hidden" data-accordion-close="scroll">
         <div class="btn btn--second link text-sm font-normal uppercase p-1" data-accordion-toggle data-waved="light">
           Navigation
-          <span class="nav__arrow flex items-center justify-center text-xs ml-2 ease-linear duration-3">
+          <span class="nav__arrow flex items-center justify-center text-12 ml-2 ease-linear duration-3">
             <svg class="icon">
               <use xlink:href="img/icons.svg#arrow-right">
             </svg>
@@ -38,14 +38,14 @@
         </div>
         <div class="nav__items absolute top-10 right-0 bg-white rounded-2 shadow-md w-full" data-accordion-content>
           <div class="flex flex-col gap-4 p-4">
-            <a class="btn btn--gray link text-sm" data-waved="dark" data-scroll="top" href="#header">Header</a>
-            <a class="btn btn--gray link text-sm" data-waved="dark" data-scroll="top" href="#player">Player</a>
-            <a class="btn btn--gray link text-sm" data-waved="dark" data-scroll="top" href="#footer">Footer</a>
+            <a class="btn btn--gray link text-14" data-waved="dark" data-scroll="top" href="#header">Header</a>
+            <a class="btn btn--gray link text-14" data-waved="dark" data-scroll="top" href="#player">Player</a>
+            <a class="btn btn--gray link text-14" data-waved="dark" data-scroll="top" href="#footer">Footer</a>
           </div>
         </div>
       </div>
     </nav>
-    <button class="btn btn--second lg:hidden text-5xl" data-burger data-waved="light">
+    <button class="btn btn--second lg:hidden text-48" data-burger data-waved="light">
       <svg class="icon">
         <use xlink:href="img/icons.svg#burger">
       </svg>
@@ -66,20 +66,20 @@
           </picture>
         </a>
         <input class="switch switch--toggle" data-theme="toggle" type="checkbox">
-        <button class="btn btn--second text-2xl text-white p-1" data-mobile-close data-waved="light">
+        <button class="btn btn--second text-white text-24 p-1" data-mobile-close data-waved="light">
           <svg class="icon">
             <use xlink:href="img/icons.svg#close">
           </svg>
         </button>
       </div>
       <div class="mobile-menu__nav flex flex-col gap-4 relative text-white mb-10 p-4 duration-9 delay-5">
-        <a class="link text-xl w-max" href="index.html">Front-page</a>
-        <a class="link text-xl w-max" href="primary.html">Primary</a>
-        <a class="link text-xl w-max" href="second.html">Second</a>
+        <a class="link text-20 w-max" href="index.html">Front-page</a>
+        <a class="link text-20 w-max" href="primary.html">Primary</a>
+        <a class="link text-20 w-max" href="second.html">Second</a>
         <div class="mobile-menu__accordion" data-accordion="hidden" data-accordion-close="click">
-          <div class="flex items-center link text-xl w-max" data-accordion-toggle>
+          <div class="flex items-center link text-20 w-max" data-accordion-toggle>
             Navigation
-            <span class="mobile-menu__arrow flex items-center justify-center text-sm opacity-60 ml-2 ease-linear duration-3">
+            <span class="mobile-menu__arrow flex items-center justify-center text-14 opacity-60 ml-2 ease-linear duration-3">
               <svg class="icon">
                 <use xlink:href="img/icons.svg#arrow-right">
               </svg>
@@ -87,9 +87,9 @@
           </div>
           <div data-accordion-content>
             <div class="flex flex-col gap-2 mt-2 pl-5">
-              <a class="link text-lg w-max" data-scroll="top" href="#header">Header</a>
-              <a class="link text-lg w-max" data-scroll="top" href="#player">Player</a>
-              <a class="link text-lg w-max" data-scroll="top" href="#header">Header</a>
+              <a class="link text-18 w-max" data-scroll="top" href="#header">Header</a>
+              <a class="link text-18 w-max" data-scroll="top" href="#player">Player</a>
+              <a class="link text-18 w-max" data-scroll="top" href="#header">Header</a>
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@
       <div class="mobile-menu__footer relative mt-auto px-4 pt-4 pb-10 duration-5 delay-9">
         <div class="flex items-center justify-center gap-4">
           <% for (var i = 0; i < social.length; i++) { %>
-            <button class="btn btn--second text-3xl rounded-max" data-waved="dark">
+            <button class="btn btn--second text-30 rounded-max" data-waved="dark">
               <svg class="icon">
                 <use xlink:href="img/icons.svg#<%= social[i] %>">
               </svg>
@@ -112,7 +112,7 @@
 
   <nav class="smart-menu content relative z-[100] <%= data.status ? '' : 'hidden' %> py-4 anim anim--down" data-anim="hidden">
     <div class="smart-menu__block flex items-center justify-between w-full" data-menu>
-      <h2 class="font-alt font-bold text-lg" data-menu-title>Smart-menu items</h2>
+      <h2 class="font-alt font-bold text-18" data-menu-title>Smart-menu items</h2>
       <ul class="flex justify-between gap-3" data-menu-length>
         <% for (var i = 1; i < 9; i++) { %>
           <li>
@@ -136,7 +136,7 @@
   <nav class="social flex flex-col items-center justify-center fixed z-[200] bottom-0 rounded-max pointer-events-none touch-none select-none w-[200px] h-[200px]" data-social data-draggable>
     <div class="social__round absolute inset-0 bg-primary bg-opacity-30 opacity-0 rounded-max overflow-hidden pointer-events-auto ease-in-out duration-4" data-social-round="hidden">
       <% for (var i = 0; i < social.length; i++) { %>
-        <button class="btn btn--second absolute text-3xl rounded-max" data-social-link data-waved="dark">
+        <button class="btn btn--second absolute text-30 rounded-max" data-social-link data-waved="dark">
           <svg class="icon">
             <use xlink:href="img/icons.svg#<%= social[i] %>">
           </svg>
@@ -149,7 +149,7 @@
   <!-- Переключатель темы -->
 
   <div class="theme hidden lg:flex items-center justify-center fixed bottom-2 z-[500] bg-white rounded-4 border border-solid border-gray shadow-md w-[210px] p-4 dark:bg-black dark:border-white">
-    <span class="text-sm mr-2">Темная тема</span>
+    <span class="text-14 mr-2">Темная тема</span>
     <input class="switch switch--toggle" data-theme="toggle" type="checkbox">
   </div>
 

@@ -18,11 +18,11 @@
   <section class="player content content--xs bg-grey dark:bg-dark" data-player id="player">
     <dialog id="playlist">
       <div class="dialog dialog--xs rounded-3 p-5 md:p-10 dark:bg-black dark:text-white">
-        <h4 class="font-alt font-bold text-center text-3xl mb-6">Playlist</h4>
+        <h4 class="font-alt font-bold text-center text-30 mb-6">Playlist</h4>
         <div class="flex flex-col gap-4">
           <% for (var i = 0; i < compositions.length; i++) { %>
             <div class="flex items-center gap-2">
-              <button class="btn btn--primary btn--fade text-4xl rounded-max min-w-[40px] w-[40px] h-[40px]" data-player-composition="<%= i %>" data-waved="dark">
+              <button class="btn btn--primary btn--fade text-36 rounded-max min-w-[40px] w-[40px] h-[40px]" data-player-composition="<%= i %>" data-waved="dark">
                 <svg class="player__loading icon hidden" data-player-loading>
                   <use xlink:href="img/icons.svg#loading">
                 </svg>
@@ -31,8 +31,8 @@
                 </svg>
               </button>
               <div class="flex flex-col">
-                <span class="font-semibold text-xl"><%= compositions[i].artist %></span>
-                <span class="text-base opacity-70"><%= compositions[i].song %></span>
+                <span class="font-semibold text-20"><%= compositions[i].artist %></span>
+                <span class="text-16 opacity-70"><%= compositions[i].song %></span>
               </div>
             </div>
           <% } %>
@@ -52,26 +52,26 @@
           <img class="image" data-player-poster src="" loading="lazy" alt="">
         </picture>
       </div>
-      <h3 class="font-alt font-bold text-center text-2xl md:text-3xl leading-4" data-player-artist></h3>
-      <h4 class="font-medium text-center text-base md:text-2xl mb-6" data-player-song></h4>
+      <h3 class="font-alt font-bold text-center text-24 md:text-30 leading-4" data-player-artist></h3>
+      <h4 class="font-medium text-center text-16 md:text-24 mb-6" data-player-song></h4>
       <audio class="hidden" data-player-audio src=""></audio>
       <div class="bg-grey rounded-4 w-full py-5 px-3 md:px-5 dark:bg-dark">
         <div class="relative bg-gray rounded-6 pointer-events-auto w-full h-1 mb-3" data-player-progress>
           <div class="player__range absolute top-0 left-0 bottom-0 bg-primary text-primary rounded-6 h-full" data-player-range></div>
         </div>
         <div class="flex items-center justify-between gap-4">
-          <button class="btn btn--primary btn--fade text-2xl rounded-1 p-1" data-waved="dark" data-fancybox-dialog data-src="#playlist">
+          <button class="btn btn--primary btn--fade text-24 rounded-1 p-1" data-waved="dark" data-fancybox-dialog data-src="#playlist">
             <svg class="icon">
               <use xlink:href="img/icons.svg#burger">
             </svg>
           </button>
-          <span class="hidden md:block text-lg w-[50px]" data-player-start></span>
-          <button class="btn btn--primary btn--fade text-xl rounded-max min-w-[40px] w-[40px] h-[40px]" data-player-prev data-waved="dark">
+          <span class="hidden md:block text-18 w-[50px]" data-player-start></span>
+          <button class="btn btn--primary btn--fade text-20 rounded-max min-w-[40px] w-[40px] h-[40px]" data-player-prev data-waved="dark">
             <svg class="icon">
               <use xlink:href="img/icons.svg#arrow-prev">
             </svg>
           </button>
-          <button class="btn btn--primary btn--fade text-4xl rounded-max min-w-[40px] w-[40px] h-[40px]" data-player-play data-waved="dark">
+          <button class="btn btn--primary btn--fade text-36 rounded-max min-w-[40px] w-[40px] h-[40px]" data-player-play data-waved="dark">
             <svg class="player__loading icon hidden" data-player-loading>
               <use xlink:href="img/icons.svg#loading">
             </svg>
@@ -79,12 +79,12 @@
               <use xlink:href="img/icons.svg#play">
             </svg>
           </button>
-          <button class="btn btn--primary btn--fade text-xl rounded-full min-w-[40px] w-[40px] h-[40px]" data-player-next data-waved="dark">
+          <button class="btn btn--primary btn--fade text-20 rounded-full min-w-[40px] w-[40px] h-[40px]" data-player-next data-waved="dark">
             <svg class="icon">
               <use xlink:href="img/icons.svg#arrow-next">
             </svg>
           </button>
-          <span class="hidden md:block text-lg w-[50px]" data-player-end></span>
+          <span class="hidden md:block text-18 w-[50px]" data-player-end></span>
           <button class="btn btn--primary btn--fade rounded-max p-2" data-player-volume="on" data-waved="dark">
             <svg class="icon">
               <use xlink:href="img/icons.svg#volume-on">

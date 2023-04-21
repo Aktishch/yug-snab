@@ -57,7 +57,7 @@ const init = (): void => {
       inBasket.style.top = `${coordinates.top}px`
       inBasket.style.left = `${coordinates.left}px`
       inBasket.innerHTML = `
-        <svg class="icon text-second text-base">
+        <svg class="icon text-second text-16">
           <use xlink:href="img/icons.svg#basket">
         </svg>`
 

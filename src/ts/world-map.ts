@@ -29,15 +29,15 @@ const init = (): void => {
 
     const elementsShow = (): void => {
 
-      rect.classList.remove('hidden', 'fade-0')
-      text.classList.remove('hidden', 'fade-0')
+      rect.classList.remove('invisible', 'opacity-0')
+      text.classList.remove('invisible', 'opacity-0')
 
     }
 
     const elementsHidden = (): void => {
 
-      rect.classList.add('hidden', 'fade-0')
-      text.classList.add('hidden', 'fade-0')
+      rect.classList.add('invisible', 'opacity-0')
+      text.classList.add('invisible', 'opacity-0')
 
     }
 
@@ -48,9 +48,9 @@ const init = (): void => {
 
     }
 
-    image.classList.add('pointer-none')
-    rect.classList.add('pointer-none', 'hidden', 'fade-0', 'ease', 'duration-2')
-    text.classList.add('pointer-none', 'hidden', 'fade-0', 'ease', 'duration-2', 'text-14')
+    image.classList.add('pointer-events-none')
+    rect.classList.add('pointer-events-none', 'invisible', 'opacity-0', 'duration-2')
+    text.classList.add('pointer-events-none', 'invisible', 'opacity-0', 'duration-2', 'text-14')
 
     map.appendChild(image)
     map.appendChild(rect)
@@ -63,11 +63,11 @@ const init = (): void => {
     image.setAttribute('x', `${positionX}`)
 
     text.innerHTML = String(country.dataset.worldCountry)
-    text.setAttribute('fill', 'var(--color-black)')
+    text.setAttribute('fill', '#000000')
     text.setAttribute('y', `${positionY + text.getBoundingClientRect().height * ratio / 1.2}`)
     text.setAttribute('x', `${positionX}`)
 
-    rect.setAttribute('fill', 'var(--color-white)')
+    rect.setAttribute('fill', '#ffffff')
     rect.setAttribute('width', `${text.getBoundingClientRect().width * ratio}`)
     rect.setAttribute('height', `${text.getBoundingClientRect().height * ratio}`)
     rect.setAttribute('y', `${positionY}`)

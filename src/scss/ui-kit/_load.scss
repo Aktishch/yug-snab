@@ -8,7 +8,7 @@
   inset          : 0;
 
   &-progress {
-    @apply text-[2.5rem] text-primary;
+    @apply text-40 text-primary;
     animation: progress 1.8s linear infinite;
   }
 

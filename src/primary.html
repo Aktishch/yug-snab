@@ -12,8 +12,8 @@
 <!-- Галерея -->
 
 <section class="content flex flex-col items-center justify-center overflow-hidden" id="content">
-  <h2 class="font-alt font-bold text-center text-4xl lg:text-5xl leading-2 mb-3 anim anim--up" data-movement="blend" data-anim="hidden">Slider-swiper</h2>
-  <h3 class="font-semibold text-base md:text-lg leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Class template for slider</h3>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 anim anim--up" data-movement="blend" data-anim="hidden">Slider-swiper</h2>
+  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Class template for slider</h3>
   <div class="gallery-slider relative w-full anim anim--right" data-anim="hidden">
     <div class="swiper swiper--overwrap">
       <div class="swiper-wrapper">
@@ -80,7 +80,7 @@
 ] %>
 
 <section class="content content--distance flex flex-col items-center justify-center bg-grey overflow-hidden dark:bg-dark">
-  <h2 class="font-alt font-bold text-center text-4xl lg:text-5xl leading-2 mb-5 md:md-10 anim anim--up" data-movement="blend" data-anim="hidden">Products</h2>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:md-10 anim anim--up" data-movement="blend" data-anim="hidden">Products</h2>
   <form class="form w-full mb-7">
     <div class="form-wrapper">
       <div class="input-cover">
@@ -92,7 +92,7 @@
         <option>Meat</option>
         <option>Potatoes</option>
       </datalist>
-      <div class="form-icon form-icon--left text-black text-xl opacity-30">
+      <div class="form-icon form-icon--left text-black text-20 opacity-30">
         <svg class="icon">
           <use xlink:href="img/icons.svg#search">
         </svg>
@@ -126,14 +126,14 @@
                 </label>
               </div>
               <div class="card-content p-2 md:p-4">
-                <h4 class="font-alt font-bold text-lg md:text-xl mb-2" data-product-name>Name <%= i %></h4>
+                <h4 class="font-alt font-bold text-18 md:text-20 mb-2" data-product-name>Name <%= i %></h4>
                 <p class="link text-base opacity-70 mb-3"><%= products[i].text %></p>
                 <div class="flex flex-wrap items-end justify-between gap-4 mt-auto mb-5">
                   <div class="flex flex-col w-full md:w-auto">
                     <% if (products[i].oldPrice) { %>
-                      <span class="text-sm md:text-base line-through opacity-60 mb-2" data-product-oldprice><%= products[i].oldPrice %></span>
+                      <span class="text-14 md:text-16 line-through opacity-60 mb-2" data-product-oldprice><%= products[i].oldPrice %></span>
                     <% } %>
-                    <span class="font-semibold text-xl md:text-2xl" data-product-price><%= products[i].price %></span>
+                    <span class="font-semibold text-20 md:text-24" data-product-price><%= products[i].price %></span>
                   </div>
                   <div class="quantity" data-quantity>
                     <button class="quantity-btn btn btn--gray btn--fill" data-quantity-decrease data-waved="light">-</button>
@@ -173,8 +173,8 @@
 
 <div class="basket fixed z-1 top-2/4 left-0 md:left-auto right-0 md:right-10 bg-white rounded-4 -translate-y-1/2 shadow-md invisible opacity-0 duration-3 w-full max-w-[320px] mx-auto p-5 dark:bg-black dark:text-white" data-basket="hidden">
   <div class="flex items-center justify-between mb-4">
-    <h4 class="font-alt font-semibold text-2xl mr-3">Product in basket</h4>
-    <button class="btn btn--primary text-lg rounded-1 p-1" data-basket-close data-waved="light">
+    <h4 class="font-alt font-semibold text-24 mr-3">Product in basket</h4>
+    <button class="btn btn--primary text-18 rounded-1 p-1" data-basket-close data-waved="light">
       <svg class="icon">
         <use xlink:href="img/icons.svg#close">
       </svg>
@@ -194,14 +194,14 @@
       </picture>
     </div>
     <div class="flex flex-col">
-      <span class="font-bold text-lg md:text-xl mb-3" data-basket-name>Name 4</span>
-      <span class="text-xl md:text-2xl" data-basket-quantity>4 шт</span>
+      <span class="font-bold text-18 md:text-20 mb-3" data-basket-name>Name 4</span>
+      <span class="text-20 md:text-24" data-basket-quantity>4 шт</span>
     </div>
   </div>
   <div class="flex items-end justify-between gap-2">
     <div class="flex flex-col">
-      <span class="text-xs md:text-base line-through opacity-60" data-basket-oldprice>8 000$</span>
-      <span class="font-semibold text-xl md:text-2xl" data-basket-price>7 000$</span>
+      <span class="text-12 md:text-16 line-through opacity-60" data-basket-oldprice>8 000$</span>
+      <span class="font-semibold text-20 md:text-24" data-basket-price>7 000$</span>
     </div>
     <button class="btn btn--second btn--lg btn--fade px-10" data-waved="dark">Basket</button>
   </div>
@@ -210,7 +210,7 @@
 <!-- Горизорнтальный скролл -->
 
 <section class="scrolling" data-scrolling>
-  <h2 class="content font-alt font-bold text-4xl lg:text-5xl leading-2 mb-5 md:md-10 pb-0 anim anim--up" data-movement="blend" data-anim="hidden">Horizontal scroll</h2>
+  <h2 class="content font-alt font-bold text-36 lg:text-48 leading-2 mb-5 md:md-10 pb-0 anim anim--up" data-movement="blend" data-anim="hidden">Horizontal scroll</h2>
   <div class="content flex gap-5 md:gap-10 md:sticky md:top-40 scroll-smooth overflow-x-auto md:overflow-x-hidden pt-0" data-scrolling-horizontal>
     <% for (var i = 0; i < 6; i++) { %>
       <a class="pack pack--half bg-grey rounded-6 shadow-md w-full min-w-[320px] md:min-w-[800px] dark:bg-dark" data-movement="light" data-fancybox="horizontal" href="https://picsum.photos/1040/520?random=<%= i %>">
@@ -239,7 +239,7 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide h-auto" data-quiz-slide>
               <div class="flex flex-col h-full">
-                <h4 class="font-semibold text-2xl mb-5">Radio:</h4>
+                <h4 class="font-semibold text-24 mb-5">Radio:</h4>
                 <div class="flex items-center gap-5">
                   <input class="switch switch--radio" type="radio" value="radio-1" name="radio">
                   <input class="switch switch--radio" type="radio" value="radio-2" name="radio">
@@ -259,7 +259,7 @@
             <div class="swiper-slide h-auto" data-quiz-slide>
               <div class="flex flex-col h-full">
                 <label class="form-label mb-5" data-label="input">
-                  <span class="text-xl mb-3">Name</span>
+                  <span class="text-20 mb-3">Name</span>
                   <div class="form-wrapper">
                     <div class="input-cover">
                       <input class="input" data-input="name" type="text" placeholder="Name" name="name">
@@ -268,7 +268,7 @@
                   </div>
                 </label>
                 <label class="form-label mb-5" data-label="input">
-                  <span class="text-xl mb-3">Telephone</span>
+                  <span class="text-20 mb-3">Telephone</span>
                   <div class="form-wrapper">
                     <div class="input-cover">
                       <input class="input" data-input="tel" type="tel" placeholder="+7 (" name="tel">
@@ -288,14 +288,14 @@
           </div>
           <div class="flex items-center gap-5">
             <button class="swiper-button-prev default btn btn--primary btn--lg btn--fill inset-0 w-auto mt-0" data-waved="light">
-              <svg class="icon text-xs mr-2">
+              <svg class="icon text-12 mr-2">
                 <use xlink:href="img/icons.svg#arrow-left">
               </svg>
               Prev
             </button>
             <button class="swiper-button-next default btn btn--primary btn--lg btn--fill inset-0 w-auto mt-0" data-waved="light">
               Next
-              <svg class="icon text-xs ml-2">
+              <svg class="icon text-12 ml-2">
                 <use xlink:href="img/icons.svg#arrow-right">
               </svg>
             </button>
@@ -400,8 +400,8 @@
           <% for (var i = 0; i < 6; i++) { %>
             <div class="swiper-slide h-auto">
               <div class="flex flex-col flex-grow h-full p-2">
-                <h4 class="font-alt font-semibold text-3xl md:text-5xl mb-5">Slider slide</h4>
-                <p class="font-semibold text-base md:text-lg leading-4 mb-5 mdmd-10">
+                <h4 class="font-alt font-semibold text-30 md:text-48 mb-5">Slider slide</h4>
+                <p class="font-semibold text-16 md:text-18 leading-4 mb-5 mdmd-10">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. In minus dolor magnam! Tenetur quam maiores vel vero iste aperiam dolores ipsa, quae autem sunt quo quia omnis commodi, impedit recusandae.
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. In minus dolor magnam! Tenetur quam maiores vel vero iste aperiam dolores ipsa, quae autem sunt quo quia omnis commodi, impedit recusandae.
                 </p>
