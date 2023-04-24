@@ -11,10 +11,7 @@ module.exports = plugin(
         inset: '0',
         maxWidth: 'none',
         width: '100%',
-        height: '100%'
-      },
-
-      '.image:not(.image--scale-down)': {
+        height: '100%',
         objectFit: 'cover'
       },
 
@@ -41,7 +38,7 @@ module.exports = plugin(
         ...image,
         [`.image--${key}`]: {
           objectPosition: `${value}`
-        },
+        }
 
       }
 

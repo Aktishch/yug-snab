@@ -36,13 +36,14 @@ import quantity from './ts/quantity'
 import range from './ts/range'
 import player from './ts/player'
 import basket from './ts/basket'
-// import limit from './ts/limit'
+import warning from './ts/warning'
 import horizontalScrolling from './ts/horizontal-scrolling'
 import quiz from './ts/quiz'
 import compare from './ts/compare'
 import timeCounter from './ts/time-counter'
 import timer from './ts/timer'
 import worldMap from './ts/world-map'
+import preloader from './ts/functions/preloader'
 
 // Style
 import './scss/index.scss'
@@ -85,12 +86,15 @@ window.addEventListener('DOMContentLoaded', () => {
   range.init()
   player.init()
   basket.init()
-  // limit.init()
+  warning.init()
   horizontalScrolling.init()
   quiz.init()
   compare.init()
   timeCounter.init()
   timer.init()
   worldMap.init()
+  preloader.loaded()
 
 })
+
+window.addEventListener('load', preloader.load)

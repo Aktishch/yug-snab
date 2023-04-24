@@ -9,7 +9,7 @@
 
 <!-- Главный блок -->
 
-<main class="content flex flex-col items-center justify-center min-h-[500px] lg:min-h-[600px]" id="header">
+<main class="container flex flex-col items-center justify-center min-h-[500px] lg:min-h-[600px]" id="header">
   <img class="block mb-10 duration-10 anim anim--up" data-anim="hidden" src="img/pictures/logo.svg" alt="">
   <h1 class="font-alt font-bold text-center text-48 lg:text-6xl leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Main block</h1>
   <div class="w-full anim anim--up" data-anim="hidden">
@@ -44,14 +44,14 @@
   }
 ] %>
 
-<section class="content content--xs content--distance flex flex-col items-center justify-center bg-grey dark:bg-dark" data-listing="1" id="content">
+<section class="container container--xs container--distance flex flex-col items-center justify-center bg-grey dark:bg-dark" data-listing="1" id="content">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 anim anim--up" data-movement="blend" data-anim="hidden">Cards</h2>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Construction and effect</h3>
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-8 w-full mb-5 md:md-10">
     <% for (var i = 0; i < 3; i++) { %>
       <div class="<% if (articles[i].item) { %><%= articles[i].item %><% } %> ease-in-out anim anim--up" data-anim="hidden">
         <article class="card h-full dark:bg-black">
-          <div class="pack pack--rect-md bg-grey dark:bg-dark" data-movement="light">
+          <div class="pack pack-rect-md bg-grey dark:bg-dark" data-movement="light">
             <div class="loader">
               <span class="loader-progress">
                 <svg class="loader-icon icon">
@@ -77,7 +77,7 @@
       <div class="hidden sm:block <% if (articles[i].item) { %><%= articles[i].item %><% } %> ease-in-out anim anim--up" data-listing-item data-anim="hidden">
         <article class="inverted h-full">
           <div class="inverted-before card dark:bg-black">
-            <div class="pack pack--half bg-grey dark:bg-dark">
+            <div class="pack pack-half bg-grey dark:bg-dark">
               <div class="loader">
                 <span class="loader-progress">
                   <svg class="loader-icon icon">
@@ -111,7 +111,7 @@
 
 <% var buttons = ['', 'btn--contur', 'btn--fade', 'btn--contur btn--fade', 'btn--fill', 'btn--light', 'btn--lg', 'btn--sm', 'btn--contur btn--swipe', 'btn--fill btn--glow', 'data-waved="light"', 'data-waved="dark"', 'data-bubbles="hidden"', 'btn--rect', 'btn--frame', 'btn--lines'] %>
 
-<section class="content content--xs flex flex-col items-center justify-center overflow-hidden">
+<section class="container container--xs flex flex-col items-center justify-center overflow-hidden">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 anim anim--up" data-movement="blend" data-anim="hidden">Buttons</h2>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Buttons standard</h3>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10 anim anim--up" data-anim="hidden">
@@ -125,7 +125,7 @@
       <button class="btn btn--primary <%= buttons[i] %> btn--fill"><%= buttons[i] %></button>
     <% } %>
   </div>
-  <h3 class="font-semibold text-16 md:text-18 leading-tight mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Buttons effects</h3>
+  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Buttons effects</h3>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10 anim anim--up" data-anim="hidden">
     <% for (var i = 8; i < 10; i++) { %>
       <button class="btn btn--primary btn--lg <%= buttons[i] %>"><%= buttons[i] %></button>
@@ -165,7 +165,7 @@
   }
 ] %>
 
-<section class="documents content content--distance flex flex-col items-center justify-center bg-grey dark:bg-dark">
+<section class="documents container container--distance flex flex-col items-center justify-center bg-grey dark:bg-dark">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 anim anim--up" data-movement="blend" data-anim="hidden">Accordion</h2>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Drop-down list</h3>
   <div class="flex flex-col gap-5 w-full">
@@ -173,7 +173,7 @@
       <div class="documents__accordion relative bg-second bg-opacity-10 rounded-4 shadow-md overflow-hidden py-4 px-4 md:py-6 anim anim--up" data-anim="hidden" data-accordion="<%= accordion[i].data %>">
         <div class="flex items-center justify-between gap-4">
           <h4 class="font-alt font-semibold text-16 md:text-20">Documents - <%= accordion[i].number %></h4>
-          <button class="btn btn--primary btn--fill text-sm rounded-max w-[36px] h-[36px]" data-accordion-toggle data-waved="light">
+          <button class="btn btn--primary btn--fill text-14 rounded-max w-[36px] h-[36px]" data-accordion-toggle data-waved="light">
             <svg class="documents__arrow icon text-14 duration-3">
               <use xlink:href="img/icons.svg#arrow-right">
             </svg>
@@ -200,38 +200,7 @@
 
 <!-- Фильтер -->
 
-<% var listing = [
-  {
-    text: '5xl',
-    number: '48'
-  },
-  {
-    text: '4xl',
-    number: '36'
-  },
-  {
-    text: '3xl',
-    number: '30'
-  },
-  {
-    text: '2xl',
-    number: '24'
-  },
-  {
-    text: 'xl',
-    number: '20'
-  },
-  {
-    text: 'base',
-    number: '16'
-  },
-  {
-    text: 'xs',
-    number: '12'
-  }
-] %>
-
-<section class="filtering content flex flex-col items-center bg-white text-white bg-no-repeat bg-center bg-cover overflow-hidden min-h-screen dark:bg-black" data-section data-bg="img/pictures/town-grey.jpg" data-bg-webp="img/pictures/town-grey.webp">
+<section class="filtering container flex flex-col items-center bg-white text-white bg-no-repeat bg-center bg-cover overflow-hidden min-h-screen dark:bg-black" data-section data-bg="img/pictures/town-grey.jpg" data-bg-webp="img/pictures/town-grey.webp">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 anim anim--up" data-movement="blend" data-anim="hidden">Filter</h2>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">paralax, form and other...</h3>
   <div class="relative max-w-xl w-full mx-auto" data-filter>
@@ -254,10 +223,10 @@
     <div class="bg-white text-black rounded-6 shadow-md p-7 md:p-10 anim anim--fade" data-anim="hidden">
       <div class="filtering__card" data-filter-card="category-1">
         <ul class="listing gap-4 text-primary">
-          <% for (var i = 0; i < listing.length; i++) { %>
+          <% for (var i = 36; i > 8; i -= 4) { %>
             <li>
-              <span class="text-second text-<%= listing[i].text %>">
-                --text-<span data-number="<%= listing[i].number %>" data-number-step="1" data-number-time="2" data-number-fixed="0">0</span>
+              <span class="text-second text-24">
+                --number-<span data-number="<%= i %>" data-number-step="1" data-number-time="2" data-number-fixed="0">0</span>
               </span>
             </li>
           <% } %>
@@ -384,7 +353,7 @@
             <button class="quantity-btn btn btn--gray btn--fill" data-quantity-increase data-waved="light">+</button>
           </div>
           <h4 class="font-semibold text-24">Rating:</h4>
-          <div class="rating bg-gray bg-opacity-40 rounded-max p-3">
+          <div class="rating bg-gray bg-opacity-40 rounded-10 p-3">
             <% for (var i = 5; i > 0; i--) { %>
               <input class="rating-input hidden" id="rating-<%= i %>" type="radio" value="<%= i %>" name="rating">
               <label class="rating-star" for="rating-<%= i %>">
@@ -435,7 +404,7 @@
       <div class="filtering__card hidden" data-filter-card="category-4">
         <div class="max-w-xs mx-auto" id="copy">
           <div class="flex items-center gap-3 w-full mb-5">
-            <div class="pack pack--box bg-primary bg-opacity-40 rounded-max cursor-pointer max-w-[40px] w-full" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-avatar.html">
+            <div class="pack pack-box bg-primary bg-opacity-40 rounded-max cursor-pointer max-w-[40px] w-full" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-avatar.html">
               <div class="flex items-center justify-center absolute inset-0">
                 <svg class="icon text-white text-14">
                   <use xlink:href="img/icons.svg#user">
@@ -451,7 +420,7 @@
             <input type="hidden" value="Изображение" name="theme">
             <div class="form-label items-center justify-center" data-label="download">
               <div class="form-wrapper mb-5">
-                <div class="pack pack--box bg-second rounded-4 w-full">
+                <div class="pack pack-box bg-second rounded-4 w-full">
                   <picture>
                     <img class="image image--scale-down" data-file="image" src="img/pictures/geo.png" alt="">
                   </picture>

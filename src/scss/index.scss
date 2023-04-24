@@ -13,7 +13,7 @@
 }
 
 @layer components {
-  @import "./ui-kit/content";
+  @import "./ui-kit/container";
   @import "./ui-kit/card";
   @import "./ui-kit/inverted";
   @import "./ui-kit/postcards";
@@ -29,7 +29,6 @@
   @import "./ui-kit/quantity";
   @import "./ui-kit/rating";
   @import "./ui-kit/range";
-  @import "./ui-kit/animation";
 }
 
 @import "./ui-kit/custom";
@@ -37,5 +36,4 @@
 @import "./ui-kit/movement";
 
 // Frontend
-// @import "./frontend/templates";
 @import "./frontend/main";

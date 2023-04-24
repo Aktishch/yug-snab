@@ -303,20 +303,3 @@
     }
   }
 }
-
-// Мир
-// .world {
-//   &__country {
-//     &--active {
-//       color: var(--color-second-dark);
-//     }
-//   }
-
-//   @media(hover) {
-//     &__country {
-//       &:not(&--active):hover {
-//         color: var(--color-second-dark);
-//       }
-//     }
-//   }
-// }

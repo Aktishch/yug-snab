@@ -12,6 +12,12 @@ module.exports = {
 
   darkMode: 'class',
 
+  corePlugins: {
+
+    container: false
+
+  },
+
   theme: {
 
     screens: {
@@ -218,6 +224,7 @@ module.exports = {
     require('./plugins/dialog'),
     require('./plugins/pack'),
     require('./plugins/image'),
+    require('./plugins/animation')
 
   ]
 

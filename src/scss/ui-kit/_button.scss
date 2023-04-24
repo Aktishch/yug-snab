@@ -23,16 +23,15 @@
 
   &--lg {
     --size: var(--size-lg);
-    height: var(--size);
   }
 
   &--sm {
     --size: var(--size-sm);
-    height: var(--size);
   }
 
   &--lg,
   &--sm {
+    height        : var(--size);
     border-radius : 6px;
     padding-inline: calc(var(--size) / 2);
   }

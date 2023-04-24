@@ -30,6 +30,12 @@ const open = (requestUrl: string): void => {
 
 }
 
+const close = (): void => {
+
+  window.Fancybox.close()
+
+}
+
 const loading = (): void => {
 
   window.Fancybox.show(
@@ -53,10 +59,27 @@ const loading = (): void => {
 
 }
 
-const close = (): void => {
+const warning = (): void => {
 
-  window.Fancybox.close()
+  window.Fancybox.show(
+
+    [{
+
+      src: '/dialogs/dialog-warning.html',
+      type: 'ajax'
+
+    }],
+
+    {
+
+      dragToClose: false,
+      closeButton: false,
+      click: true
+
+    }
+
+  )
 
 }
 
-export default { open, loading, close }
+export default { open, close, loading, warning }

@@ -8,8 +8,9 @@ module.exports = plugin(
 
       '.dialog': {
         color: theme('colors.black.DEFAULT'),
-        backgroundColor: theme('colors.white.DEFAULT')
-      },
+        backgroundColor: theme('colors.white.DEFAULT'),
+        maxWidth: '100%'
+      }
 
     }
 
@@ -20,7 +21,7 @@ module.exports = plugin(
         ...dialog,
         [`.dialog--${key}`]: {
           width: `${value}`
-        },
+        }
 
       }
 

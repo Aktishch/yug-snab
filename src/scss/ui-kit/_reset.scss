@@ -7,7 +7,6 @@
     margin                     : 0;
     padding                    : 0;
     box-sizing                 : border-box;
-    font-family                : var(--font-base);
     -webkit-tap-highlight-color: var(--color-none);
   }
 }
@@ -18,7 +17,7 @@ html {
 }
 
 body {
-  @apply text-black bg-white;
+  @apply font-base text-black bg-white;
 }
 
 ::selection {
