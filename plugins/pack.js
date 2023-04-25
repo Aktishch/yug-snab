@@ -2,27 +2,25 @@ const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin(
 
-  ({ addComponents, matchUtilities, theme }) => {
+  ({ addComponents, matchComponents, theme }) => {
 
-    const pack = {
+    addComponents({
 
       '.pack': {
         display: 'block',
         position: 'relative',
-        overflow: 'hidden'
-      },
+        overflow: 'hidden',
 
-      '.pack::before': {
-        content: '""',
-        display: 'block',
-        paddingTop: 'var(--pack-size)'
+        '&::before': {
+          content: '""',
+          display: 'block',
+          paddingTop: 'var(--pack-size)'
+        }
       }
 
-    }
+    })
 
-    addComponents(pack)
-
-    matchUtilities(
+    matchComponents(
 
       {
 

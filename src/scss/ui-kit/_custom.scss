@@ -10,6 +10,15 @@
     height: auto;
   }
 
+  &__container * {
+
+    &,
+    &::before,
+    &::after {
+      box-sizing: border-box;
+    }
+  }
+
   &__content {
     padding   : 0;
     background: none;

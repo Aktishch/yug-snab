@@ -4,8 +4,6 @@ const init = (): void => {
 
   if (!sessionStorage.getItem('warning') && sessionStorage.getItem('warning') != 'positive') setTimeout((): void => dialog.warning(), 2000)
 
-  const currentTab = window.open('', '_self') as Window
-
   document.addEventListener('click', ((event: Event) => {
 
     if ((event.target as HTMLButtonElement).hasAttribute('data-positive')) {
@@ -21,6 +19,8 @@ const init = (): void => {
   document.addEventListener('click', ((event: Event) => {
 
     if ((event.target as HTMLButtonElement).hasAttribute('data-negative')) {
+
+      const currentTab = window.open('', '_self') as Window
 
       currentTab.document.write('')
 

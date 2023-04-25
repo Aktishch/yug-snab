@@ -19,7 +19,8 @@ module.exports = plugin(
         ...anim,
         [`.anim--${key}:not([data-anim="show"])`]: {
           transform: `${value}`,
-          opacity: '0'
+          visibility: 'hidden',
+          opacity: 0
         }
 
       }

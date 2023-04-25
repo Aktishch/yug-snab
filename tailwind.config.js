@@ -215,18 +215,22 @@ module.exports = {
 
       }
 
-    },
+    }
 
   },
 
   plugins: [
 
+    require('./plugins/container'),
     require('./plugins/dialog'),
+    require('./plugins/card'),
     require('./plugins/pack'),
     require('./plugins/image'),
+    require('./plugins/form'),
+    require('./plugins/input'),
+    require('./plugins/switch'),
     require('./plugins/animation')
 
   ]
 
 }
-

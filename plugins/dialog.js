@@ -2,9 +2,9 @@ const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin(
 
-  ({ addComponents, theme }) => {
+  ({ addComponents, matchComponents, theme }) => {
 
-    let dialog = {
+    addComponents({
 
       '.dialog': {
         color: theme('colors.black.DEFAULT'),
@@ -12,22 +12,23 @@ module.exports = plugin(
         maxWidth: '100%'
       }
 
-    }
-
-    Object.entries(theme('dialogSize')).map(([key, value]) => {
-
-      dialog = {
-
-        ...dialog,
-        [`.dialog--${key}`]: {
-          width: `${value}`
-        }
-
-      }
-
     })
 
-    addComponents(dialog)
+    matchComponents(
+
+      {
+
+        dialog: (size) => {
+          return { width: size }
+        }
+
+      },
+
+      {
+        values: theme('dialogSize')
+      }
+
+    )
 
   },
 

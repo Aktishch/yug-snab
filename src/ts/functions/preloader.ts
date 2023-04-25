@@ -2,6 +2,10 @@ import scrollbar from './scrollbar'
 
 const loaded = (): void => {
 
+  const preloader = document.querySelector('*[data-preloader]') as HTMLElement
+
+  if (!preloader) return
+
   scrollbar.hidden()
 
 }
@@ -10,8 +14,9 @@ const load = (): void => {
 
   const preloader = document.querySelector('*[data-preloader]') as HTMLElement
 
-  preloader.classList.add('invisible', 'opacity-0')
+  if (!preloader) return
 
+  preloader.classList.add('invisible', 'opacity-0')
 
   setTimeout((): void => {
 
