@@ -1,8 +1,9 @@
+// Кнопка с рамкой
 .btn {
 
-  &--rect,
-  &--frame,
-  &--lines {
+  &-rect,
+  &-frame,
+  &-lines {
     border-radius: 0;
 
     &::before,
@@ -15,7 +16,7 @@
     }
   }
 
-  &--rect {
+  &-rect {
 
     &::before,
     &::after {
@@ -44,7 +45,7 @@
     }
   }
 
-  &--frame {
+  &-frame {
 
     &::before,
     &::after {
@@ -73,7 +74,7 @@
     }
   }
 
-  &--lines {
+  &-lines {
 
     &::before,
     &::after {
@@ -89,7 +90,7 @@
   }
 
   @media(hover) {
-    &--rect:hover {
+    &-rect:hover {
 
       &::before,
       &::after {
@@ -98,7 +99,7 @@
       }
     }
 
-    &--frame:hover {
+    &-frame:hover {
 
       &::before,
       &::after {
@@ -108,7 +109,7 @@
       }
     }
 
-    &--lines:hover {
+    &-lines:hover {
       &::before {
         top  : 0;
         width: 100%;

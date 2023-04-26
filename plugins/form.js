@@ -28,8 +28,8 @@ module.exports = plugin(
           position: 'absolute',
           top: 0,
           bottom: 0,
-          width: 'var(--size-lg)',
-          height: 'var(--size-lg)',
+          width: theme('size.lg'),
+          height: theme('size.lg'),
           pointerEvents: 'none',
 
           '&--pointer': {

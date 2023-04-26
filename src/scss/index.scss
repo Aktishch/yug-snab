@@ -3,8 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "./ui-kit/functions";
-
 @layer base {
   @import "./ui-kit/fonts";
   @import "./ui-kit/variables";
@@ -20,7 +18,10 @@
   @import "./ui-kit/load";
   @import "./ui-kit/icon";
   @import "./ui-kit/link";
-  @import "./ui-kit/button";
+  @import "./ui-kit/button-swipe";
+  @import "./ui-kit/button-glow";
+  @import "./ui-kit/button-bubles";
+  @import "./ui-kit/button-border";
   @import "./ui-kit/quantity";
   @import "./ui-kit/rating";
   @import "./ui-kit/range";

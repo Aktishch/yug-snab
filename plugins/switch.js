@@ -37,8 +37,8 @@ module.exports = plugin(
           },
 
           '&:checked': {
-            borderColor: theme('colors.primary.DEFAULT'),
-            backgroundColor: theme('colors.primary.DEFAULT'),
+            borderColor: 'currentColor',
+            backgroundColor: 'currentColor',
 
             '&::after': {
               opacity: 1
@@ -109,6 +109,10 @@ module.exports = plugin(
             position: 'absolute',
             left: '50%',
             top: '50%',
+            width: '100%',
+            height: '100%',
+            opacity: 0,
+            transform: 'translate(-50%, -50%) scale(0)',
             borderRadius: 'inherit',
             backgroundColor: 'currentColor'
           },
@@ -128,16 +132,13 @@ module.exports = plugin(
 
       '@media(hover)': {
         '.switch:hover': {
-          boxShadow: `0 0 0 4px ${formatColor({ mode: 'rgba', color: parseColor(theme('colors.primary.DEFAULT')).color, alpha: 0.4 })}`
+          boxShadow: `0 0 0 4px ${formatColor({ mode: 'rgba', color: parseColor(theme('colors.gray.DEFAULT')).color, alpha: 0.4 })}`
         }
       },
 
       '@keyframes switch-checked': {
         '0%': {
-          width: '100%',
-          height: '100%',
           opacity: 1,
-          transform: 'translate(-50%, -50%) scale(0)'
         },
 
         '50%': {

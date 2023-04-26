@@ -37,14 +37,14 @@ module.exports = plugin(
 
       animOccurrence: {
 
-        'fade': 'none',
-        'increase': 'scale(0)',
-        'decrease': 'scale(1.3)',
-        'circle': 'rotate(1turn)',
-        'up': 'translateY(50px)',
-        'down': 'translateY(-50px)',
-        'left': 'translateX(50px)',
-        'right': 'translateX(-50px)'
+        fade: 'none',
+        increase: 'scale(0)',
+        decrease: 'scale(1.3)',
+        circle: 'rotate(1turn)',
+        up: 'translateY(50px)',
+        down: 'translateY(-50px)',
+        left: 'translateX(50px)',
+        right: 'translateX(-50px)'
 
       }
 

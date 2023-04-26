@@ -38,11 +38,11 @@ module.exports = plugin(
 
       dialogSize: {
 
-        'xs': 'var(--xs)',
-        'sm': 'var(--sm)',
-        'md': 'var(--md)',
-        'lg': 'var(--lg)',
-        'xl': 'var(--xl)'
+        xs: 'var(--xs)',
+        sm: 'var(--sm)',
+        md: 'var(--md)',
+        lg: 'var(--lg)',
+        xl: 'var(--xl)'
 
       }
 

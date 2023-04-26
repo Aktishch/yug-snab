@@ -10,7 +10,7 @@ module.exports = plugin(
       '.input': {
         flexGrow: 1,
         width: '100%',
-        height: 'var(--size-lg)',
+        height: theme('size.lg'),
         backgroundColor: theme('colors.white.DEFAULT'),
         padding: '12px 16px',
         border: `1px solid ${formatColor({ mode: 'rgba', color: parseColor(theme('colors.gray.DEFAULT')).color, alpha: 0.3 })}`,

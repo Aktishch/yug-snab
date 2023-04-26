@@ -13,7 +13,7 @@
   <img class="block mb-10 duration-10 anim anim--up" data-anim="hidden" src="img/pictures/logo.svg" alt="">
   <h1 class="font-alt font-bold text-center text-48 lg:text-6xl leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Main block</h1>
   <div class="w-full anim anim--up" data-anim="hidden">
-    <a class="btn btn--primary btn--lg btn--fill btn--glow max-w-[200px] w-full mx-auto" data-waved="light" data-scroll="top" href="#content">Show more</a>
+    <a class="btn btn-primary btn-lg btn-fill btn-glow max-w-[200px] w-full mx-auto" data-waved="light" data-scroll="top" href="#content">Show more</a>
   </div>
 </main>
 
@@ -66,7 +66,7 @@
           <div class="card-content py-5 px-3 md:px-5">
             <h4 class="font-alt font-semibold text-24 mb-4">Article <%= i %></h4>
             <p class="text-justify text-14 md:text-16 leading-5 mb-5"><%= articles[i].text %></p>
-            <button class="btn btn--primary btn--lg btn--fill mt-auto" data-waved="light">Button</button>
+            <button class="btn btn-primary btn-lg btn-fill mt-auto" data-waved="light">Button</button>
           </div>
         </article>
       </div>
@@ -97,50 +97,50 @@
             <div class="card-content py-5 px-3 md:px-5">
               <h4 class="font-alt font-semibold text-24 mb-4">Article <%= i %></h4>
               <p class="text-justify text-14 md:text-16 leading-5 mb-5"><%= articles[i].text %></p>
-              <button class="btn btn--primary btn--lg btn--fill mt-auto" data-waved="light">Button</button>
+              <button class="btn btn-primary btn-lg btn-fill mt-auto" data-waved="light">Button</button>
             </div>
           </div>
         </article>
       </div>
     <% } %>
   </div>
-  <button class="btn btn--second btn--lg btn--fade sm:hidden max-w-[200px] w-full mt-5 mx-auto" data-listing-show data-waved="dark">Show more</button>
+  <button class="btn btn-second btn-lg btn-fade sm:hidden max-w-[200px] w-full mt-5 mx-auto" data-listing-show data-waved="dark">Show more</button>
 </section>
 
 <!-- Кнопки -->
 
-<% var buttons = ['', 'btn--contur', 'btn--fade', 'btn--contur btn--fade', 'btn--fill', 'btn--light', 'btn--lg', 'btn--sm', 'btn--contur btn--swipe', 'btn--fill btn--glow', 'data-waved="light"', 'data-waved="dark"', 'data-bubbles="hidden"', 'btn--rect', 'btn--frame', 'btn--lines'] %>
+<% var buttons = ['', 'btn-contur', 'btn-fade', 'btn-contur btn-fade', 'btn-fill', 'btn-light', 'btn-xxl', 'btn-xl', 'btn-lg', 'btn-md', 'btn-sm', 'btn-xs', 'btn-contur btn-swipe', 'btn-fill btn-glow', 'data-waved="light"', 'data-waved="dark"', 'data-bubbles="hidden"', 'btn-rect', 'btn-frame', 'btn-lines'] %>
 
 <section class="container container--xs flex flex-col items-center justify-center overflow-hidden">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 anim anim--up" data-movement="blend" data-anim="hidden">Buttons</h2>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Buttons standard</h3>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10 anim anim--up" data-anim="hidden">
     <% for (var i = 0; i < 6; i++) { %>
-      <button class="btn btn--primary btn--lg <%= buttons[i] %>">btn--primary <%= buttons[i] %></button>
+      <button class="btn btn-primary btn-lg <%= buttons[i] %>">btn--primary <%= buttons[i] %></button>
     <% } %>
   </div>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Buttons size</h3>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10 anim anim--up" data-anim="hidden">
-    <% for (var i = 6; i < 8; i++) { %>
-      <button class="btn btn--primary <%= buttons[i] %> btn--fill"><%= buttons[i] %></button>
+    <% for (var i = 6; i < 12; i++) { %>
+      <button class="btn btn-primary <%= buttons[i] %> btn-fill"><%= buttons[i] %></button>
     <% } %>
   </div>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Buttons effects</h3>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10 anim anim--up" data-anim="hidden">
-    <% for (var i = 8; i < 10; i++) { %>
-      <button class="btn btn--primary btn--lg <%= buttons[i] %>"><%= buttons[i] %></button>
+    <% for (var i = 12; i < 14; i++) { %>
+      <button class="btn btn-primary btn-lg <%= buttons[i] %>"><%= buttons[i] %></button>
     <% } %>
   </div>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Buttons click</h3>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10 anim anim--up" data-anim="hidden">
-    <% for (var i = 10; i < 13; i++) { %>
-      <button class="btn btn--primary btn--lg btn--fill" <%= buttons[i] %>><%= buttons[i] %></button>
+    <% for (var i = 14; i < 17; i++) { %>
+      <button class="btn btn-primary btn-lg btn-fill" <%= buttons[i] %>><%= buttons[i] %></button>
     <% } %>
   </div>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Buttons click</h3>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full anim anim--up" data-anim="hidden">
-    <% for (var i = 13; i < buttons.length; i++) { %>
-      <button class="btn btn--primary btn--lg <%= buttons[i] %>"><%= buttons[i] %></button>
+    <% for (var i = 17; i < buttons.length; i++) { %>
+      <button class="btn btn-primary btn-lg <%= buttons[i] %>"><%= buttons[i] %></button>
     <% } %>
   </div>
 </section>
@@ -173,7 +173,7 @@
       <div class="documents__accordion relative bg-second bg-opacity-10 rounded-4 shadow-md overflow-hidden py-4 px-4 md:py-6 anim anim--up" data-anim="hidden" data-accordion="<%= accordion[i].data %>">
         <div class="flex items-center justify-between gap-4">
           <h4 class="font-alt font-semibold text-16 md:text-20">Documents - <%= accordion[i].number %></h4>
-          <button class="btn btn--primary btn--fill text-14 rounded-max w-[36px] h-[36px]" data-accordion-toggle data-waved="light">
+          <button class="btn btn-primary btn-fill text-14 rounded-max w-[36px] h-[36px]" data-accordion-toggle data-waved="light">
             <svg class="documents__arrow icon text-14 duration-3">
               <use xlink:href="img/icons.svg#arrow-right">
             </svg>
@@ -319,13 +319,13 @@
             </div>
           </label>
           <div class="form-wrapper mb-5" data-label="download">
-            <label class="btn btn--second btn--lg btn--fade" data-waved="dark">
+            <label class="btn btn-second btn-lg btn-fade" data-waved="dark">
               <input class="hidden" data-input="file" type="file" name="file[]">
               Загрузить
             </label>
             <span class="form-error anim anim--fade" data-error>Пожалуйста, загрузите изображение!</span>
           </div>
-          <button class="btn btn--second btn--lg btn--fill mb-5" data-waved="dark" type="submit">Submit</button>
+          <button class="btn btn-second btn-lg btn-fill mb-5" data-waved="dark" type="submit">Submit</button>
           <div class="link text-second text-18 w-max mx-auto" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-politics.html">Privacy policy</div>
         </form>
       </div>
@@ -334,23 +334,24 @@
           <h4 class="font-semibold text-24">Checkbox:</h4>
           <div class="flex items-center gap-5">
             <input class="switch switch--checkbox" type="checkbox">
+            <input class="switch switch--checkbox text-second" type="checkbox">
             <input class="switch switch--checkbox" type="checkbox" disabled>
           </div>
           <h4 class="font-semibold text-24">Radio:</h4>
           <div class="flex items-center gap-5">
             <input class="switch switch--radio" type="radio" name="radio">
-            <input class="switch switch--radio" type="radio" name="radio">
+            <input class="switch switch--radio text-second" type="radio" name="radio">
             <input class="switch switch--radio" type="radio" name="radio" disabled>
           </div>
           <h4 class="font-semibold text-24">Toggle:</h4>
           <input class="switch switch--toggle" type="checkbox">
           <h4 class="font-semibold text-24">Quantity:</h4>
           <div class="quantity" data-quantity>
-            <button class="quantity-btn btn btn--gray btn--fill" data-quantity-decrease data-waved="light">-</button>
+            <button class="quantity-btn btn btn-gray btn-fill" data-quantity-decrease data-waved="light">-</button>
             <div class="quantity-cover input-cover">
               <input class="quantity-input input" data-input="number" type="text" value="1" name="quantity">
             </div>
-            <button class="quantity-btn btn btn--gray btn--fill" data-quantity-increase data-waved="light">+</button>
+            <button class="quantity-btn btn btn-gray btn-fill" data-quantity-increase data-waved="light">+</button>
           </div>
           <h4 class="font-semibold text-24">Rating:</h4>
           <div class="rating bg-gray bg-opacity-40 rounded-10 p-3">
@@ -428,20 +429,20 @@
                 <span class="form-error anim anim--fade" data-error>Пожалуйста, загрузите изображение!</span>
               </div>
               <div class="flex flex-wrap items-center justify-center gap-4 w-full">
-                <label class="btn btn--primary btn--lg btn--fill w-full sm:w-auto" data-waved="light">
+                <label class="btn btn-primary btn-lg btn-fill w-full sm:w-auto" data-waved="light">
                   <input class="hidden" data-input="file" type="file" name="file[]">
                   Загрузить
                 </label>
-                <button class="btn btn--primary btn--lg btn--contur w-full sm:w-auto" data-waved="dark" type="submit">Отправить</button>
+                <button class="btn btn-primary btn-lg btn-contur w-full sm:w-auto" data-waved="dark" type="submit">Отправить</button>
               </div>
             </div>
           </form>
           <div class="flex flex-wrap items-center justify-center gap-4 w-full">
             <div class="input-cover relative w-full sm:w-max" data-copy>
               <input class="input absolute inset-0 opacity-0" data-copy-input type="text" value="http://localhost:9000/index.html#copy">
-              <button class="btn btn--gray btn--lg btn--fill w-full px-10" data-copy-button data-waved="dark">Copy</button>
+              <button class="btn btn-gray btn-lg btn-fill w-full px-10" data-copy-button data-waved="dark">Copy</button>
             </div>
-            <button class="btn btn--gray btn--lg btn--fill w-full sm:w-auto px-10" data-waved="dark" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-calendar.html">Calendar</button>
+            <button class="btn btn-gray btn-lg btn-fill w-full sm:w-auto px-10" data-waved="dark" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-calendar.html">Calendar</button>
           </div>
         </div>
       </div>
