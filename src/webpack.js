@@ -3,6 +3,7 @@ import yandexMap from './lib/yandex-map'
 import airDatepicker from './lib/air-datepicker'
 import fancybox from './lib/fancybox'
 import sliderSwiper from './lib/slider-swiper'
+import gsap from './lib/gsap'
 
 // Scripts
 import scrollHeader from './ts/scroll-header'
@@ -14,7 +15,7 @@ import social from './ts/social'
 import draggable from './ts/draggable'
 import theme from './ts/theme'
 import snowflakes from './ts/snowflakes'
-import animation from './ts/animation'
+// import animation from './ts/animation'
 import waved from './ts/waved'
 import movement from './ts/movement'
 import bubbles from './ts/bubbles'
@@ -43,7 +44,7 @@ import compare from './ts/compare'
 import timeCounter from './ts/time-counter'
 import timer from './ts/timer'
 import worldMap from './ts/world-map'
-import preloader from './ts/functions/preloader'
+import preloader from './ts/preloader'
 
 // Style
 import './scss/index.scss'
@@ -64,7 +65,7 @@ window.addEventListener('DOMContentLoaded', () => {
   draggable.init()
   theme.init()
   snowflakes.init()
-  animation.init()
+  // animation.init()
   waved.init()
   movement.init()
   bubbles.init()
@@ -86,15 +87,19 @@ window.addEventListener('DOMContentLoaded', () => {
   range.init()
   player.init()
   basket.init()
-  warning.init()
   horizontalScrolling.init()
   quiz.init()
   compare.init()
   timeCounter.init()
   timer.init()
   worldMap.init()
-  preloader.loaded()
 
 })
 
-window.addEventListener('load', preloader.load)
+window.addEventListener('load', () => {
+
+  gsap.init()
+  warning.init()
+  preloader.init()
+
+})

@@ -12,9 +12,9 @@
 <!-- Галерея -->
 
 <section class="container flex flex-col items-center justify-center overflow-hidden" id="content">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 anim anim--up" data-movement="blend" data-anim="hidden">Slider-swiper</h2>
-  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Class template for slider</h3>
-  <div class="gallery-slider relative w-full anim anim--right" data-anim="hidden">
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3" data-movement="blend">Slider-swiper</h2>
+  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Class template for slider</h3>
+  <div class="gallery-slider relative w-full">
     <div class="swiper swiper--overwrap">
       <div class="swiper-wrapper">
         <% for (var i = 0; i < 6; i++) { %>
@@ -80,7 +80,7 @@
 ] %>
 
 <section class="container container--distance flex flex-col items-center justify-center bg-grey overflow-hidden dark:bg-dark">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:md-10 anim anim--up" data-movement="blend" data-anim="hidden">Products</h2>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:md-10" data-movement="blend">Products</h2>
   <form class="form w-full mb-7">
     <div class="form-wrapper">
       <div class="input-cover">
@@ -210,7 +210,7 @@
 <!-- Горизорнтальный скролл -->
 
 <section class="scrolling" data-scrolling>
-  <h2 class="container font-alt font-bold text-36 lg:text-48 leading-2 mb-5 md:md-10 pb-0 anim anim--up" data-movement="blend" data-anim="hidden">Horizontal scroll</h2>
+  <h2 class="container font-alt font-bold text-36 lg:text-48 leading-2 mb-5 md:md-10 pb-0" data-movement="blend">Horizontal scroll</h2>
   <div class="container flex gap-5 md:gap-10 md:sticky md:top-40 scroll-smooth overflow-x-auto md:overflow-x-hidden pt-0" data-scrolling-horizontal>
     <% for (var i = 0; i < 6; i++) { %>
       <a class="pack pack-half bg-grey rounded-6 shadow-md w-full min-w-[320px] md:min-w-[800px] dark:bg-dark" data-movement="light" data-fancybox="horizontal" href="https://picsum.photos/1040/520?random=<%= i %>">
@@ -231,8 +231,8 @@
 
 <!-- Квиз -->
 
-<section class="quiz container container--xs container--distance bg-grey dark:bg-dark">
-  <div class="flex justify-between relative bg-white rounded-4 shadow-md overflow-hidden p-5 md:p-10 dark:bg-black anim anim--fade" data-anim="hidden">
+<section class="quiz container container--xs container--distance bg-grey xl:mb-4 dark:bg-dark">
+  <div class="flex justify-between relative bg-white rounded-4 shadow-md overflow-hidden p-5 md:p-10 dark:bg-black">
     <form class="form md:max-w-[270px] lg:max-w-[450px] w-full" data-form="params">
       <div class="quiz-slider flex flex-col h-full" data-quiz="stop">
         <div class="swiper mx-0">
@@ -264,7 +264,7 @@
                     <div class="input-cover">
                       <input class="input" data-input="name" type="text" placeholder="Name" name="name">
                     </div>
-                    <span class="form-error anim anim--fade" data-error>Пожалуйста, введите ваше имя!</span>
+                    <span class="form-error" data-error>Пожалуйста, введите ваше имя!</span>
                   </div>
                 </label>
                 <label class="form-label mb-5" data-label="input">
@@ -273,7 +273,7 @@
                     <div class="input-cover">
                       <input class="input" data-input="tel" type="tel" placeholder="+7 (" name="tel">
                     </div>
-                    <span class="form-error anim anim--fade" data-error>Пожалуйста, введите ваш номер!</span>
+                    <span class="form-error" data-error>Пожалуйста, введите ваш номер!</span>
                   </div>
                 </label>
                 <button class="btn btn-primary btn-lg btn-fill w-full" data-waved="light" type="submit">Submit</button>
@@ -330,7 +330,7 @@
 
 <section class="description container container--xs relative overflow-hidden">
   <div class="absolute inset-0 overflow-hidden">
-    <div class="description-bg relative h-full duration-10 delay-2 anim anim--decrease" data-anim="hidden">
+    <div class="description-bg relative h-full duration-10 delay-2">
       <div class="swiper h-full">
         <div class="swiper-wrapper">
           <% for (var i = 0; i < 6; i++) { %>
@@ -351,7 +351,7 @@
       </div>
     </div>
   </div>
-  <div class="flex flex-wrap justify-between gap-5 relative z-1 bg-white rounded-4 shadow-md overflow-hidden p-5 md:p-10 anim anim--fade dark:bg-black" data-anim="hidden">
+  <div class="flex flex-wrap justify-between gap-5 relative z-1 bg-white rounded-4 shadow-md overflow-hidden p-5 md:p-10 dark:bg-black">
     <div class="w-full lg:max-w-[400px] xl:max-w-[450px]">
       <div class="description-slider relative bg-grey rounded-4 overflow-hidden mb-5 md:mb-3 dark:bg-dark">
         <div class="swiper h-full">

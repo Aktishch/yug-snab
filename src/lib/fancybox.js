@@ -13,7 +13,7 @@ const init = () => {
   Fancybox.defaults.autoFocus = false
   Fancybox.defaults.placeFocusBack = false
   Fancybox.defaults.l10n = ru
-  Fancybox.defaults.template.spinner = '<div class="loading"><div class="loading-circle"></div></div>'
+  Fancybox.defaults.template.spinner = '<div class="preloader"><div class="preloader-circle"></div></div>'
 
   Fancybox.bind('[data-fancybox-dialog]', {
 

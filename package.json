@@ -49,6 +49,7 @@
     "@fancyapps/ui": "^4.0.27",
     "air-datepicker": "^3.3.0",
     "copy-webpack-plugin": "^11.0.0",
+    "gsap": "^3.11.5",
     "mini-css-extract-plugin": "^2.6.1",
     "postcss-loader": "^7.0.0",
     "swiper": "^8.2.4",

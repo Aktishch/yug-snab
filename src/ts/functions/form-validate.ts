@@ -31,7 +31,7 @@ const init = (form: HTMLFormElement): boolean => {
 
         input.focus()
         input.classList.add('input--error')
-        error.classList.remove('anim--fade')
+        error.classList.add('visible', 'opacity-100')
         validate = false
 
       }
@@ -55,7 +55,7 @@ const init = (form: HTMLFormElement): boolean => {
       } else {
 
         input.classList.remove('input--error')
-        error.classList.add('anim--fade')
+        error.classList.remove('visible', 'opacity-100')
 
       }
 
@@ -120,7 +120,7 @@ const init = (form: HTMLFormElement): boolean => {
         if (input.value.length > 0) {
 
           input.classList.remove('input--error')
-          error.classList.add('anim--fade')
+          error.classList.remove('visible', 'opacity-100')
 
         }
 

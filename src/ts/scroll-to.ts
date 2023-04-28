@@ -4,7 +4,6 @@ const scrollTo = (event: Event): void => {
 
   event.preventDefault()
 
-
   const link = event.target as HTMLAnchorElement
   const id: string = String(link.getAttribute('href'))
   const block = document.querySelector(id) as HTMLElement

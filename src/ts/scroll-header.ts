@@ -3,9 +3,11 @@ import scrolledPage from './functions/scrolled-page'
 const init = (): void => {
 
   const header = document.querySelector('*[data-header]') as HTMLElement
+  const content = document.querySelector('#smooth-content') as HTMLElement
 
   if (!header) return
 
+  content.style.paddingTop = `${header.offsetHeight}px`
   let prevOffsetTop: number = scrolledPage.init().top
 
   const scrollHeader = (): void => {

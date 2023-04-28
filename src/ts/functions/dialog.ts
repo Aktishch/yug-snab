@@ -36,13 +36,13 @@ const close = (): void => {
 
 }
 
-const loading = (): void => {
+const preloader = (): void => {
 
   window.Fancybox.show(
 
     [{
 
-      src: '/dialogs/loading.html',
+      src: '/dialogs/preloader.html',
       type: 'ajax'
 
     }],
@@ -82,4 +82,4 @@ const warning = (): void => {
 
 }
 
-export default { open, close, loading, warning }
+export default { open, close, preloader, warning }

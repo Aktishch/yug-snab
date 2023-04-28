@@ -58,7 +58,10 @@ module.exports = plugin(
           right: 0,
           bottom: '-16px',
           height: '16px',
-          borderRadius: '4px'
+          opacity: 0,
+          visiblity: 'hidden',
+          borderRadius: '4px',
+          transition: '0.3s ease'
         }
       }
 

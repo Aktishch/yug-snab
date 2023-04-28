@@ -20,7 +20,7 @@ const formSubmit = (event: Event): void => {
     requestUrl = '/ajax/submit-handler.php'
     submitBtn.setAttribute('disabled', 'disabled')
 
-    dialog.loading()
+    dialog.preloader()
 
     fetch(requestUrl, {
 

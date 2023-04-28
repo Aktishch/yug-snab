@@ -29,7 +29,7 @@ const choiceFile = (event: Event): void => {
       const requestUrl: string = '/ajax/submit-handler.php'
       const avatar = document.querySelector('*[data-avatar]') as HTMLImageElement
 
-      dialog.loading()
+      dialog.preloader()
 
       fetch(requestUrl, {
 

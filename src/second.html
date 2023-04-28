@@ -14,11 +14,11 @@
 <% var grid = ['lg:row-5', 'lg:row-4', 'lg:row-5', 'lg:row-5', 'lg:row-4', 'lg:row-4'] %>
 
 <section class="container flex flex-col items-center justify-center overflow-hidden" id="content">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 anim anim--up" data-movement="blend" data-anim="hidden">GridBox</h2>
-  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Columns and rows</h3>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3" data-movement="blend">GridBox</h2>
+  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Columns and rows</h3>
   <div class="grid grid-flow-row-dense grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5 lg:gap-8 w-full">
     <% for (var i = 0; i < grid.length; i++) { %>
-      <a class="<%= grid[i] %> pack pack-box bg-grey rounded-3 shadow-md duration-10 anim anim--circle dark:bg-dark" data-movement="light" data-anim="hidden" data-fancybox="grid" href="https://picsum.photos/600/400?random=<%= i %>">
+      <a class="<%= grid[i] %> pack pack-box bg-grey rounded-3 shadow-md dark:bg-dark" data-movement="light" data-fancybox="grid" href="https://picsum.photos/600/400?random=<%= i %>">
         <div class="loader">
           <span class="loader-progress">
             <svg class="loader-icon icon">
@@ -37,7 +37,7 @@
 <!-- Сравнение -->
 
 <section class="container container--distance flex flex-col items-center justify-between bg-grey dark:bg-dark">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Comparison</h2>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10" data-movement="blend">Comparison</h2>
   <div class="relative bg-grey rounded-4 overflow-hidden w-full dark:bg-dark" data-compare>
     <div class="loader">
       <span class="loader-progress">
@@ -69,9 +69,9 @@
 <!-- Сортировка -->
 
 <section class="container container--xs flex flex-col items-center justify-center">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Sorting</h2>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10" data-movement="blend">Sorting</h2>
   <div class="filtering max-w-xl w-full mx-auto" data-filter>
-    <div class="flex flex-col md:flex-row items-center justify-between gap-0 md:gap-4 relative bg-grey md:bg-opacity-0 text-second md:text-black rounded-4 md:rounded-none md:border-b md:border-solid md:border-white overflow-hidden mb-5 md:mb-10 md:pb-4 dark:text-white anim anim--down" data-anim="hidden">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-0 md:gap-4 relative bg-grey md:bg-opacity-0 text-second md:text-black rounded-4 md:rounded-none md:border-b md:border-solid md:border-white overflow-hidden mb-5 md:mb-10 md:pb-4 dark:text-white">
       <div class="filtering__category filter-active flex-grow text-center text-20 cursor-pointer w-full p-4 md:p-0" data-filter-category="all">all</div>
       <div class="filtering__category flex-grow text-center text-20 cursor-pointer w-full p-4 md:p-0" data-filter-category="category-1">Primary</div>
       <div class="filtering__category flex-grow text-center text-20 cursor-pointer w-full p-4 md:p-0" data-filter-category="category-2">Second</div>
@@ -94,8 +94,8 @@
 <!-- Счетчик -->
 
 <section class="container container--xs container--distance flex flex-col items-center justify-center bg-grey dark:bg-dark">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Counter of time</h2>
-  <div class="flex items-center justify-center bg-white text-primary rounded-6 shadow-md w-full py-7 px-4 md:py-10 md:px-10 dark:bg-black anim anim--right" data-counter data-anim="hidden">
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10" data-movement="blend">Counter of time</h2>
+  <div class="flex items-center justify-center bg-white text-primary rounded-6 shadow-md w-full py-7 px-4 md:py-10 md:px-10 dark:bg-black" data-counter>
     <h3 class="hidden font-alt font-semibold text-center text-20 md:text-30 leading-2 w-full" data-counter-subtitle>Times up</h3>
     <div class="flex justify-between gap-4 w-full" data-counter-timer>
       <time class="flex flex-col items-center justify-center">
@@ -121,7 +121,7 @@
 <!-- Время -->
 
 <section class="timer container container--xs flex flex-col items-center justify-center">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Timer</h2>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10" data-movement="blend">Timer</h2>
   <div class="flex flex-col items-center justify-center relative bg-primary rounded-max w-full max-w-[300px] h-[300px] mx-auto" data-timer>
     <div class="timer__stopwatch flex flex-col items-center absolute top-0 left-0 right-0 text-second origin-bottom pointer-events-none w-0.5 h-1/2 mx-auto duration-1" data-timer-stopwatch></div>
     <time class="text-white text-center text-24 font-semibold mb-5" data-timer-units></time>
@@ -139,7 +139,7 @@
 <!-- Открытка -->
 
 <section class="container container--distance flex flex-col items-center justify-center bg-grey overflow-hidden dark:bg-dark">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Postcards</h2>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10" data-movement="blend">Postcards</h2>
   <div class="postcards flex flex-wrap items-center justify-center gap-10 w-full">
     <% for (var i = 0; i < 3; i++) { %>
       <ul class="postcards-item relative bg-grey ease-linear duration-4">
@@ -167,7 +167,7 @@
 <!-- Мир -->
 
 <section class="container" data-world>
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">World map</h2>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10" data-movement="blend">World map</h2>
   <div class="bg-grey rounded-5 p-5 lg:p-10 dark:bg-dark" id="country">
     <%= require('./includes/world-map.html').default %>
     <div class="flex items-center justify-center mt-5 md:mt-10">

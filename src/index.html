@@ -10,11 +10,9 @@
 <!-- Главный блок -->
 
 <main class="container flex flex-col items-center justify-center min-h-[500px] lg:min-h-[600px]" id="header">
-  <img class="block mb-10 duration-10 anim anim--up" data-anim="hidden" src="img/pictures/logo.svg" alt="">
-  <h1 class="font-alt font-bold text-center text-48 lg:text-6xl leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Main block</h1>
-  <div class="w-full anim anim--up" data-anim="hidden">
-    <a class="btn btn-primary btn-lg btn-fill btn-glow max-w-[200px] w-full mx-auto" data-waved="light" data-scroll="top" href="#content">Show more</a>
-  </div>
+  <img class="block mb-10" src="img/pictures/logo.svg" alt="">
+  <h1 class="font-alt font-bold text-center text-48 lg:text-6xl leading-2 mb-5 md:mb-10" data-movement="blend">Main block</h1>
+  <a class="btn btn-primary btn-lg btn-fill btn-glow max-w-[200px] w-full mx-auto" data-waved="light" data-scroll="top" href="#content">Show more</a>
 </main>
 
 <!-- Статьи -->
@@ -45,11 +43,11 @@
 ] %>
 
 <section class="container container--xs container--distance flex flex-col items-center justify-center bg-grey dark:bg-dark" data-listing="1" id="content">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 anim anim--up" data-movement="blend" data-anim="hidden">Cards</h2>
-  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Construction and effect</h3>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3" data-movement="blend">Cards</h2>
+  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Construction and effect</h3>
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-8 w-full mb-5 md:md-10">
     <% for (var i = 0; i < 3; i++) { %>
-      <div class="<% if (articles[i].item) { %><%= articles[i].item %><% } %> ease-in-out anim anim--up" data-anim="hidden">
+      <div class="<% if (articles[i].item) { %><%= articles[i].item %><% } %>">
         <article class="card h-full dark:bg-black">
           <div class="pack pack-rect-md bg-grey dark:bg-dark" data-movement="light">
             <div class="loader">
@@ -74,7 +72,7 @@
   </div>
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-8 w-full">
     <% for (var i = 3; i < articles.length; i++) { %>
-      <div class="hidden sm:block <% if (articles[i].item) { %><%= articles[i].item %><% } %> ease-in-out anim anim--up" data-listing-item data-anim="hidden">
+      <div class="hidden sm:block <% if (articles[i].item) { %><%= articles[i].item %><% } %>" data-listing-item>
         <article class="inverted h-full">
           <div class="inverted-before card dark:bg-black">
             <div class="pack pack-half bg-grey dark:bg-dark">
@@ -112,33 +110,33 @@
 <% var buttons = ['', 'btn-contur', 'btn-fade', 'btn-contur btn-fade', 'btn-fill', 'btn-light', 'btn-xxl', 'btn-xl', 'btn-lg', 'btn-md', 'btn-sm', 'btn-xs', 'btn-contur btn-swipe', 'btn-fill btn-glow', 'data-waved="light"', 'data-waved="dark"', 'data-bubbles="hidden"', 'btn-rect', 'btn-frame', 'btn-lines'] %>
 
 <section class="container container--xs flex flex-col items-center justify-center overflow-hidden">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 anim anim--up" data-movement="blend" data-anim="hidden">Buttons</h2>
-  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Buttons standard</h3>
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10 anim anim--up" data-anim="hidden">
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3" data-movement="blend">Buttons</h2>
+  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Buttons standard</h3>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10">
     <% for (var i = 0; i < 6; i++) { %>
       <button class="btn btn-primary btn-lg <%= buttons[i] %>">btn--primary <%= buttons[i] %></button>
     <% } %>
   </div>
-  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Buttons size</h3>
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10 anim anim--up" data-anim="hidden">
+  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Buttons size</h3>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10">
     <% for (var i = 6; i < 12; i++) { %>
       <button class="btn btn-primary <%= buttons[i] %> btn-fill"><%= buttons[i] %></button>
     <% } %>
   </div>
-  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Buttons effects</h3>
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10 anim anim--up" data-anim="hidden">
+  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Buttons effects</h3>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10">
     <% for (var i = 12; i < 14; i++) { %>
       <button class="btn btn-primary btn-lg <%= buttons[i] %>"><%= buttons[i] %></button>
     <% } %>
   </div>
-  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Buttons click</h3>
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10 anim anim--up" data-anim="hidden">
+  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Buttons click</h3>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10">
     <% for (var i = 14; i < 17; i++) { %>
       <button class="btn btn-primary btn-lg btn-fill" <%= buttons[i] %>><%= buttons[i] %></button>
     <% } %>
   </div>
-  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Buttons click</h3>
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full anim anim--up" data-anim="hidden">
+  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Buttons click</h3>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
     <% for (var i = 17; i < buttons.length; i++) { %>
       <button class="btn btn-primary btn-lg <%= buttons[i] %>"><%= buttons[i] %></button>
     <% } %>
@@ -165,12 +163,12 @@
   }
 ] %>
 
-<section class="documents container container--distance flex flex-col items-center justify-center bg-grey dark:bg-dark">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 anim anim--up" data-movement="blend" data-anim="hidden">Accordion</h2>
-  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">Drop-down list</h3>
+<section class="documents container container--distance flex flex-col items-center justify-center bg-grey xl:mb-4 dark:bg-dark">
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3" data-movement="blend">Accordion</h2>
+  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Drop-down list</h3>
   <div class="flex flex-col gap-5 w-full">
     <% for (var i = 0; i < accordion.length; i++) { %>
-      <div class="documents__accordion relative bg-second bg-opacity-10 rounded-4 shadow-md overflow-hidden py-4 px-4 md:py-6 anim anim--up" data-anim="hidden" data-accordion="<%= accordion[i].data %>">
+      <div class="documents__accordion relative bg-second bg-opacity-10 rounded-4 shadow-md overflow-hidden py-4 px-4 md:py-6" data-accordion="<%= accordion[i].data %>">
         <div class="flex items-center justify-between gap-4">
           <h4 class="font-alt font-semibold text-16 md:text-20">Documents - <%= accordion[i].number %></h4>
           <button class="btn btn-primary btn-fill text-14 rounded-max w-[36px] h-[36px]" data-accordion-toggle data-waved="light">
@@ -201,8 +199,8 @@
 <!-- Фильтер -->
 
 <section class="filtering container flex flex-col items-center bg-white text-white bg-no-repeat bg-center bg-cover overflow-hidden min-h-screen dark:bg-black" data-section data-bg="img/pictures/town-grey.jpg" data-bg-webp="img/pictures/town-grey.webp">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 anim anim--up" data-movement="blend" data-anim="hidden">Filter</h2>
-  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 anim anim--up" data-movement="blend" data-anim="hidden">paralax, form and other...</h3>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3" data-movement="blend">Filter</h2>
+  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">paralax, form and other...</h3>
   <div class="relative max-w-xl w-full mx-auto" data-filter>
     <picture>
       <img class="filtering__circle filtering__circle--grey icon absolute z-1 top-20 -left-8 text-6xl drop-shadow-md pointer-events-none ease-linear duration-2" data-parallax="layer" src="img/pictures/circle-grey.png" alt="">
@@ -213,14 +211,14 @@
     <picture>
       <img class="icon absolute z-1 -bottom-80 -right-7 text-6xl drop-shadow-md pointer-events-none ease-linear duration-1" data-parallax="scroll" data-parallax-depth="1.5" data-reverse src="img/pictures/circle-red.png" alt="">
     </picture>
-    <div class="flex flex-col md:flex-row items-center justify-between gap-0 md:gap-4 relative bg-grey md:bg-opacity-0 text-second md:text-white rounded-4 md:rounded-none md:border-b md:border-solid md:border-white overflow-hidden mb-5 md:mb-10 md:pb-4 anim anim--down" data-anim="hidden">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-0 md:gap-4 relative bg-grey md:bg-opacity-0 text-second md:text-white rounded-4 md:rounded-none md:border-b md:border-solid md:border-white overflow-hidden mb-5 md:mb-10 md:pb-4">
       <div class="filtering__category filter-active flex-grow text-center text-20 cursor-pointer w-full p-4 md:p-0" data-filter-category="category-1">Text-style</div>
       <div class="filtering__category flex-grow text-center text-20 cursor-pointer w-full p-4 md:p-0" data-filter-category="category-2">Form-validate</div>
       <div class="filtering__category flex-grow text-center text-20 cursor-pointer w-full p-4 md:p-0" data-filter-category="category-3">Switches</div>
       <div class="filtering__category flex-grow text-center text-20 cursor-pointer w-full p-4 md:p-0" data-filter-category="category-4">File</div>
       <span class="hidden md:block absolute left-0 bottom-0 bg-primary rounded-t-2 h-1 ease-linear duration-3" data-filter-line></span>
     </div>
-    <div class="bg-white text-black rounded-6 shadow-md p-7 md:p-10 anim anim--fade" data-anim="hidden">
+    <div class="bg-white text-black rounded-6 shadow-md p-7 md:p-10">
       <div class="filtering__card" data-filter-card="category-1">
         <ul class="listing gap-4 text-primary">
           <% for (var i = 36; i > 8; i -= 4) { %>
@@ -244,7 +242,7 @@
               <div class="input-cover">
                 <input class="input" data-input="name" type="text" placeholder="Name" name="name">
               </div>
-              <span class="form-error anim anim--fade" data-error>Пожалуйста, введите ваше имя!</span>
+              <span class="form-error" data-error>Пожалуйста, введите ваше имя!</span>
             </div>
           </label>
           <label class="form-label mb-5" data-label="input">
@@ -253,7 +251,7 @@
               <div class="input-cover">
                 <input class="input" data-input="tel" type="tel" placeholder="+7 (" name="tel">
               </div>
-              <span class="form-error anim anim--fade" data-error>Пожалуйста, введите ваш номер!</span>
+              <span class="form-error" data-error>Пожалуйста, введите ваш номер!</span>
             </div>
           </label>
           <label class="form-label mb-5" data-label="input">
@@ -262,7 +260,7 @@
               <div class="input-cover">
                 <input class="input" data-input="email" type="text" placeholder="_@_._" name="email">
               </div>
-              <span class="form-error anim anim--fade" data-error>Пожалуйста, введите корректный адрес!</span>
+              <span class="form-error" data-error>Пожалуйста, введите корректный адрес!</span>
             </div>
           </label>
           <label class="form-label mb-5" data-label="input">
@@ -277,7 +275,7 @@
                   <use xlink:href="img/icons.svg#calendar">
                 </svg>
               </div>
-              <span class="form-error anim anim--fade" data-error>Пожалуйста, укажите дату!</span>
+              <span class="form-error" data-error>Пожалуйста, укажите дату!</span>
             </div>
           </label>
           <label class="form-label mb-5" data-label="input">
@@ -286,7 +284,7 @@
               <div class="input-cover">
                 <input class="input" data-input="number" type="text" placeholder="12345" name="number">
               </div>
-              <span class="form-error anim anim--fade" data-error>Пожалуйста, введите число!</span>
+              <span class="form-error" data-error>Пожалуйста, введите число!</span>
             </div>
           </label>
           <label class="form-label mb-5" data-label="input">
@@ -306,7 +304,7 @@
                   <use xlink:href="img/icons.svg#arrow-bottom">
                 </svg>
               </div>
-              <span class="form-error anim anim--fade" data-error>Пожалуйста, выберите вариант!</span>
+              <span class="form-error" data-error>Пожалуйста, выберите вариант!</span>
             </div>
           </label>
           <label class="form-label mb-5" data-label="input">
@@ -315,7 +313,7 @@
               <div class="input-cover">
                 <textarea class="input input--textarea" data-input="text" type="text" placeholder="Reviews" rows="8" name="text"></textarea>
               </div>
-              <span class="form-error anim anim--fade" data-error>Пожалуйста, оставьте отзыв!</span>
+              <span class="form-error" data-error>Пожалуйста, оставьте отзыв!</span>
             </div>
           </label>
           <div class="form-wrapper mb-5" data-label="download">
@@ -323,7 +321,7 @@
               <input class="hidden" data-input="file" type="file" name="file[]">
               Загрузить
             </label>
-            <span class="form-error anim anim--fade" data-error>Пожалуйста, загрузите изображение!</span>
+            <span class="form-error" data-error>Пожалуйста, загрузите изображение!</span>
           </div>
           <button class="btn btn-second btn-lg btn-fill mb-5" data-waved="dark" type="submit">Submit</button>
           <div class="link text-second text-18 w-max mx-auto" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-politics.html">Privacy policy</div>
@@ -426,7 +424,7 @@
                     <img class="image image-scale-down" data-file="image" src="img/pictures/geo.png" alt="">
                   </picture>
                 </div>
-                <span class="form-error anim anim--fade" data-error>Пожалуйста, загрузите изображение!</span>
+                <span class="form-error" data-error>Пожалуйста, загрузите изображение!</span>
               </div>
               <div class="flex flex-wrap items-center justify-center gap-4 w-full">
                 <label class="btn btn-primary btn-lg btn-fill w-full sm:w-auto" data-waved="light">
