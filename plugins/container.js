@@ -48,7 +48,7 @@ module.exports = plugin(
             '--width': 'var(--xl)',
             '--distance': '20px',
             '--padding-inline': 'calc(var(--width) + (var(--distance) * 2))',
-            marginInline: 'var(--distance)',
+            margin: 'var(--distance)',
             borderRadius: 'var(--distance)'
           }
         }
