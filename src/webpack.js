@@ -1,12 +1,12 @@
 // Libraries
-import yandexMap from './lib/yandex-map'
+// import yandexMap from './lib/yandex-map'
 import airDatepicker from './lib/air-datepicker'
 import fancybox from './lib/fancybox'
 import sliderSwiper from './lib/slider-swiper'
 import gsap from './lib/gsap'
 
 // Scripts
-import scrollHeader from './ts/scroll-header'
+// import scrollHeader from './ts/scroll-header'
 import mobileMenu from './ts/mobile-menu'
 import progressLine from './ts/progress-line'
 import scrollTo from './ts/scroll-to'
@@ -52,11 +52,11 @@ import './scss/index.scss'
 // Connection
 window.addEventListener('DOMContentLoaded', () => {
 
-  yandexMap.init()
+  // yandexMap.init()
   airDatepicker.init()
   fancybox.init()
   sliderSwiper.init()
-  scrollHeader.init()
+  // scrollHeader.init()
   mobileMenu.init()
   progressLine.init()
   scrollTo.init()
