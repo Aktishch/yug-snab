@@ -59,7 +59,7 @@ module.exports = plugin(
           bottom: '-16px',
           height: '16px',
           opacity: 0,
-          visiblity: 'hidden',
+          visibility: 'hidden',
           borderRadius: '4px',
           transition: '0.3s ease'
         }

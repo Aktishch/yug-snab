@@ -1,5 +1,5 @@
 // Libraries
-// import yandexMap from './lib/yandex-map'
+import yandexMap from './lib/yandex-map'
 import airDatepicker from './lib/air-datepicker'
 import fancybox from './lib/fancybox'
 import sliderSwiper from './lib/slider-swiper'
@@ -26,6 +26,7 @@ import parallax from './ts/parallax'
 import filter from './ts/filter'
 import outNumber from './ts/out-number'
 import writeText from './ts/write-text'
+import downloadFiles from './ts/download-files'
 import formSubmit from './ts/form-submit'
 import formSave from './ts/form-save'
 import choiceFile from './ts/choice-file'
@@ -52,7 +53,6 @@ import './scss/index.scss'
 // Connection
 window.addEventListener('DOMContentLoaded', () => {
 
-  // yandexMap.init()
   airDatepicker.init()
   fancybox.init()
   sliderSwiper.init()
@@ -76,7 +76,7 @@ window.addEventListener('DOMContentLoaded', () => {
   filter.init()
   outNumber.init()
   writeText.init()
-  formSubmit.init()
+  formSubmit.init(downloadFiles.init())
   formSave.init()
   choiceFile.init()
   copyLink.init()
@@ -98,6 +98,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', () => {
 
+  yandexMap.init()
   gsap.init()
   warning.init()
   preloader.init()

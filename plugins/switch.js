@@ -16,6 +16,7 @@ module.exports = plugin(
         color: theme('colors.primary.DEFAULT'),
         border: `1px solid ${theme('colors.gray.DEFAULT')}`,
         transition: '0.2s linear',
+        appearance: 'none',
         cursor: 'pointer',
 
         '&--checkbox': {

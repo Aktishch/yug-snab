@@ -7,8 +7,24 @@ module.exports = plugin(
 
     addComponents({
 
+      '.input-cover': {
+        display: 'flex',
+        width: '100%',
+
+        '& .input:first-child': {
+          borderTopLeftRadius: '8px',
+          borderBottomLeftRadius: '8px'
+        },
+
+        '& .input:last-child': {
+          borderTopRightRadius: '8px',
+          borderBottomRightRadius: '8px'
+        }
+      },
+
       '.input': {
         flexGrow: 1,
+        display: 'block',
         width: '100%',
         height: theme('size.lg'),
         backgroundColor: theme('colors.white.DEFAULT'),
@@ -17,27 +33,8 @@ module.exports = plugin(
         transition: '0.2s ease',
         userSelect: 'initial',
 
-        '&-cover': {
-          display: 'flex',
-          width: '100%'
-        },
-
-        '&--textarea': {
-          height: 'auto'
-        },
-
         '&--error': {
           borderColor: theme('colors.red.DEFAULT')
-        },
-
-        '&:first-of-type': {
-          borderTopLeftRadius: '8px',
-          borderBottomLeftRadius: '8px'
-        },
-
-        '&:last-of-type': {
-          borderTopRightRadius: '8px',
-          borderBottomRightRadius: '8px'
         },
 
         '&:not(&--error):focus': {
@@ -48,7 +45,7 @@ module.exports = plugin(
           color: theme('colors.gray.DEFAULT')
         },
 
-        '&::disabled': {
+        '&[disabled]': {
           pointerEvents: 'none',
           opacity: 0.5
         }

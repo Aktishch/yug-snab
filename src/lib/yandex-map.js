@@ -22,7 +22,7 @@ const init = () => {
       iconLayout: 'default#image',
       iconImageHref: '../img/pictures/geo.png',
       iconImageSize: [40, 50],
-      iconImageOffset: [-20, -50]
+      iconImageOffset: [-20, -25]
 
     })
 

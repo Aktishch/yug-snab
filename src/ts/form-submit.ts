@@ -1,7 +1,7 @@
 import formValidate from './functions/form-validate'
 import dialog from './functions/dialog'
 
-const formSubmit = (event: Event): void => {
+const formSubmit = (event: Event, data: File[]): void => {
 
   event.preventDefault()
 
@@ -16,6 +16,12 @@ const formSubmit = (event: Event): void => {
   let requestUrl: string = ''
 
   if (form.dataset.form == 'submit') {
+
+    if (form.hasAttribute('data-files')) {
+
+      if (data != null) for (let i: number = 0; i < data.length; i++) formData.append('file[]', data[i])
+
+    }
 
     requestUrl = '/ajax/submit-handler.php'
     submitBtn.setAttribute('disabled', 'disabled')
@@ -41,6 +47,18 @@ const formSubmit = (event: Event): void => {
 
       submitBtn.removeAttribute('disabled')
 
+      if (form.hasAttribute('data-files')) {
+
+        const listing = form.querySelector('*[data-files-listing]') as HTMLElement
+        const text = form.querySelector('*[data-files-text]') as HTMLElement
+
+        listing.innerHTML = ''
+        listing.classList.remove('mb-5')
+        text.innerHTML = 'Загрузить файлы'
+        data.length = 0
+
+      }
+
     }).catch((error: string): void =>
 
       console.log('The form has not been sent', error)
@@ -61,11 +79,11 @@ const formSubmit = (event: Event): void => {
 
 }
 
-const init = (): void => {
+const init = (data: File[]): void => {
 
   document.addEventListener('submit', ((event: Event): void => {
 
-    if ((event.target as HTMLFormElement).hasAttribute('data-form')) formSubmit(event)
+    if ((event.target as HTMLFormElement).hasAttribute('data-form')) formSubmit(event, data)
 
   }) as EventListener)
 
