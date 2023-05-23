@@ -3,101 +3,33 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Flip } from 'gsap/Flip'
 import ScrollSmoother from './scroll-smoother'
 
-const createAnimations = () => {
+const scrollHeader = () => {
 
-  {
+  const header = document.querySelector('*[data-header]')
+  const smoothContent = document.querySelector('#smooth-content')
 
-    const header = document.querySelector('*[data-header]')
-    const smoothContent = document.querySelector('#smooth-content')
+  smoothContent.style.paddingTop = `${header.offsetHeight}px`
 
-    smoothContent.style.paddingTop = `${header.offsetHeight}px`
+  const positionHeader = gsap.from(header, {
 
-    const scrollHeader = gsap.from(header, {
+    yPercent: -100,
+    duration: 0.3,
+    ease: 'sine.out'
 
-      yPercent: -100,
-      duration: 0.3,
-      ease: 'sine.out'
+  })
 
-    })
+  ScrollTrigger.create({
 
-    ScrollTrigger.create({
+    start: 'top top',
+    onUpdate: (self) => {
 
-      start: 'top top',
-      onUpdate: (self) => {
+      smoothContent.style.paddingTop = `${header.offsetHeight}px`
 
-        smoothContent.style.paddingTop = `${header.offsetHeight}px`
+      self.direction === -1 ? positionHeader.play() : positionHeader.reverse()
 
-        if (self.direction === -1) {
+    }
 
-          scrollHeader.play()
-
-        } else {
-
-          scrollHeader.reverse()
-
-        }
-
-      }
-
-    })
-
-  }
-
-  {
-
-    const items = document.querySelectorAll('*[data-gsap]')
-
-    items.forEach(item => {
-
-      if (!item) return
-
-      if (item.dataset.gsap == 'up') {
-
-        gsap.from(item, {
-
-          y: 100,
-          opacity: 0
-          
-        })
-
-      }
-
-      if (item.dataset.gsap == 'down') {
-
-        gsap.from(item, {
-
-          y: -100,
-          opacity: 0
-          
-        })
-
-      }
-
-      if (item.dataset.gsap == 'left') {
-
-        gsap.from(item, {
-
-          x: 100,
-          opacity: 0
-          
-        })
-
-      }
-
-      if (item.dataset.gsap == 'right') {
-
-        gsap.from(item, {
-
-          x: -100,
-          opacity: 0
-          
-        })
-
-      }
-
-    })
-
-  }
+  })
 
 }
 
@@ -131,7 +63,7 @@ const init = () => {
 
   }
 
-  createAnimations()
+  scrollHeader()
 
 }
 

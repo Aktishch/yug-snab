@@ -7,6 +7,7 @@ import gsap from './lib/gsap'
 
 // Scripts
 // import scrollHeader from './ts/scroll-header'
+import currentTab from './ts/current-tab'
 import mobileMenu from './ts/mobile-menu'
 import progressLine from './ts/progress-line'
 import scrollTo from './ts/scroll-to'
@@ -56,6 +57,7 @@ window.addEventListener('DOMContentLoaded', () => {
   airDatepicker.init()
   fancybox.init()
   sliderSwiper.init()
+  currentTab.init()
   // scrollHeader.init()
   mobileMenu.init()
   progressLine.init()
