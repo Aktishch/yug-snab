@@ -30,6 +30,7 @@ import writeText from './ts/write-text'
 import downloadFiles from './ts/download-files'
 import formSubmit from './ts/form-submit'
 import formSave from './ts/form-save'
+import dragAndDrop from './ts/drag-and-drop'
 import choiceFile from './ts/choice-file'
 import copyLink from './ts/copy-link'
 import formInputs from './ts/form-inputs'
@@ -80,6 +81,7 @@ window.addEventListener('DOMContentLoaded', () => {
   writeText.init()
   formSubmit.init(downloadFiles.init())
   formSave.init()
+  dragAndDrop.init()
   choiceFile.init()
   copyLink.init()
   formInputs.init()
