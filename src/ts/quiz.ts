@@ -44,14 +44,9 @@ const init = (): void => {
 
   document.addEventListener('input', ((event: InputEvent) => {
 
-    if ((event.target as HTMLInputElement).closest('[data-quiz-slide]')) {
+    const slide = (event.target as HTMLInputElement).closest('[data-quiz-slide]') as HTMLElement
 
-      const input = event.target as HTMLInputElement
-      const slide = input.closest('[data-quiz-slide]') as HTMLElement
-
-      checkQuizSlide(slide)
-
-    }
+    if (slide) checkQuizSlide(slide)
 
   }) as EventListener)
 

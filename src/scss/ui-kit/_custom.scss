@@ -74,23 +74,5 @@
         display: none;
       }
     }
-
-    &-prev:not(.default),
-    &-next:not(.default) {
-      width        : 50px;
-      height       : 50px;
-      position     : absolute;
-      border-radius: 50%;
-    }
-
-    @screen md {
-      &-prev:not(.default) {
-        left: -25px;
-      }
-
-      &-next:not(.default) {
-        right: -25px;
-      }
-    }
   }
 }

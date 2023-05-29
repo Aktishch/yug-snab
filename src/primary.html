@@ -14,7 +14,7 @@
 <section class="container flex flex-col items-center justify-center overflow-hidden" id="content">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3" data-movement="blend">Slider-swiper</h2>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Class template for slider</h3>
-  <div class="gallery-slider relative w-full">
+  <div class="relative w-full" data-slider="gallery">
     <div class="swiper swiper--overwrap">
       <div class="swiper-wrapper">
         <% for (var i = 0; i < 6; i++) { %>
@@ -34,12 +34,12 @@
       </div>
     </div>
     <div class="swiper-pagination md:hidden text-primary mt-10"></div>
-    <button class="swiper-button-prev btn btn-primary btn-fill hidden md:flex" data-waved="light">
+    <button class="swiper-button-prev btn btn-primary btn-fill hidden md:flex absolute md:-left-6 rounded-max w-[50px] h-[50px]" data-waved="light">
       <svg class="icon">
         <use xlink:href="img/icons.svg#arrow-left">
       </svg>
     </button>
-    <button class="swiper-button-next btn btn-primary btn-fill hidden md:flex" data-waved="light">
+    <button class="swiper-button-next btn btn-primary btn-fill hidden md:flex absolute md:-right-6 rounded-max w-[50px] h-[50px]" data-waved="light">
       <svg class="icon">
         <use xlink:href="img/icons.svg#arrow-right">
       </svg>
@@ -99,7 +99,7 @@
       </div>
     </div>
   </form>
-  <div class="products-slider relative w-full">
+  <div class="relative w-full" data-slider="products">
     <div class="swiper swiper--overwrap">
       <div class="swiper-wrapper">
         <% for (var i = 0; i < products.length; i++) { %>
@@ -156,12 +156,12 @@
       </div>
     </div>
     <div class="swiper-pagination md:hidden text-primary mt-10"></div>
-    <button class="swiper-button-prev btn btn-primary btn-fill hidden md:flex" data-waved="light">
+    <button class="swiper-button-prev btn btn-primary btn-fill hidden md:flex absolute md:-left-6 rounded-max w-[50px] h-[50px]" data-waved="light">
       <svg class="icon">
         <use xlink:href="img/icons.svg#arrow-left">
       </svg>
     </button>
-    <button class="swiper-button-next btn btn-primary btn-fill hidden md:flex" data-waved="light">
+    <button class="swiper-button-next btn btn-primary btn-fill hidden md:flex absolute md:-right-6 rounded-max w-[50px] h-[50px]" data-waved="light">
       <svg class="icon">
         <use xlink:href="img/icons.svg#arrow-right">
       </svg>
@@ -287,13 +287,13 @@
             <div class="swiper-pagination w-auto ml-1"></div>
           </div>
           <div class="flex items-center gap-5">
-            <button class="swiper-button-prev default btn btn-primary btn-lg btn-fill inset-0 w-auto mt-0" data-waved="light">
+            <button class="swiper-button-prev btn btn-primary btn-lg btn-fill inset-0 w-auto mt-0" data-waved="light">
               <svg class="icon text-12 mr-2">
                 <use xlink:href="img/icons.svg#arrow-left">
               </svg>
               Prev
             </button>
-            <button class="swiper-button-next default btn btn-primary btn-lg btn-fill inset-0 w-auto mt-0" data-waved="light">
+            <button class="swiper-button-next btn btn-primary btn-lg btn-fill inset-0 w-auto mt-0" data-waved="light">
               Next
               <svg class="icon text-12 ml-2">
                 <use xlink:href="img/icons.svg#arrow-right">

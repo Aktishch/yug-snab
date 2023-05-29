@@ -8,7 +8,7 @@ const init = (): File[] => {
 
     if ((event.target as HTMLInputElement).getAttribute('data-input') == 'file') {
 
-      const form = (event.target as HTMLInputElement).closest('[data-files') as HTMLFormElement
+      const form = (event.target as HTMLInputElement).closest('[data-files]') as HTMLFormElement
 
       if (!form) return
 
