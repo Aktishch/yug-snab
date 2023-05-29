@@ -6,26 +6,19 @@ import quiz from '../ts/quiz'
 
 const init = () => {
 
-  const sliders = {
-
-    gallery: '*[data-slider="gallery"]',
-    products: '*[data-slider="products"]',
-
-  }
-
-  const gallerySlider = new Swiper(`${sliders.gallery} .swiper`, {
+  const gallerySlider = new Swiper('.gallery-slider .swiper', {
 
     pagination: {
 
-      el: `${sliders.gallery} .swiper-pagination`,
+      el: '.gallery-slider.swiper-pagination',
       clickable: true
 
     },
 
     navigation: {
 
-      prevEl: `${sliders.gallery} .swiper-button-prev`,
-      nextEl: `${sliders.gallery} .swiper-button-next`
+      prevEl: '.gallery-slider .swiper-button-prev',
+      nextEl: '.gallery-slider .swiper-button-next'
 
     },
 
@@ -62,19 +55,19 @@ const init = () => {
 
   })
 
-  const productsSlider = new Swiper(`${sliders.products} .swiper`, {
+  const productsSlider = new Swiper('.products-slider .swiper', {
 
     pagination: {
 
-      el: `${sliders.products} .swiper-pagination`,
+      el: '.products-slider .swiper-pagination',
       clickable: true
 
     },
 
     navigation: {
 
-      prevEl: `${sliders.products} .swiper-button-prev`,
-      nextEl: `${sliders.products} .swiper-button-next`
+      prevEl: '.products-slider .swiper-button-prev',
+      nextEl: '.products-slider .swiper-button-next'
 
     },
 
