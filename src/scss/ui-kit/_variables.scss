@@ -2,12 +2,9 @@
 :root {
   --font-alt : "Circe", Arial, sans-serif;
   --font-base: "SF Pro Display", Helvetica, sans-serif;
-
-  --xs: calc(theme(screens.xs) - 29.98px);
-  --sm: calc(theme(screens.sm) - 35.98px);
-  --md: calc(theme(screens.md) - 47.98px);
-  --lg: calc(theme(screens.lg) - 51.98px);
-  --xl: calc(theme(screens.xl) - 79.98px);
-
-  --color-none: rgba(0, 0, 0, 0);
+  --xs       : calc(theme(screens.xs) - 29.98px);
+  --sm       : calc(theme(screens.sm) - 35.98px);
+  --md       : calc(theme(screens.md) - 47.98px);
+  --lg       : calc(theme(screens.lg) - 51.98px);
+  --xl       : calc(theme(screens.xl) - 79.98px);
 }

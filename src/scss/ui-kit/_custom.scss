@@ -1,9 +1,6 @@
-// Air-datepicker
-.air-datepicker-global-container {
-  z-index: 1100;
-}
-
 // Fancybox
+$close: ".carousel__button.is-close";
+
 .fancybox {
   &__spinner {
     width : auto;
@@ -20,38 +17,34 @@
   }
 
   &__content {
+    max-width : 100%;
     padding   : 0;
     background: none;
-    max-width : 100%;
 
-    & :focus:not(.carousel__button.is-close) {
+    & :focus:not(#{$close}) {
       outline: none;
     }
 
-    &>.carousel__button.is-close {
+    &>#{$close} {
       position        : fixed;
       top             : 8px;
       right           : 8px;
-      color           : theme("colors.black.DEFAULT");
       background-color: theme("colors.white.DEFAULT");
       box-shadow      : 0 4px 8px theme("colors.black.DEFAULT / 10%");
-    }
-  }
+      color           : theme("colors.black.DEFAULT");
 
-  @screen md {
-    &__content>.carousel__button.is-close {
-      position: absolute;
+      @screen md {
+        & {
+          position: absolute;
+        }
+      }
+
     }
   }
 }
 
 // Slider-swiper
 .swiper {
-  &--overwrap {
-    margin : -15px;
-    padding: 15px;
-  }
-
   &-pagination {
     display        : flex;
     align-items    : center;
@@ -75,4 +68,14 @@
       }
     }
   }
+
+  &--overwrap {
+    margin : -15px;
+    padding: 15px;
+  }
+}
+
+// Air-datepicker
+.air-datepicker-global-container {
+  z-index: 1100;
 }

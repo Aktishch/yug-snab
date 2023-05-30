@@ -1,31 +1,27 @@
 import { coordinates } from './functions/coordinates'
 
 const init = (): void => {
-
   const snow = document.querySelector('*[data-snow]') as HTMLElement
 
   if (!snow) return
 
-  let flag: boolean = true
+  let flag = true
 
   document.addEventListener('mousemove', ((event: MouseEvent) => {
-
     if (!flag) return
 
     flag = false
 
-    setTimeout((): boolean => flag = true, 300)
+    setTimeout((): boolean => (flag = true), 300)
 
     const snowflake = document.createElement('span') as HTMLSpanElement
 
     const coordinates: coordinates = {
-
       top: event.clientY,
-      left: event.clientX
-
+      left: event.clientX,
     }
 
-    let size: number = Math.random() * 60
+    const size: number = Math.random() * 60
 
     snowflake.classList.add('snowflake')
     snowflake.style.top = `${coordinates.top}px`
@@ -36,9 +32,7 @@ const init = (): void => {
     snow.appendChild(snowflake)
 
     setTimeout((): void => snowflake.remove(), 3000)
-
   }) as EventListener)
-
 }
 
 export default { init }

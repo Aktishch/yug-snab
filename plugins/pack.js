@@ -1,11 +1,8 @@
 const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin(
-
   ({ addComponents, matchComponents, theme }) => {
-
     addComponents({
-
       '.pack': {
         display: 'block',
         position: 'relative',
@@ -14,47 +11,34 @@ module.exports = plugin(
         '&::before': {
           content: '""',
           display: 'block',
-          paddingTop: 'var(--pack-size)'
-        }
-      }
-
+          paddingTop: 'var(--pack-size)',
+        },
+      },
     })
 
     matchComponents(
-
       {
-
         pack: (size) => {
           return { '--pack-size': `${size}%` }
-        }
-
+        },
       },
 
       {
-        values: theme('packSizes')
+        values: theme('packSizes'),
       }
-
     )
-
   },
 
   {
-
     theme: {
-
       packSizes: {
-
-        'half': 50,
+        half: 50,
         'rect-sm': 60,
         'rect-md': 75,
         'rect-lg': 90,
-        'box': 100,
-        'sheet': 125
-
-      }
-
-    }
-
+        box: 100,
+        sheet: 125,
+      },
+    },
   }
-
 )

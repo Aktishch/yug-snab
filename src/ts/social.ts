@@ -1,5 +1,4 @@
 const init = (): void => {
-
   const social = document.querySelector('*[data-social]') as HTMLElement
 
   if (!social) return
@@ -11,40 +10,30 @@ const init = (): void => {
   let lastTap: number
 
   const doubleTap = (): void => {
-
     const timeSince: number = new Date().getTime() - lastTap
 
-    if ((timeSince < 300) && (timeSince > 0)) {
-
+    if (timeSince < 300 && timeSince > 0) {
       if (round.dataset.socialRound == 'hidden') {
-
         round.dataset.socialRound = 'show'
         round.classList.remove('opacity-0')
-
       } else {
-
         round.dataset.socialRound = 'hidden'
         round.classList.add('opacity-0')
-
       }
     }
 
     lastTap = new Date().getTime()
-
   }
 
-  for (let i: number = 0; i < links.length; i++) {
-
+  for (let i = 0; i < links.length; i++) {
     const network = links[i] as HTMLAnchorElement
 
     network.style.top = (42 + 35 * Math.sin(-0.5 * Math.PI - 2 * (1 / links.length) * i * Math.PI)).toFixed(4) + '%'
     network.style.left = (42 - 35 * Math.cos(-0.5 * Math.PI - 2 * (1 / links.length) * i * Math.PI)).toFixed(4) + '%'
-
   }
 
   btn.addEventListener('click', doubleTap as EventListener)
   btn.addEventListener('touchstart', doubleTap as EventListener)
-
 }
 
 export default { init }

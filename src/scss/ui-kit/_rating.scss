@@ -5,10 +5,19 @@
   flex-direction: row-reverse;
   width         : max-content;
 
+  @media(hover) {
+
+    &-star:hover,
+    &-star:hover~&-star {
+      @apply text-opacity-100;
+    }
+  }
+
   &-star {
-    @apply text-second text-opacity-50 text-24;
-    transition: color 0.2s ease;
     cursor    : pointer;
+    transition: color 0.2s ease;
+
+    @apply text-second text-opacity-50 text-24;
 
     &~& {
       margin-right: 12px;
@@ -17,13 +26,5 @@
 
   &-input:checked~&-star {
     @apply text-opacity-100;
-  }
-
-  @media(hover) {
-
-    &-star:hover,
-    &-star:hover~&-star {
-      @apply text-opacity-100;
-    }
   }
 }

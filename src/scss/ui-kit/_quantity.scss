@@ -4,13 +4,13 @@
   align-items    : center;
   justify-content: space-between;
   width          : 110px;
+  padding        : 5px;
   border         : 1px solid theme("colors.gray.DEFAULT");
   border-radius  : 40px;
-  padding        : 5px;
 
   &-btn {
-    min-width    : 32px;
     width        : 32px;
+    min-width    : 32px;
     height       : 32px;
     border-radius: 50%;
   }
@@ -21,10 +21,10 @@
 
   &-input {
     height          : auto;
-    text-align      : center;
+    padding         : 0;
+    background-color: transparent;
     border          : none;
     border-radius   : 0;
-    padding         : 0;
-    background-color: var(--color-none);
+    text-align      : center;
   }
 }

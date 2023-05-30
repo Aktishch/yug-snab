@@ -1,5 +1,36 @@
 // Движение
 .movement {
+  &[data-movement="light"] {
+    &::after {
+      background-image: radial-gradient(circle closest-side, theme("colors.white.DEFAULT"), transparent);
+      opacity         : 0.3;
+    }
+
+    @media(hover) {
+      &:hover::after {
+        width : 250px;
+        height: 250px;
+      }
+    }
+  }
+
+  &[data-movement="blend"] {
+    position: relative;
+
+    &::after {
+      background-color: theme("colors.white.DEFAULT");
+      border-radius   : 50%;
+      mix-blend-mode  : difference;
+    }
+
+    @media(hover) {
+      &:hover::after {
+        width : 70px;
+        height: 70px;
+      }
+    }
+  }
+
   &::after {
     content       : "";
     position      : absolute;
@@ -9,36 +40,7 @@
     height        : 0;
     transform     : translate(-50%, -50%) translate(var(--x), var(--y));
     transition    : width 0.3s ease, height 0.3s ease;
-    pointer-events: none;
     z-index       : 1;
-  }
-
-  &[data-movement="light"] {
-    &::after {
-      background-image: radial-gradient(circle closest-side, theme("colors.white.DEFAULT"), transparent);
-      opacity         : 0.3;
-    }
-  }
-
-  &[data-movement="blend"] {
-    position: relative;
-
-    &::after {
-      mix-blend-mode  : difference;
-      border-radius   : 50%;
-      background-color: theme("colors.white.DEFAULT");
-    }
-  }
-
-  @media(hover) {
-    &[data-movement="light"]:hover::after {
-      width : 250px;
-      height: 250px;
-    }
-
-    &[data-movement="blend"]:hover::after {
-      width : 70px;
-      height: 70px;
-    }
+    pointer-events: none;
   }
 }

@@ -18,18 +18,18 @@
     <div class="swiper swiper--overwrap">
       <div class="swiper-wrapper">
         <% for (var i = 0; i < 6; i++) { %>
-          <a class="swiper-slide pack pack-rect-md bg-grey rounded-4 shadow-md dark:bg-dark" data-movement="light" data-fancybox="gallery" href="https://picsum.photos/600/400?random=<%= i %>">
-            <div class="loader">
-              <span class="loader-progress">
-                <svg class="loader-icon icon">
-                  <use xlink:href="img/icons.svg#loader">
-                </svg>
-              </span>
-            </div>
-            <picture>
-              <img class="image image-rise" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
-            </picture>
-          </a>
+        <a class="swiper-slide pack pack-rect-md bg-grey rounded-4 shadow-md dark:bg-dark" data-movement="light" data-fancybox="gallery" href="https://picsum.photos/600/400?random=<%= i %>">
+          <div class="loader">
+            <span class="loader-progress">
+              <svg class="loader-icon icon">
+                <use xlink:href="img/icons.svg#loader">
+              </svg>
+            </span>
+          </div>
+          <picture>
+            <img class="image image-rise" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
+          </picture>
+        </a>
         <% } %>
       </div>
     </div>
@@ -103,55 +103,55 @@
     <div class="swiper swiper--overwrap">
       <div class="swiper-wrapper">
         <% for (var i = 0; i < products.length; i++) { %>
-          <div class="swiper-slide h-auto">
-            <div class="product card card--active link-wrapper cursor-pointer h-full p-1 dark:bg-black" data-product>
-              <div class="pack pack-rect-md bg-grey rounded-4 dark:bg-dark">
-                <div class="loader">
-                  <span class="loader-progress">
-                    <svg class="loader-icon icon">
-                      <use xlink:href="img/icons.svg#loader">
-                    </svg>
-                  </span>
-                </div>
-                <picture>
-                  <img class="image" data-product-image="https://picsum.photos/600/400?random=<%= i %>" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
-                </picture>
-                <label class="like absolute top-2 right-2">
-                  <input class="product__toggle like-toggle hidden" type="checkbox">
-                  <span class="product__heart like-heart">
-                    <svg class="like-icon icon">
-                      <use xlink:href="img/icons.svg#like">
-                    </svg>
-                  </span>
-                </label>
-              </div>
-              <div class="card-content p-2 md:p-4">
-                <h4 class="font-alt font-bold text-18 md:text-20 mb-2" data-product-name>Name <%= i %></h4>
-                <p class="link text-16 opacity-70 mb-3"><%= products[i].text %></p>
-                <div class="flex flex-wrap items-end justify-between gap-4 mt-auto mb-5">
-                  <div class="flex flex-col w-full md:w-auto">
-                    <% if (products[i].oldPrice) { %>
-                      <span class="text-14 md:text-16 line-through opacity-60 mb-2" data-product-oldprice><%= products[i].oldPrice %></span>
-                    <% } %>
-                    <span class="font-semibold text-20 md:text-24" data-product-price><%= products[i].price %></span>
-                  </div>
-                  <div class="quantity" data-quantity>
-                    <button class="quantity-btn btn btn-gray btn-fill" data-quantity-decrease data-waved="light">-</button>
-                    <div class="quantity-cover input-cover">
-                      <input class="quantity-input input dark:text-white" data-product-quantity data-input="number" type="text" value="1" name="quantity">
-                    </div>
-                    <button class="quantity-btn btn btn-gray btn-fill" data-quantity-increase data-waved="light">+</button>
-                  </div>
-                </div>
-                <button class="btn btn-primary btn-lg btn-fade" data-product-button data-waved="light">
-                  <svg class="icon mr-2">
-                    <use xlink:href="img/icons.svg#basket">
+        <div class="swiper-slide h-auto">
+          <div class="product card card--active cursor-pointer h-full p-1 dark:bg-black" data-product>
+            <div class="pack pack-rect-md bg-grey rounded-4 dark:bg-dark">
+              <div class="loader">
+                <span class="loader-progress">
+                  <svg class="loader-icon icon">
+                    <use xlink:href="img/icons.svg#loader">
                   </svg>
-                  Basket
-                </button>
+                </span>
               </div>
+              <picture>
+                <img class="image" data-product-image="https://picsum.photos/600/400?random=<%= i %>" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
+              </picture>
+              <label class="like absolute top-2 right-2">
+                <input class="product__toggle like-toggle hidden" type="checkbox">
+                <span class="product__heart like-heart">
+                  <svg class="like-icon icon">
+                    <use xlink:href="img/icons.svg#like">
+                  </svg>
+                </span>
+              </label>
+            </div>
+            <div class="card-content p-2 md:p-4">
+              <h4 class="font-alt font-bold text-18 md:text-20 mb-2" data-product-name>Name <%= i %></h4>
+              <p class="hover:underline underline-offset-4 cursor-pointer text-16 opacity-70 mb-3"><%= products[i].text %></p>
+              <div class="flex flex-wrap items-end justify-between gap-4 mt-auto mb-5">
+                <div class="flex flex-col w-full md:w-auto">
+                  <% if (products[i].oldPrice) { %>
+                  <span class="text-14 md:text-16 line-through opacity-60 mb-2" data-product-oldprice><%= products[i].oldPrice %></span>
+                  <% } %>
+                  <span class="font-semibold text-20 md:text-24" data-product-price><%= products[i].price %></span>
+                </div>
+                <div class="quantity" data-quantity>
+                  <button class="quantity-btn btn btn-gray btn-fill" data-quantity-decrease data-waved="light">-</button>
+                  <div class="quantity-cover input-cover">
+                    <input class="quantity-input input dark:text-white" data-product-quantity data-input="number" type="text" value="1" name="quantity">
+                  </div>
+                  <button class="quantity-btn btn btn-gray btn-fill" data-quantity-increase data-waved="light">+</button>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-lg btn-fade" data-product-button data-waved="light">
+                <svg class="icon mr-2">
+                  <use xlink:href="img/icons.svg#basket">
+                </svg>
+                Basket
+              </button>
             </div>
           </div>
+        </div>
         <% } %>
       </div>
     </div>
@@ -213,18 +213,18 @@
   <h2 class="container font-alt font-bold text-36 lg:text-48 leading-2 mb-5 md:md-10 pb-0" data-movement="blend">Horizontal scroll</h2>
   <div class="container flex gap-5 md:gap-10 md:sticky md:top-40 scroll-smooth overflow-x-auto md:overflow-x-hidden pt-0" data-scrolling-horizontal>
     <% for (var i = 0; i < 6; i++) { %>
-      <a class="pack pack-half bg-grey rounded-6 shadow-md w-full min-w-[320px] md:min-w-[800px] dark:bg-dark" data-movement="light" data-fancybox="horizontal" href="https://picsum.photos/1040/520?random=<%= i %>">
-        <div class="loader">
-          <span class="loader-progress">
-            <svg class="loader-icon icon">
-              <use xlink:href="img/icons.svg#loader">
-            </svg>
-          </span>
-        </div>
-        <picture>
-          <img class="scrolling__image image ease-in-out duration-3" data-scrolling-image src="https://picsum.photos/1040/520?random=<%= i %>" loading="lazy" alt="">
-        </picture>
-      </a>
+    <a class="pack pack-half bg-grey rounded-6 shadow-md w-full min-w-[320px] md:min-w-[800px] dark:bg-dark" data-movement="light" data-fancybox="horizontal" href="https://picsum.photos/1040/520?random=<%= i %>">
+      <div class="loader">
+        <span class="loader-progress">
+          <svg class="loader-icon icon">
+            <use xlink:href="img/icons.svg#loader">
+          </svg>
+        </span>
+      </div>
+      <picture>
+        <img class="scrolling__image image ease-in-out duration-3" data-scrolling-image src="https://picsum.photos/1040/520?random=<%= i %>" loading="lazy" alt="">
+      </picture>
+    </a>
     <% } %>
   </div>
 </section>
@@ -253,7 +253,7 @@
                 <div class="flex items-center gap-5">
                   <input class="switch switch--checkbox" type="checkbox" value="checkbox-1" name="checkbox[]">
                   <input class="switch switch--checkbox" type="checkbox" value="checkbox-2" name="checkbox[]">
-                </div>  
+                </div>
               </div>
             </div>
             <div class="swiper-slide h-auto" data-quiz-slide>
@@ -307,18 +307,18 @@
       <div class="swiper">
         <div class="swiper-wrapper">
           <% for (var i = 0; i < 3; i++) { %>
-            <div class="swiper-slide pack pack-box bg-grey rounded-3 dark:bg-dark" data-movement="light">
-              <div class="loader">
-                <span class="loader-progress">
-                  <svg class="loader-icon icon">
-                    <use xlink:href="img/icons.svg#loader">
-                  </svg>
-                </span>
-              </div>
-              <picture>
-                <img class="image image-rise" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
-              </picture>
+          <div class="swiper-slide pack pack-box bg-grey rounded-3 dark:bg-dark" data-movement="light">
+            <div class="loader">
+              <span class="loader-progress">
+                <svg class="loader-icon icon">
+                  <use xlink:href="img/icons.svg#loader">
+                </svg>
+              </span>
             </div>
+            <picture>
+              <img class="image image-rise" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
+            </picture>
+          </div>
           <% } %>
         </div>
       </div>
@@ -334,18 +334,18 @@
       <div class="swiper h-full">
         <div class="swiper-wrapper">
           <% for (var i = 0; i < 6; i++) { %>
-            <div class="swiper-slide pack pack-rect-lg bg-grey h-full dark:bg-dark">
-              <div class="loader">
-                <span class="loader-progress">
-                  <svg class="loader-icon icon">
-                    <use xlink:href="img/icons.svg#loader">
-                  </svg>
-                </span>
-              </div>
-              <picture>
-                <img class="image" src="https://picsum.photos/1920/780?random=<%= i %>" loading="lazy" alt="">
-              </picture>
+          <div class="swiper-slide pack pack-rect-lg bg-grey h-full dark:bg-dark">
+            <div class="loader">
+              <span class="loader-progress">
+                <svg class="loader-icon icon">
+                  <use xlink:href="img/icons.svg#loader">
+                </svg>
+              </span>
             </div>
+            <picture>
+              <img class="image" src="https://picsum.photos/1920/780?random=<%= i %>" loading="lazy" alt="">
+            </picture>
+          </div>
           <% } %>
         </div>
       </div>
@@ -357,18 +357,18 @@
         <div class="swiper h-full">
           <div class="swiper-wrapper h-full">
             <% for (var i = 0; i < 6; i++) { %>
-              <a class="swiper-slide pack pack-box h-full" data-movement="light" data-fancybox="catalog" href="https://picsum.photos/1920/780?random=<%= i %>">
-                <div class="loader">
-                  <span class="loader-progress">
-                    <svg class="loader-icon icon">
-                      <use xlink:href="img/icons.svg#loader">
-                    </svg>
-                  </span>
-                </div>
-                <picture>
-                  <img class="image image-rise" src="https://picsum.photos/1920/780?random=<%= i %>" loading="lazy" alt="">
-                </picture>
-              </a>
+            <a class="swiper-slide pack pack-box h-full" data-movement="light" data-fancybox="catalog" href="https://picsum.photos/1920/780?random=<%= i %>">
+              <div class="loader">
+                <span class="loader-progress">
+                  <svg class="loader-icon icon">
+                    <use xlink:href="img/icons.svg#loader">
+                  </svg>
+                </span>
+              </div>
+              <picture>
+                <img class="image image-rise" src="https://picsum.photos/1920/780?random=<%= i %>" loading="lazy" alt="">
+              </picture>
+            </a>
             <% } %>
           </div>
         </div>
@@ -377,18 +377,18 @@
         <div class="swiper">
           <div class="swiper-wrapper">
             <% for (var i = 0; i < 6; i++) { %>
-              <div class="swiper-slide pack pack-box bg-grey rounded-4 cursor-pointer dark:bg-dark">
-                <div class="loader">
-                  <span class="loader-progress">
-                    <svg class="loader-icon icon">
-                      <use xlink:href="img/icons.svg#loader">
-                    </svg>
-                  </span>
-                </div>
-                <picture>
-                  <img class="image" src="https://picsum.photos/1920/780?random=<%= i %>" loading="lazy" alt="">
-                </picture>
+            <div class="swiper-slide pack pack-box bg-grey rounded-4 cursor-pointer dark:bg-dark">
+              <div class="loader">
+                <span class="loader-progress">
+                  <svg class="loader-icon icon">
+                    <use xlink:href="img/icons.svg#loader">
+                  </svg>
+                </span>
               </div>
+              <picture>
+                <img class="image" src="https://picsum.photos/1920/780?random=<%= i %>" loading="lazy" alt="">
+              </picture>
+            </div>
             <% } %>
           </div>
         </div>
@@ -398,16 +398,16 @@
       <div class="swiper h-full">
         <div class="swiper-wrapper">
           <% for (var i = 0; i < 6; i++) { %>
-            <div class="swiper-slide h-auto">
-              <div class="flex flex-col flex-grow h-full p-2">
-                <h4 class="font-alt font-semibold text-30 md:text-48 mb-5">Slider slide</h4>
-                <p class="font-semibold text-16 md:text-18 leading-4 mb-5 mdmd-10">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. In minus dolor magnam! Tenetur quam maiores vel vero iste aperiam dolores ipsa, quae autem sunt quo quia omnis commodi, impedit recusandae.
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. In minus dolor magnam! Tenetur quam maiores vel vero iste aperiam dolores ipsa, quae autem sunt quo quia omnis commodi, impedit recusandae.
-                </p>
-                <button class="btn btn-primary btn-lg btn-fill max-w-[200px] w-full mt-auto" data-waved="light">Button</button>
-              </div>
+          <div class="swiper-slide h-auto">
+            <div class="flex flex-col flex-grow h-full p-2">
+              <h4 class="font-alt font-semibold text-30 md:text-48 mb-5">Slider slide</h4>
+              <p class="font-semibold text-16 md:text-18 leading-4 mb-5 mdmd-10">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. In minus dolor magnam! Tenetur quam maiores vel vero iste aperiam dolores ipsa, quae autem sunt quo quia omnis commodi, impedit recusandae.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. In minus dolor magnam! Tenetur quam maiores vel vero iste aperiam dolores ipsa, quae autem sunt quo quia omnis commodi, impedit recusandae.
+              </p>
+              <button class="btn btn-primary btn-lg btn-fill max-w-[200px] w-full mt-auto" data-waved="light">Button</button>
             </div>
+          </div>
           <% } %>
         </div>
       </div>

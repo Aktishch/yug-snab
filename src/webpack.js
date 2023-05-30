@@ -1,8 +1,8 @@
 // Libraries
-import yandexMap from './lib/yandex-map'
-import airDatepicker from './lib/air-datepicker'
 import fancybox from './lib/fancybox'
 import sliderSwiper from './lib/slider-swiper'
+import yandexMap from './lib/yandex-map'
+import airDatepicker from './lib/air-datepicker'
 import gsap from './lib/gsap'
 
 // Scripts
@@ -54,10 +54,9 @@ import './scss/index.scss'
 
 // Connection
 window.addEventListener('DOMContentLoaded', () => {
-
-  airDatepicker.init()
   fancybox.init()
   sliderSwiper.init()
+  airDatepicker.init()
   currentTab.init()
   // scrollHeader.init()
   mobileMenu.init()
@@ -97,14 +96,11 @@ window.addEventListener('DOMContentLoaded', () => {
   timeCounter.init()
   timer.init()
   worldMap.init()
-
 })
 
 window.addEventListener('load', () => {
-
   yandexMap.init()
   gsap.init()
   warning.init()
   preloader.init()
-
 })

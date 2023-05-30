@@ -6,17 +6,19 @@
     content          : "";
     position         : absolute;
     left             : 50%;
-    transform        : translateX(-50%);
     width            : 150%;
     height           : 100%;
     background-repeat: no-repeat;
+    transform        : translateX(-50%);
   }
 
   &::before {
-    top: -70%;
+    top      : -70%;
+    animation: top-bubbles 0.6s ease-in-out infinite;
 
     background: {
-      image: radial-gradient(circle, var(--btn-color) 20%, transparent 20%),
+      position: 5% 90%, 10% 90%, 10% 90%, 10% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+      image   : radial-gradient(circle, var(--btn-color) 20%, transparent 20%),
         radial-gradient(circle, transparent 20%, var(--btn-color) 20%, transparent 30%),
         radial-gradient(circle, var(--btn-color) 20%, transparent 20%),
         radial-gradient(circle, transparent 10%, var(--btn-color) 15%, transparent 20%),
@@ -24,18 +26,17 @@
         radial-gradient(circle, var(--btn-color) 20%, transparent 20%),
         radial-gradient(circle, var(--btn-color) 20%, transparent 20%),
         radial-gradient(circle, var(--btn-color) 20%, transparent 20%);
-      position: 5% 90%, 10% 90%, 10% 90%, 10% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
-      size    : 10px 10px, 20px 20px, 15px 15px, 20px 20px, 18px 18px, 10px 10px, 15px 15px, 18px 18px;
+      size: 10px 10px, 20px 20px, 15px 15px, 20px 20px, 18px 18px, 10px 10px, 15px 15px, 18px 18px;
     }
-
-    animation : top-bubbles 0.6s ease-in-out infinite;
   }
 
   &::after {
-    bottom: -70%;
+    bottom   : -70%;
+    animation: bottom-bubbles 0.6s ease-in-out infinite;
 
     background: {
-      image:
+      position: 10% 0, 30% 10%, 55% 0, 70% 0, 85% 0, 70% 0, 70% 0;
+      image   :
         radial-gradient(circle, var(--btn-color) 20%, transparent 20%),
         radial-gradient(circle, transparent 10%, var(--btn-color) 15%, transparent 20%),
         radial-gradient(circle, var(--btn-color) 20%, transparent 20%),
@@ -43,11 +44,8 @@
         radial-gradient(circle, var(--btn-color) 20%, transparent 20%),
         radial-gradient(circle, var(--btn-color) 20%, transparent 20%),
         radial-gradient(circle, var(--btn-color) 20%, transparent 20%);
-      position: 10% 0, 30% 10%, 55% 0, 70% 0, 85% 0, 70% 0, 70% 0;
-      size    : 15px 15px, 20px 20px, 18px 18px, 20px 20px, 15px 15px, 20px 20px, 18px 18px;
+      size: 15px 15px, 20px 20px, 18px 18px, 20px 20px, 15px 15px, 20px 20px, 18px 18px;
     }
-
-    animation : bottom-bubbles 0.6s ease-in-out infinite;
   }
 }
 

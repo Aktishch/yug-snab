@@ -47,9 +47,35 @@
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Construction and effect</h3>
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-8 w-full mb-5 md:md-10">
     <% for (var i = 0; i < 3; i++) { %>
-      <div class="<% if (articles[i].item) { %><%= articles[i].item %><% } %>">
-        <article class="card h-full dark:bg-black">
-          <div class="pack pack-rect-md bg-grey dark:bg-dark" data-movement="light">
+    <div class="<% if (articles[i].item) { %><%= articles[i].item %><% } %>">
+      <article class="card h-full dark:bg-black">
+        <div class="pack pack-rect-md bg-grey dark:bg-dark" data-movement="light">
+          <div class="loader">
+            <span class="loader-progress">
+              <svg class="loader-icon icon">
+                <use xlink:href="img/icons.svg#loader">
+              </svg>
+            </span>
+          </div>
+          <picture>
+            <img class="image image-rise" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
+          </picture>
+        </div>
+        <div class="card-content py-5 px-3 md:px-5">
+          <h4 class="font-alt font-semibold text-24 mb-4">Article <%= i %></h4>
+          <p class="text-justify text-14 md:text-16 leading-5 mb-5"><%= articles[i].text %></p>
+          <button class="btn btn-primary btn-lg btn-fill mt-auto" data-waved="light">Button</button>
+        </div>
+      </article>
+    </div>
+    <% } %>
+  </div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-8 w-full">
+    <% for (var i = 3; i < articles.length; i++) { %>
+    <div class="hidden sm:block <% if (articles[i].item) { %><%= articles[i].item %><% } %>" data-listing-item>
+      <article class="inverted h-full">
+        <div class="inverted-before card dark:bg-black">
+          <div class="pack pack-half bg-grey dark:bg-dark">
             <div class="loader">
               <span class="loader-progress">
                 <svg class="loader-icon icon">
@@ -58,48 +84,22 @@
               </span>
             </div>
             <picture>
-              <img class="image image-rise" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
+              <img class="image" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
             </picture>
           </div>
+          <div class="card-content py-5 px-3 md:px-5">
+            <h4 class="font-alt font-semibold text-24">Article <%= i %></h4>
+          </div>
+        </div>
+        <div class="inverted-after card dark:bg-black">
           <div class="card-content py-5 px-3 md:px-5">
             <h4 class="font-alt font-semibold text-24 mb-4">Article <%= i %></h4>
             <p class="text-justify text-14 md:text-16 leading-5 mb-5"><%= articles[i].text %></p>
             <button class="btn btn-primary btn-lg btn-fill mt-auto" data-waved="light">Button</button>
           </div>
-        </article>
-      </div>
-    <% } %>
-  </div>
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-8 w-full">
-    <% for (var i = 3; i < articles.length; i++) { %>
-      <div class="hidden sm:block <% if (articles[i].item) { %><%= articles[i].item %><% } %>" data-listing-item>
-        <article class="inverted h-full">
-          <div class="inverted-before card dark:bg-black">
-            <div class="pack pack-half bg-grey dark:bg-dark">
-              <div class="loader">
-                <span class="loader-progress">
-                  <svg class="loader-icon icon">
-                    <use xlink:href="img/icons.svg#loader">
-                  </svg>
-                </span>
-              </div>
-              <picture>
-                <img class="image" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
-              </picture>
-            </div>
-            <div class="card-content py-5 px-3 md:px-5">
-              <h4 class="font-alt font-semibold text-24">Article <%= i %></h4>
-            </div>
-          </div>
-          <div class="inverted-after card dark:bg-black">
-            <div class="card-content py-5 px-3 md:px-5">
-              <h4 class="font-alt font-semibold text-24 mb-4">Article <%= i %></h4>
-              <p class="text-justify text-14 md:text-16 leading-5 mb-5"><%= articles[i].text %></p>
-              <button class="btn btn-primary btn-lg btn-fill mt-auto" data-waved="light">Button</button>
-            </div>
-          </div>
-        </article>
-      </div>
+        </div>
+      </article>
+    </div>
     <% } %>
   </div>
   <button class="btn btn-second btn-lg btn-fade sm:hidden max-w-[200px] w-full mt-5 mx-auto" data-listing-show data-waved="dark">Show more</button>
@@ -114,31 +114,31 @@
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Buttons standard</h3>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10">
     <% for (var i = 0; i < 6; i++) { %>
-      <button class="btn btn-primary btn-lg <%= buttons[i] %>">btn--primary <%= buttons[i] %></button>
+    <button class="btn btn-primary btn-lg <%= buttons[i] %>">btn--primary <%= buttons[i] %></button>
     <% } %>
   </div>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Buttons size</h3>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10">
     <% for (var i = 6; i < 12; i++) { %>
-      <button class="btn btn-primary <%= buttons[i] %> btn-fill"><%= buttons[i] %></button>
+    <button class="btn btn-primary <%= buttons[i] %> btn-fill"><%= buttons[i] %></button>
     <% } %>
   </div>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Buttons effects</h3>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10">
     <% for (var i = 12; i < 14; i++) { %>
-      <button class="btn btn-primary btn-lg <%= buttons[i] %>"><%= buttons[i] %></button>
+    <button class="btn btn-primary btn-lg <%= buttons[i] %>"><%= buttons[i] %></button>
     <% } %>
   </div>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Buttons click</h3>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10">
     <% for (var i = 14; i < 17; i++) { %>
-      <button class="btn btn-primary btn-lg btn-fill" <%= buttons[i] %>><%= buttons[i] %></button>
+    <button class="btn btn-primary btn-lg btn-fill" <%= buttons[i] %>><%= buttons[i] %></button>
     <% } %>
   </div>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Buttons click</h3>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
     <% for (var i = 17; i < buttons.length; i++) { %>
-      <button class="btn btn-primary btn-lg <%= buttons[i] %>"><%= buttons[i] %></button>
+    <button class="btn btn-primary btn-lg <%= buttons[i] %>"><%= buttons[i] %></button>
     <% } %>
   </div>
 </section>
@@ -168,30 +168,30 @@
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Drop-down list</h3>
   <div class="flex flex-col gap-5 w-full">
     <% for (var i = 0; i < accordion.length; i++) { %>
-      <div class="documents__accordion relative bg-second bg-opacity-10 rounded-4 shadow-md overflow-hidden py-4 px-4 md:py-6" data-accordion="<%= accordion[i].data %>">
-        <div class="flex items-center justify-between gap-4">
-          <h4 class="font-alt font-semibold text-16 md:text-20">Documents - <%= accordion[i].number %></h4>
-          <button class="btn btn-primary btn-fill text-14 rounded-max w-[36px] h-[36px]" data-accordion-toggle data-waved="light">
-            <svg class="documents__arrow icon text-14 duration-3">
-              <use xlink:href="img/icons.svg#arrow-right">
-            </svg>
-          </button>
-        </div>
-        <div data-accordion-content>
-          <div class="flex flex-col gap-3 pt-4">
-            <% for (var j = 0; j < accordion[i].items; j++) { %>
-              <a class="flex items-center gap-4 relative link-wrapper bg-white rounded-2 p-3 dark:bg-black" data-waved="dark" href="javascript: ;">
-                <div class="icon flex items-center justify-center bg-primary bg-opacity-10 text-primary text-48 rounded-2">
-                  <svg class="icon text-24">
-                    <use xlink:href="img/icons.svg#file">
-                  </svg>
-                </div>
-                <p class="link text-14 md:text-16">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-              </a>
-            <% } %>
-          </div>
+    <div class="documents__accordion relative bg-second bg-opacity-10 rounded-4 shadow-md overflow-hidden py-4 px-4 md:py-6" data-accordion="<%= accordion[i].data %>">
+      <div class="flex items-center justify-between gap-4">
+        <h4 class="font-alt font-semibold text-16 md:text-20">Documents - <%= accordion[i].number %></h4>
+        <button class="btn btn-primary btn-fill text-14 rounded-max w-[36px] h-[36px]" data-accordion-toggle data-waved="light">
+          <svg class="documents__arrow icon text-14 duration-3">
+            <use xlink:href="img/icons.svg#arrow-right">
+          </svg>
+        </button>
+      </div>
+      <div data-accordion-content>
+        <div class="flex flex-col gap-3 pt-4">
+          <% for (var j = 0; j < accordion[i].items; j++) { %>
+          <a class="flex items-center gap-4 relative hover:underline underline-offset-4 bg-white rounded-2 p-3 dark:bg-black" data-waved="dark" href="javascript: ;">
+            <div class="icon flex items-center justify-center bg-primary bg-opacity-10 text-primary text-48 rounded-2">
+              <svg class="icon text-24">
+                <use xlink:href="img/icons.svg#file">
+              </svg>
+            </div>
+            <p class="text-14 md:text-16">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+          </a>
+          <% } %>
         </div>
       </div>
+    </div>
     <% } %>
   </div>
 </section>
@@ -251,13 +251,13 @@
     </div>
     <div class="bg-white text-black rounded-6 shadow-md p-7 md:p-10">
       <div class="filtering__card" data-filter-card="category-1">
-        <ul class="listing gap-4 text-primary">
+        <ul class="flex flex-col gap-4 list-disc list-inside text-primary">
           <% for (var i = 0; i < numbers.length; i++) { %>
-            <li>
-              <span class="text-second <%= numbers[i].text %>">
-                --text-<span data-number="<%= numbers[i].number %>" data-number-step="1" data-number-time="2" data-number-fixed="0">0</span>
-              </span>
-            </li>
+          <li>
+            <span class="text-second <%= numbers[i].text %>">
+              --text-<span data-number="<%= numbers[i].number %>" data-number-step="1" data-number-time="2" data-number-fixed="0">0</span>
+            </span>
+          </li>
           <% } %>
         </ul>
         <p class="text-primary mt-5">
@@ -356,7 +356,7 @@
           </div>
           <ul class="flex flex-col gap-1 text-12" data-files-listing></ul>
           <button class="btn btn-second btn-lg btn-fill mb-5" data-waved="dark" type="submit">Submit</button>
-          <div class="link text-second text-18 w-max mx-auto" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-politics.html">Privacy policy</div>
+          <div class="hover:underline underline-offset-4 cursor-pointer text-second text-18 w-max mx-auto" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-politics.html">Privacy policy</div>
         </form>
       </div>
       <div class="filtering__card hidden" data-filter-card="category-3">
@@ -386,12 +386,12 @@
           <h4 class="font-semibold text-24">Rating:</h4>
           <div class="rating bg-gray bg-opacity-40 rounded-10 p-3">
             <% for (var i = 5; i > 0; i--) { %>
-              <input class="rating-input hidden" id="rating-<%= i %>" type="radio" value="<%= i %>" name="rating">
-              <label class="rating-star" for="rating-<%= i %>">
-                <svg class="icon">
-                  <use xlink:href="img/icons.svg#star">
-                </svg>
-              </label>
+            <input class="rating-input hidden" id="rating-<%= i %>" type="radio" value="<%= i %>" name="rating">
+            <label class="rating-star" for="rating-<%= i %>">
+              <svg class="icon">
+                <use xlink:href="img/icons.svg#star">
+              </svg>
+            </label>
             <% } %>
           </div>
           <h4 class="font-semibold text-24">Range:</h4>

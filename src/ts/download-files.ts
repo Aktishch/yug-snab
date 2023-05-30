@@ -1,13 +1,10 @@
 import fileHandler from './functions/file-handler'
 
 const init = (): File[] => {
-
   const data: File[] = []
 
   document.addEventListener('change', ((event: Event): void => {
-
     if ((event.target as HTMLInputElement).getAttribute('data-input') == 'file') {
-
       const form = (event.target as HTMLInputElement).closest('[data-files]') as HTMLFormElement
 
       if (!form) return
@@ -23,9 +20,7 @@ const init = (): File[] => {
       item.classList.add('flex', 'items-center', 'justify-between', 'gap-5')
 
       if (fileHandler.init(input, error)) {
-
-        for (let i: number = 0; i < files.length; i++) {
-
+        for (let i = 0; i < files.length; i++) {
           data.push(files[i])
 
           item.setAttribute('data-files-item', '')
@@ -44,28 +39,18 @@ const init = (): File[] => {
           if (!listing.classList.contains('mb-5')) listing.classList.add('mb-5')
 
           if (data.length == 3) {
-
             download.classList.add('pointer-events-none', 'opacity-50')
             text.innerText = 'Не более 3 файлов'
-
           } else {
-
             text.innerText = 'Добавить еще'
-
           }
-
         }
-
       }
-
     }
-
   }) as EventListener)
 
   document.addEventListener('click', ((event: Event) => {
-
     if ((event.target as HTMLButtonElement).closest('[data-files-remove]')) {
-
       const form = (event.target as HTMLInputElement).closest('[data-files') as HTMLFormElement
 
       if (!form) return
@@ -77,36 +62,25 @@ const init = (): File[] => {
       const item = (event.target as HTMLButtonElement).closest('[data-files-item]') as HTMLElement
       const btn = event.target as HTMLButtonElement
 
-      for (let i: number = 0; i < data.length; i++) {
-
+      for (let i = 0; i < data.length; i++) {
         if (btn.dataset.filesRemove == String(data[i].lastModified)) {
-
           data.splice(i, 1)
           item.remove()
-
         }
-
       }
 
       if (data.length == 0) {
-
         input.value = ''
         text.innerText = 'Загрузить файлы'
         listing.classList.remove('mb-5')
-
       } else {
-
         download.classList.remove('pointer-events-none', 'opacity-50')
         text.innerText = 'Добавить еще'
-
       }
-
     }
-
   }) as EventListener)
 
   return data
-
 }
 
 export default { init }

@@ -8,7 +8,6 @@ import filter from '../ts/filter'
 import waved from '../ts/waved'
 
 const init = () => {
-
   Fancybox.defaults.trapFocus = false
   Fancybox.defaults.autoFocus = false
   Fancybox.defaults.placeFocusBack = false
@@ -16,27 +15,20 @@ const init = () => {
   Fancybox.defaults.template.spinner = '<div class="preloader"><div class="preloader-circle"></div></div>'
 
   Fancybox.bind('[data-fancybox-dialog]', {
-
     dragToClose: false,
     mainClass: 'fancybox-dialog',
 
     on: {
-
       done: (fancybox, slide) => {
-
         sliderSwiper.init()
         airDatepicker.init()
         filter.init()
         waved.init()
-
-      }
-
-    }
-
+      },
+    },
   })
 
   window.Fancybox = Fancybox
-
 }
 
 export default { init }

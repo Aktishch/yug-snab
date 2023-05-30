@@ -1,11 +1,8 @@
 const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin(
-
   ({ addComponents, matchComponents, theme }) => {
-
     addComponents({
-
       '.image': {
         position: 'absolute',
         inset: '0',
@@ -15,60 +12,47 @@ module.exports = plugin(
         objectFit: 'cover',
 
         '&-scale-down': {
-          objectFit: 'scale-down'
+          objectFit: 'scale-down',
         },
 
         '&-rise': {
-          transition: 'transform 0.3s linear'
-        }
+          transition: 'transform 0.3s linear',
+
+          '@media (hover)': {
+            '&:hover': {
+              transform: 'scale(1.1)',
+            },
+          },
+        },
       },
-
-      '@media(hover)': {
-        '.image-rise:hover': {
-          transform: 'scale(1.1)'
-        }
-      }
-
     })
 
     matchComponents(
-
       {
-
         image: (position) => {
           return { objectPosition: position }
-        }
-
+        },
       },
 
       {
-        values: theme('imagePosition')
+        values: theme('imagePosition'),
       }
-
     )
-
   },
 
   {
-
     theme: {
-
       imagePosition: {
-
-        'top': 'top',
-        'left': 'left',
-        'right': 'right',
-        'bottom': 'bottom',
-        'center': 'center',
+        top: 'top',
+        left: 'left',
+        right: 'right',
+        bottom: 'bottom',
+        center: 'center',
         'top-left': 'top left',
         'top-right': 'top right',
         'bottom-left': 'bottom left',
-        'bottom-right': 'bottom right'
-
-      }
-
-    }
-
+        'bottom-right': 'bottom right',
+      },
+    },
   }
-
 )

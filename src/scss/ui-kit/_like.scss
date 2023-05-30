@@ -3,7 +3,6 @@
   cursor: pointer;
 
   &-heart {
-    @apply text-24;
     display         : flex;
     align-items     : center;
     justify-content : center;
@@ -12,12 +11,14 @@
     background-color: theme("colors.white.DEFAULT / 40%");
     border-radius   : 50%;
     transition      : 0.2s linear;
+
+    @apply text-24;
   }
 
   &-icon {
+    transition: 0.2s linear;
     fill      : theme("colors.red.DEFAULT / 50%");
     stroke    : theme("colors.red.DEFAULT");
-    transition: 0.2s linear;
   }
 
   &-toggle:checked+&-heart>&-icon {

@@ -1,15 +1,11 @@
 import fileHandler from './functions/file-handler'
 
 const init = (): void => {
-
   const dragEvents: string[] = ['dragenter', 'dragover', 'dragleave', 'drop']
 
   dragEvents.forEach((dragEvent): void => {
-
     document.addEventListener(dragEvent, ((event: Event) => {
-
       if ((event.target as HTMLElement).closest('[data-drag]')) {
-
         event.preventDefault()
 
         const form = (event.target as HTMLElement).closest('[data-form]')
@@ -23,43 +19,29 @@ const init = (): void => {
         const image = download.querySelector('*[data-file="image"]') as HTMLImageElement
 
         if (event.type === 'dragenter') {
-
           drag.classList.add('bg-opacity-50')
-
         } else if (event.type === 'dragleave') {
-
           drag.classList.remove('bg-opacity-50')
-
         } else if (event.type === 'drop') {
-
           const files = (event as any).dataTransfer.files as FileList
 
           drag.classList.remove('bg-opacity-50')
           input.files = files
 
           if (fileHandler.init(input, error)) {
-
             const file: File = (input.files as FileList)[0]
             const readFile: FileReader = new FileReader()
 
-            file ? readFile.readAsDataURL(file) : image.src = ''
+            file ? readFile.readAsDataURL(file) : (image.src = '')
 
             readFile.addEventListener('loadend', ((): void => {
-
               image.src = String(readFile.result)
-
             }) as EventListener)
-
           }
-
         }
-
       }
-
     }) as EventListener)
-
   })
-
 }
 
 export default { init }

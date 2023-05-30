@@ -1,5 +1,4 @@
 const init = (): void => {
-
   const world = document.querySelector('*[data-world]') as HTMLElement
 
   if (!world) return
@@ -14,38 +13,31 @@ const init = (): void => {
   const ratio: number = 880 / map.getBoundingClientRect().width
 
   countries.forEach((element: Element): void => {
-
     const country = element as HTMLAnchorElement
     const path = country.querySelector('path') as SVGPathElement
 
     const pathHeight: number = path.getBoundingClientRect().height * ratio
     const pathWidth: number = path.getBoundingClientRect().width * ratio
-    const positionY: number = (path.getBoundingClientRect().y - offsetY) * ratio + (pathHeight / 2)
-    const positionX: number = (path.getBoundingClientRect().x - offsetX) * ratio + (pathWidth / 2)
+    const positionY: number = (path.getBoundingClientRect().y - offsetY) * ratio + pathHeight / 2
+    const positionX: number = (path.getBoundingClientRect().x - offsetX) * ratio + pathWidth / 2
 
     const image = document.createElementNS('http://www.w3.org/2000/svg', 'image') as SVGImageElement
     const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect') as SVGRectElement
     const text = document.createElementNS('http://www.w3.org/2000/svg', 'text') as SVGTextElement
 
     const elementsShow = (): void => {
-
       rect.classList.remove('invisible', 'opacity-0')
       text.classList.remove('invisible', 'opacity-0')
-
     }
 
     const elementsHidden = (): void => {
-
       rect.classList.add('invisible', 'opacity-0')
       text.classList.add('invisible', 'opacity-0')
-
     }
 
     const currentCountry = (): void => {
-
       flag.src = String(country.dataset.worldSource)
       title.innerText = String(country.dataset.worldCountry)
-
     }
 
     image.classList.add('pointer-events-none')
@@ -59,12 +51,12 @@ const init = (): void => {
     image.setAttribute('href', 'img/pictures/flag.svg')
     image.setAttribute('width', '18')
     image.setAttribute('height', '18')
-    image.setAttribute('y', `${positionY - image.getBoundingClientRect().height * ratio / 1.2}`)
+    image.setAttribute('y', `${positionY - (image.getBoundingClientRect().height * ratio) / 1.2}`)
     image.setAttribute('x', `${positionX}`)
 
     text.innerHTML = String(country.dataset.worldCountry)
     text.setAttribute('fill', '#000000')
-    text.setAttribute('y', `${positionY + text.getBoundingClientRect().height * ratio / 1.2}`)
+    text.setAttribute('y', `${positionY + (text.getBoundingClientRect().height * ratio) / 1.2}`)
     text.setAttribute('x', `${positionX}`)
 
     rect.setAttribute('fill', '#ffffff')
@@ -77,9 +69,7 @@ const init = (): void => {
     path.addEventListener('mouseover', elementsShow as EventListener)
     path.addEventListener('mouseleave', elementsHidden as EventListener)
     country.addEventListener('click', currentCountry as EventListener)
-
   })
-
 }
 
 export default { init }

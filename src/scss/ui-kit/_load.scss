@@ -3,13 +3,14 @@
   display        : flex;
   align-items    : center;
   justify-content: center;
-  pointer-events : none;
   position       : absolute;
   inset          : 0;
+  pointer-events : none;
 
   &-progress {
-    @apply text-40 text-primary;
     animation: progress 1.8s linear infinite;
+
+    @apply text-40 text-primary;
   }
 
   &-icon {
@@ -19,47 +20,48 @@
 
 // Загрузка
 .preloader {
-  @apply text-primary;
   display        : flex;
   align-items    : center;
   justify-content: center;
   position       : relative;
-  border-radius  : 50%;
   width          : 100px;
   height         : 100px;
+  border-radius  : 50%;
 
   &::before,
   &::after {
     content         : "";
-    background-color: var(--color-none);
     position        : absolute;
     inset           : 0;
+    background-color: transparent;
 
     border: {
       width : 12px;
-      style : solid;
       color : inherit;
+      style : solid;
       radius: inherit;
     }
   }
 
   &::before {
-    border: {
-      left-color : var(--color-none);
-      right-color: var(--color-none);
-    }
-
     animation: progress 1s linear infinite;
+
+    border: {
+      left-color : transparent;
+      right-color: transparent;
+    }
   }
 
   &::after {
-    border: {
-      top-color   : var(--color-none);
-      bottom-color: var(--color-none);
-    }
-
     animation: progress 1.2s linear infinite;
+
+    border: {
+      top-color   : transparent;
+      bottom-color: transparent;
+    }
   }
+
+  @apply text-primary;
 
   &-circle {
     width           : 40px;
@@ -84,7 +86,7 @@
   0% {
     stroke: {
       dasharray : 1px, 200px;
-      dashoffset: 0px;
+      dashoffset: 0;
     }
   }
 
@@ -107,12 +109,12 @@
 
   0%,
   100% {
-    transform: scale(0.4);
     opacity  : 0.2;
+    transform: scale(0.4);
   }
 
   50% {
-    transform: scale(1);
     opacity  : 1;
+    transform: scale(1);
   }
 }

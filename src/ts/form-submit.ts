@@ -2,7 +2,6 @@ import formValidate from './functions/form-validate'
 import dialog from './functions/dialog'
 
 const formSubmit = (event: Event, data: File[]): void => {
-
   event.preventDefault()
 
   const form = event.target as HTMLFormElement
@@ -13,14 +12,11 @@ const formSubmit = (event: Event, data: File[]): void => {
   const queryString: string = new URLSearchParams(formData as URLSearchParams).toString()
   const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement
 
-  let requestUrl: string = ''
+  let requestUrl = ''
 
   if (form.dataset.form == 'submit') {
-
     if (form.hasAttribute('data-files')) {
-
-      if (data != null) for (let i: number = 0; i < data.length; i++) formData.append('file[]', data[i])
-
+      if (data != null) for (let i = 0; i < data.length; i++) formData.append('file[]', data[i])
     }
 
     requestUrl = '/ajax/submit-handler.php'
@@ -29,64 +25,47 @@ const formSubmit = (event: Event, data: File[]): void => {
     dialog.preloader()
 
     fetch(requestUrl, {
-
       method: 'POST',
-      body: formData
+      body: formData,
+    })
+      .then((response: Response): any => {
+        return response.text()
+      })
+      .then((response: any): void => {
+        dialog.close()
 
-    }).then((response: Response): any => {
+        dialog.open('/dialogs/dialog-submit.html')
 
-      return response.text()
+        form.reset()
 
-    }).then((response: any): void => {
+        submitBtn.removeAttribute('disabled')
 
-      dialog.close()
+        if (form.hasAttribute('data-files')) {
+          const listing = form.querySelector('*[data-files-listing]') as HTMLElement
+          const text = form.querySelector('*[data-files-text]') as HTMLElement
 
-      dialog.open('/dialogs/dialog-submit.html')
-
-      form.reset()
-
-      submitBtn.removeAttribute('disabled')
-
-      if (form.hasAttribute('data-files')) {
-
-        const listing = form.querySelector('*[data-files-listing]') as HTMLElement
-        const text = form.querySelector('*[data-files-text]') as HTMLElement
-
-        listing.innerHTML = ''
-        listing.classList.remove('mb-5')
-        text.innerHTML = 'Загрузить файлы'
-        data.length = 0
-
-      }
-
-    }).catch((error: string): void =>
-
-      console.log('The form has not been sent', error)
-
-    )
-
+          listing.innerHTML = ''
+          listing.classList.remove('mb-5')
+          text.innerHTML = 'Загрузить файлы'
+          data.length = 0
+        }
+      })
+      .catch((error: string): void => console.log('The form has not been sent', error))
   }
 
   if (form.dataset.form == 'params') {
-
     requestUrl = `/dialogs/dialog-authorization.html?${queryString}`
 
     dialog.close()
 
     dialog.open(requestUrl)
-
   }
-
 }
 
 const init = (data: File[]): void => {
-
   document.addEventListener('submit', ((event: Event): void => {
-
     if ((event.target as HTMLFormElement).hasAttribute('data-form')) formSubmit(event, data)
-
   }) as EventListener)
-
 }
 
 export default { init }

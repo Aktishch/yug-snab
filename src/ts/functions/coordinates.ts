@@ -1,8 +1,6 @@
 interface coordinates {
-
-  top: number,
+  top: number
   left: number
-
 }
 
 export { coordinates }

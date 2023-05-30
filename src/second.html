@@ -18,18 +18,18 @@
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Columns and rows</h3>
   <div class="grid grid-flow-row-dense grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5 lg:gap-8 w-full">
     <% for (var i = 0; i < grid.length; i++) { %>
-      <a class="<%= grid[i] %> pack pack-box bg-grey rounded-3 shadow-md dark:bg-dark" data-movement="light" data-fancybox="grid" href="https://picsum.photos/600/400?random=<%= i %>">
-        <div class="loader">
-          <span class="loader-progress">
-            <svg class="loader-icon icon">
-              <use xlink:href="img/icons.svg#loader">
-            </svg>
-          </span>
-        </div>
-        <picture>
-          <img class="image image-rise" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
-        </picture>
-      </a>
+    <a class="<%= grid[i] %> pack pack-box bg-grey rounded-3 shadow-md dark:bg-dark" data-movement="light" data-fancybox="grid" href="https://picsum.photos/600/400?random=<%= i %>">
+      <div class="loader">
+        <span class="loader-progress">
+          <svg class="loader-icon icon">
+            <use xlink:href="img/icons.svg#loader">
+          </svg>
+        </span>
+      </div>
+      <picture>
+        <img class="image image-rise" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
+      </picture>
+    </a>
     <% } %>
   </div>
 </section>
@@ -123,7 +123,7 @@
 <section class="timer container container--xs flex flex-col items-center justify-center">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10" data-movement="blend">Timer</h2>
   <div class="flex flex-col items-center justify-center relative bg-primary rounded-max w-full max-w-[300px] h-[300px] mx-auto" data-timer>
-    <div class="timer__stopwatch flex flex-col items-center absolute top-0 left-0 right-0 text-second origin-bottom pointer-events-none w-0.5 h-1/2 mx-auto duration-1" data-timer-stopwatch></div>
+    <div class="timer__stopwatch flex flex-col items-center absolute top-0 left-0 right-0 text-second origin-bottom pointer-events-none w-0.5 h-1/2 mx-auto ease-in-out duration-1" data-timer-stopwatch></div>
     <time class="text-white text-center text-24 font-semibold mb-5" data-timer-units></time>
     <div class="flex items-center justify-center gap-4">
       <button class="btn btn-second btn-fade text-36 rounded-max w-[40px] min-w-[40px] h-[40px]" data-timer-turn data-waved="dark">
@@ -142,24 +142,24 @@
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10" data-movement="blend">Postcards</h2>
   <div class="postcards flex flex-wrap items-center justify-center gap-10 w-full">
     <% for (var i = 0; i < 3; i++) { %>
-      <ul class="postcards-item relative bg-grey ease-linear duration-4">
-        <div class="loader">
-          <span class="loader-progress">
-            <svg class="loader-icon icon">
-              <use xlink:href="img/icons.svg#loader">
-            </svg>
-          </span>
-        </div>
-        <li class="postcards-particle postcards-particle--1 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
-        <li class="postcards-particle postcards-particle--2 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
-        <li class="postcards-particle postcards-particle--3 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
-        <li class="postcards-particle postcards-particle--4 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
-        <li class="postcards-particle postcards-particle--5 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
-        <li class="postcards-particle postcards-particle--6 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
-        <li class="postcards-particle postcards-particle--7 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
-        <li class="postcards-particle postcards-particle--8 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
-        <li class="postcards-particle postcards-particle--9 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
-      </ul>
+    <ul class="postcards-item relative bg-grey ease-linear duration-4">
+      <div class="loader">
+        <span class="loader-progress">
+          <svg class="loader-icon icon">
+            <use xlink:href="img/icons.svg#loader">
+          </svg>
+        </span>
+      </div>
+      <li class="postcards-particle postcards-particle--1 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
+      <li class="postcards-particle postcards-particle--2 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
+      <li class="postcards-particle postcards-particle--3 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
+      <li class="postcards-particle postcards-particle--4 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
+      <li class="postcards-particle postcards-particle--5 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
+      <li class="postcards-particle postcards-particle--6 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
+      <li class="postcards-particle postcards-particle--7 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
+      <li class="postcards-particle postcards-particle--8 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
+      <li class="postcards-particle postcards-particle--9 absolute w-full h-full" data-bg="https://picsum.photos/600/400?random=<%= i %>"></li>
+    </ul>
     <% } %>
   </div>
 </section>
