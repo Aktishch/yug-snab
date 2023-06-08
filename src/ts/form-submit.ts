@@ -19,7 +19,7 @@ const formSubmit = (event: Event, data: File[]): void => {
       if (data != null) for (let i = 0; i < data.length; i++) formData.append('file[]', data[i])
     }
 
-    requestUrl = '/ajax/submit-handler.php'
+    requestUrl = './ajax/submit-handler.php'
     submitBtn.setAttribute('disabled', 'disabled')
 
     dialog.preloader()
@@ -34,7 +34,7 @@ const formSubmit = (event: Event, data: File[]): void => {
       .then((response: any): void => {
         dialog.close()
 
-        dialog.open('/dialogs/dialog-submit.html')
+        dialog.open('./dialogs/dialog-submit.html')
 
         form.reset()
 
@@ -54,7 +54,7 @@ const formSubmit = (event: Event, data: File[]): void => {
   }
 
   if (form.dataset.form == 'params') {
-    requestUrl = `/dialogs/dialog-authorization.html?${queryString}`
+    requestUrl = `./dialogs/dialog-authorization.html?${queryString}`
 
     dialog.close()
 

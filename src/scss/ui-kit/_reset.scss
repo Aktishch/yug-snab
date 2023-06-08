@@ -4,19 +4,14 @@
   &,
   &::before,
   &::after {
-    box-sizing                 : border-box;
-    margin                     : 0;
-    padding                    : 0;
     -webkit-tap-highlight-color: transparent;
+
+    @apply box-border m-0 p-0;
   }
 }
 
 html {
   font-size: 16px;
-}
-
-body {
-  @apply font-base text-black bg-white;
 }
 
 ::selection {
@@ -30,15 +25,15 @@ h4:empty,
 h5:empty,
 h6:empty,
 p:empty {
-  display: none;
+  @apply hidden;
 }
 
 ul {
-  list-style: none outside;
+  @apply list-none list-outside;
 }
 
 ol {
-  list-style: decimal inside;
+  @apply list-decimal list-inside;
 }
 
 picture {
@@ -46,22 +41,21 @@ picture {
 }
 
 img {
-  user-select: none;
+  @apply select-none;
 
   &:is([src=""], [src="/"]) {
-    display: none;
+    @apply hidden;
   }
 }
 
 dialog {
-  position: static;
-  width   : auto;
-  height  : auto;
-  border  : none;
+  border: none;
+
+  @apply static w-auto h-auto;
 }
 
 address {
-  font-style: normal;
+  @apply not-italic;
 }
 
 q {
@@ -76,26 +70,23 @@ select {
   border          : none;
   outline         : none;
 
-  @apply text-black;
-
   &:-webkit-autofill {
 
     &,
     &:hover,
     &:focus {
-      border                 : 1px solid theme("colors.gray.DEFAULT");
-      box-shadow             : inset 0 0 0 1000px theme("colors.white.DEFAULT");
-      transition             : background-color 5000s ease-in-out 0s;
-      -webkit-text-fill-color: theme("colors.black.DEFAULT");
+      border                 : 1px solid transparent;
+      box-shadow             : inset 0 0 0 1000px transparent;
+      transition             : 5000s ease-in-out 0s;
+      -webkit-text-fill-color: currentColor;
     }
   }
 }
 
 textarea {
-  overflow: auto;
-  resize  : none;
+  @apply overflow-auto resize-none;
 }
 
 select {
-  appearance: none;
+  @apply appearance-none;
 }

@@ -1,37 +1,33 @@
 // Бегунок
 @mixin range {
-  width         : var(--bubble-size);
-  height        : var(--bubble-size);
-  background    : none;
-  border        : none;
-  cursor        : ew-resize;
-  appearance    : none;
-  pointer-events: all;
+  width     : var(--bubble-size);
+  height    : var(--bubble-size);
+  background: none;
+  border    : none;
+
+  @apply cursor-ew-resize pointer-events-auto appearance-none;
 }
 
 .range {
   --bubble-size: 28px;
 
   &-cover {
-    max-width: 60px;
+    @apply max-w-[60px];
   }
 
   &-wrapper {
-    position     : relative;
-    height       : 8px;
-    border-radius: 4px;
 
     &:nth-child(2) {
-      margin-top: -8px;
+      @apply -mt-2;
     }
+
+    @apply relative rounded-1 h-2;
   }
 
   &-input {
-    display      : block;
-    width        : 100%;
-    height       : 100%;
     border-radius: inherit;
-    appearance   : none;
+
+    @apply block appearance-none w-full h-full;
 
     &::-webkit-slider-thumb {
       @include range();

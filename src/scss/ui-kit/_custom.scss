@@ -3,8 +3,7 @@ $close: ".carousel__button.is-close";
 
 .fancybox {
   &__spinner {
-    width : auto;
-    height: auto;
+    @apply w-auto h-auto;
   }
 
   &__container * {
@@ -12,51 +11,31 @@ $close: ".carousel__button.is-close";
     &,
     &::before,
     &::after {
-      box-sizing: border-box;
+      @apply box-border;
     }
   }
 
   &__content {
-    max-width : 100%;
-    padding   : 0;
-    background: none;
+    @apply bg-[transparent] bg-none max-w-full p-0;
 
     & :focus:not(#{$close}) {
-      outline: none;
+      @apply outline-0;
     }
 
     &>#{$close} {
-      position        : fixed;
-      top             : 8px;
-      right           : 8px;
-      background-color: theme("colors.white.DEFAULT");
-      box-shadow      : 0 4px 8px theme("colors.black.DEFAULT / 10%");
-      color           : theme("colors.black.DEFAULT");
+      @apply fixed top-2 right-2 bg-white text-black shadow-md;
 
       @screen md {
-        & {
-          position: absolute;
-        }
+        @apply absolute;
       }
-
     }
   }
 }
 
 // Slider-swiper
 .swiper {
-  &-pagination {
-    display        : flex;
-    align-items    : center;
-    justify-content: center;
-    position       : static;
-
-    &-bullet {
-      width           : 12px;
-      height          : 12px;
-      background-color: currentColor;
-      transition      : background-color 0.2s ease;
-    }
+  &-pagination-bullet {
+    @apply bg-[currentColor] w-3 h-3 duration-2;
   }
 
   &-button {
@@ -64,18 +43,13 @@ $close: ".carousel__button.is-close";
     &-prev,
     &-next {
       &::after {
-        display: none;
+        @apply hidden;
       }
     }
-  }
-
-  &--overwrap {
-    margin : -15px;
-    padding: 15px;
   }
 }
 
 // Air-datepicker
 .air-datepicker-global-container {
-  z-index: 1100;
+  @apply z-[1100];
 }

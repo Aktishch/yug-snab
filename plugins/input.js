@@ -27,6 +27,7 @@ module.exports = plugin(({ addComponents, theme }) => {
       display: 'block',
       width: '100%',
       height: theme('size.lg'),
+      color: theme('colors.black.DEFAULT'),
       backgroundColor: theme('colors.white.DEFAULT'),
       padding: '12px 16px',
       border: `1px solid ${formatColor({

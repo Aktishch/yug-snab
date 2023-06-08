@@ -21,7 +21,7 @@ const choiceFile = (event: Event): void => {
 
       if (form.dataset.form == 'avatar') {
         const formData: FormData = new FormData(form)
-        const requestUrl = '/ajax/submit-handler.php'
+        const requestUrl = './ajax/submit-handler.php'
         const avatar = document.querySelector('*[data-avatar]') as HTMLImageElement
 
         dialog.preloader()

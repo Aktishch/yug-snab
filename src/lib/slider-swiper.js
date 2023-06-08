@@ -5,9 +5,9 @@ import media from '../ts/functions/media'
 import quiz from '../ts/quiz'
 
 const init = () => {
-  const gallerySlider = new Swiper('.gallery-slider .swiper', {
+  new Swiper('.gallery-slider .swiper', {
     pagination: {
-      el: '.gallery-slider.swiper-pagination',
+      el: '.gallery-slider .swiper-pagination',
       clickable: true,
     },
 
@@ -40,7 +40,7 @@ const init = () => {
     },
   })
 
-  const productsSlider = new Swiper('.products-slider .swiper', {
+  new Swiper('.products-slider .swiper', {
     pagination: {
       el: '.products-slider .swiper-pagination',
       clickable: true,
@@ -79,7 +79,7 @@ const init = () => {
     allowTouchMove: false,
   })
 
-  const quizSlider = new Swiper('.quiz-slider .swiper', {
+  new Swiper('.quiz-slider .swiper', {
     navigation: {
       prevEl: '.quiz-slider .swiper-button-prev',
       nextEl: '.quiz-slider .swiper-button-next',
@@ -146,7 +146,7 @@ const init = () => {
     allowTouchMove: false,
   })
 
-  const descriptionSlider = new Swiper('.description-slider .swiper', {
+  new Swiper('.description-slider .swiper', {
     slidesPerView: 1,
     slidesPerGroup: 1,
     spaceBetween: 30,

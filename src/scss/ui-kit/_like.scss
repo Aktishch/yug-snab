@@ -1,27 +1,16 @@
 // Лайк
 .like {
-  cursor: pointer;
+  @apply cursor-pointer;
 
   &-heart {
-    display         : flex;
-    align-items     : center;
-    justify-content : center;
-    width           : 40px;
-    height          : 40px;
-    background-color: theme("colors.white.DEFAULT / 40%");
-    border-radius   : 50%;
-    transition      : 0.2s linear;
-
-    @apply text-24;
+    @apply flex items-center justify-center bg-white bg-opacity-40 text-24 rounded-max w-10 h-10 ease-linear duration-2;
   }
 
   &-icon {
-    transition: 0.2s linear;
-    fill      : theme("colors.red.DEFAULT / 50%");
-    stroke    : theme("colors.red.DEFAULT");
+    @apply text-red text-opacity-50 stroke-red ease-linear duration-2;
   }
 
   &-toggle:checked+&-heart>&-icon {
-    fill: theme("colors.red.DEFAULT");
+    @apply text-opacity-100;
   }
 }

@@ -28,7 +28,7 @@ const preloader = (): void => {
   window.Fancybox.show(
     [
       {
-        src: '/dialogs/preloader.html',
+        src: './dialogs/preloader.html',
         type: 'ajax',
       },
     ],
@@ -45,7 +45,7 @@ const warning = (): void => {
   window.Fancybox.show(
     [
       {
-        src: '/dialogs/dialog-warning.html',
+        src: './dialogs/dialog-warning.html',
         type: 'ajax',
       },
     ],

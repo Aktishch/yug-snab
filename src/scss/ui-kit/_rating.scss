@@ -1,9 +1,6 @@
 // Рейтинг
 .rating {
-  display       : flex;
-  align-items   : center;
-  flex-direction: row-reverse;
-  width         : max-content;
+  @apply flex items-center flex-row-reverse w-max;
 
   @media(hover) {
 
@@ -14,13 +11,10 @@
   }
 
   &-star {
-    cursor    : pointer;
-    transition: color 0.2s ease;
-
-    @apply text-second text-opacity-50 text-24;
+    @apply text-second text-opacity-50 text-24 cursor-pointer duration-2;
 
     &~& {
-      margin-right: 12px;
+      @apply mr-3;
     }
   }
 
