@@ -70,6 +70,12 @@ module.exports = {
     },
 
     extend: {
+      backgroundColor: {
+        current: 'currentColor',
+        inherit: 'inherit',
+        transparent: 'transparent',
+      },
+
       fontSize: {
         10: '0.625rem',
         12: '0.75rem',
@@ -118,6 +124,7 @@ module.exports = {
         9: '36px',
         10: '40px',
         max: '50%',
+        inherit: 'inherit',
       },
 
       gridColumn: {

@@ -1,33 +1,18 @@
 // Кнопка с рамкой
 .btn {
-
   &-rect {
 
     &::before,
     &::after {
-      width : 20px;
-      height: 20px;
-      border: 2px solid transparent;
+      @apply border-2 border-solid border-[transparent] w-5 h-5;
     }
 
     &::before {
-      top : 0;
-      left: 0;
-
-      border: {
-        top-color : currentColor;
-        left-color: currentColor;
-      }
+      @apply top-0 left-0 border-t-[currentColor] border-l-[currentColor];
     }
 
     &::after {
-      right : 0;
-      bottom: 0;
-
-      border: {
-        bottom-color: currentColor;
-        right-color : currentColor;
-      }
+      @apply right-0 bottom-0 border-r-[currentColor] border-b-[currentColor];
     }
 
     @media(hover) {
@@ -44,38 +29,25 @@
 
     &::before,
     &::after {
-      width : 40px;
-      height: 20px;
-      border: 2px solid transparent;
+      @apply border-2 border-solid border-[transparent] w-10 h-5;
     }
 
     &::before {
-      top  : 0;
-      right: 0;
-
-      border: {
-        top-color  : currentColor;
-        right-color: currentColor;
-      }
+      @apply top-0 right-0 border-t-[currentColor] border-r-[currentColor];
     }
 
     &::after {
-      bottom: 0;
-      left  : 0;
-
-      border: {
-        bottom-color: currentColor;
-        left-color  : currentColor;
-      }
+      @apply bottom-0 left-0 border-b-[currentColor] border-l-[currentColor];
     }
 
     @media(hover) {
 
       &:hover::before,
       &:hover::after {
-        width       : calc(100% + 5px);
-        height      : calc(100% + 5px);
-        border-color: currentColor;
+        width : calc(100% + 5px);
+        height: calc(100% + 5px);
+
+        @apply border-[currentColor];
       }
     }
   }
@@ -84,24 +56,16 @@
 
     &::before,
     &::after {
-      top             : 100%;
-      right           : 0;
-      left            : 0;
-      width           : 80%;
-      height          : 2px;
-      background-color: currentColor;
-      border          : none;
-      margin-inline   : auto;
+      @apply top-full right-0 left-0 bg-current border-none w-[80%] h-0.5 mx-auto;
     }
 
     @media(hover) {
       &:hover::before {
-        top  : 0;
-        width: 100%;
+        @apply top-0 w-full;
       }
 
       &:hover::after {
-        width: 100%;
+        @apply w-full;
       }
     }
   }
@@ -109,14 +73,12 @@
   &-rect,
   &-frame,
   &-lines {
-    border-radius: 0;
 
     &::before,
     &::after {
-      content      : "";
-      position     : absolute;
-      border-radius: inherit;
-      transition   : 0.5s ease;
+      @apply content-[""] absolute rounded-inherit duration-500;
     }
+
+    @apply rounded-none;
   }
 }

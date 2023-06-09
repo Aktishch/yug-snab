@@ -1,11 +1,9 @@
 // Бегунок
 @mixin range {
-  width     : var(--bubble-size);
-  height    : var(--bubble-size);
-  background: none;
-  border    : none;
+  width : var(--bubble-size);
+  height: var(--bubble-size);
 
-  @apply cursor-ew-resize pointer-events-auto appearance-none;
+  @apply bg-transparent bg-none border-none cursor-ew-resize pointer-events-auto appearance-none;
 }
 
 .range {
@@ -25,9 +23,7 @@
   }
 
   &-input {
-    border-radius: inherit;
-
-    @apply block appearance-none w-full h-full;
+    @apply block rounded-inherit appearance-none w-full h-full;
 
     &::-webkit-slider-thumb {
       @include range();
@@ -43,31 +39,14 @@
   }
 
   &-progress {
-    position      : absolute;
-    top           : 0;
-    bottom        : 0;
-    height        : 100%;
-    border-radius : inherit;
-    z-index       : 1;
-    pointer-events: none;
+    @apply absolute z-[1] top-0 bottom-0 rounded-inherit pointer-events-none h-full;
   }
 
   &-bubble {
-    display        : flex;
-    align-items    : center;
-    justify-content: center;
-    position       : absolute;
-    top            : 0;
-    bottom         : 0;
-    width          : var(--bubble-size);
-    height         : var(--bubble-size);
-    border         : 2px solid theme("colors.grey.DEFAULT");
-    border-radius  : 50%;
-    box-shadow     : 0 0 0 2px theme("colors.primary.DEFAULT / 40%");
-    z-index        : 2;
-    pointer-events : none;
-    margin-block   : auto;
+    width     : var(--bubble-size);
+    height    : var(--bubble-size);
+    box-shadow: 0 0 0 2px theme("colors.primary.DEFAULT / 40%");
 
-    @apply text-12;
+    @apply flex items-center justify-center absolute z-[2] top-0 bottom-0 text-12 rounded-max border-2 border-solid border-grey pointer-events-none my-auto;
   }
 }

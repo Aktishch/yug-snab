@@ -1,27 +1,22 @@
 // Кнопка свайпающаяся
 .btn-swipe {
-  z-index: 1;
-
   &::before {
-    content         : "";
-    position        : absolute;
-    inset           : 0;
-    left            : auto;
-    width           : 0;
     background-color: var(--btn-color);
-    transition      : width 0.3s ease-in-out;
-    z-index         : -1;
+
+    @apply content-[""] absolute -z-[1] top-0 left-auto right-0 bottom-0 w-0 ease-in-out duration-3;
   }
+
+  @apply z-[1];
 
   @media(hover) {
     &:hover {
-      background-color: transparent;
-      color           : var(--btn-accent);
+      color: var(--btn-accent);
 
       &::before {
-        left : 0;
-        width: 100%;
+        @apply left-0 w-full;
       }
+
+      @apply bg-transparent;
     }
   }
 }

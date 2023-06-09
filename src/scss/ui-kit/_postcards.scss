@@ -3,16 +3,15 @@
   perspective: 600px;
 
   &-item {
-    width             : 150px;
-    height            : 150px;
     transform         : rotateX(40deg);
     transform-style   : preserve-3d;
     perspective-origin: center center;
 
+    @apply w-[150px] h-[150px];
+
     @media(hover) {
       &:hover {
         transform: translateZ(100px) rotateX(20deg);
-        z-index  : 1;
 
         &:hover .postcards-particle {
           filter: grayscale(0);
@@ -35,104 +34,88 @@
           &--3,
           &--4,
           &--5 {
-            transition-delay: 0s;
+            @apply delay-0;
           }
 
           &--6,
           &--7,
           &--8,
           &--9 {
-            transition-delay: 0.2s;
+            @apply delay-200;
           }
         }
+
+        @apply z-[1];
       }
     }
   }
 
   &-particle {
+    background-size    : 300% 300%;
     backface-visibility: hidden;
     transition         : transform 0.3s, filter 1s;
     filter             : grayscale(0.9);
 
-    background: {
-      repeat: no-repeat;
-      size  : 300% 300%;
-    }
+    @apply bg-no-repeat;
 
     &--1 {
-      background-position: center center;
+      @apply bg-center;
     }
 
     &--2 {
-      top                : 0;
-      left               : 100%;
-      background-position: center right;
-      transform          : rotateY(180deg);
-      transform-origin   : center left;
-      transition-delay   : 0.03s;
+      transform       : rotateY(180deg);
+      transform-origin: center left;
+
+      @apply top-0 left-full bg-right delay-[0.03s];
     }
 
     &--3 {
-      top                : 100%;
-      left               : 0;
-      background-position: center bottom;
-      transform          : rotateX(-180deg);
-      transform-origin   : center top;
-      transition-delay   : 0.03s;
+      transform       : rotateX(-180deg);
+      transform-origin: center top;
+
+      @apply top-full left-0 bg-bottom delay-[0.03s];
     }
 
     &--4 {
-      top                : 0;
-      left               : -100%;
-      background-position: center left;
-      transform          : rotateY(-180deg);
-      transform-origin   : center right;
-      transition-delay   : 0.03s;
+      transform       : rotateY(-180deg);
+      transform-origin: center right;
+
+      @apply top-0 -left-full bg-left delay-[0.03s];
     }
 
     &--5 {
-      top                : -100%;
-      left               : 0;
-      background-position: center top;
-      transform          : rotateX(180deg);
-      transform-origin   : center bottom;
-      transition-delay   : 0.03s;
+      transform       : rotateX(180deg);
+      transform-origin: center bottom;
+
+      @apply -top-full left-0 bg-top delay-[0.03s];
     }
 
     &--6 {
-      top                : 100%;
-      left               : 100%;
-      background-position: right bottom;
-      transform          : rotateX(-180deg);
-      transform-origin   : center top;
-      transition-delay   : 0s;
+      transform       : rotateX(-180deg);
+      transform-origin: center top;
+
+      @apply top-full left-full bg-right-bottom delay-0;
     }
 
     &--7 {
-      top                : 100%;
-      left               : -100%;
-      background-position: left bottom;
-      transform          : rotateY(180deg);
-      transform-origin   : center right;
-      transition-delay   : 0s;
+      transform       : rotateY(180deg);
+      transform-origin: center right;
+
+      @apply top-full -left-full bg-left-bottom delay-0;
     }
 
     &--8 {
-      top                : -100%;
-      left               : -100%;
-      background-position: left top;
-      transform          : rotateX(180deg);
-      transform-origin   : center bottom;
-      transition-delay   : 0s;
+      transform       : rotateX(180deg);
+      transform-origin: center bottom;
+
+      @apply -top-full -left-full bg-left-top delay-0;
     }
 
     &--9 {
-      top                : -100%;
-      left               : 100%;
-      background-position: right top;
-      transform          : rotateX(180deg);
-      transform-origin   : center left;
-      transition-delay   : 0s;
+      transform       : rotateX(180deg);
+      transform-origin: center left;
+
+      @apply -top-full left-full bg-right-top delay-0;
     }
   }
 }

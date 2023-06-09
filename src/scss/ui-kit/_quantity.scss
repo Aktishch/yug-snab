@@ -1,30 +1,16 @@
 // Поле количества
 .quantity {
-  display        : flex;
-  align-items    : center;
-  justify-content: space-between;
-  width          : 110px;
-  padding        : 5px;
-  border         : 1px solid theme("colors.gray.DEFAULT");
-  border-radius  : 40px;
+  @apply flex items-center justify-between border border-solid border-gray rounded-full w-[120px] p-1;
 
   &-btn {
-    width        : 32px;
-    min-width    : 32px;
-    height       : 32px;
-    border-radius: 50%;
+    @apply rounded-max w-[34px] min-w-[34px] h-[34px];
   }
 
   &-cover {
-    max-width: 24px;
+    @apply max-w-[34px];
   }
 
   &-input {
-    height          : auto;
-    padding         : 0;
-    background-color: transparent;
-    border          : none;
-    border-radius   : 0;
-    text-align      : center;
+    @apply bg-transparent text-center border-none h-auto p-0;
   }
 }

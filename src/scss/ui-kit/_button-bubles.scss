@@ -3,18 +3,15 @@
 
   &::before,
   &::after {
-    content          : "";
-    position         : absolute;
-    left             : 50%;
-    width            : 150%;
-    height           : 100%;
-    background-repeat: no-repeat;
-    transform        : translateX(-50%);
+    transform: translateX(-50%);
+
+    @apply content-[""] absolute left-1/2 bg-no-repeat w-[150%] h-full;
   }
 
   &::before {
-    top      : -70%;
     animation: top-bubbles 0.6s ease-in-out infinite;
+
+    @apply -top-[70%];
 
     background: {
       position: 5% 90%, 10% 90%, 10% 90%, 10% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
@@ -31,8 +28,9 @@
   }
 
   &::after {
-    bottom   : -70%;
     animation: bottom-bubbles 0.6s ease-in-out infinite;
+
+    @apply -bottom-[70%];
 
     background: {
       position: 10% 0, 30% 10%, 55% 0, 70% 0, 85% 0, 70% 0, 70% 0;

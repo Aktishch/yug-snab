@@ -3,44 +3,35 @@
   &[data-movement="light"] {
     &::after {
       background-image: radial-gradient(circle closest-side, theme("colors.white.DEFAULT"), transparent);
-      opacity         : 0.3;
+
+      @apply opacity-30;
     }
 
     @media(hover) {
       &:hover::after {
-        width : 250px;
-        height: 250px;
+        @apply w-[250px] h-[250px];
       }
     }
   }
 
   &[data-movement="blend"] {
-    position: relative;
-
     &::after {
-      background-color: theme("colors.white.DEFAULT");
-      border-radius   : 50%;
-      mix-blend-mode  : difference;
+      @apply bg-white rounded-max mix-blend-difference;
     }
+
+    @apply relative;
 
     @media(hover) {
       &:hover::after {
-        width : 70px;
-        height: 70px;
+        @apply w-[70px] h-[70px];
       }
     }
   }
 
   &::after {
-    content       : "";
-    position      : absolute;
-    top           : 0;
-    left          : 0;
-    width         : 0;
-    height        : 0;
-    transform     : translate(-50%, -50%) translate(var(--x), var(--y));
-    transition    : width 0.3s ease, height 0.3s ease;
-    z-index       : 1;
-    pointer-events: none;
+    transform : translate(-50%, -50%) translate(var(--x), var(--y));
+    transition: width 0.3s ease, height 0.3s ease;
+
+    @apply content-[""] absolute z-[1] top-0 left-0 pointer-events-none w-0 h-0;
   }
 }

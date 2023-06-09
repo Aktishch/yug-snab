@@ -1,8 +1,4 @@
 // Иконка
 .icon {
-  width    : 1em;
-  min-width: 1em;
-  height   : 1em;
-
-  @apply block;
+  @apply block w-[1em] min-w-[1em] h-[1em];
 }

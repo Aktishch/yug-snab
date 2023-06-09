@@ -18,45 +18,27 @@
 
   &::before,
   &::after {
-    content         : "";
-    background-color: transparent;
-
-    @apply absolute inset-0;
-
-    border: {
-      width : 12px;
-      color : inherit;
-      style : solid;
-      radius: inherit;
-    }
+    @apply content-[""] absolute inset-0 bg-transparent border-[12px] border-solid border-[inherit] rounded-inherit;
   }
 
   &::before {
     animation: progress 1s linear infinite;
 
-    border: {
-      left-color : transparent;
-      right-color: transparent;
-    }
+    @apply border-x-[transparent];
   }
 
   &::after {
     animation: progress 1.2s linear infinite;
 
-    border: {
-      top-color   : transparent;
-      bottom-color: transparent;
-    }
+    @apply border-y-[transparent];
   }
 
   @apply flex items-center justify-center relative text-primary rounded-max w-[100px] h-[100px];
 
   &-circle {
-    background-color: currentColor;
-    border-radius   : inherit;
-    animation       : preloader 1.2s linear infinite;
+    animation: preloader 1.2s linear infinite;
 
-    @apply w-10 h-10;
+    @apply bg-current rounded-inherit w-10 h-10;
   }
 }
 
