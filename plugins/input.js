@@ -1,11 +1,15 @@
 const plugin = require('tailwindcss/plugin')
 const { parseColor, formatColor } = require('tailwindcss/lib/util/color')
 
-module.exports = plugin(({ addComponents, theme }) => {
+module.exports = plugin(({ addComponents, matchComponents, theme }) => {
   addComponents({
     '.input-cover': {
       display: 'flex',
       width: '100%',
+
+      '& .input': {
+        flexGrow: 1,
+      },
 
       '& .input:first-child': {
         borderTopLeftRadius: '8px',
@@ -16,30 +20,22 @@ module.exports = plugin(({ addComponents, theme }) => {
         borderTopRightRadius: '8px',
         borderBottomRightRadius: '8px',
       },
-
-      '& .input:nth-child(2)': {
-        borderLeft: 'none',
-      },
     },
 
     '.input': {
-      flexGrow: 1,
+      '--input-text': theme('colors.black.DEFAULT'),
       display: 'block',
       width: '100%',
-      height: theme('size.lg'),
-      color: theme('colors.black.DEFAULT'),
+      height: 'var(--input-size)',
+      color: 'var(--input-text)',
       backgroundColor: theme('colors.white.DEFAULT'),
-      padding: '12px 16px',
-      border: `1px solid ${formatColor({
-        mode: 'rgba',
-        color: parseColor(theme('colors.gray.DEFAULT')).color,
-        alpha: 0.3,
-      })}`,
+      padding: 'calc(var(--input-size) / 4) calc(var(--input-size) / 3)',
+      border: '1px solid var(--input-color)',
       transition: '0.2s ease',
       userSelect: 'initial',
 
       '&:not(&--error):focus': {
-        borderColor: theme('colors.gray.DEFAULT'),
+        borderColor: 'var(--input-focus)',
       },
 
       '&::placeholder': {
@@ -51,9 +47,53 @@ module.exports = plugin(({ addComponents, theme }) => {
         opacity: 0.5,
       },
 
+      '&--fade': {
+        '--input-text': theme('colors.white.DEFAULT'),
+        backgroundColor: 'transparent',
+      },
+
       '&--error': {
         borderColor: theme('colors.red.DEFAULT'),
       },
+
+      '&:-webkit-autofill': {
+        borderColor: 'var(--input-color)',
+        transition: 'background-color 10000s ease-in-out 0s',
+        '-webkit-text-fill-color': 'var(--input-text) !important',
+      },
     },
   })
+
+  matchComponents(
+    {
+      input: (color) => {
+        const parsed = parseColor(color.DEFAULT)
+
+        if (!parsed.color) return null
+
+        return {
+          '--input-color': formatColor({ mode: 'rgba', color: parsed.color, alpha: 0.3 }),
+          '--input-focus': color.DEFAULT,
+        }
+      },
+    },
+
+    {
+      values: theme('colors'),
+    }
+  )
+
+  matchComponents(
+    {
+      input: (size) => {
+        return {
+          '--input-size': size,
+        }
+      },
+    },
+
+    {
+      values: theme('size'),
+    }
+  )
 })

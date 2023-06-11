@@ -14,6 +14,10 @@ html {
   @apply text-[16px];
 }
 
+body {
+  @apply bg-white font-base text-black;
+}
+
 ::selection {
   @apply text-white bg-primary;
 }
@@ -65,19 +69,6 @@ input,
 textarea,
 select {
   @apply bg-transparent outline-0;
-
-  &:-webkit-autofill {
-
-    &,
-    &:hover,
-    &:focus {
-      box-shadow                : inset 0 0 0 1000px inherit inset;
-      // transition-property    : background-color;
-      -webkit-text-fill-color   : currentColor !important;
-
-      @apply border border-solid border-[inherit] ease-in-out duration-[5000s] delay-0;
-    }
-  }
 }
 
 textarea {

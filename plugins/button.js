@@ -107,7 +107,7 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
       btn: (color) => {
         const parsed = parseColor(color.DEFAULT)
 
-        if (!parsed?.color) return null
+        if (!parsed.color) return null
 
         return {
           '--btn-color': color.DEFAULT,
