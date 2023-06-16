@@ -34,12 +34,8 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
       transition: '0.2s ease',
       userSelect: 'initial',
 
-      '&:not(&--error):focus': {
+      '&:not(&-error):focus': {
         borderColor: 'var(--input-focus)',
-      },
-
-      '&::placeholder': {
-        color: theme('colors.gray.DEFAULT'),
       },
 
       '&[disabled]': {

@@ -76,7 +76,7 @@
 
     &::before,
     &::after {
-      @apply content-[""] absolute rounded-inherit duration-500;
+      @apply content-auto absolute rounded-inherit duration-500;
     }
 
     @apply rounded-none;

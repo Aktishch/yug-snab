@@ -70,6 +70,10 @@ module.exports = {
     },
 
     extend: {
+      content: {
+        auto: '""',
+      },
+
       backgroundColor: {
         current: 'currentColor',
         inherit: 'inherit',

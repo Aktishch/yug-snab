@@ -26,8 +26,8 @@
 
   <!-- Шапка документа -->
 
-  <header class="container flex items-center justify-between fixed z-3 top-0 left-0 right-0 bg-black py-4" data-header>
-    <a class="btn w-[150px] mr-10" data-waved="light" href="/">
+  <header class="container flex items-center justify-between gap-5 fixed z-3 top-0 left-0 right-0 bg-black py-4" data-header>
+    <a class="btn btn-white w-[150px]" data-waved="light" href="/">
       <picture>
         <source srcset="img/pictures/logo.webp" type="image/webp">
         <img class="w-full" src="img/pictures/logo.png" alt="">
@@ -38,14 +38,12 @@
       <a class="btn btn-second hover:underline underline-offset-4 text-14 font-normal uppercase p-1" data-waved="light" href="primary.html">Primary-page</a>
       <a class="btn btn-second hover:underline underline-offset-4 text-14 font-normal uppercase p-1" data-waved="light" href="second.html">Second-page</a>
       <div class="nav__accordion relative" data-accordion="hidden" data-accordion-close="scroll">
-        <div class="btn btn-second hover:underline underline-offset-4 text-14 font-normal uppercase p-1" data-accordion-toggle data-waved="light">
+        <button class="btn btn-second hover:underline underline-offset-4 text-14 font-normal uppercase p-1" data-accordion-toggle data-waved="light">
           Navigation
-          <span class="nav__arrow flex items-center justify-center text-12 ml-2 ease-linear duration-3">
-            <svg class="icon">
-              <use xlink:href="img/icons.svg#arrow-right">
-            </svg>
-          </span>
-        </div>
+          <svg class="nav__arrow icon text-12 ml-2 ease-linear duration-3">
+            <use xlink:href="img/icons.svg#arrow-right">
+          </svg>
+        </button>
         <div class="nav__items absolute top-10 right-0 bg-white rounded-2 shadow-md w-full" data-accordion-content>
           <div class="flex flex-col gap-4 p-4">
             <a class="btn btn-gray hover:underline underline-offset-4 text-14" data-waved="dark" data-scroll="top" href="#header">Header</a>
@@ -68,8 +66,8 @@
 
   <div class="mobile-menu fixed inset-0 z-6 duration-1" data-mobile="hidden">
     <div class="mobile-menu__content flex flex-col bg-black bg-opacity-90 overflow-auto backdrop-blur-sm w-full max-w-[375px] h-full duration-3">
-      <div class="mobile-menu__head flex items-center justify-between gap-2 relative bg-black p-4 duration-5 delay-3">
-        <a class="btn w-[150px] mr-10" data-waved="light" href="/">
+      <div class="mobile-menu__head flex items-center justify-between gap-2 bg-black p-4 duration-5 delay-3">
+        <a class="btn btn-white w-[150px]" data-waved="light" href="/">
           <picture>
             <source srcset="img/pictures/logo.webp" type="image/webp">
             <img class="w-full" src="img/pictures/logo.png" alt="">
@@ -82,29 +80,27 @@
           </svg>
         </button>
       </div>
-      <div class="mobile-menu__nav flex flex-col gap-4 relative text-white mb-10 p-4 duration-9 delay-5">
-        <a class="hover:underline underline-offset-4 text-20 w-max" href="index.html">Front-page</a>
-        <a class="hover:underline underline-offset-4 text-20 w-max" href="primary.html">Primary</a>
-        <a class="hover:underline underline-offset-4 text-20 w-max" href="second.html">Second</a>
+      <div class="mobile-menu__nav flex flex-col items-start gap-4 text-white pt-4 pb-10 px-4 duration-9 delay-5">
+        <a class="hover:underline underline-offset-4 text-20" href="index.html">Front-page</a>
+        <a class="hover:underline underline-offset-4 text-20" href="primary.html">Primary</a>
+        <a class="hover:underline underline-offset-4 text-20" href="second.html">Second</a>
         <div class="mobile-menu__accordion" data-accordion="hidden" data-accordion-close="click">
-          <div class="flex items-center link text-20 w-max" data-accordion-toggle>
+          <button class="flex items-center hover:underline underline-offset-4 text-20" data-accordion-toggle>
             Navigation
-            <span class="mobile-menu__arrow flex items-center justify-center text-14 opacity-60 ml-2 ease-linear duration-3">
-              <svg class="icon">
-                <use xlink:href="img/icons.svg#arrow-right">
-              </svg>
-            </span>
-          </div>
+            <svg class="mobile-menu__arrow icon text-14 opacity-60 ml-2 ease-linear duration-3">
+              <use xlink:href="img/icons.svg#arrow-right">
+            </svg>
+          </button>
           <div data-accordion-content>
-            <div class="flex flex-col gap-2 mt-2 pl-5">
-              <a class="hover:underline underline-offset-4 text-18 w-max" data-scroll="top" href="#header">Header</a>
-              <a class="hover:underline underline-offset-4 text-18 w-max" data-scroll="top" href="#player">Player</a>
-              <a class="hover:underline underline-offset-4 text-18 w-max" data-scroll="top" href="#header">Header</a>
+            <div class="flex flex-col items-start gap-2 mt-2 pl-5">
+              <a class="hover:underline underline-offset-4 text-18" data-scroll="top" href="#header">Header</a>
+              <a class="hover:underline underline-offset-4 text-18" data-scroll="top" href="#player">Player</a>
+              <a class="hover:underline underline-offset-4 text-18" data-scroll="top" href="#header">Header</a>
             </div>
           </div>
         </div>
       </div>
-      <div class="mobile-menu__footer relative mt-auto px-4 pt-4 pb-10 duration-5 delay-9">
+      <div class="mobile-menu__footer mt-auto px-4 pt-4 pb-10 duration-5 delay-9">
         <div class="flex items-center justify-center gap-4">
           <% for (var i = 0; i < social.length; i++) { %>
           <button class="btn btn-second text-30 rounded-max" data-waved="dark">

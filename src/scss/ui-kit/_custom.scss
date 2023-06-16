@@ -1,6 +1,4 @@
 // Fancybox
-$close: ".carousel__button.is-close";
-
 .fancybox {
   &__spinner {
     @apply w-auto h-auto;
@@ -18,11 +16,11 @@ $close: ".carousel__button.is-close";
   &__content {
     @apply bg-transparent bg-none max-w-full p-0;
 
-    & :focus:not(#{$close}) {
+    & :focus:not(.carousel__button.is-close) {
       @apply outline-0;
     }
 
-    &>#{$close} {
+    &>.carousel__button.is-close {
       @apply fixed top-2 right-2 bg-white text-black shadow-md;
 
       @screen md {

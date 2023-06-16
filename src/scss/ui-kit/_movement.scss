@@ -32,6 +32,6 @@
     transform : translate(-50%, -50%) translate(var(--x), var(--y));
     transition: width 0.3s ease, height 0.3s ease;
 
-    @apply content-[""] absolute z-[1] top-0 left-0 pointer-events-none w-0 h-0;
+    @apply content-auto absolute z-[1] top-0 left-0 pointer-events-none w-0 h-0;
   }
 }

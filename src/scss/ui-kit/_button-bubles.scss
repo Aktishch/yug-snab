@@ -5,7 +5,7 @@
   &::after {
     transform: translateX(-50%);
 
-    @apply content-[""] absolute left-1/2 bg-no-repeat w-[150%] h-full;
+    @apply content-auto absolute left-1/2 bg-no-repeat w-[150%] h-full;
   }
 
   &::before {

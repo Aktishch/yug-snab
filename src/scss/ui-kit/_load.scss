@@ -18,7 +18,7 @@
 
   &::before,
   &::after {
-    @apply content-[""] absolute inset-0 bg-transparent border-[12px] border-solid border-[inherit] rounded-inherit;
+    @apply content-auto absolute inset-0 bg-transparent border-[12px] border-solid border-[inherit] rounded-inherit;
   }
 
   &::before {
