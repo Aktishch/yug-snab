@@ -38,7 +38,7 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
         borderColor: 'var(--input-focus)',
       },
 
-      '&[disabled]': {
+      '&:disabled': {
         pointerEvents: 'none',
         opacity: 0.5,
       },
