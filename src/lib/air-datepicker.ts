@@ -1,13 +1,16 @@
 import AirDatepicker from 'air-datepicker'
-import 'air-datepicker/air-datepicker.css'
 import localeRu from 'air-datepicker/locale/ru'
-
 import touchDevice from '../ts/functions/touch-device'
 
-const init = () => {
-  const datepickers = document.querySelectorAll('*[data-datepicker]')
+declare global {
+  interface Window {
+    excludeDates: number[]
+  }
+}
 
-  const excludeDates = [+new Date(2023, 3, 5), +new Date(2023, 3, 7), +new Date(2023, 3, 10)]
+const init = () => {
+  const datepickers = document.querySelectorAll('*[data-datepicker]') as NodeListOf<Element>
+  const excludeDates: number[] = [+new Date(2023, 5, 5), +new Date(2023, 5, 7), +new Date(2023, 5, 10)]
 
   window.excludeDates = excludeDates
 
@@ -23,7 +26,7 @@ const init = () => {
     }
   }
 
-  const calendar = new AirDatepicker('#calendar', {
+  new AirDatepicker('#calendar', {
     locale: localeRu,
     onRenderCell: renderCellHandler,
     selectedDates: [new Date()],
@@ -35,7 +38,7 @@ const init = () => {
     const inputMin = datepicker.querySelector('*[data-input="min"]')
     const inputMax = datepicker.querySelector('*[data-input="max"]')
 
-    let min = new AirDatepicker(inputMin, {
+    const min = new AirDatepicker(inputMin, {
       onSelect({ date }) {
         max.update({
           minDate: date,
@@ -49,7 +52,7 @@ const init = () => {
       position: inputMin.dataset.position || 'bottom left',
     })
 
-    let max = new AirDatepicker(inputMax, {
+    const max = new AirDatepicker(inputMax, {
       onSelect({ date }) {
         min.update({
           maxDate: date,

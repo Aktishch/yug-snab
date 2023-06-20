@@ -1,8 +1,8 @@
 import { Fancybox } from '@fancyapps/ui'
 import ru from '@fancyapps/ui/src/Fancybox/l10n/ru'
-import '@fancyapps/ui/dist/fancybox.css'
+// import '@fancyapps/ui/dist/fancybox.css'
 
-import sliderSwiper from './slider-swiper'
+import sliderSwiper from '../ts/slider-swiper'
 import airDatepicker from './air-datepicker'
 import filter from '../ts/filter'
 import waved from '../ts/waved'

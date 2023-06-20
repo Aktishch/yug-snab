@@ -1,11 +1,19 @@
-import Swiper from 'swiper/bundle'
-import 'swiper/css/bundle'
+import Swiper, { Navigation, Pagination, Scrollbar, Autoplay, Grid, Thumbs, EffectCoverflow, EffectCube } from 'swiper'
+import media from './functions/media'
+import quiz from './quiz'
 
-import media from '../ts/functions/media'
-import quiz from '../ts/quiz'
+declare global {
+  interface Window {
+    Swiper: typeof Swiper
+  }
+}
 
 const init = () => {
-  new Swiper('.gallery-slider .swiper', {
+  Swiper.use([Navigation, Pagination, Scrollbar, Autoplay, Grid, Thumbs, EffectCoverflow, EffectCube])
+  Swiper.defaults.touchStartPreventDefault = false
+  window.Swiper = Swiper
+
+  new window.Swiper('.gallery-slider .swiper', {
     pagination: {
       el: '.gallery-slider .swiper-pagination',
       clickable: true,
@@ -40,7 +48,7 @@ const init = () => {
     },
   })
 
-  new Swiper('.products-slider .swiper', {
+  new window.Swiper('.products-slider .swiper', {
     pagination: {
       el: '.products-slider .swiper-pagination',
       clickable: true,
@@ -72,14 +80,14 @@ const init = () => {
     },
   })
 
-  const quizImages = new Swiper('.quiz-images .swiper', {
+  const quizImages = new window.Swiper('.quiz-images .swiper', {
     effect: 'cube',
     slidesPerView: 1,
     slidesPerGroup: 1,
     allowTouchMove: false,
   })
 
-  new Swiper('.quiz-slider .swiper', {
+  new window.Swiper('.quiz-slider .swiper', {
     navigation: {
       prevEl: '.quiz-slider .swiper-button-prev',
       nextEl: '.quiz-slider .swiper-button-next',
@@ -89,12 +97,11 @@ const init = () => {
       el: '.quiz-slider .swiper-pagination',
       type: 'custom',
 
-      renderCustom: (swiper, current, total) => {
+      renderCustom: (swiper: Swiper, current: number, total: number): number => {
         return total - current
       },
     },
 
-    effect: 'flip',
     slidesPerView: 1,
     slidesPerGroup: 1,
     spaceBetween: 30,
@@ -102,7 +109,7 @@ const init = () => {
     watchSlidesProgress: true,
 
     on: {
-      slideChange: (swiper) => {
+      slideChange: (swiper: Swiper): void => {
         quizImages.slideTo(swiper.activeIndex)
 
         quiz.checkQuizSlide(swiper.visibleSlides[0])
@@ -116,7 +123,7 @@ const init = () => {
     },
   })
 
-  const descriptionBg = new Swiper('.description-bg .swiper', {
+  const descriptionBg = new window.Swiper('.description-bg .swiper', {
     slidesPerView: 1,
     slidesPerGroup: 1,
     spaceBetween: 30,
@@ -124,7 +131,7 @@ const init = () => {
     allowTouchMove: false,
   })
 
-  const descriptionBullets = new Swiper('.description-bullets .swiper', {
+  const descriptionBullets = new window.Swiper('.description-bullets .swiper', {
     slidesPerView: 3,
     slidesPerGroup: 1,
     spaceBetween: 20,
@@ -138,7 +145,7 @@ const init = () => {
     },
   })
 
-  const descriptionInfo = new Swiper('.description-info .swiper', {
+  const descriptionInfo = new window.Swiper('.description-info .swiper', {
     slidesPerView: 1,
     slidesPerGroup: 1,
     spaceBetween: 30,
@@ -146,7 +153,7 @@ const init = () => {
     allowTouchMove: false,
   })
 
-  new Swiper('.description-slider .swiper', {
+  new window.Swiper('.description-slider .swiper', {
     slidesPerView: 1,
     slidesPerGroup: 1,
     spaceBetween: 30,
@@ -158,14 +165,12 @@ const init = () => {
     },
 
     on: {
-      slideChange: (swiper) => {
+      slideChange: (swiper: Swiper): void => {
         descriptionBg.slideTo(swiper.activeIndex)
         descriptionInfo.slideTo(swiper.activeIndex)
       },
     },
   })
-
-  window.Swiper = Swiper
 }
 
 export default { init }

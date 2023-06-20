@@ -1,11 +1,11 @@
 // Libraries
 import fancybox from './lib/fancybox'
-import sliderSwiper from './lib/slider-swiper'
 import yandexMap from './lib/yandex-map'
 import airDatepicker from './lib/air-datepicker'
 import gsap from './lib/gsap'
 
 // Scripts
+import sliderSwiper from './ts/slider-swiper'
 // import scrollHeader from './ts/scroll-header'
 import currentTab from './ts/current-tab'
 import mobileMenu from './ts/mobile-menu'
@@ -50,6 +50,9 @@ import worldMap from './ts/world-map'
 import preloader from './ts/preloader'
 
 // Style
+import '@fancyapps/ui/dist/fancybox.css'
+import 'swiper/css/bundle'
+import 'air-datepicker/air-datepicker.css'
 import './scss/index.scss'
 
 // Connection
