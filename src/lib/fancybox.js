@@ -3,7 +3,7 @@ import ru from '@fancyapps/ui/src/Fancybox/l10n/ru'
 // import '@fancyapps/ui/dist/fancybox.css'
 
 import sliderSwiper from '../ts/slider-swiper'
-import airDatepicker from './air-datepicker'
+import airDatepicker from '../ts/air-datepicker'
 import filter from '../ts/filter'
 import waved from '../ts/waved'
 

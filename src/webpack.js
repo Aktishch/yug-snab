@@ -1,7 +1,7 @@
 // Libraries
 import fancybox from './lib/fancybox'
 import yandexMap from './lib/yandex-map'
-import airDatepicker from './lib/air-datepicker'
+import airDatepicker from './ts/air-datepicker'
 import gsap from './lib/gsap'
 
 // Scripts

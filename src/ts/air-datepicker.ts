@@ -32,16 +32,18 @@ const init = () => {
     selectedDates: [new Date()],
   })
 
-  datepickers.forEach((datepicker) => {
+  datepickers.forEach((element: Element) => {
+    const datepicker = element as HTMLElement
+
     if (!datepicker) return
 
-    const inputMin = datepicker.querySelector('*[data-input="min"]')
-    const inputMax = datepicker.querySelector('*[data-input="max"]')
+    const inputMin = datepicker.querySelector('*[data-input="min"]') as HTMLInputElement
+    const inputMax = datepicker.querySelector('*[data-input="max"]') as HTMLInputElement
 
     const min = new AirDatepicker(inputMin, {
       onSelect({ date }) {
         max.update({
-          minDate: date,
+          minDate: String(date),
         })
       },
 
@@ -55,7 +57,7 @@ const init = () => {
     const max = new AirDatepicker(inputMax, {
       onSelect({ date }) {
         min.update({
-          maxDate: date,
+          maxDate: String(date),
         })
       },
 

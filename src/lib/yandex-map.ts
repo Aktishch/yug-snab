@@ -1,16 +1,26 @@
 import ymaps from 'ymaps'
 
-const init = () => {
-  if (!document.querySelector('*[data-suggest-view]') && !document.getElementById('map')) return
+declare global {
+  interface maps {
+    Map(element: HTMLElement, options: object): void
+    Placemark(mark: number[], empty: object, options: object): void
+    SuggestView(element: Element, options: object): void
+  }
+}
+
+const init = (): void => {
+  const yandexMap = document.querySelector('#yandex-map') as HTMLElement
+
+  if (!yandexMap) return
 
   ymaps
     .load('https://api-maps.yandex.ru/2.1/?lang=ru_RU')
-    .then((maps) => {
-      const center = [45.03191007458623, 38.921171499999936]
-      const mark = [45.03191007458623, 38.921171499999936]
-      const inputs = [...document.querySelectorAll('[data-suggest-view]')]
+    .then((maps: maps): void => {
+      const center: number[] = [45.03191007458623, 38.921171499999936]
+      const mark: number[] = [45.03191007458623, 38.921171499999936]
+      const inputs: Element[] = [...document.querySelectorAll('[data-suggest-view]')]
 
-      const map = new maps.Map('map', {
+      const map = new maps.Map(yandexMap, {
         center: center,
         zoom: 16,
       })
