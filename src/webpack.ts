@@ -6,7 +6,7 @@ import airDatepicker from './ts/air-datepicker'
 import smoothScroll from './ts/smooth-scroll'
 import scrollHeader from './ts/scroll-header'
 import currentTab from './ts/current-tab'
-import mobileMenu from './ts/mobile-menu'
+import sidebar from './ts/sidebar'
 import progressLine from './ts/progress-line'
 import scrollTo from './ts/scroll-to'
 import smartMenu from './ts/smart-menu'
@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
   currentTab.init()
   smoothScroll.init()
   scrollHeader.init()
-  mobileMenu.init()
+  sidebar.init()
   progressLine.init()
   scrollTo.init()
   smartMenu.init()

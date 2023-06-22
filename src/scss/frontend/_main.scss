@@ -10,33 +10,59 @@
   }
 
   &__accordion[data-accordion="active"] &__items {
-    @apply top-6;
+    @apply top-10;
   }
 }
 
-// Мобильное меню
-.mobile-menu {
-  &[data-mobile="open"] {
+// Меню
+.menu {
+  &[data-sidebar="close"] {
+    @apply invisible opacity-0;
+  }
+
+  &[data-sidebar="close"] &__content {
+    transform: translateX(-100%);
+
+    @apply invisible opacity-0;
+  }
+
+  &[data-sidebar="close"] &__head {
+    transform: translateY(-80px);
+  }
+
+  &[data-sidebar="close"] &__nav {
+    transform: translateX(-220px);
+
+    @apply invisible opacity-0;
+  }
+
+  &[data-sidebar="close"] &__footer {
+    transform: translateY(-50px);
+
+    @apply invisible opacity-0;
+  }
+
+  &[data-sidebar="open"] {
     @apply visible opacity-100;
   }
 
-  &[data-mobile="open"] &__content {
+  &[data-sidebar="open"] &__content {
     transform: translateX(0);
 
     @apply visible opacity-100;
   }
 
-  &[data-mobile="open"] &__head {
+  &[data-sidebar="open"] &__head {
     transform: translateY(0);
   }
 
-  &[data-mobile="open"] &__nav {
+  &[data-sidebar="open"] &__nav {
     transform: translateX(0);
 
     @apply visible opacity-100;
   }
 
-  &[data-mobile="open"] &__footer {
+  &[data-sidebar="open"] &__footer {
     transform: translateY(0);
 
     @apply visible opacity-100;
@@ -46,45 +72,8 @@
     box-shadow: 0 0 0 100vw theme("colors.black.DEFAULT / 50%");
   }
 
-  &:not([data-mobile="open"]) {
-    @apply invisible opacity-0;
-  }
-
-  &:not([data-mobile="open"]) &__content {
-    transform: translateX(-100%);
-
-    @apply invisible opacity-0;
-  }
-
-  &:not([data-mobile="open"]) &__head {
-    transform: translateY(-80px);
-  }
-
-  &:not([data-mobile="open"]) &__nav {
-    transform: translateX(-220px);
-
-    @apply invisible opacity-0;
-  }
-
-  &:not([data-mobile="open"]) &__footer {
-    transform: translateY(-50px);
-
-    @apply invisible opacity-0;
-  }
-
   &__accordion[data-accordion="active"] &__arrow {
     transform: rotate(90deg);
-  }
-}
-
-// Умное меню
-.smart-menu {
-  &__block {
-    max-width: var(--xl);
-  }
-
-  &__content &__item {
-    @apply min-w-[auto];
   }
 }
 
@@ -98,7 +87,7 @@
       transform: scale(1) rotate(0);
     }
 
-    &:not([data-social-round="show"]) {
+    &[data-social-round="hidden"] {
       transform: scale(0) rotate(-180deg);
     }
   }
@@ -193,7 +182,7 @@
 
   &__range {
     &::after {
-      @apply content-auto absolute top-0 bottom-0 -right-1 bg-current rounded-max my-auto w-3 h-3;
+      @apply content-auto absolute top-0 bottom-0 -right-1 bg-current rounded-max w-3 h-3 my-auto;
     }
   }
 }

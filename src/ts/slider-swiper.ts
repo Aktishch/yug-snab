@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-const init = () => {
+const init = (): void => {
   Swiper.use([Navigation, Pagination, Scrollbar, Autoplay, Grid, Thumbs, EffectCoverflow, EffectCube])
   Swiper.defaults.touchStartPreventDefault = false
   window.Swiper = Swiper
@@ -46,7 +46,7 @@ const init = () => {
       stopOnLastSlide: false,
       disableOnInteraction: false,
     },
-  })
+  }) as Swiper
 
   new window.Swiper('.products-slider .swiper', {
     pagination: {
@@ -78,14 +78,14 @@ const init = () => {
         slidesPerView: 4,
       },
     },
-  })
+  }) as Swiper
 
   const quizImages = new window.Swiper('.quiz-images .swiper', {
     effect: 'cube',
     slidesPerView: 1,
     slidesPerGroup: 1,
     allowTouchMove: false,
-  })
+  }) as Swiper
 
   new window.Swiper('.quiz-slider .swiper', {
     navigation: {
@@ -121,7 +121,7 @@ const init = () => {
         }
       },
     },
-  })
+  }) as Swiper
 
   const descriptionBg = new window.Swiper('.description-bg .swiper', {
     slidesPerView: 1,
@@ -129,7 +129,7 @@ const init = () => {
     spaceBetween: 30,
     speed: 1000,
     allowTouchMove: false,
-  })
+  }) as Swiper
 
   const descriptionBullets = new window.Swiper('.description-bullets .swiper', {
     slidesPerView: 3,
@@ -143,7 +143,7 @@ const init = () => {
         slidesPerView: 4,
       },
     },
-  })
+  }) as Swiper
 
   const descriptionInfo = new window.Swiper('.description-info .swiper', {
     slidesPerView: 1,
@@ -151,7 +151,7 @@ const init = () => {
     spaceBetween: 30,
     speed: 1000,
     allowTouchMove: false,
-  })
+  }) as Swiper
 
   new window.Swiper('.description-slider .swiper', {
     slidesPerView: 1,
@@ -170,7 +170,7 @@ const init = () => {
         descriptionInfo.slideTo(swiper.activeIndex)
       },
     },
-  })
+  }) as Swiper
 }
 
 export default { init }

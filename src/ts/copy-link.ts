@@ -1,4 +1,4 @@
-const copyLink = (event: Event) => {
+const copyLink = (event: Event): void => {
   const copy = (event.target as HTMLButtonElement).closest('[data-copy]') as HTMLElement
   const input = copy.querySelector('*[data-copy-input]') as HTMLInputElement
 
@@ -9,7 +9,7 @@ const copyLink = (event: Event) => {
 }
 
 const init = (): void => {
-  document.addEventListener('click', ((event: Event) => {
+  document.addEventListener('click', ((event: Event): void => {
     if ((event.target as HTMLButtonElement).closest('[data-copy-button]')) copyLink(event)
   }) as EventListener)
 }

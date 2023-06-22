@@ -7,7 +7,7 @@ const init = (): void => {
 
   let flag = true
 
-  document.addEventListener('mousemove', ((event: MouseEvent) => {
+  document.addEventListener('mousemove', ((event: MouseEvent): void => {
     if (!flag) return
 
     flag = false

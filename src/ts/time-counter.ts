@@ -14,7 +14,7 @@ const init = (): void => {
     const hour: number = 60 * 60 * 1000
     const minute: number = 60 * 1000
 
-    const values = [
+    const values: number[] = [
       Math.floor(distance / day),
       Math.floor((distance % day) / hour),
       Math.floor((distance % hour) / minute),

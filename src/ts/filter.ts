@@ -35,10 +35,13 @@ const init = (): void => {
     }
 
     const currentCard = (category: HTMLElement): void => {
+      const active = categoryActive[0] as HTMLElement
       const name = String(category.dataset.filterCategory)
 
-      categoryActive[0].className = categoryActive[0].className.replace('filter-active', '')
-      category.classList.add('filter-active')
+      if (active) {
+        active.className = active.className.replace('filter-active', '')
+        category.classList.add('filter-active')
+      }
 
       if (line) {
         line.style.width = `${category.offsetWidth}px`

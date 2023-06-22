@@ -4,7 +4,7 @@ const init = (): void => {
   if (!sessionStorage.getItem('warning') && sessionStorage.getItem('warning') != 'positive')
     setTimeout((): void => fancybox.warning(), 2000)
 
-  document.addEventListener('click', ((event: Event) => {
+  document.addEventListener('click', ((event: Event): void => {
     if ((event.target as HTMLButtonElement).hasAttribute('data-positive')) {
       sessionStorage.setItem('warning', 'positive')
 
@@ -12,7 +12,7 @@ const init = (): void => {
     }
   }) as EventListener)
 
-  document.addEventListener('click', ((event: Event) => {
+  document.addEventListener('click', ((event: Event): void => {
     if ((event.target as HTMLButtonElement).hasAttribute('data-negative')) {
       const currentTab = window.open('', '_self') as Window
 

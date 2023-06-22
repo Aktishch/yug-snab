@@ -11,7 +11,7 @@ declare global {
 
 window.Fancybox = Fancybox
 
-const init = () => {
+const init = (): void => {
   window.Fancybox.defaults.trapFocus = false
   window.Fancybox.defaults.autoFocus = false
   window.Fancybox.defaults.placeFocusBack = false
@@ -25,7 +25,7 @@ const init = () => {
     mainClass: 'fancybox-custom',
 
     on: {
-      done: () => {
+      done: (): void => {
         waved.init()
       },
     },
@@ -36,7 +36,7 @@ const init = () => {
     mainClass: 'fancybox-custom',
 
     on: {
-      done: () => {
+      done: (): void => {
         airDatepicker.init()
         filter.init()
         waved.init()

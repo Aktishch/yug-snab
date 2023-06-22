@@ -6,9 +6,9 @@ const setAccordion = (element: HTMLElement): void => {
 
   const setAccordionHeight = (): void => {
     if (accordion.dataset.accordion == 'hidden') {
-      content.style.maxHeight = '0'
+      content.style.height = '0'
     } else {
-      content.style.maxHeight = `${content.scrollHeight}px`
+      content.style.height = `${content.scrollHeight}px`
     }
   }
 
@@ -39,9 +39,9 @@ const setAccordion = (element: HTMLElement): void => {
 
     accordionItemToggle.addEventListener('click', ((): void => {
       if (accordionItem.dataset.accordion == 'hidden') {
-        content.style.maxHeight = `${content.scrollHeight + accordionItemContent.scrollHeight}px`
+        content.style.height = `${content.scrollHeight + accordionItemContent.scrollHeight}px`
       } else {
-        content.style.maxHeight = `${content.scrollHeight - accordionItemContent.scrollHeight}px`
+        content.style.height = `${content.scrollHeight - accordionItemContent.scrollHeight}px`
       }
     }) as EventListener)
   })
@@ -59,7 +59,7 @@ const accordionClose = (value: string): void => {
 
     if (accordion.dataset.accordion == 'active') {
       accordion.dataset.accordion = 'hidden'
-      content.style.maxHeight = '0'
+      content.style.height = '0'
     }
   })
 }

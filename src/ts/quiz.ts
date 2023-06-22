@@ -29,7 +29,7 @@ const checkQuizSlide = (slide: HTMLElement): void => {
 }
 
 const init = (): void => {
-  document.addEventListener('input', ((event: InputEvent) => {
+  document.addEventListener('input', ((event: InputEvent): void => {
     const slide = (event.target as HTMLInputElement).closest('[data-quiz-slide]') as HTMLElement
 
     if (slide) checkQuizSlide(slide)

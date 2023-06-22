@@ -14,7 +14,7 @@
 
   <!-- Прелоадер -->
 
-  <div class="flex flex-col items-center justify-center fixed z-10 inset-0 bg-white duration-5 dark:bg-black" data-preloader>
+  <div class="flex flex-col items-center justify-center fixed z-10 inset-0 bg-white dark:bg-black duration-5" data-preloader>
     <div class="preloader">
       <div class="preloader-circle"></div>
     </div>
@@ -27,7 +27,7 @@
   <!-- Шапка документа -->
 
   <header class="header container flex items-center justify-between gap-5 fixed z-3 top-0 left-0 right-0 bg-black py-4 duration-3" data-header>
-    <a class="btn btn-white w-[150px]" data-waved="light" href="/">
+    <a class="btn btn-white w-36" data-waved="light" href="/">
       <picture>
         <source srcset="img/pictures/logo.webp" type="image/webp">
         <img class="w-full" src="img/pictures/logo.png" alt="">
@@ -44,7 +44,7 @@
             <use xlink:href="img/icons.svg#arrow-right">
           </svg>
         </button>
-        <div class="nav__items absolute top-10 right-0 bg-white rounded-2 shadow-md w-full" data-accordion-content>
+        <div class="nav__items absolute top-16 right-0 bg-white rounded-2 shadow-md w-full" data-accordion-content>
           <div class="flex flex-col gap-4 p-4">
             <a class="btn btn-gray hover:underline underline-offset-4 text-14" data-waved="dark" data-scroll="top" href="#header">Header</a>
             <a class="btn btn-gray hover:underline underline-offset-4 text-14" data-waved="dark" data-scroll="top" href="#player">Player</a>
@@ -53,41 +53,41 @@
         </div>
       </div>
     </nav>
-    <button class="btn btn-second lg:hidden text-48" data-burger data-waved="light">
+    <button class="btn btn-second lg:hidden text-48" data-sidebar-open="menu" data-waved="light">
       <svg class="icon">
         <use xlink:href="img/icons.svg#burger">
       </svg>
     </button>
   </header>
 
-  <!-- Мобильное меню -->
+  <!-- Меню -->
 
   <% var social = ['ok', 'yt', 'inst', 'tw', 'fb', 'vk'] %>
 
-  <div class="mobile-menu fixed inset-0 z-6 duration-1" data-mobile="hidden">
-    <div class="mobile-menu__content flex flex-col bg-black bg-opacity-90 overflow-auto backdrop-blur-sm w-full max-w-[375px] h-full duration-3">
-      <div class="mobile-menu__head flex items-center justify-between gap-2 bg-black p-4 duration-5 delay-3">
-        <a class="btn btn-white w-[150px]" data-waved="light" href="/">
+  <div class="menu fixed inset-0 z-6 duration-1" data-sidebar="close" data-sidebar-resize="lg" id="menu">
+    <div class="menu__content flex flex-col bg-black bg-opacity-90 overflow-auto backdrop-blur-sm w-full max-w-[375px] h-full duration-3">
+      <div class="menu__head flex items-center justify-between gap-2 bg-black p-4 duration-5 delay-3">
+        <a class="btn btn-white w-36" data-waved="light" href="/">
           <picture>
             <source srcset="img/pictures/logo.webp" type="image/webp">
             <img class="w-full" src="img/pictures/logo.png" alt="">
           </picture>
         </a>
         <input class="switch switch--toggle" data-theme="toggle" type="checkbox">
-        <button class="btn btn-second text-white text-24 p-1" data-mobile-close data-waved="light">
+        <button class="btn btn-second text-white text-24 p-1" data-sidebar-close="menu" data-waved="light">
           <svg class="icon">
             <use xlink:href="img/icons.svg#close">
           </svg>
         </button>
       </div>
-      <div class="mobile-menu__nav flex flex-col items-start gap-4 text-white pt-4 pb-10 px-4 duration-9 delay-5">
+      <div class="menu__nav flex flex-col items-start gap-4 text-white pt-4 pb-10 px-4 duration-9 delay-5">
         <a class="hover:underline underline-offset-4 text-20" href="index.html">Front-page</a>
         <a class="hover:underline underline-offset-4 text-20" href="primary.html">Primary</a>
         <a class="hover:underline underline-offset-4 text-20" href="second.html">Second</a>
-        <div class="mobile-menu__accordion" data-accordion="hidden" data-accordion-close="click">
+        <div class="menu__accordion" data-accordion="hidden" data-accordion-close="click">
           <button class="flex items-center hover:underline underline-offset-4 text-20" data-accordion-toggle>
             Navigation
-            <svg class="mobile-menu__arrow icon text-14 opacity-60 ml-2 ease-linear duration-3">
+            <svg class="menu__arrow icon text-14 opacity-60 ml-2 ease-linear duration-3">
               <use xlink:href="img/icons.svg#arrow-right">
             </svg>
           </button>
@@ -100,7 +100,7 @@
           </div>
         </div>
       </div>
-      <div class="mobile-menu__footer mt-auto px-4 pt-4 pb-10 duration-5 delay-9">
+      <div class="menu__footer mt-auto px-4 pt-4 pb-10 duration-5 delay-9">
         <div class="flex items-center justify-center gap-4">
           <% for (var i = 0; i < social.length; i++) { %>
           <button class="btn btn-second text-30 rounded-max" data-waved="dark">
@@ -126,12 +126,12 @@
       </button>
       <% } %>
     </div>
-    <button class="social__btn btn btn-primary btn-contur rounded-max shadow-md overflow-hidden pointer-events-auto w-[40px] h-[40px] p-1" data-social-button data-waved="light" id="draggable"></button>
+    <button class="social__btn btn btn-primary btn-contur rounded-max shadow-md overflow-hidden pointer-events-auto w-10 h-10 p-1" data-social-button data-waved="light" id="draggable"></button>
   </nav>
 
   <!-- Переключатель темы -->
 
-  <div class="theme hidden lg:flex items-center justify-center fixed bottom-2 z-5 bg-white rounded-4 border border-solid border-gray shadow-md w-[210px] p-4 dark:bg-black dark:border-white">
+  <div class="theme hidden lg:flex items-center justify-center fixed bottom-2 z-5 bg-white dark:bg-black rounded-4 border border-solid border-gray dark:border-white shadow-md w-[210px] p-4">
     <span class="text-14 mr-2">Темная тема</span>
     <input class="switch switch--toggle" data-theme="toggle" type="checkbox">
   </div>
@@ -144,22 +144,22 @@
 
     <!-- Умное меню -->
 
-    <nav class="smart-menu container relative z-1 <%= data.status ? '' : 'hidden' %> py-4">
-      <div class="smart-menu__block flex items-center justify-between w-full" data-menu>
-        <h2 class="font-alt font-bold text-18" data-menu-title>Smart-menu items</h2>
-        <ul class="flex justify-between gap-3" data-menu-length>
+    <nav class="container <%= data.status ? '' : 'hidden' %> relative z-1 py-4">
+      <div class="flex items-center justify-between w-full max-w-full" data-smart>
+        <h2 class="font-alt font-bold text-18" data-smart-title>Smart-menu items</h2>
+        <ul class="flex justify-between gap-3" data-smart-length>
           <% for (var i = 1; i < 9; i++) { %>
-          <li class="smart-menu__item">
-            <button class="btn btn-primary btn-lg btn-light font-semibold shadow-md min-w-max dark:bg-dark" data-waved="dark">Smart-menu item <%= i %></button>
+          <li>
+            <button class="btn btn-primary btn-lg btn-light dark:bg-dark font-semibold shadow-md min-w-max" data-waved="dark">Smart-menu item <%= i %></button>
           </li>
           <% } %>
         </ul>
-        <div class="relative min-w-max" data-menu-nav data-accordion="hidden" data-accordion-close="scroll">
+        <div class="relative min-w-max" data-smart-nav data-accordion="hidden" data-accordion-close="scroll">
           <button class="btn btn-primary btn-lg btn-fill" data-accordion-toggle data-bubbles="hidden">
-            more <span class="ml-1" data-menu-count>0</span>
+            more <span class="ml-1" data-smart-count>0</span>
           </button>
-          <div class="smart-menu__content absolute top-12 right-0 bg-white rounded-2 shadow-md min-w-[210px] dark:bg-opacity-0" data-accordion-content>
-            <ul class="flex flex-col gap-3 p-3" data-menu-list></ul>
+          <div class="absolute top-12 right-0 bg-white dark:bg-opacity-0 rounded-2 shadow-md w-[210px]" data-accordion-content>
+            <ul class="flex flex-col gap-3 p-3" data-smart-list></ul>
           </div>
         </div>
       </div>

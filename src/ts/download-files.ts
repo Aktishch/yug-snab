@@ -49,7 +49,7 @@ const init = (): File[] => {
     }
   }) as EventListener)
 
-  document.addEventListener('click', ((event: Event) => {
+  document.addEventListener('click', ((event: Event): void => {
     if ((event.target as HTMLButtonElement).closest('[data-files-remove]')) {
       const form = (event.target as HTMLInputElement).closest('[data-files') as HTMLFormElement
 

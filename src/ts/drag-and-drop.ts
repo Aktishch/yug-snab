@@ -4,7 +4,7 @@ const init = (): void => {
   const dragEvents: string[] = ['dragenter', 'dragover', 'dragleave', 'drop']
 
   dragEvents.forEach((dragEvent): void => {
-    document.addEventListener(dragEvent, ((event: DragEvent) => {
+    document.addEventListener(dragEvent, ((event: DragEvent): void => {
       if ((event.target as HTMLElement).closest('[data-drag]')) {
         event.preventDefault()
 

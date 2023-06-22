@@ -1,13 +1,13 @@
 const init = (): void => {
-  const smartMenu = document.querySelector('*[data-menu]') as HTMLElement
+  const smartMenu = document.querySelector('*[data-smart]') as HTMLElement
 
   if (!smartMenu) return
 
-  const title = smartMenu.querySelector('*[data-menu-title]') as HTMLElement
-  const length = smartMenu.querySelector('*[data-menu-length]') as HTMLElement
-  const nav = smartMenu.querySelector('*[data-menu-nav]') as HTMLButtonElement
-  const count = smartMenu.querySelector('*[data-menu-count]') as HTMLElement
-  const list = smartMenu.querySelector('*[data-menu-list]') as HTMLElement
+  const title = smartMenu.querySelector('*[data-smart-title]') as HTMLElement
+  const length = smartMenu.querySelector('*[data-smart-length]') as HTMLElement
+  const nav = smartMenu.querySelector('*[data-smart-nav]') as HTMLButtonElement
+  const count = smartMenu.querySelector('*[data-smart-count]') as HTMLElement
+  const list = smartMenu.querySelector('*[data-smart-list]') as HTMLElement
 
   const breaks: number[] = []
 
