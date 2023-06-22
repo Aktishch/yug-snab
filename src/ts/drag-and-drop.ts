@@ -4,7 +4,7 @@ const init = (): void => {
   const dragEvents: string[] = ['dragenter', 'dragover', 'dragleave', 'drop']
 
   dragEvents.forEach((dragEvent): void => {
-    document.addEventListener(dragEvent, ((event: Event) => {
+    document.addEventListener(dragEvent, ((event: DragEvent) => {
       if ((event.target as HTMLElement).closest('[data-drag]')) {
         event.preventDefault()
 
@@ -23,7 +23,7 @@ const init = (): void => {
         } else if (event.type === 'dragleave') {
           drag.classList.remove('bg-opacity-50')
         } else if (event.type === 'drop') {
-          const files = (event as any).dataTransfer.files as FileList
+          const files = (event.dataTransfer as DataTransfer).files as FileList
 
           drag.classList.remove('bg-opacity-50')
           input.files = files

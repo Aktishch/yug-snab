@@ -1,12 +1,10 @@
-// Libraries
-import fancybox from './lib/fancybox'
-import yandexMap from './lib/yandex-map'
-import airDatepicker from './ts/air-datepicker'
-import gsap from './lib/gsap'
-
 // Scripts
+import fancybox from './ts/fancybox'
 import sliderSwiper from './ts/slider-swiper'
-// import scrollHeader from './ts/scroll-header'
+import yandexMap from './ts/yandex-map'
+import airDatepicker from './ts/air-datepicker'
+import smoothScroll from './ts/smooth-scroll'
+import scrollHeader from './ts/scroll-header'
 import currentTab from './ts/current-tab'
 import mobileMenu from './ts/mobile-menu'
 import progressLine from './ts/progress-line'
@@ -16,7 +14,7 @@ import social from './ts/social'
 import draggable from './ts/draggable'
 import theme from './ts/theme'
 import snowflakes from './ts/snowflakes'
-// import animation from './ts/animation'
+import animation from './ts/animation'
 import waved from './ts/waved'
 import movement from './ts/movement'
 import bubbles from './ts/bubbles'
@@ -33,7 +31,7 @@ import formSave from './ts/form-save'
 import dragAndDrop from './ts/drag-and-drop'
 import choiceFile from './ts/choice-file'
 import copyLink from './ts/copy-link'
-import formInputs from './ts/form-inputs'
+import formInputs from './ts/inputs'
 import maskTel from './ts/mask-tel'
 import password from './ts/password'
 import quantity from './ts/quantity'
@@ -50,18 +48,17 @@ import worldMap from './ts/world-map'
 import preloader from './ts/preloader'
 
 // Style
-import '@fancyapps/ui/dist/fancybox.css'
-import 'swiper/css/bundle'
-import 'air-datepicker/air-datepicker.css'
 import './scss/index.scss'
 
 // Connection
 window.addEventListener('DOMContentLoaded', () => {
   fancybox.init()
   sliderSwiper.init()
+  yandexMap.init()
   airDatepicker.init()
   currentTab.init()
-  // scrollHeader.init()
+  smoothScroll.init()
+  scrollHeader.init()
   mobileMenu.init()
   progressLine.init()
   scrollTo.init()
@@ -70,7 +67,7 @@ window.addEventListener('DOMContentLoaded', () => {
   draggable.init()
   theme.init()
   snowflakes.init()
-  // animation.init()
+  animation.init()
   waved.init()
   movement.init()
   bubbles.init()
@@ -93,17 +90,12 @@ window.addEventListener('DOMContentLoaded', () => {
   range.init()
   player.init()
   basket.init()
+  warning.init()
   horizontalScrolling.init()
   quiz.init()
   compare.init()
   timeCounter.init()
   timer.init()
   worldMap.init()
-})
-
-window.addEventListener('load', () => {
-  yandexMap.init()
-  gsap.init()
-  warning.init()
   preloader.init()
 })

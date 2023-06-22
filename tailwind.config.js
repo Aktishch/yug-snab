@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-  content: ['./src/**/*.html', './src/ts/**/*.ts', './src/lib/**/*.js'],
+  content: ['./src/**/*.html', './src/ts/**/*.ts'],
 
   darkMode: 'class',
 
@@ -221,6 +221,6 @@ module.exports = {
     require('./plugins/input'),
     require('./plugins/button'),
     require('./plugins/switch'),
-    // require('./plugins/animation')
+    require('./plugins/animation'),
   ],
 }

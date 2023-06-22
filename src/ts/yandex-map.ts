@@ -36,7 +36,7 @@ const init = (): void => {
         }
       )
 
-      inputs.forEach((input) => {
+      inputs.forEach((input: Element): void => {
         new maps.SuggestView(input, {
           results: 5,
           container: document.body,
@@ -53,7 +53,7 @@ const init = (): void => {
       map.behaviors.disable(['scrollZoom'])
       map.geoObjects.add(placemark)
     })
-    .catch((error) => console.log('Failed to load Yandex Maps', error))
+    .catch((error: string) => console.log('Failed to load Yandex Maps', error))
 }
 
 export default { init }

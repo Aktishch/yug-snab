@@ -22,11 +22,11 @@
 
   <!-- Прогресс прокрутки страницы -->
 
-  <div class="hidden lg:block fixed inset-0 z-4 bg-primary w-0 h-1" data-progress-line></div>
+  <div class="hidden lg:block fixed inset-0 z-4 bg-primary w-0 h-1 duration-2" data-progress-line></div>
 
   <!-- Шапка документа -->
 
-  <header class="container flex items-center justify-between gap-5 fixed z-3 top-0 left-0 right-0 bg-black py-4" data-header>
+  <header class="header container flex items-center justify-between gap-5 fixed z-3 top-0 left-0 right-0 bg-black py-4 duration-3" data-header>
     <a class="btn btn-white w-[150px]" data-waved="light" href="/">
       <picture>
         <source srcset="img/pictures/logo.webp" type="image/webp">
@@ -141,27 +141,26 @@
   <div class="fixed inset-0 z-5 pointer-events-none" data-snow></div>
 
   <div id="smooth-wrapper">
-    <div id="smooth-content">
 
-      <!-- Умное меню -->
+    <!-- Умное меню -->
 
-      <nav class="smart-menu container relative z-1 <%= data.status ? '' : 'hidden' %> py-4">
-        <div class="smart-menu__block flex items-center justify-between w-full" data-menu>
-          <h2 class="font-alt font-bold text-18" data-menu-title>Smart-menu items</h2>
-          <ul class="flex justify-between gap-3" data-menu-length>
-            <% for (var i = 1; i < 9; i++) { %>
-            <li class="smart-menu__item">
-              <button class="btn btn-primary btn-lg btn-light font-semibold shadow-md min-w-max dark:bg-dark" data-waved="dark">Smart-menu item <%= i %></button>
-            </li>
-            <% } %>
-          </ul>
-          <div class="relative min-w-max" data-menu-nav data-accordion="hidden" data-accordion-close="scroll">
-            <button class="btn btn-primary btn-lg btn-fill" data-accordion-toggle data-bubbles="hidden">
-              more <span class="ml-1" data-menu-count>0</span>
-            </button>
-            <div class="smart-menu__content absolute top-12 right-0 bg-white rounded-2 shadow-md min-w-[210px] dark:bg-opacity-0" data-accordion-content>
-              <ul class="flex flex-col gap-3 p-3" data-menu-list></ul>
-            </div>
+    <nav class="smart-menu container relative z-1 <%= data.status ? '' : 'hidden' %> py-4">
+      <div class="smart-menu__block flex items-center justify-between w-full" data-menu>
+        <h2 class="font-alt font-bold text-18" data-menu-title>Smart-menu items</h2>
+        <ul class="flex justify-between gap-3" data-menu-length>
+          <% for (var i = 1; i < 9; i++) { %>
+          <li class="smart-menu__item">
+            <button class="btn btn-primary btn-lg btn-light font-semibold shadow-md min-w-max dark:bg-dark" data-waved="dark">Smart-menu item <%= i %></button>
+          </li>
+          <% } %>
+        </ul>
+        <div class="relative min-w-max" data-menu-nav data-accordion="hidden" data-accordion-close="scroll">
+          <button class="btn btn-primary btn-lg btn-fill" data-accordion-toggle data-bubbles="hidden">
+            more <span class="ml-1" data-menu-count>0</span>
+          </button>
+          <div class="smart-menu__content absolute top-12 right-0 bg-white rounded-2 shadow-md min-w-[210px] dark:bg-opacity-0" data-accordion-content>
+            <ul class="flex flex-col gap-3 p-3" data-menu-list></ul>
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>

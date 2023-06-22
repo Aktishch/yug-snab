@@ -33,7 +33,7 @@
     @apply border-y-[transparent];
   }
 
-  @apply flex items-center justify-center relative text-primary rounded-max w-[100px] h-[100px];
+  @apply flex items-center justify-center relative bg-transparent text-primary rounded-max w-[100px] h-[100px];
 
   &-circle {
     animation: preloader 1.2s linear infinite;

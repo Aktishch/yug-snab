@@ -1,5 +1,5 @@
+import fancybox from './fancybox'
 import formValidate from './functions/form-validate'
-import dialog from './functions/dialog'
 
 const formSubmit = (event: Event, data: File[]): void => {
   event.preventDefault()
@@ -22,7 +22,7 @@ const formSubmit = (event: Event, data: File[]): void => {
     requestUrl = './ajax/submit-handler.php'
     submitBtn.setAttribute('disabled', 'disabled')
 
-    dialog.preloader()
+    fancybox.preloader()
 
     fetch(requestUrl, {
       method: 'POST',
@@ -32,9 +32,9 @@ const formSubmit = (event: Event, data: File[]): void => {
         return response.text()
       })
       .then((response: any): void => {
-        dialog.close()
+        fancybox.close()
 
-        dialog.open('./dialogs/dialog-submit.html')
+        fancybox.open('./dialogs/dialog-submit.html')
 
         form.reset()
 
@@ -56,9 +56,9 @@ const formSubmit = (event: Event, data: File[]): void => {
   if (form.dataset.form == 'params') {
     requestUrl = `./dialogs/dialog-authorization.html?${queryString}`
 
-    dialog.close()
+    fancybox.close()
 
-    dialog.open(requestUrl)
+    fancybox.open(requestUrl)
   }
 }
 

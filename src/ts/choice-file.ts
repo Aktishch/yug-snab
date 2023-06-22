@@ -1,5 +1,5 @@
+import fancybox from './fancybox'
 import fileHandler from './functions/file-handler'
-import dialog from './functions/dialog'
 
 const choiceFile = (event: Event): void => {
   const form = (event.target as HTMLInputElement).closest('[data-form]') as HTMLFormElement
@@ -24,7 +24,7 @@ const choiceFile = (event: Event): void => {
         const requestUrl = './ajax/submit-handler.php'
         const avatar = document.querySelector('*[data-avatar]') as HTMLImageElement
 
-        dialog.preloader()
+        fancybox.preloader()
 
         fetch(requestUrl, {
           method: 'POST',
@@ -36,7 +36,7 @@ const choiceFile = (event: Event): void => {
           .then((response: any): void => {
             avatar.src = String(readFile.result)
 
-            dialog.close()
+            fancybox.close()
           })
           .catch((error: string): void => console.log('The form has not been sent', error))
       } else {

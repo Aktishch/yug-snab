@@ -45,7 +45,7 @@ module.exports = {
   mode: 'production',
 
   entry: {
-    filename: path.resolve(__dirname, 'src/webpack.js'),
+    filename: path.resolve(__dirname, 'src/webpack.ts'),
   },
 
   resolve: {

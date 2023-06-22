@@ -1,14 +1,14 @@
-import dialog from './functions/dialog'
+import fancybox from './fancybox'
 
 const init = (): void => {
   if (!sessionStorage.getItem('warning') && sessionStorage.getItem('warning') != 'positive')
-    setTimeout((): void => dialog.warning(), 2000)
+    setTimeout((): void => fancybox.warning(), 2000)
 
   document.addEventListener('click', ((event: Event) => {
     if ((event.target as HTMLButtonElement).hasAttribute('data-positive')) {
       sessionStorage.setItem('warning', 'positive')
 
-      dialog.close()
+      fancybox.close()
     }
   }) as EventListener)
 

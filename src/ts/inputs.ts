@@ -11,10 +11,6 @@ const inputNumber = (event: Event): void => {
   input.value = input.value.replace(/^\.|[^\d.]|\.(?=.*\.)|^0+(?=\d)/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 }
 
-const inputEmail = (input: HTMLInputElement): boolean => {
-  return !/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,8})+$/.test(input.value)
-}
-
 const init = (): void => {
   document.addEventListener('input', ((event: Event): void => {
     if ((event.target as HTMLElement).getAttribute('data-input') == 'name') inputName(event)
@@ -23,4 +19,4 @@ const init = (): void => {
   }) as EventListener)
 }
 
-export default { init, inputEmail }
+export default { init }

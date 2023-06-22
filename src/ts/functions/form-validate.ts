@@ -1,5 +1,4 @@
 import fileHandler from './file-handler'
-import formInputs from '../form-inputs'
 
 const init = (form: HTMLFormElement): boolean => {
   const labels = form.querySelectorAll('*[data-label="input"]') as NodeListOf<Element>
@@ -37,6 +36,10 @@ const init = (form: HTMLFormElement): boolean => {
         }
       }
 
+      const emailFormat = (value: string): boolean => {
+        return !/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,8})+$/.test(value)
+      }
+
       if (input.value == null || input.value == '' || input.value.length == 0) {
         inputError()
       } else {
@@ -61,7 +64,7 @@ const init = (form: HTMLFormElement): boolean => {
       }
 
       if (input.dataset.input == 'email') {
-        if (formInputs.inputEmail(input)) inputError()
+        if (emailFormat(input.value)) inputError()
       }
 
       if (input.dataset.input == 'select') {
