@@ -25,6 +25,8 @@
 // Slider-swiper
 .swiper {
   &-pagination {
+    @apply flex items-center justify-center static;
+
     & &-bullet {
       @apply bg-current w-3 h-3 duration-2;
     }

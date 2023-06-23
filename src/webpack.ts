@@ -51,7 +51,7 @@ import preloader from './ts/preloader'
 import './scss/index.scss'
 
 // Connection
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', ((): void => {
   fancybox.init()
   sliderSwiper.init()
   yandexMap.init()
@@ -98,4 +98,4 @@ window.addEventListener('DOMContentLoaded', () => {
   timer.init()
   worldMap.init()
   preloader.init()
-})
+}) as EventListener)

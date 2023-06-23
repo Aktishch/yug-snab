@@ -140,6 +140,44 @@
 
   <div class="fixed inset-0 z-5 pointer-events-none" data-snow></div>
 
+  <!-- Корзина -->
+
+  <div class="basket fixed z-1 top-2/4 left-0 md:left-auto right-0 md:right-10 bg-white dark:bg-black dark:text-white rounded-4 -translate-y-1/2 shadow-md invisible opacity-0 w-full max-w-[320px] mx-auto p-5 duration-3" data-basket="hidden">
+    <div class="flex items-center justify-between mb-4">
+      <h4 class="font-alt font-semibold text-24 mr-3">Product in basket</h4>
+      <button class="btn btn-primary text-18 rounded-1 p-1" data-basket-close data-waved="light">
+        <svg class="icon">
+          <use xlink:href="img/icons.svg#close">
+        </svg>
+      </button>
+    </div>
+    <div class="flex items-center mb-4">
+      <div class="pack pack-box bg-grey rounded-4 w-full max-w-[100px] mr-5">
+        <div class="loader">
+          <span class="loader-progress">
+            <svg class="loader-icon icon">
+              <use xlink:href="img/icons.svg#loader">
+            </svg>
+          </span>
+        </div>
+        <picture>
+          <img class="image" data-basket-image src="https://picsum.photos/600/400?random=5" loading="lazy" alt="">
+        </picture>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-bold text-18 md:text-20 mb-3" data-basket-name>Name 4</span>
+        <span class="text-20 md:text-24" data-basket-quantity>4 шт</span>
+      </div>
+    </div>
+    <div class="flex items-end justify-between gap-2">
+      <div class="flex flex-col">
+        <span class="line-through text-12 md:text-16 opacity-60" data-basket-oldprice>8 000$</span>
+        <span class="font-semibold text-20 md:text-24" data-basket-price>7 000$</span>
+      </div>
+      <button class="btn btn-second btn-lg btn-fade px-10" data-waved="dark">Basket</button>
+    </div>
+  </div>
+
   <div id="smooth-wrapper">
 
     <!-- Умное меню -->

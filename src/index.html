@@ -9,7 +9,7 @@
 
 <!-- Главный блок -->
 
-<main class="container flex flex-col items-center justify-center min-h-[500px] lg:min-h-[600px]" id="header">
+<main class="container flex flex-col items-center justify-center bg-white dark:bg-black min-h-[500px] lg:min-h-[600px]" id="header">
   <img class="block mb-10" data-gsap="right" src="img/pictures/logo.svg" alt="">
   <h1 class="font-alt font-bold text-center text-48 lg:text-6xl leading-2 mb-5 md:mb-10" data-movement="blend">Main block</h1>
   <a class="btn btn-primary btn-lg btn-fill btn-glow max-w-[200px] w-full mx-auto" data-waved="light" data-scroll="top" href="#content">Show more</a>
@@ -22,33 +22,29 @@
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam repudiandae maxime quia culpa, est voluptatum hic at ipsa error officiis magni dolores molestiae inventore ipsum perferendis reiciendis sunt nesciunt possimus?'
   },
   {
-    item: '',
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
   },
   {
-    item: '',
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam repudiandae maxime quia culpa, est voluptatum hic at ipsa error officiis magni dolores molestiae inventore ipsum perferendis reiciendis sunt nesciunt possimus? Lorem ipsum dolor sit amet consectetur adipisicing elit.'
   },
   {
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam repudiandae maxime quia culpa, est voluptatum hic at ipsa error officiis magni dolores molestiae inventore ipsum perferendis reiciendis sunt nesciunt possimus?'
   },
   {
-    item: '',
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
   },
   {
-    item: '',
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam repudiandae maxime quia culpa, est voluptatum hic at ipsa error officiis magni dolores molestiae inventore ipsum perferendis reiciendis sunt nesciunt possimus? Lorem ipsum dolor sit amet consectetur adipisicing elit.'
   }
 ] %>
 
 <section class="container container--xs container--distance flex flex-col items-center justify-center bg-grey dark:bg-dark" data-listing="1" id="content">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3" data-movement="blend">Cards</h2>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 duration-5 anim anim--up" data-anim="hidden" data-movement="blend">Cards</h2>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Construction and effect</h3>
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-8 w-full mb-5 md:md-10">
     <% for (var i = 0; i < 3; i++) { %>
-    <div class="<% if (articles[i].item) { %><%= articles[i].item %><% } %>">
-      <article class="card h-full dark:bg-black">
+    <div class="duration-7 anim anim--up" data-anim="hidden">
+      <article class="card dark:bg-black h-full">
         <div class="pack pack-rect-md bg-grey dark:bg-dark" data-movement="light">
           <div class="loader">
             <span class="loader-progress">
@@ -72,7 +68,7 @@
   </div>
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-8 w-full">
     <% for (var i = 3; i < articles.length; i++) { %>
-    <div class="hidden sm:block <% if (articles[i].item) { %><%= articles[i].item %><% } %>" data-listing-item>
+    <div class="hidden sm:block" data-listing-item>
       <article class="inverted h-full">
         <div class="inverted-before card dark:bg-black">
           <div class="pack pack-half bg-grey dark:bg-dark">
@@ -109,7 +105,7 @@
 
 <% var buttons = ['', 'btn-contur', 'btn-fade', 'btn-contur btn-fade', 'btn-fill', 'btn-light', 'btn-xxl', 'btn-xl', 'btn-lg', 'btn-md', 'btn-sm', 'btn-xs', 'btn-contur btn-swipe', 'btn-fill btn-glow', 'data-waved="light"', 'data-waved="dark"', 'data-bubbles="hidden"', 'btn-rect', 'btn-frame', 'btn-lines'] %>
 
-<section class="container container--xs flex flex-col items-center justify-center overflow-hidden">
+<section class="container container--xs flex flex-col items-center justify-center bg-white dark:bg-black overflow-hidden">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3" data-movement="blend">Buttons</h2>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Buttons standard</h3>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10">
@@ -168,10 +164,10 @@
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Drop-down list</h3>
   <div class="flex flex-col gap-5 w-full">
     <% for (var i = 0; i < accordion.length; i++) { %>
-    <div class="documents__accordion relative bg-second bg-opacity-10 rounded-4 shadow-md overflow-hidden py-4 px-4 md:py-6" data-accordion="<%= accordion[i].data %>">
+    <div class="documents__accordion relative bg-second bg-opacity-10 rounded-4 shadow-md overflow-hidden py-4 md:py-6 px-4" data-accordion="<%= accordion[i].data %>">
       <div class="flex items-center justify-between gap-4">
         <h4 class="font-alt font-semibold text-16 md:text-20">Documents - <%= accordion[i].number %></h4>
-        <button class="btn btn-primary btn-fill text-14 rounded-max w-[36px] h-[36px]" data-accordion-toggle data-waved="light">
+        <button class="btn btn-primary btn-fill text-14 rounded-max w-9 h-9" data-accordion-toggle data-waved="light">
           <svg class="documents__arrow icon text-14 duration-3">
             <use xlink:href="img/icons.svg#arrow-right">
           </svg>
@@ -180,7 +176,7 @@
       <div data-accordion-content>
         <div class="flex flex-col gap-3 pt-4">
           <% for (var j = 0; j < accordion[i].items; j++) { %>
-          <a class="flex items-center gap-4 relative hover:underline underline-offset-4 bg-white rounded-2 p-3 dark:bg-black" data-waved="dark" href="javascript: ;">
+          <a class="flex items-center gap-4 relative hover:underline underline-offset-4 bg-white dark:bg-black rounded-2 p-3" data-waved="dark" href="javascript: ;">
             <div class="icon flex items-center justify-center bg-primary bg-opacity-10 text-primary text-48 rounded-2">
               <svg class="icon text-24">
                 <use xlink:href="img/icons.svg#file">
@@ -229,10 +225,10 @@
   }
 ] %>
 
-<section class="filtering container flex flex-col items-center bg-white text-white bg-no-repeat bg-center bg-cover overflow-hidden min-h-screen dark:bg-black" data-section data-bg="img/pictures/town-grey.jpg" data-bg-webp="img/pictures/town-grey.webp">
+<section class="filtering container flex flex-col items-center bg-white dark:bg-black text-white bg-no-repeat bg-center bg-cover overflow-hidden min-h-screen" data-section data-bg="img/pictures/town-grey.jpg" data-bg-webp="img/pictures/town-grey.webp">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3" data-movement="blend">Filter</h2>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">paralax, form and other...</h3>
-  <div class="relative max-w-xl w-full mx-auto" data-filter>
+  <div class="relative w-full max-w-xl mx-auto" data-filter>
     <picture>
       <img class="filtering__circle filtering__circle--grey icon absolute z-1 top-20 -left-8 text-6xl drop-shadow-md pointer-events-none ease-linear duration-2" data-parallax="layer" src="img/pictures/circle-grey.png" alt="">
     </picture>
@@ -261,11 +257,11 @@
           <% } %>
         </ul>
         <p class="text-primary mt-5">
-          <q class="bg-grey font-semibold text-justify text-18 box-decoration-clone leading-9 shadow-md rounded-4 py-1 px-3" data-record="Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ex omnis, ut dolorem dolore enim expedita?" data-record-speed="50"></q>
+          <q class="bg-grey font-semibold text-justify text-18 leading-9 box-decoration-clone shadow-md rounded-4 py-1 px-3" data-record="Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ex omnis, ut dolorem dolore enim expedita?" data-record-speed="50"></q>
         </p>
       </div>
       <div class="filtering__card hidden" data-filter-card="category-2">
-        <form class="form max-w-[400px] w-full mx-auto" data-form="submit" data-files data-datepicker id="form-data">
+        <form class="form w-full max-w-[400px] mx-auto" data-form="submit" data-files data-datepicker id="form-data">
           <input type="hidden" value="Главная" name="theme">
           <label class="form-label mb-5" data-label="input">
             <span class="text-20 mb-3">Name</span>
@@ -356,7 +352,7 @@
           </div>
           <ul class="flex flex-col gap-1 text-12" data-files-listing></ul>
           <button class="btn btn-second btn-lg btn-fill mb-5" data-waved="dark" type="submit">Submit</button>
-          <div class="hover:underline underline-offset-4 cursor-pointer text-second text-18 w-max mx-auto" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-politics.html">Privacy policy</div>
+          <div class="hover:underline underline-offset-4 text-second text-18 cursor-pointer w-max mx-auto" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-politics.html">Privacy policy</div>
         </form>
       </div>
       <div class="filtering__card hidden" data-filter-card="category-3">
@@ -395,7 +391,7 @@
             <% } %>
           </div>
           <h4 class="font-semibold text-24">Range:</h4>
-          <div class="range w- max-w-[350px]" data-range>
+          <div class="range w-full max-w-[350px]" data-range>
             <div class="flex items-center justify-between mb-4">
               <span class="text-16">Value</span>
               <output class="text-16 opacity-60" data-range-output></output>
@@ -433,9 +429,9 @@
         </div>
       </div>
       <div class="filtering__card hidden" data-filter-card="category-4">
-        <div class="max-w-xs mx-auto" id="copy">
+        <div class="w-full max-w-xs mx-auto" id="copy">
           <div class="flex items-center gap-3 w-full mb-5">
-            <div class="pack pack-box bg-primary bg-opacity-40 rounded-max cursor-pointer max-w-[40px] w-full" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-avatar.html">
+            <div class="pack pack-box bg-primary bg-opacity-40 rounded-max cursor-pointer w-full max-w-[40px]" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-avatar.html">
               <div class="flex items-center justify-center absolute inset-0">
                 <svg class="icon text-white text-14">
                   <use xlink:href="img/icons.svg#user">

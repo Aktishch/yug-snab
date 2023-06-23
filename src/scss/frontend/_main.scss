@@ -128,6 +128,24 @@
   }
 }
 
+// Корзина
+.basket {
+  &:not([data-basket="show"]) {
+    transform: translateY(-40%);
+  }
+}
+
+// В корзину
+.in-basket {
+  animation: in-basket 2s ease both;
+}
+
+@keyframes in-basket {
+  100% {
+    @apply -top-[10%] left-[90%];
+  }
+}
+
 // Документы
 .documents {
   &__accordion[data-accordion="active"] &__arrow {
@@ -209,25 +227,6 @@
         @apply visible opacity-100;
       }
     }
-  }
-
-}
-
-// Корзина
-.basket {
-  &:not([data-basket="show"]) {
-    transform: translateY(-40%);
-  }
-}
-
-// В корзину
-.in-basket {
-  animation: in-basket 2s ease both;
-}
-
-@keyframes in-basket {
-  100% {
-    @apply -top-[10%] left-[90%];
   }
 }
 

@@ -13,12 +13,12 @@
 
 <% var grid = ['lg:row-5', 'lg:row-4', 'lg:row-5', 'lg:row-5', 'lg:row-4', 'lg:row-4'] %>
 
-<section class="container flex flex-col items-center justify-center overflow-hidden" id="content">
+<section class="container flex flex-col items-center justify-center bg-white dark:bg-black overflow-hidden" id="content">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3" data-movement="blend">GridBox</h2>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10" data-movement="blend">Columns and rows</h3>
   <div class="grid grid-flow-row-dense grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5 lg:gap-8 w-full">
     <% for (var i = 0; i < grid.length; i++) { %>
-    <a class="<%= grid[i] %> pack pack-box bg-grey rounded-3 shadow-md dark:bg-dark" data-movement="light" data-fancybox="grid" href="https://picsum.photos/600/400?random=<%= i %>">
+    <a class="<%= grid[i] %> pack pack-box bg-grey dark:bg-dark rounded-3 shadow-md" data-movement="light" data-fancybox="grid" href="https://picsum.photos/600/400?random=<%= i %>">
       <div class="loader">
         <span class="loader-progress">
           <svg class="loader-icon icon">
@@ -38,7 +38,7 @@
 
 <section class="container container--distance flex flex-col items-center justify-between bg-grey dark:bg-dark">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10" data-movement="blend">Comparison</h2>
-  <div class="relative bg-grey rounded-4 overflow-hidden w-full dark:bg-dark" data-compare>
+  <div class="relative bg-grey dark:bg-dark rounded-4 overflow-hidden w-full" data-compare>
     <div class="loader">
       <span class="loader-progress">
         <svg class="loader-icon icon">
@@ -56,7 +56,7 @@
       <source srcset="img/pictures/town.webp" type="image/webp">
       <img class="block relative w-full h-full" src="img/pictures/town.jpg" loading="lazy" alt="">
     </picture>
-    <div class="flex items-center justify-center absolute top-0 bottom-0 left-2/4 z-2 -translate-x-1/2 bg-white w-1 h-[95%] my-auto dark:bg-black" data-compare-change>
+    <div class="flex items-center justify-center absolute top-0 bottom-0 left-2/4 z-2 bg-white dark:bg-black -translate-x-1/2 w-1 h-[95%] my-auto" data-compare-change>
       <button class="btn btn-primary btn-fill text-20 rounded-max cursor-col-resize w-[50px] min-w-[50px] h-[50px]">
         <svg class="icon">
           <use xlink:href="img/icons.svg#arrows">
@@ -68,10 +68,10 @@
 
 <!-- Сортировка -->
 
-<section class="container container--xs flex flex-col items-center justify-center">
+<section class="container container--xs flex flex-col items-center justify-center bg-white dark:bg-black">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10" data-movement="blend">Sorting</h2>
-  <div class="filtering max-w-xl w-full mx-auto" data-filter>
-    <div class="flex flex-col md:flex-row items-center justify-between gap-0 md:gap-4 relative bg-grey md:bg-opacity-0 text-second md:text-black rounded-4 md:rounded-none md:border-b md:border-solid md:border-white overflow-hidden mb-5 md:mb-10 md:pb-4 dark:text-white">
+  <div class="filtering w-full max-w-xl mx-auto" data-filter>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-0 md:gap-4 relative bg-grey md:bg-opacity-0 text-second md:text-black dark:text-white rounded-4 md:rounded-none md:border-b md:border-solid md:border-white overflow-hidden mb-5 md:mb-10 md:pb-4">
       <div class="filtering__category filter-active flex-grow text-center text-20 cursor-pointer w-full p-4 md:p-0" data-filter-category="all">all</div>
       <div class="filtering__category flex-grow text-center text-20 cursor-pointer w-full p-4 md:p-0" data-filter-category="category-1">Primary</div>
       <div class="filtering__category flex-grow text-center text-20 cursor-pointer w-full p-4 md:p-0" data-filter-category="category-2">Second</div>
@@ -95,24 +95,24 @@
 
 <section class="container container--xs container--distance flex flex-col items-center justify-center bg-grey dark:bg-dark">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10" data-movement="blend">Counter of time</h2>
-  <div class="flex items-center justify-center bg-white text-primary rounded-6 shadow-md w-full py-7 px-4 md:py-10 md:px-10 dark:bg-black" data-counter>
+  <div class="flex items-center justify-center bg-white dark:bg-black text-primary rounded-6 shadow-md w-full py-7 md:py-10 px-4 md:px-10" data-counter>
     <h3 class="hidden font-alt font-semibold text-center text-20 md:text-30 leading-2 w-full" data-counter-subtitle>Times up</h3>
-    <div class="flex justify-between gap-4 w-full" data-counter-timer>
+    <div class="flex justify-between gap-4 text-center w-full" data-counter-timer>
       <time class="flex flex-col items-center justify-center">
-        <span class="font-semibold text-center text-24 md:text-30" data-counter-unit>0</span>
-        <span class="text-center text-16 md:text-24">Days</span>
+        <span class="font-semibold text-24 md:text-30" data-counter-unit>0</span>
+        <span class="text-16 md:text-24">Days</span>
       </time>
       <time class="flex flex-col items-center justify-center">
-        <span class="font-semibold text-center text-24 md:text-30" data-counter-unit>0</span>
-        <span class="text-center text-16 md:text-24">Hours</span>
+        <span class="font-semibold text-24 md:text-30" data-counter-unit>0</span>
+        <span class="text-16 md:text-24">Hours</span>
       </time>
       <time class="flex flex-col items-center justify-center">
-        <span class="font-semibold text-center text-24 md:text-30" data-counter-unit>0</span>
-        <span class="text-center text-16 md:text-24">Minutes</span>
+        <span class="font-semibold text-24 md:text-30" data-counter-unit>0</span>
+        <span class="text-16 md:text-24">Minutes</span>
       </time>
       <time class="flex flex-col items-center justify-center">
-        <span class="font-semibold text-center text-24 md:text-30" data-counter-unit>0</span>
-        <span class="text-center text-16 md:text-24">Seconds</span>
+        <span class="font-semibold text-24 md:text-30" data-counter-unit>0</span>
+        <span class="text-16 md:text-24">Seconds</span>
       </time>
     </div>
   </div>
@@ -120,13 +120,13 @@
 
 <!-- Время -->
 
-<section class="timer container container--xs flex flex-col items-center justify-center">
+<section class="timer container container--xs flex flex-col items-center justify-center bg-white dark:bg-black">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10" data-movement="blend">Timer</h2>
   <div class="flex flex-col items-center justify-center relative bg-primary rounded-max w-full max-w-[300px] h-[300px] mx-auto" data-timer>
     <div class="timer__stopwatch flex flex-col items-center absolute top-0 left-0 right-0 text-second origin-bottom pointer-events-none w-0.5 h-1/2 mx-auto ease-in-out duration-1" data-timer-stopwatch></div>
     <time class="text-white text-center text-24 font-semibold mb-5" data-timer-units></time>
     <div class="flex items-center justify-center gap-4">
-      <button class="btn btn-second btn-fade text-36 rounded-max w-[40px] min-w-[40px] h-[40px]" data-timer-turn data-waved="dark">
+      <button class="btn btn-second btn-fade text-36 rounded-max w-10 h-10" data-timer-turn data-waved="dark">
         <svg class="icon">
           <use xlink:href="img/icons.svg#play">
         </svg>
@@ -138,7 +138,7 @@
 
 <!-- Открытка -->
 
-<section class="container container--distance flex flex-col items-center justify-center bg-grey overflow-hidden dark:bg-dark">
+<section class="container container--distance flex flex-col items-center justify-center bg-grey dark:bg-dark overflow-hidden">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10" data-movement="blend">Postcards</h2>
   <div class="postcards flex flex-wrap items-center justify-center gap-10 w-full">
     <% for (var i = 0; i < 3; i++) { %>
@@ -166,9 +166,9 @@
 
 <!-- Мир -->
 
-<section class="container" data-world>
+<section class="container bg-white dark:bg-black" data-world>
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10" data-movement="blend">World map</h2>
-  <div class="bg-grey rounded-5 p-5 lg:p-10 dark:bg-dark" id="country">
+  <div class="bg-grey dark:bg-dark rounded-5 p-5 lg:p-10" id="country">
     <%= require('./includes/world-map.html').default %>
     <div class="flex items-center justify-center mt-5 md:mt-10">
       <img class="icon text-40 md:text-50 mr-5" data-world-flag src="img/pictures/russia.svg" alt="">
