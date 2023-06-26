@@ -6,7 +6,6 @@ module.exports = plugin(
       '.dialog': {
         color: theme('colors.black.DEFAULT'),
         backgroundColor: theme('colors.white.DEFAULT'),
-        maxWidth: '100%',
       },
     })
 

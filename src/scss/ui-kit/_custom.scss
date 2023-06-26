@@ -14,11 +14,7 @@
   }
 
   &-custom &__content>.f-button.is-close-btn {
-    @apply fixed top-2 right-2 bg-white text-black rounded-max shadow-md;
-
-    @screen md {
-      @apply absolute;
-    }
+    @apply top-2 right-2 bg-white text-black rounded-max shadow-md;
   }
 }
 

@@ -12,17 +12,15 @@ declare global {
 window.Fancybox = Fancybox
 
 const init = (): void => {
+  window.Fancybox.defaults.mainClass = 'fancybox-custom'
   window.Fancybox.defaults.trapFocus = false
   window.Fancybox.defaults.autoFocus = false
   window.Fancybox.defaults.placeFocusBack = false
 
-  window.Fancybox.bind('[data-fancybox]', {
-    mainClass: 'fancybox-custom',
-  })
+  window.Fancybox.bind('[data-fancybox]')
 
   window.Fancybox.bind('[data-fancybox-dialog]', {
     dragToClose: false,
-    mainClass: 'fancybox-custom',
 
     on: {
       done: (): void => {
@@ -33,7 +31,6 @@ const init = (): void => {
 
   window.Fancybox.bind('[data-fancybox-calendar]', {
     dragToClose: false,
-    mainClass: 'fancybox-custom',
 
     on: {
       done: (): void => {
@@ -56,7 +53,6 @@ const open = (requestUrl: string): void => {
 
     {
       dragToClose: false,
-      mainClass: 'fancybox-custom',
     }
   )
 }
@@ -78,7 +74,6 @@ const preloader = (): void => {
       dragToClose: false,
       closeButton: false,
       backdropClick: true,
-      mainClass: 'fancybox-custom',
     }
   )
 }
@@ -96,7 +91,6 @@ const warning = (): void => {
       dragToClose: false,
       closeButton: false,
       backdropClick: true,
-      mainClass: 'fancybox-custom',
     }
   )
 }

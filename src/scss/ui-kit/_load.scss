@@ -38,7 +38,7 @@
   &-circle {
     animation: preloader 1.2s linear infinite;
 
-    @apply bg-current rounded-inherit w-10 h-10;
+    @apply bg-current rounded-inherit w-10 min-w-[40px] h-10 min-h-[40px];
   }
 }
 

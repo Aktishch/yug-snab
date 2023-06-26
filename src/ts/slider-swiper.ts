@@ -8,11 +8,11 @@ declare global {
   }
 }
 
-const init = (): void => {
-  Swiper.use([Navigation, Pagination, Scrollbar, Autoplay, Grid, Thumbs, EffectCoverflow, EffectCube])
-  Swiper.defaults.touchStartPreventDefault = false
-  window.Swiper = Swiper
+Swiper.use([Navigation, Pagination, Scrollbar, Autoplay, Grid, Thumbs, EffectCoverflow, EffectCube])
+Swiper.defaults.touchStartPreventDefault = false
+window.Swiper = Swiper
 
+const init = (): void => {
   new window.Swiper('.gallery-slider .swiper', {
     pagination: {
       el: '.gallery-slider .swiper-pagination',
