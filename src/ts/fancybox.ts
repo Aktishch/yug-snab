@@ -53,6 +53,12 @@ const open = (requestUrl: string): void => {
 
     {
       dragToClose: false,
+
+      on: {
+        done: (): void => {
+          waved.init()
+        },
+      },
     }
   )
 }
@@ -91,6 +97,12 @@ const warning = (): void => {
       dragToClose: false,
       closeButton: false,
       backdropClick: true,
+
+      on: {
+        done: (): void => {
+          waved.init()
+        },
+      },
     }
   )
 }
