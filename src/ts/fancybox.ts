@@ -71,7 +71,7 @@ const preloader = (): void => {
   window.Fancybox.show(
     [
       {
-        src: './dialogs/preloader.html',
+        src: './dialogs/dialog-preloader.html',
         type: 'ajax',
       },
     ],

@@ -131,6 +131,12 @@ module.exports = {
         inherit: 'inherit',
       },
 
+      borderColor: {
+        current: 'currentColor',
+        inherit: 'inherit',
+        transparent: 'transparent',
+      },
+
       gridColumn: {
         1: 'span 1',
         2: 'span 2',

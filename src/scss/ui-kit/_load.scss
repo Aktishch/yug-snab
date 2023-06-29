@@ -18,27 +18,29 @@
 
   &::before,
   &::after {
-    @apply content-auto absolute inset-0 bg-transparent border-[12px] border-solid border-[inherit] rounded-inherit;
+    border-width: 12px;
+
+    @apply content-auto absolute inset-0 rounded-inherit border-solid border-inherit;
   }
 
   &::before {
     animation: progress 1s linear infinite;
 
-    @apply border-x-[transparent];
+    @apply border-x-transparent;
   }
 
   &::after {
     animation: progress 1.2s linear infinite;
 
-    @apply border-y-[transparent];
+    @apply border-y-transparent;
   }
 
-  @apply flex items-center justify-center relative bg-transparent text-primary rounded-max w-[100px] h-[100px];
+  @apply flex items-center justify-center relative bg-transparent text-primary rounded-max w-24 h-24;
 
   &-circle {
     animation: preloader 1.2s linear infinite;
 
-    @apply bg-current rounded-inherit w-10 min-w-[40px] h-10 min-h-[40px];
+    @apply bg-current rounded-inherit w-10 h-10;
   }
 }
 

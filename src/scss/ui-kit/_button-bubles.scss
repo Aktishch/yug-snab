@@ -3,15 +3,16 @@
 
   &::before,
   &::after {
+    width    : 150%;
     transform: translateX(-50%);
 
-    @apply content-auto absolute left-1/2 bg-no-repeat w-[150%] h-full;
+    @apply content-auto absolute left-1/2 bg-no-repeat h-full;
   }
 
   &::before {
     animation: top-bubbles 0.6s ease-in-out infinite;
 
-    @apply -top-[70%];
+    @apply -top-3/4;
 
     background: {
       position: 5% 90%, 10% 90%, 10% 90%, 10% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
@@ -30,7 +31,7 @@
   &::after {
     animation: bottom-bubbles 0.6s ease-in-out infinite;
 
-    @apply -bottom-[70%];
+    @apply -bottom-3/4;
 
     background: {
       position: 10% 0, 30% 10%, 55% 0, 70% 0, 85% 0, 70% 0, 70% 0;

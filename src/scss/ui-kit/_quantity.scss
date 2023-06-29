@@ -1,13 +1,13 @@
 // Поле количества
 .quantity {
-  @apply flex items-center justify-between border border-solid border-gray rounded-full w-[120px] p-1;
+  @apply flex items-center justify-between border border-solid border-gray rounded-full w-max p-1;
 
   &-btn {
-    @apply rounded-max w-[34px] min-w-[34px] h-[34px];
+    @apply rounded-max w-8 h-8;
   }
 
   &-cover {
-    @apply max-w-[34px];
+    @apply w-10;
   }
 
   &-input {

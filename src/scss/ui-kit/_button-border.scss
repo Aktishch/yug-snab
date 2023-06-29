@@ -4,15 +4,15 @@
 
     &::before,
     &::after {
-      @apply border-2 border-solid border-[transparent] w-5 h-5;
+      @apply border-2 border-solid border-transparent w-5 h-5;
     }
 
     &::before {
-      @apply top-0 left-0 border-t-[currentColor] border-l-[currentColor];
+      @apply top-0 left-0 border-t-current border-l-current;
     }
 
     &::after {
-      @apply right-0 bottom-0 border-r-[currentColor] border-b-[currentColor];
+      @apply right-0 bottom-0 border-r-current border-b-current;
     }
 
     @media(hover) {
@@ -29,15 +29,15 @@
 
     &::before,
     &::after {
-      @apply border-2 border-solid border-[transparent] w-10 h-5;
+      @apply border-2 border-solid border-transparent w-10 h-5;
     }
 
     &::before {
-      @apply top-0 right-0 border-t-[currentColor] border-r-[currentColor];
+      @apply top-0 right-0 border-t-current border-r-current;
     }
 
     &::after {
-      @apply bottom-0 left-0 border-b-[currentColor] border-l-[currentColor];
+      @apply bottom-0 left-0 border-b-current border-l-current;
     }
 
     @media(hover) {
@@ -47,7 +47,7 @@
         width : calc(100% + 5px);
         height: calc(100% + 5px);
 
-        @apply border-[currentColor];
+        @apply border-current;
       }
     }
   }
@@ -56,7 +56,7 @@
 
     &::before,
     &::after {
-      @apply top-full right-0 left-0 bg-current border-none w-[80%] h-0.5 mx-auto;
+      @apply top-full right-0 left-0 bg-current border-none w-4/5 h-0.5 mx-auto;
     }
 
     @media(hover) {

@@ -1,14 +1,6 @@
 // Волна
-[data-waved="light"] .waved {
-  --waved-color: theme("colors.white.DEFAULT / 40%");
-}
-
-[data-waved="dark"] .waved {
-  --waved-color: theme("colors.black.DEFAULT / 40%");
-}
-
 .waved {
-  @apply absolute z-[1] inset-0 rounded-inherit overflow-hidden pointer-events-none;
+  @apply absolute z-1 inset-0 rounded-inherit overflow-hidden pointer-events-none;
 
   &-circle {
     background-color: var(--waved-color);
@@ -16,6 +8,14 @@
     animation       : waved 1s ease forwards;
 
     @apply block absolute rounded-max w-10 h-10;
+  }
+
+  [data-waved="light"] & {
+    --waved-color: theme("colors.white.DEFAULT / 40%");
+  }
+
+  [data-waved="dark"] & {
+    --waved-color: theme("colors.black.DEFAULT / 40%");
   }
 }
 
