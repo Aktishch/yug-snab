@@ -1,5 +1,8 @@
 const init = (): void => {
   const title = document.querySelector('title') as HTMLTitleElement
+
+  if (!title) return
+
   const text: string | null = title.textContent
 
   let timer: NodeJS.Timeout

@@ -1,5 +1,5 @@
 <dialog class="dialog dialog-xs dark:bg-black dark:text-white rounded-3 py-10 px-5">
-  <form class="form" data-form="submit">
+  <form class="form" data-form="action" action="primary.html">
     <input type="hidden" value="Авторизация" name="theme">
     <label class="form-label mb-5" data-label="input">
       <span class="text-20 mb-3">Telephone</span>
@@ -12,7 +12,7 @@
     </label>
     <label class="form-label mb-5" data-label="input">
       <span class="text-20 mb-3">Password</span>
-      <div class="form-wrapper">
+      <div class="form-wrapper" data-form-wrapper>
         <div class="input-cover">
           <input class="input input-gray input-md pr-10" data-input="password" type="password" placeholder="Your password here" autocomplete="off" name="password">
         </div>

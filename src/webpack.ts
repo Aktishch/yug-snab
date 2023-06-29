@@ -18,6 +18,7 @@ import animation from './ts/animation'
 import waved from './ts/waved'
 import movement from './ts/movement'
 import bubbles from './ts/bubbles'
+import inverted from './ts/inverted'
 import listing from './ts/listing'
 import accordion from './ts/accordion'
 import formatBg from './ts/format-bg'
@@ -71,6 +72,7 @@ window.addEventListener('DOMContentLoaded', ((): void => {
   waved.init()
   movement.init()
   bubbles.init()
+  inverted.init()
   listing.init()
   accordion.init()
   formatBg.init()

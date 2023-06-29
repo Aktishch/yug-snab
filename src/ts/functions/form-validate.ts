@@ -81,6 +81,10 @@ const init = (form: HTMLFormElement): boolean => {
         }
       }
 
+      if (input.dataset.input == 'switch') {
+        if (input.checked == false) inputError()
+      }
+
       input.addEventListener(
         'input',
         ((): void => {

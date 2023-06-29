@@ -81,24 +81,37 @@
 
 <section class="container container--distance flex flex-col items-center justify-center bg-grey dark:bg-dark overflow-hidden">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:md-10" data-movement="blend">Products</h2>
-  <form class="form w-full mb-7">
-    <div class="form-wrapper">
-      <div class="input-cover">
-        <input class="input input-gray input-lg pl-10" type="search" placeholder="Поиск..." list="search" name="search">
-      </div>
-      <datalist id="search">
-        <option>Milk</option>
-        <option>Tomato</option>
-        <option>Meat</option>
-        <option>Potatoes</option>
-      </datalist>
-      <div class="form-icon form-icon--left text-black text-20 opacity-30">
-        <svg class="icon">
-          <use xlink:href="img/icons.svg#search">
-        </svg>
+  <div class="inverted w-full mb-7" data-inverted="before">
+    <div class="inverted-before">
+      <button class="btn btn-primary btn-lg btn-fill" data-inverted-open data-waved="light">Search</button>
+    </div>
+    <div class="inverted-after">
+      <div class="flex items-center justify-between gap-4">
+        <form class="form w-full" data-form="action" action="primary.html">
+          <label class="form-label" data-label="input">
+            <div class="form-wrapper">
+              <div class="input-cover">
+                <input class="input input-gray input-lg pl-10" data-input type="search" placeholder="Поиск..." list="search" name="search">
+              </div>
+              <span class="form-error" data-error>Пожалуйста, заполните это поле!</span>
+              <datalist id="search">
+                <option>Milk</option>
+                <option>Tomato</option>
+                <option>Meat</option>
+                <option>Potatoes</option>
+              </datalist>
+              <button class="form-icon form-icon--pointer form-icon--left text-black text-20 opacity-30 cursor-pointer" type="submit">
+                <svg class="icon">
+                  <use xlink:href="img/icons.svg#search">
+                </svg>
+              </button>
+            </div>
+          </label>
+        </form>
+        <button class="btn btn-primary btn-lg btn-fill" data-inverted-close data-waved="light">Close</button>
       </div>
     </div>
-  </form>
+  </div>
   <div class="products-slider relative w-full">
     <div class="swiper -m-[15px] p-[15px]">
       <div class="swiper-wrapper">

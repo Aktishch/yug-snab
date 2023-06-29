@@ -1,7 +1,7 @@
 const visibilityPassword = (event: Event): void => {
-  const label = (event.target as HTMLElement).closest('[data-label]') as HTMLElement
-  const input = label.querySelector('*[data-input="password"]') as HTMLInputElement
-  const icon = label.querySelector('*[data-password] use') as SVGUseElement
+  const wrapper = (event.target as HTMLElement).closest('[data-form-wrapper]') as HTMLElement
+  const input = wrapper.querySelector('*[data-input="password"]') as HTMLInputElement
+  const icon = wrapper.querySelector('*[data-password] use') as SVGUseElement
 
   if (input.type === 'password') {
     input.type = 'text'
