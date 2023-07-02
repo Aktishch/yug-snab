@@ -34,12 +34,12 @@
       </div>
     </div>
     <div class="swiper-pagination md:hidden text-primary mt-10"></div>
-    <button class="swiper-button-prev btn btn-primary btn-fill hidden md:flex absolute md:-left-6 rounded-max w-[50px] h-[50px]" data-waved="light">
+    <button class="swiper-button-prev btn btn-primary btn-fill hidden md:flex absolute md:-left-6 rounded-max w-12 h-12" data-waved="light">
       <svg class="icon">
         <use xlink:href="img/icons.svg#arrow-left">
       </svg>
     </button>
-    <button class="swiper-button-next btn btn-primary btn-fill hidden md:flex absolute md:-right-6 rounded-max w-[50px] h-[50px]" data-waved="light">
+    <button class="swiper-button-next btn btn-primary btn-fill hidden md:flex absolute md:-right-6 rounded-max w-12 h-12" data-waved="light">
       <svg class="icon">
         <use xlink:href="img/icons.svg#arrow-right">
       </svg>
@@ -83,7 +83,7 @@
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:md-10" data-movement="blend">Products</h2>
   <div class="inverted w-full mb-7" data-inverted="before">
     <div class="inverted-before">
-      <button class="btn btn-primary btn-lg btn-fill" data-inverted-open data-waved="light">Search</button>
+      <button class="btn btn-primary btn-lg btn-fill" data-inverted-toggle="after" data-waved="light">Search</button>
     </div>
     <div class="inverted-after">
       <div class="flex items-center justify-between gap-4">
@@ -108,7 +108,7 @@
             </div>
           </label>
         </form>
-        <button class="btn btn-primary btn-lg btn-fill" data-inverted-close data-waved="light">Close</button>
+        <button class="btn btn-primary btn-lg btn-fill" data-inverted-toggle="before" data-waved="light">Close</button>
       </div>
     </div>
   </div>
@@ -169,12 +169,12 @@
       </div>
     </div>
     <div class="swiper-pagination md:hidden text-primary mt-10"></div>
-    <button class="swiper-button-prev btn btn-primary btn-fill hidden md:flex absolute md:-left-6 rounded-max w-[50px] h-[50px]" data-waved="light">
+    <button class="swiper-button-prev btn btn-primary btn-fill hidden md:flex absolute md:-left-6 rounded-max w-12 h-12" data-waved="light">
       <svg class="icon">
         <use xlink:href="img/icons.svg#arrow-left">
       </svg>
     </button>
-    <button class="swiper-button-next btn btn-primary btn-fill hidden md:flex absolute md:-right-6 rounded-max w-[50px] h-[50px]" data-waved="light">
+    <button class="swiper-button-next btn btn-primary btn-fill hidden md:flex absolute md:-right-6 rounded-max w-12 h-12" data-waved="light">
       <svg class="icon">
         <use xlink:href="img/icons.svg#arrow-right">
       </svg>
@@ -199,7 +199,7 @@
         </span>
       </div>
       <picture>
-        <img class="scrolling__image image md:w-[130%] md:h-[130%] ease-in-out duration-3" data-scrolling-image src="https://picsum.photos/1040/520?random=<%= i %>" loading="lazy" alt="">
+        <img class="scrolling__image image ease-in-out duration-3" data-scrolling-image src="https://picsum.photos/1040/520?random=<%= i %>" loading="lazy" alt="">
       </picture>
     </a>
     <% } %>

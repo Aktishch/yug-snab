@@ -10,8 +10,8 @@ const choiceFile = (event: Event): void => {
 
   if (!image) return
 
-  const file: File = (input.files as FileList)[0]
-  const readFile: FileReader = new FileReader()
+  const file = (input.files as FileList)[0] as File
+  const readFile = new FileReader() as FileReader
 
   file ? readFile.readAsDataURL(file) : (image.src = '')
 

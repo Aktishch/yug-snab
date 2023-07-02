@@ -142,7 +142,7 @@
 
 @keyframes in-basket {
   100% {
-    @apply -top-[10%] left-[90%];
+    @apply -top-24 left-full;
   }
 }
 
@@ -238,6 +238,8 @@
 
   &__image {
     @screen md {
+      width    : 130%;
+      height   : 130%;
       transform: translate3d(var(--scroll-moving), 0, 0);
     }
   }

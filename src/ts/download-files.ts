@@ -27,7 +27,7 @@ const init = (): File[] => {
 
           item.innerHTML = `
             <span class="truncate">${files[i].name}</span>
-            <button class="btn btn-gray text-14 p-1" data-files-remove="${files[i].lastModified}" type="button">
+            <button class="btn btn-gray text-14 p-1" data-files-remove="${files[i].name}" type="button">
               <svg class="icon">
                 <use xlink:href="img/icons.svg#close">
               </svg>
@@ -63,7 +63,7 @@ const init = (): File[] => {
       const btn = event.target as HTMLButtonElement
 
       for (let i = 0; i < data.length; i++) {
-        if (btn.dataset.filesRemove == String(data[i].lastModified)) {
+        if (btn.dataset.filesRemove == String(data[i].name)) {
           data.splice(i, 1)
           item.remove()
         }

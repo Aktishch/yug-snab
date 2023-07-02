@@ -3,11 +3,9 @@ const init = (): void => {
 
   if (!preloader) return
 
-  setTimeout((): void => {
-    preloader.classList.add('invisible', 'opacity-0')
+  preloader.classList.add('invisible', 'opacity-0')
 
-    setTimeout((): void => preloader.remove(), 500)
-  }, 500)
+  setTimeout((): void => preloader.remove(), 500)
 }
 
 export default { init }
