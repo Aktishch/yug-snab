@@ -32,7 +32,7 @@ import formSave from './ts/form-save'
 import dragAndDrop from './ts/drag-and-drop'
 import choiceFile from './ts/choice-file'
 import copyLink from './ts/copy-link'
-import formInputs from './ts/inputs'
+import inputs from './ts/inputs'
 import maskTel from './ts/mask-tel'
 import password from './ts/password'
 import quantity from './ts/quantity'
@@ -49,7 +49,7 @@ import worldMap from './ts/world-map'
 import preloader from './ts/preloader'
 
 // Style
-import './scss/index.scss'
+import './scss/style.scss'
 
 // Connection
 window.addEventListener('DOMContentLoaded', ((): void => {
@@ -85,7 +85,7 @@ window.addEventListener('DOMContentLoaded', ((): void => {
   dragAndDrop.init()
   choiceFile.init()
   copyLink.init()
-  formInputs.init()
+  inputs.init()
   maskTel.init()
   password.init()
   quantity.init()

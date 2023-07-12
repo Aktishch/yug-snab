@@ -6,7 +6,7 @@
     @apply content-auto absolute -z-1 top-0 left-auto right-0 bottom-0 w-0 ease-in-out duration-3;
   }
 
-  @apply z-1;
+  @apply z-1 overflow-hidden;
 
   @media(hover) {
     &:hover {

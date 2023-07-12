@@ -63,7 +63,7 @@ const init = (): void => {
       inBasket.style.left = `${coordinates.left}px`
       inBasket.innerHTML = `
         <svg class="icon text-second text-16">
-          <use xlink:href="img/icons.svg#basket">
+          <use xlink:href="img/icons.svg#basket"></use>
         </svg>`
 
       body.appendChild(inBasket)

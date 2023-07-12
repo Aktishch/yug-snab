@@ -21,7 +21,7 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
       transition: '0.2s ease',
       cursor: 'pointer',
 
-      '&:focus': {
+      '&:focus-visible': {
         boxShadow: '0 0 0 4px var(--btn-focus)',
         backgroundColor: 'var(--btn-fade)',
       },
@@ -50,7 +50,7 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
         color: 'var(--btn-accent)',
         backgroundColor: 'var(--btn-color)',
 
-        '&:focus': {
+        '&:focus-visible': {
           backgroundColor: 'var(--btn-dark)',
         },
 
@@ -65,7 +65,7 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
         color: 'var(--btn-color)',
         backgroundColor: 'var(--btn-fade)',
 
-        '&:focus': {
+        '&:focus-visible': {
           color: 'var(--btn-accent)',
           backgroundColor: 'var(--btn-color)',
         },
@@ -83,7 +83,7 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
         backgroundColor: 'var(--btn-accent)',
         border: '2px solid transparent',
 
-        '&:focus': {
+        '&:focus-visible': {
           backgroundColor: 'var(--btn-accent)',
           borderColor: 'var(--btn-color)',
         },
