@@ -10,7 +10,7 @@ const setOffset = (element: HTMLElement): coordinates => {
   return coordinates
 }
 
-const animationOnScroll = (): void => {
+const onScroll = (): void => {
   const items = document.querySelectorAll('*[data-anim]') as NodeListOf<Element>
 
   items.forEach((element: Element): void => {
@@ -35,9 +35,9 @@ const animationOnScroll = (): void => {
 }
 
 const init = (): void => {
-  animationOnScroll()
+  onScroll()
 
-  document.addEventListener('scroll', animationOnScroll as EventListener)
+  document.addEventListener('scroll', onScroll as EventListener)
 }
 
-export default { init }
+export default { init, onScroll }

@@ -1,5 +1,6 @@
 import touchDevice from './functions/touch-device'
 import scrolledPage from './functions/scrolled-page'
+import animation from './animation'
 
 const init = (): void => {
   const smoothWrapper = document.querySelector('#smooth-wrapper') as HTMLElement
@@ -28,6 +29,8 @@ const init = (): void => {
     smoothWrapper.style.transform = translateY
 
     sessionStorage.setItem('translateY', translateY)
+
+    animation.onScroll()
 
     window.requestAnimationFrame(smoothScroll)
   }
