@@ -1,13 +1,14 @@
 import { coordinates } from './functions/coordinates'
+import touchDevice from './functions/touch-device'
 
 const init = (): void => {
   const snow = document.querySelector('*[data-snow]') as HTMLElement
 
-  if (!snow) return
+  if (!snow || touchDevice.init()) return
 
   let flag = true
 
-  document.addEventListener('mousemove', ((event: MouseEvent): void => {
+  const createSnowflake = (event: MouseEvent): void => {
     if (!flag) return
 
     flag = false
@@ -32,7 +33,9 @@ const init = (): void => {
     snow.appendChild(snowflake)
 
     setTimeout((): void => snowflake.remove(), 3000)
-  }) as EventListener)
+  }
+
+  document.addEventListener('mousemove', createSnowflake as EventListener)
 }
 
 export default { init }

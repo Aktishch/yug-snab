@@ -33,7 +33,7 @@ import dragAndDrop from './ts/drag-and-drop'
 import choiceFile from './ts/choice-file'
 import copyLink from './ts/copy-link'
 import inputs from './ts/inputs'
-import maskTel from './ts/mask-tel'
+import phoneMask from './ts/phone-mask'
 import password from './ts/password'
 import quantity from './ts/quantity'
 import range from './ts/range'
@@ -86,7 +86,7 @@ window.addEventListener('DOMContentLoaded', ((): void => {
   choiceFile.init()
   copyLink.init()
   inputs.init()
-  maskTel.init()
+  phoneMask.init()
   password.init()
   quantity.init()
   range.init()

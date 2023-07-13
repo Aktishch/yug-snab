@@ -12,8 +12,8 @@ const media: mediaScreen = {
   sm: 575.98,
   md: 767.98,
   lg: 991.98,
-  xl: 1199.98,
-  xxl: 1999.98,
+  xl: 1365.98,
+  xxl: 2559.98,
 }
 
 export default media
