@@ -1,7 +1,7 @@
 import AirDatepicker from 'air-datepicker'
 import localeRu from 'air-datepicker/locale/ru'
-import filter from './filter'
 import touchDevice from './functions/touch-device'
+import filter from './filter'
 
 declare global {
   interface Window {
@@ -15,7 +15,7 @@ const init = (): void => {
 
   window.excludeDates = excludeDates
 
-  const renderCellHandler = ({ date, cellType }): string | undefined | any => {
+  const renderCellHandler = ({ date, cellType }) => {
     if (cellType === 'day') {
       return {
         classes: window.excludeDates.includes(+date) ? 'btn btn-primary btn-fill text-14' : 'pointer-events-none',
@@ -56,7 +56,7 @@ const init = (): void => {
       isMobile: touchDevice.init(),
       autoClose: true,
       minDate: new Date(),
-      position: inputMin.dataset.position || 'bottom left',
+      position: 'bottom left' || inputMin.dataset.position,
     }) as AirDatepicker<HTMLInputElement>
 
     const max = new AirDatepicker(inputMax, {
@@ -70,7 +70,7 @@ const init = (): void => {
       isMobile: touchDevice.init(),
       autoClose: true,
       minDate: new Date(),
-      position: inputMax.dataset.position || 'bottom left',
+      position: 'bottom left' || inputMax.dataset.position,
     }) as AirDatepicker<HTMLInputElement>
   })
 }

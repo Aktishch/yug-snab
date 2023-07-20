@@ -53,7 +53,10 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
       },
 
       '&:-webkit-autofill': {
+        color: 'var(--input-text) !important',
         borderColor: 'var(--input-color)',
+        background: 'none !important',
+        appearance: 'none',
         transition: 'background-color 10000s ease-in-out 0s',
         '-webkit-text-fill-color': 'var(--input-text) !important',
       },

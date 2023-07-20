@@ -10,8 +10,8 @@ const init = (): void => {
   const change = compare.querySelector('*[data-compare-change]') as HTMLElement
 
   let active = false
-  let value = 0
-  let position = 0
+  let value: number
+  let position: number
 
   const setSizeImage = (): void => {
     image.style.width = `${compare.offsetWidth}px`

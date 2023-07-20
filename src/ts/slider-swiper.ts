@@ -115,9 +115,9 @@ const init = (): void => {
         quiz.checkQuizSlide(swiper.visibleSlides[0])
 
         if (swiper.visibleSlides[0] == swiper.slides[swiper.slides.length - 1]) {
-          swiper.el.closest('[data-quiz]').setAttribute('data-quiz-end', '')
+          (swiper.el.closest('[data-quiz]') as HTMLElement).setAttribute('data-quiz-end', '')
         } else {
-          swiper.el.closest('[data-quiz]').removeAttribute('data-quiz-end')
+          (swiper.el.closest('[data-quiz]') as HTMLElement).removeAttribute('data-quiz-end')
         }
       },
     },

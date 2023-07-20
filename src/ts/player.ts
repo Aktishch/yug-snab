@@ -62,8 +62,8 @@ const setPlayer = (id: string, playlist: playlistDetail[]): void => {
 
   let active = false
   let index = 0
-  let minutes = 0
-  let seconds = 0
+  let minutes: number
+  let seconds: number
 
   let condition: compositionCondition = {
     status: 'pause',

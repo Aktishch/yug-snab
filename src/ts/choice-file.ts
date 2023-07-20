@@ -30,10 +30,10 @@ const choiceFile = (event: Event): void => {
           method: 'POST',
           body: formData,
         })
-          .then((response: Response): any => {
-            return response.text()
+          .then((response: Response): void => {
+            response.text()
           })
-          .then((response: any): void => {
+          .then((): void => {
             avatar.src = String(readFile.result)
 
             fancybox.close()

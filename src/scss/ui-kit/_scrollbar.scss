@@ -1,4 +1,3 @@
-// Полоса прокрутки
 @mixin scrollbar($rotate-1, $rotate-2, $rotate-3) {
   background-image: linear-gradient(#{$rotate-1}deg, theme("colors.black.DEFAULT") 35%, transparent 41%),
   linear-gradient(#{$rotate-2}deg, theme("colors.black.DEFAULT") 35%, transparent 41%),

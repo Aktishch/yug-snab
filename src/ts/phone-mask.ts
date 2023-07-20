@@ -30,8 +30,7 @@ const onInput = (event: InputEvent): '' | undefined => {
   const selection: number | null = input.selectionStart
 
   let value: string = getValue(input)
-  let firstVal = ''
-  let formatted = ''
+  let formatted: string
 
   if (!value) return (input.value = '')
 
@@ -44,7 +43,8 @@ const onInput = (event: InputEvent): '' | undefined => {
   if (['7', '8', '9'].indexOf(value[0]) > -1) {
     if (value[0] == '9') value = '7' + value
 
-    firstVal = value[0] == '8' ? '8' : '+7'
+    const firstVal = value[0] == '8' ? '8' : '+7'
+
     formatted = input.value = firstVal + ' '
 
     if (value.length > 1) formatted += '(' + value.substring(1, 4)

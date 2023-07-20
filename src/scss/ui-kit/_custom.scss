@@ -1,4 +1,3 @@
-// Fancybox
 .fancybox {
   &-custom * {
 
@@ -18,7 +17,6 @@
   }
 }
 
-// Slider-swiper
 .swiper {
   &-pagination {
     @apply flex items-center justify-center static;
@@ -39,7 +37,6 @@
   }
 }
 
-// Air-datepicker
 #air-datepicker-global-container {
   z-index: 1100;
 }

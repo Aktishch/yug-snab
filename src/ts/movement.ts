@@ -1,4 +1,5 @@
 import { coordinates } from './functions/coordinates'
+import touchDevice from './functions/touch-device'
 
 const setMovement = (event: MouseEvent): void => {
   const item = (event.target as HTMLElement).closest('[data-movement]') as HTMLElement
@@ -13,6 +14,8 @@ const setMovement = (event: MouseEvent): void => {
 }
 
 const init = (): void => {
+  if (touchDevice.init()) return
+
   const items = document.querySelectorAll('*[data-movement]') as NodeListOf<Element>
 
   items.forEach((element: Element): void => {

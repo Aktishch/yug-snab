@@ -8,8 +8,15 @@ const scrollTo = (event: Event): void => {
   const block = document.querySelector(id) as HTMLElement
 
   if (link.dataset.scroll == 'top') {
-    const headerHeight: number = (document.querySelector('*[data-header]') as HTMLElement).offsetHeight
-    const offsetTop: number = block.getBoundingClientRect().top + scrolledPage.init().top - headerHeight
+    const header = document.querySelector('*[data-header]') as HTMLElement
+
+    let offsetTop: number
+
+    if (header) {
+      offsetTop = block.getBoundingClientRect().top + scrolledPage.init().top - header.offsetHeight
+    } else {
+      offsetTop = block.getBoundingClientRect().top + scrolledPage.init().top
+    }
 
     window.scrollTo({
       top: offsetTop,
