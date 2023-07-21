@@ -1,4 +1,3 @@
-// Scripts
 import fancybox from './ts/fancybox'
 import sliderSwiper from './ts/slider-swiper'
 import yandexMap from './ts/yandex-map'
@@ -48,10 +47,8 @@ import timer from './ts/timer'
 import worldMap from './ts/world-map'
 import preloader from './ts/preloader'
 
-// Style
 import './scss/style.scss'
 
-// Connection
 window.addEventListener('DOMContentLoaded', ((): void => {
   fancybox.init()
   sliderSwiper.init()

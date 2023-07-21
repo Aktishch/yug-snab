@@ -3,54 +3,97 @@ import scrolledPage from './functions/scrolled-page'
 import animation from './animation'
 
 const init = (): void => {
-  const smoothWrapper = document.querySelector('#smooth-wrapper') as HTMLElement
+  const smoothScroll = document.querySelector('#smooth-scroll') as HTMLElement
 
-  if (!smoothWrapper || touchDevice.init()) return
+  if (!smoothScroll || touchDevice.init()) return
 
   const html = document.documentElement as HTMLElement
   const body = document.body as HTMLBodyElement
+  const wrappers = smoothScroll.querySelectorAll('*[data-smooth-wrapper]') as NodeListOf<Element>
+  const scrollSpeed: number = smoothScroll.dataset.smoothSpeed ? Number(smoothScroll.dataset.smoothSpeed) / 100 : 0.02
 
   let offset = 0
-  let speed = 0.04
+  let speed: number = scrollSpeed
 
   const setBodyHeight = (): void => {
-    const height: number = smoothWrapper.getBoundingClientRect().height - 1
+    const height: number = smoothScroll.getBoundingClientRect().height - 1
 
     body.style.height = `${Math.floor(height)}px`
   }
 
-  const smoothScroll = (): void => {
+  const createSmoothScroll = (): void => {
     setBodyHeight()
 
     offset += (scrolledPage.init().top - offset) * speed
 
     const translateY = `translateY(-${offset}px)`
 
-    smoothWrapper.style.transform = translateY
+    smoothScroll.style.transform = translateY
 
     sessionStorage.setItem('translateY', translateY)
 
     animation.onScroll()
 
-    window.requestAnimationFrame(smoothScroll)
+    window.requestAnimationFrame(createSmoothScroll)
   }
 
   if (performance.navigation.type == 1 && sessionStorage.getItem('translateY')) {
     setBodyHeight()
 
     speed = 1
-    smoothWrapper.style.transform = String(sessionStorage.getItem('translateY'))
+    smoothScroll.style.transform = String(sessionStorage.getItem('translateY'))
 
     setTimeout((): void => {
-      speed = 0.04
+      speed = scrollSpeed
     }, 500)
   }
 
   html.classList.add('overflow-x-hidden')
   body.classList.add('overflow-hidden')
-  smoothWrapper.classList.add('fixed', 'top-0', 'left-0', 'right-0', 'overflow-hidden')
+  smoothScroll.classList.add('fixed', 'top-0', 'left-0', 'right-0', 'overflow-hidden')
 
-  window.requestAnimationFrame(smoothScroll)
+  window.requestAnimationFrame(createSmoothScroll)
+
+  wrappers.forEach((element: Element): void => {
+    const wrapper = element as HTMLElement
+
+    if (!wrapper) return
+
+    const layers = wrapper.querySelectorAll('*[data-smooth-layer]') as NodeListOf<Element>
+
+    layers.forEach((element: Element): void => {
+      const layer = element as HTMLElement
+
+      if (!layer) return
+
+      let position = 0
+
+      const createSmoothLayer = (): void => {
+        if (
+          wrapper.getBoundingClientRect().top - window.screen.height <= 0 &&
+          scrolledPage.init().top < wrapper.offsetTop + wrapper.offsetHeight
+        ) {
+          const depth: number = layer.dataset.smoothDepth ? Number(layer.dataset.smoothDepth) / 100 : 0.02
+
+          position += (scrolledPage.init().top - wrapper.offsetTop - position) * depth
+
+          if (layer.dataset.smoothLayer == 'top') {
+            layer.style.transform = `translateY(${-position}px)`
+          } else if (layer.dataset.smoothLayer == 'bottom') {
+            layer.style.transform = `translateY(${position}px)`
+          } else if (layer.dataset.smoothLayer == 'left') {
+            layer.style.transform = `translateX(${-position}px)`
+          } else if (layer.dataset.smoothLayer == 'right') {
+            layer.style.transform = `translateX(${position}px)`
+          }
+        }
+
+        window.requestAnimationFrame(createSmoothLayer)
+      }
+
+      window.requestAnimationFrame(createSmoothLayer)
+    })
+  })
 
   // let fff = 0
 

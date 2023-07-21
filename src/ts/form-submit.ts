@@ -10,14 +10,20 @@ const formSubmit = (event: Event, data: File[]): void => {
     if (!formValidate.init(form)) return
 
     const formData: FormData = new FormData(form)
-    const queryString: string = new URLSearchParams(formData as URLSearchParams).toString()
+    const searchParams = new URLSearchParams() as URLSearchParams
     const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement
 
     let requestUrl = ''
 
+    for (const pair of formData.entries()) {
+      searchParams.append(pair[0], String(pair[1]))
+    }
+
     if (form.hasAttribute('data-files')) {
       if (data != null) for (let i = 0; i < data.length; i++) formData.append('file[]', data[i])
     }
+
+    const queryString: string = searchParams.toString()
 
     if (form.dataset.form == 'submit') {
       requestUrl = './ajax/submit-handler.php'

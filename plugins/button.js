@@ -21,11 +21,6 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
       transition: '0.2s ease',
       cursor: 'pointer',
 
-      '&:focus-visible': {
-        boxShadow: '0 0 0 4px var(--btn-focus)',
-        backgroundColor: 'var(--btn-fade)',
-      },
-
       '&:active': {
         boxShadow: `inset 0 4px 4px ${formatColor({
           mode: 'rgba',
@@ -40,6 +35,11 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
         opacity: 0.5,
       },
 
+      '&:focus-visible': {
+        boxShadow: '0 0 0 4px var(--btn-focus)',
+        backgroundColor: 'var(--btn-fade)',
+      },
+
       '@media (hover)': {
         '&:hover': {
           backgroundColor: 'var(--btn-fade)',
@@ -51,12 +51,12 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
         backgroundColor: 'var(--btn-color)',
 
         '&:focus-visible': {
-          backgroundColor: 'var(--btn-dark)',
+          backgroundColor: 'var(--btn-hovered)',
         },
 
         '@media (hover)': {
           '&:hover': {
-            backgroundColor: 'var(--btn-dark)',
+            backgroundColor: 'var(--btn-hovered)',
           },
         },
       },
@@ -111,13 +111,13 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
 
         const [r, g, b] = parsed.color
         const hex = '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1)
-        const hovered = checkColorShade(hex, -25) != 0 ? colorShade(hex, -25) : colorShade(hex, 25)
+        const amount = 25
 
         return {
           '--btn-color': color.DEFAULT,
           '--btn-fade': formatColor({ mode: 'rgba', color: parsed.color, alpha: 0.3 }),
           '--btn-focus': formatColor({ mode: 'rgba', color: parsed.color, alpha: 0.4 }),
-          '--btn-dark': color.dark ? color.dark : formatColor({ mode: 'rgba', color: parsed.color, alpha: 0.9 }),
+          '--btn-hovered': checkColor(hex, -amount) != false ? getColor(hex, -amount) : getColor(hex, amount),
         }
       },
     },
@@ -143,59 +143,50 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
     }
   )
 
-  const checkColorShade = (col, amt) => {
-    var usePound = false
+  const checkColor = (color, amount) => {
+    if (color[0] == '#') color = color.slice(1)
 
-    if (col[0] == '#') {
-      col = col.slice(1)
-      usePound = true
+    const number = parseInt(color, 16)
+
+    let r = (number >> 16) + amount
+    let g = (number & 0x0000ff) + amount
+    let b = ((number >> 8) & 0x00ff) + amount
+
+    const checkColorValue = (value) => {
+      if (value > 255) {
+        value = 255
+      } else if (value < 0) {
+        value = 0
+      }
+
+      return value
     }
 
-    var num = parseInt(col, 16)
+    const red = checkColorValue(r)
+    const green = checkColorValue(g)
+    const blue = checkColorValue(b)
 
-    var r = (num >> 16) + amt
-
-    if (r > 255) r = 255
-    else if (r < 0) r = 0
-
-    var b = ((num >> 8) & 0x00ff) + amt
-
-    if (b > 255) b = 255
-    else if (b < 0) b = 0
-
-    var g = (num & 0x0000ff) + amt
-
-    if (g > 255) g = 255
-    else if (g < 0) g = 0
-
-    return (g | (b << 8) | (r << 16)).toString(16)
+    return ((red << 16) | green | (blue << 8)).toString(16)
   }
 
-  const colorShade = (color, amount) => {
-    var R = parseInt(color.substring(1, 3), 16)
-    var G = parseInt(color.substring(3, 5), 16)
-    var B = parseInt(color.substring(5, 7), 16)
+  const getColor = (color, amount) => {
+    let r = parseInt(color.substring(1, 3), 16)
+    let g = parseInt(color.substring(3, 5), 16)
+    let b = parseInt(color.substring(5, 7), 16)
 
-    R = parseInt(R + amount)
-    G = parseInt(G + amount)
-    B = parseInt(B + amount)
+    const getColorValue = (value) => {
+      value = parseInt(value + amount)
+      value = value < 255 ? value : 255
+      value = value > 0 ? value : 0
+      value = Math.round(value)
 
-    R = R < 255 ? R : 255
-    G = G < 255 ? G : 255
-    B = B < 255 ? B : 255
+      return value.toString(16).length == 1 ? '0' + value.toString(16) : value.toString(16)
+    }
 
-    R = R > 0 ? R : 0
-    G = G > 0 ? G : 0
-    B = B > 0 ? B : 0
+    const red = getColorValue(r)
+    const green = getColorValue(g)
+    const blue = getColorValue(b)
 
-    R = Math.round(R)
-    G = Math.round(G)
-    B = Math.round(B)
-
-    var RR = R.toString(16).length == 1 ? '0' + R.toString(16) : R.toString(16)
-    var GG = G.toString(16).length == 1 ? '0' + G.toString(16) : G.toString(16)
-    var BB = B.toString(16).length == 1 ? '0' + B.toString(16) : B.toString(16)
-
-    return '#' + RR + GG + BB
+    return '#' + red + green + blue
   }
 })

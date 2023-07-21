@@ -31,7 +31,7 @@ const setOutNumber = (section: HTMLElement): void => {
 const scrollToNumbers = (): void => {
   const section = document.querySelector('*[data-section]') as HTMLElement
 
-  if (section && screen.height >= section.getBoundingClientRect().top) {
+  if (section && window.screen.height >= section.getBoundingClientRect().top) {
     setOutNumber(section)
 
     document.removeEventListener('scroll', scrollToNumbers as EventListener)

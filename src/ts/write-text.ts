@@ -20,7 +20,7 @@ const writeText = (section: HTMLElement): void => {
 const scrollToText = (): void => {
   const section = document.querySelector('*[data-section]') as HTMLElement
 
-  if (section && screen.height >= section.getBoundingClientRect().top) {
+  if (section && window.screen.height >= section.getBoundingClientRect().top) {
     writeText(section)
 
     document.removeEventListener('scroll', scrollToText as EventListener)

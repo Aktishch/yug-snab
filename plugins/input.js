@@ -59,6 +59,7 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
         appearance: 'none',
         transition: 'background-color 10000s ease-in-out 0s',
         '-webkit-text-fill-color': 'var(--input-text) !important',
+        '-webkit-text-stroke-color': 'var(--input-text) !important',
       },
     },
   })

@@ -17,7 +17,7 @@
 ?>
 
 <form>
-  <input type="hidden" value="<?= strip_tags($data["name"]); ?>" name="name">
-  <input type="hidden" value="<?= strip_tags($data["checkbox"]); ?>" name="checkbox">
-  <input type="hidden" value="<?= strip_tags($data["radio"]); ?>" name="radio">
+  <input type="hidden" value="<?= $data["name"] ?>" name="name">
+  <input type="hidden" value="<?= $data["checkbox"] ?>" name="checkbox">
+  <input type="hidden" value="<?= $data["radio"] ?>" name="radio">
 </form>
