@@ -73,9 +73,9 @@ const init = (): void => {
           wrapper.getBoundingClientRect().top - window.screen.height <= 0 &&
           scrolledPage.init().top < wrapper.offsetTop + wrapper.offsetHeight
         ) {
-          const depth: number = layer.dataset.smoothDepth ? Number(layer.dataset.smoothDepth) / 100 : 0.02
+          const layerSpeed: number = layer.dataset.smoothSpeed ? Number(layer.dataset.smoothSpeed) / 100 : 0.02
 
-          position += (scrolledPage.init().top - wrapper.offsetTop - position) * depth
+          position += (scrolledPage.init().top - wrapper.offsetTop - position) * layerSpeed
 
           if (layer.dataset.smoothLayer == 'top') {
             layer.style.transform = `translateY(${-position}px)`

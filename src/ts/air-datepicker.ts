@@ -19,7 +19,6 @@ const init = (): void => {
     if (cellType === 'day') {
       return {
         classes: window.excludeDates.includes(+date) ? 'btn btn-primary btn-fill text-14' : 'pointer-events-none',
-
         attrs: {
           'data-filter-category': `category-${date.getDate()}-${+date.getMonth()}`,
         },
@@ -37,7 +36,7 @@ const init = (): void => {
     if ((event.target as HTMLElement).closest('#calendar')) filter.init()
   }) as EventListener)
 
-  datepickers.forEach((element: Element) => {
+  datepickers.forEach((element: Element): void => {
     const datepicker = element as HTMLElement
 
     if (!datepicker) return
@@ -51,7 +50,6 @@ const init = (): void => {
           minDate: String(date),
         })
       },
-
       locale: localeRu,
       isMobile: touchDevice.init(),
       autoClose: true,
@@ -65,7 +63,6 @@ const init = (): void => {
           maxDate: String(date),
         })
       },
-
       locale: localeRu,
       isMobile: touchDevice.init(),
       autoClose: true,

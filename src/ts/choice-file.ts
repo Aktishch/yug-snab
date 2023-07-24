@@ -16,32 +16,29 @@ const choiceFile = (event: Event): void => {
   file ? readFile.readAsDataURL(file) : (image.src = '')
 
   readFile.addEventListener('loadend', ((): void => {
-    if (fileHandler.init(input, error)) {
-      image.src = String(readFile.result)
+    if (!fileHandler.init(input, error)) return
 
-      if (form.dataset.form == 'avatar') {
-        const formData: FormData = new FormData(form)
-        const requestUrl = './ajax/submit-handler.php'
-        const avatar = document.querySelector('*[data-avatar]') as HTMLImageElement
+    image.src = String(readFile.result)
 
-        fancybox.preloader()
+    if (form.dataset.form == 'avatar') {
+      const formData: FormData = new FormData(form)
+      const requestUrl = './ajax/submit-handler.php'
+      const avatar = document.querySelector('*[data-avatar]') as HTMLImageElement
 
-        fetch(requestUrl, {
-          method: 'POST',
-          body: formData,
+      fancybox.preloader()
+
+      fetch(requestUrl, {
+        method: 'POST',
+        body: formData,
+      })
+        .then((response: Response): void => {
+          response.text()
         })
-          .then((response: Response): void => {
-            response.text()
-          })
-          .then((): void => {
-            avatar.src = String(readFile.result)
-
-            fancybox.close()
-          })
-          .catch((error: string): void => console.log('The form has not been sent', error))
-      } else {
-        return
-      }
+        .then((): void => {
+          avatar.src = String(readFile.result)
+          fancybox.close()
+        })
+        .catch((error: string): void => console.log('The form has not been sent', error))
     }
   }) as EventListener)
 }

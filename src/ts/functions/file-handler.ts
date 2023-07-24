@@ -1,7 +1,7 @@
 const init = (input: HTMLInputElement, error: HTMLElement): boolean => {
   const files = input.files as FileList
 
-  if (files.length == 0) {
+  if (files.length === 0) {
     error.classList.add('visible', 'opacity-100')
     error.innerText = 'Пожалуйста, загрузите изображение!'
 

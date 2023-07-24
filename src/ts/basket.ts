@@ -4,7 +4,6 @@ const init = (): void => {
   const basket = document.querySelector('*[data-basket]') as HTMLElement
 
   if (!basket) return
-
   const body = document.body as HTMLBodyElement
   const basketClose = basket.querySelector('*[data-basket-close]') as HTMLButtonElement
   const basketImage = basket.querySelector('*[data-basket-image]') as HTMLImageElement
@@ -39,7 +38,28 @@ const init = (): void => {
     basket.classList.add('invisible', 'opacity-0')
   }
 
+  const createAnimInBasket = (event: MouseEvent): void => {
+    const inBasket = document.createElement('div') as HTMLDivElement
+    const coordinates: coordinates = {
+      top: event.clientY,
+      left: event.clientX,
+    }
+
+    inBasket.classList.add(...classes)
+    inBasket.style.top = `${coordinates.top}px`
+    inBasket.style.left = `${coordinates.left}px`
+    inBasket.innerHTML = `
+      <svg class="icon text-second text-16">
+        <use xlink:href="img/icons.svg#basket"></use>
+      </svg>`
+
+    body.appendChild(inBasket)
+    setTimeout((): void => inBasket.remove(), 2000)
+  }
+
   let timeOut: NodeJS.Timeout
+
+  basketClose.addEventListener('click', basketHidden as EventListener)
 
   products.forEach((element: Element): void => {
     const product = element as HTMLElement
@@ -50,26 +70,7 @@ const init = (): void => {
     const productQuantity = product.querySelector('*[data-product-quantity]') as HTMLInputElement
     const productBtn = product.querySelector('*[data-product-button]') as HTMLButtonElement
 
-    productBtn.addEventListener('click', ((event: MouseEvent): void => {
-      const coordinates: coordinates = {
-        top: event.clientY,
-        left: event.clientX,
-      }
-
-      const inBasket = document.createElement('div') as HTMLDivElement
-
-      inBasket.classList.add(...classes)
-      inBasket.style.top = `${coordinates.top}px`
-      inBasket.style.left = `${coordinates.left}px`
-      inBasket.innerHTML = `
-        <svg class="icon text-second text-16">
-          <use xlink:href="img/icons.svg#basket"></use>
-        </svg>`
-
-      body.appendChild(inBasket)
-
-      setTimeout((): void => inBasket.remove(), 2000)
-
+    const fillingBasket = (): void => {
       if (basket.dataset.basket == 'show') basketHidden()
 
       setTimeout((): void => {
@@ -97,9 +98,10 @@ const init = (): void => {
 
         timeOut = setTimeout((): void => basketHidden(), 5000)
       }, 300)
-    }) as EventListener)
+    }
 
-    basketClose.addEventListener('click', basketHidden as EventListener)
+    productBtn.addEventListener('click', fillingBasket as EventListener)
+    productBtn.addEventListener('click', createAnimInBasket as EventListener)
   })
 }
 
