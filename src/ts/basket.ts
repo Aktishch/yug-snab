@@ -4,6 +4,7 @@ const init = (): void => {
   const basket = document.querySelector('*[data-basket]') as HTMLElement
 
   if (!basket) return
+
   const body = document.body as HTMLBodyElement
   const basketClose = basket.querySelector('*[data-basket-close]') as HTMLButtonElement
   const basketImage = basket.querySelector('*[data-basket-image]') as HTMLImageElement
@@ -12,6 +13,8 @@ const init = (): void => {
   const basketOldPrice = basket.querySelector('*[data-basket-oldprice]') as HTMLElement
   const basketPrice = basket.querySelector('*[data-basket-price]') as HTMLElement
   const products = document.querySelectorAll('*[data-product]') as NodeListOf<Element>
+  let timeOut: NodeJS.Timeout
+
   const classes: string[] = [
     'in-basket',
     'flex',
@@ -57,8 +60,6 @@ const init = (): void => {
     setTimeout((): void => inBasket.remove(), 2000)
   }
 
-  let timeOut: NodeJS.Timeout
-
   basketClose.addEventListener('click', basketHidden as EventListener)
 
   products.forEach((element: Element): void => {
@@ -71,7 +72,7 @@ const init = (): void => {
     const productBtn = product.querySelector('*[data-product-button]') as HTMLButtonElement
 
     const fillingBasket = (): void => {
-      if (basket.dataset.basket == 'show') basketHidden()
+      if (basket.dataset.basket === 'show') basketHidden()
 
       setTimeout((): void => {
         basketShow()

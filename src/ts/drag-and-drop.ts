@@ -18,26 +18,34 @@ const init = (): void => {
         const error = download.querySelector('*[data-error]') as HTMLElement
         const image = download.querySelector('*[data-file="image"]') as HTMLImageElement
 
-        if (event.type === 'dragenter') {
+        switch (event.type) {
+        case 'dragenter': {
           drag.classList.add('bg-opacity-50')
-        } else if (event.type === 'dragleave') {
+          break
+        }
+
+        case 'dragleave': {
           drag.classList.remove('bg-opacity-50')
-        } else if (event.type === 'drop') {
+          break
+        }
+
+        case 'drop': {
           const files = (event.dataTransfer as DataTransfer).files as FileList
 
           drag.classList.remove('bg-opacity-50')
           input.files = files
 
-          if (fileHandler.init(input, error)) {
-            const file = (input.files as FileList)[0] as File
-            const readFile = new FileReader() as FileReader
+          const file = (input.files as FileList)[0] as File
+          const readFile = new FileReader() as FileReader
 
-            file ? readFile.readAsDataURL(file) : (image.src = '')
+          file ? readFile.readAsDataURL(file) : (image.src = '')
 
-            readFile.addEventListener('loadend', ((): void => {
-              image.src = String(readFile.result)
-            }) as EventListener)
-          }
+          readFile.addEventListener('loadend', ((): void => {
+            image.src = fileHandler.init(input, error) ? String(readFile.result) : ''
+          }) as EventListener)
+
+          break
+        }
         }
       }
     }) as EventListener)

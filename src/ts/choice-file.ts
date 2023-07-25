@@ -20,8 +20,8 @@ const choiceFile = (event: Event): void => {
 
     image.src = String(readFile.result)
 
-    if (form.dataset.form == 'avatar') {
-      const formData: FormData = new FormData(form)
+    if (form.dataset.form === 'avatar') {
+      const formData = new FormData(form) as FormData
       const requestUrl = './ajax/submit-handler.php'
       const avatar = document.querySelector('*[data-avatar]') as HTMLImageElement
 
@@ -45,7 +45,7 @@ const choiceFile = (event: Event): void => {
 
 const init = (): void => {
   document.addEventListener('change', ((event: Event): void => {
-    if ((event.target as HTMLInputElement).getAttribute('data-input') == 'file') choiceFile(event)
+    if ((event.target as HTMLInputElement).getAttribute('data-input') === 'file') choiceFile(event)
   }) as EventListener)
 }
 

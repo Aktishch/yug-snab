@@ -13,7 +13,7 @@ const writeText = (section: HTMLElement): void => {
 
       record.innerHTML += letters.shift()
     },
-    recordSpeed != undefined ? recordSpeed : 100
+    recordSpeed !== undefined ? recordSpeed : 100
   )
 }
 

@@ -6,19 +6,24 @@ const init = (): void => {
   const round = social.querySelector('*[data-social-round]') as HTMLElement
   const links = social.querySelectorAll('*[data-social-link]') as NodeListOf<Element>
   const btn = social.querySelector('*[data-social-button]') as HTMLButtonElement
-
   let lastTap: number
 
   const doubleTap = (): void => {
     const timeSince: number = new Date().getTime() - lastTap
 
     if (timeSince < 300 && timeSince > 0) {
-      if (round.dataset.socialRound == 'hidden') {
+      switch (round.dataset.socialRound) {
+      case 'hidden': {
         round.dataset.socialRound = 'show'
         round.classList.remove('opacity-0')
-      } else {
+        break
+      }
+
+      case 'show': {
         round.dataset.socialRound = 'hidden'
         round.classList.add('opacity-0')
+        break
+      }
       }
     }
 

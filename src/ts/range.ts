@@ -2,20 +2,26 @@ const getPosition = (num: number, input: HTMLInputElement, progress: HTMLElement
   const value = Number(input.value)
   const min: number = input.min ? Number(input.min) : 0
   const max: number = input.max ? Number(input.max) : 100
-
   let step: number
 
-  if (num == 0) {
+  switch (num) {
+  case 0: {
     step = ((value - min) * 100) / (max - min)
     progress.style.left = '0'
     bubble.style.left = `calc(${step}% - (${step * 0.28}px))`
-  } else {
+    progress.style.width = `calc(${step}% + (${14 - step * 0.28}px))`
+    break
+  }
+
+  case 1: {
     step = ((value - max) * 100) / (min - max)
     progress.style.right = '0'
     bubble.style.right = `calc(${step}% - (${step * 0.28}px))`
+    progress.style.width = `calc(${step}% + (${14 - step * 0.28}px))`
+    break
+  }
   }
 
-  progress.style.width = `calc(${step}% + (${14 - step * 0.28}px))`
   bubble.innerHTML = String(value)
 }
 
@@ -31,7 +37,8 @@ const init = (): void => {
     const first = 0
     const last = 1
 
-    if (wrappers.length == 1) {
+    switch (wrappers.length) {
+    case 1: {
       const output = range.querySelector('*[data-range-output]') as HTMLOutputElement
       const input = range.querySelector('*[data-range-input]') as HTMLInputElement
       const progress = range.querySelector('*[data-range-progress]') as HTMLElement
@@ -39,21 +46,22 @@ const init = (): void => {
 
       const changeRange = (): void => {
         getPosition(first, input, progress, bubble)
-
         output.value = input.value
       }
 
       changeRange()
 
       input.addEventListener('input', changeRange as EventListener)
-    } else {
-      const outputs = range.querySelectorAll('*[data-range-output]') as NodeListOf<Element>
 
+      break
+    }
+
+    case 2: {
+      const outputs = range.querySelectorAll('*[data-range-output]') as NodeListOf<Element>
       const firstOutput = outputs[first] as HTMLInputElement
       const firstInput = (wrappers[first] as HTMLElement).querySelector('*[data-range-input]') as HTMLInputElement
       const firstProgress = (wrappers[first] as HTMLElement).querySelector('*[data-range-progress]') as HTMLElement
       const firstBubble = (wrappers[first] as HTMLElement).querySelector('*[data-range-bubble]') as HTMLOutputElement
-
       const lastOutput = outputs[last] as HTMLInputElement
       const lastInput = (wrappers[last] as HTMLElement).querySelector('*[data-range-input]') as HTMLInputElement
       const lastProgress = (wrappers[last] as HTMLElement).querySelector('*[data-range-progress]') as HTMLElement
@@ -66,7 +74,6 @@ const init = (): void => {
 
       firstOutput.value = firstInput.value
       lastOutput.value = lastInput.value
-
       changeRanges()
 
       firstOutput.addEventListener('input', ((): void => {
@@ -77,7 +84,6 @@ const init = (): void => {
         }
 
         firstInput.value = firstOutput.value
-
         changeRanges()
       }) as EventListener)
 
@@ -89,7 +95,6 @@ const init = (): void => {
         }
 
         lastInput.value = lastOutput.value
-
         changeRanges()
       }) as EventListener)
 
@@ -100,7 +105,6 @@ const init = (): void => {
         }
 
         firstOutput.value = firstInput.value
-
         changeRanges()
       }) as EventListener)
 
@@ -111,9 +115,11 @@ const init = (): void => {
         }
 
         lastOutput.value = lastInput.value
-
         changeRanges()
       }) as EventListener)
+
+      break
+    }
     }
   })
 }

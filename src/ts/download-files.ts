@@ -4,7 +4,7 @@ const init = (): File[] => {
   const data: File[] = []
 
   document.addEventListener('change', ((event: Event): void => {
-    if ((event.target as HTMLInputElement).getAttribute('data-input') == 'file') {
+    if ((event.target as HTMLInputElement).getAttribute('data-input') === 'file') {
       const form = (event.target as HTMLInputElement).closest('[data-files]') as HTMLFormElement
 
       if (!form) return
@@ -22,9 +22,7 @@ const init = (): File[] => {
       if (fileHandler.init(input, error)) {
         for (let i = 0; i < files.length; i++) {
           data.push(files[i])
-
           item.setAttribute('data-files-item', '')
-
           item.innerHTML = `
             <span class="truncate">${files[i].name}</span>
             <button class="btn btn-gray text-14 p-1" data-files-remove="${files[i].name}" type="button">
@@ -33,16 +31,21 @@ const init = (): File[] => {
               </svg>
             </button>
           `
-
           listing.appendChild(item)
 
           if (!listing.classList.contains('mb-5')) listing.classList.add('mb-5')
 
-          if (data.length == 3) {
+          switch (data.length) {
+          case 3: {
             download.classList.add('pointer-events-none', 'opacity-50')
             text.innerText = 'Не более 3 файлов'
-          } else {
+            break
+          }
+
+          default: {
             text.innerText = 'Добавить еще'
+            break
+          }
           }
         }
       }
@@ -63,19 +66,25 @@ const init = (): File[] => {
       const btn = event.target as HTMLButtonElement
 
       for (let i = 0; i < data.length; i++) {
-        if (btn.dataset.filesRemove == String(data[i].name)) {
+        if (btn.dataset.filesRemove === String(data[i].name)) {
           data.splice(i, 1)
           item.remove()
         }
       }
 
-      if (data.length == 0) {
+      switch (data.length) {
+      case 3: {
         input.value = ''
         text.innerText = 'Загрузить файлы'
         listing.classList.remove('mb-5')
-      } else {
+        break
+      }
+
+      default: {
         download.classList.remove('pointer-events-none', 'opacity-50')
         text.innerText = 'Добавить еще'
+        break
+      }
       }
     }
   }) as EventListener)

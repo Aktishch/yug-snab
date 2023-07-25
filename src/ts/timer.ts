@@ -10,7 +10,6 @@ const init = (): void => {
   const turn = timer.querySelector('*[data-timer-turn]') as HTMLButtonElement
   const icon = turn.querySelector('use') as SVGUseElement
   const reset = timer.querySelector('*[data-timer-reset]') as HTMLButtonElement
-
   let status = false
   let seconds = 0
   let minutes = 0
@@ -18,36 +17,40 @@ const init = (): void => {
   let steps = 0
 
   const setTime = (): void => {
-    if (status == true) {
+    if (status) {
       seconds += 1
       steps += 1
 
-      if (seconds == 60) {
+      if (seconds === 60) {
         minutes += 1
         seconds = 0
       }
 
-      if (minutes == 60) {
+      if (minutes === 60) {
         hours += 1
         minutes = 0
         seconds = 0
       }
 
       units.innerText = `${timeFormat.init(hours)}:${timeFormat.init(minutes)}:${timeFormat.init(seconds)}`
-
       setTimeout(setTime, 1000)
     }
   }
 
   const statusTimer = (): void => {
-    if (status == false) {
-      status = true
-      icon.setAttribute('xlink:href', 'img/icons.svg#pause')
-
-      setTime()
-    } else {
+    switch (status) {
+    case true: {
       status = false
       icon.setAttribute('xlink:href', 'img/icons.svg#play')
+      break
+    }
+
+    case false: {
+      status = true
+      icon.setAttribute('xlink:href', 'img/icons.svg#pause')
+      setTime()
+      break
+    }
     }
   }
 

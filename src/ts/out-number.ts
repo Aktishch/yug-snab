@@ -11,18 +11,22 @@ const setOutNumber = (section: HTMLElement): void => {
     const time: number = item.dataset.numberTime ? Number(item.dataset.numberTime) * 1000 : 1000
     const fixed: number = item.dataset.numberFixed ? Number(item.dataset.numberFixed) : 0
     const timer: number = Math.round(time / (number / step))
-
     let sum = 0
 
     const interval: NodeJS.Timer = setInterval((): void => {
       sum += step
 
-      if (sum == number || sum > number) {
+      switch (sum >= number) {
+      case true: {
         item.innerHTML = String(number.toFixed(fixed))
-
         clearInterval(interval)
-      } else {
+        break
+      }
+
+      case false: {
         item.innerHTML = String(sum.toFixed(fixed))
+        break
+      }
       }
     }, timer)
   })

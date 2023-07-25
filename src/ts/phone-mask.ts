@@ -2,7 +2,6 @@ const phoneMask = (event: Event): void => {
   const input = event.target as HTMLInputElement
   const matrix = '+7 (___) ___-__-__'
   const replace: string = matrix.replace(/\D/g, '')
-
   let values: string = input.value.replace(/\D/g, '')
   let length = 0
 
@@ -17,7 +16,7 @@ const phoneMask = (event: Event): void => {
   })
 
   input.addEventListener('blur', ((): void => {
-    if (input.value.length == 2) input.value = ''
+    if (input.value.length === 2) input.value = ''
   }) as EventListener)
 }
 
@@ -28,22 +27,21 @@ const getValue = (input: HTMLInputElement): string => {
 const onInput = (event: InputEvent): '' | undefined => {
   const input = event.target as HTMLInputElement
   const selection: number | null = input.selectionStart
-
   let value: string = getValue(input)
   let formatted: string
 
   if (!value) return (input.value = '')
 
-  if (input.value.length != selection) {
+  if (input.value.length !== selection) {
     if (event.data && /\D/g.test(event.data)) input.value = value
 
     return
   }
 
   if (['7', '8', '9'].indexOf(value[0]) > -1) {
-    if (value[0] == '9') value = '7' + value
+    if (value[0] === '9') value = '7' + value
 
-    const firstVal = value[0] == '8' ? '8' : '+7'
+    const firstVal = value[0] === '8' ? '8' : '+7'
 
     formatted = input.value = firstVal + ' '
 
@@ -65,7 +63,7 @@ const onKeyDown = (event: KeyboardEvent): void => {
   const input = event.target as HTMLInputElement
   const value: string = getValue(input)
 
-  if (event.code == 'Backspace' && value.length == 1) input.value = ''
+  if (event.code === 'Backspace' && value.length === 1) input.value = ''
 }
 
 const onPaste = (event: ClipboardEvent): void => {
@@ -84,15 +82,15 @@ const onPaste = (event: ClipboardEvent): void => {
 
 const init = (): void => {
   document.addEventListener('input', ((event: InputEvent): void => {
-    if ((event.target as HTMLInputElement).getAttribute('type') == 'tel') onInput(event)
+    if ((event.target as HTMLInputElement).getAttribute('type') === 'tel') onInput(event)
   }) as EventListener)
 
   document.addEventListener('keydown', ((event: KeyboardEvent): void => {
-    if ((event.target as HTMLInputElement).getAttribute('type') == 'tel') onKeyDown(event)
+    if ((event.target as HTMLInputElement).getAttribute('type') === 'tel') onKeyDown(event)
   }) as EventListener)
 
   document.addEventListener('paste', ((event: ClipboardEvent): void => {
-    if ((event.target as HTMLInputElement).getAttribute('type') == 'tel') onPaste(event)
+    if ((event.target as HTMLInputElement).getAttribute('type') === 'tel') onPaste(event)
   }) as EventListener)
 }
 

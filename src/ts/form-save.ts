@@ -4,7 +4,6 @@ const formSave = (id: string): void => {
   if (!form) return
 
   const inputs = form.querySelectorAll('*[data-input]') as NodeListOf<Element>
-
   let formData: object = {}
 
   if (sessionStorage.getItem(`${id}`)) {
@@ -13,8 +12,8 @@ const formSave = (id: string): void => {
     inputs.forEach((element: Element): void => {
       const input = element as HTMLInputElement
 
-      if (input.dataset.input != 'file') {
-        for (const key in formData) if (input.name == key) input.value = formData[key]
+      if (input.dataset.input !== 'file') {
+        for (const key in formData) if (input.name === key) input.value = formData[key]
       }
     })
   }
@@ -23,7 +22,7 @@ const formSave = (id: string): void => {
     inputs.forEach((element: Element): void => {
       const input = element as HTMLInputElement
 
-      if (input.dataset.input != 'file') {
+      if (input.dataset.input !== 'file') {
         formData[input.name] = input.value
         sessionStorage.setItem(`${id}`, JSON.stringify(formData))
       }

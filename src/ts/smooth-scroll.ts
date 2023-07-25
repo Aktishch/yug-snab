@@ -11,7 +11,6 @@ const init = (): void => {
   const body = document.body as HTMLBodyElement
   const wrappers = smoothScroll.querySelectorAll('*[data-smooth-wrapper]') as NodeListOf<Element>
   const scrollSpeed: number = smoothScroll.dataset.smoothSpeed ? Number(smoothScroll.dataset.smoothSpeed) / 100 : 0.02
-
   let offset = 0
   let speed: number = scrollSpeed
 
@@ -23,23 +22,19 @@ const init = (): void => {
 
   const createSmoothScroll = (): void => {
     setBodyHeight()
-
     offset += (scrolledPage.init().top - offset) * speed
 
     const translateY = `translateY(-${offset}px)`
 
     smoothScroll.style.transform = translateY
-
     sessionStorage.setItem('translateY', translateY)
-
     animation.onScroll()
 
     window.requestAnimationFrame(createSmoothScroll)
   }
 
-  if (performance.navigation.type == 1 && sessionStorage.getItem('translateY')) {
+  if (performance.navigation.type === 1 && sessionStorage.getItem('translateY')) {
     setBodyHeight()
-
     speed = 1
     smoothScroll.style.transform = String(sessionStorage.getItem('translateY'))
 
@@ -77,14 +72,26 @@ const init = (): void => {
 
           position += (scrolledPage.init().top - wrapper.offsetTop - position) * layerSpeed
 
-          if (layer.dataset.smoothLayer == 'top') {
+          switch (layer.dataset.smoothLayer) {
+          case 'top': {
             layer.style.transform = `translateY(${-position}px)`
-          } else if (layer.dataset.smoothLayer == 'bottom') {
+            break
+          }
+
+          case 'bottom': {
             layer.style.transform = `translateY(${position}px)`
-          } else if (layer.dataset.smoothLayer == 'left') {
+            break
+          }
+
+          case 'left': {
             layer.style.transform = `translateX(${-position}px)`
-          } else if (layer.dataset.smoothLayer == 'right') {
+            break
+          }
+
+          case 'right': {
             layer.style.transform = `translateX(${position}px)`
+            break
+          }
           }
         }
 

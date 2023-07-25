@@ -15,18 +15,26 @@ const setWaved = (event: Event): void => {
     circle.classList.add('waved-circle')
     circle.style.top = `${coordinates.top}px`
     circle.style.left = `${coordinates.left}px`
-
     waved.appendChild(circle)
-
     setTimeout((): void => circle.remove(), 1000)
   }
 
-  if (event.type === 'touchstart' && touchDevice.init()) {
+  switch (event.type) {
+  case 'touchstart': {
+    if (!touchDevice.init()) return
+
     createCircle((event as TouchEvent).touches[0].clientY, (event as TouchEvent).touches[0].clientX)
+
+    break
   }
 
-  if (event.type === 'mousedown' && !touchDevice.init()) {
+  case 'mousedown': {
+    if (touchDevice.init()) return
+
     createCircle((event as MouseEvent).clientY, (event as MouseEvent).clientX)
+
+    break
+  }
   }
 }
 

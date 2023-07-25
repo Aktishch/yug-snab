@@ -20,11 +20,11 @@ const init = (): void => {
 
   document.addEventListener('scroll', scrollHeader as EventListener)
 
-  const smoothWrapper = document.querySelector('#smooth-wrapper') as HTMLElement
+  const smoothScroll = document.querySelector('#smooth-scroll') as HTMLElement
 
-  if (smoothWrapper) {
+  if (smoothScroll) {
     const wrapperResize = (): void => {
-      smoothWrapper.style.paddingTop = `${header.offsetHeight}px`
+      smoothScroll.style.paddingTop = `${header.offsetHeight}px`
     }
 
     wrapperResize()

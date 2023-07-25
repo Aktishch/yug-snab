@@ -6,12 +6,15 @@ const setAccordion = (element: HTMLElement): void => {
 
   const setAccordionHeight = (): void => {
     switch (accordion.dataset.accordion) {
-    case 'hidden':
+    case 'hidden': {
       content.style.height = '0'
       break
-    case 'active':
+    }
+
+    case 'active': {
       content.style.height = `${content.scrollHeight}px`
       break
+    }
     }
   }
 
@@ -21,14 +24,17 @@ const setAccordion = (element: HTMLElement): void => {
 
   toggle.addEventListener('click', ((): void => {
     switch (accordion.dataset.accordion) {
-    case 'hidden':
+    case 'hidden': {
       accordion.dataset.accordion = 'active'
       setAccordionHeight()
       break
-    case 'active':
+    }
+
+    case 'active': {
       accordion.dataset.accordion = 'hidden'
       setAccordionHeight()
       break
+    }
     }
   }) as EventListener)
 
@@ -42,12 +48,15 @@ const setAccordion = (element: HTMLElement): void => {
 
     accordionItemToggle.addEventListener('click', ((): void => {
       switch (accordionItem.dataset.accordion) {
-      case 'hidden':
+      case 'hidden': {
         content.style.height = `${content.scrollHeight + accordionItemContent.scrollHeight}px`
         break
-      case 'active':
+      }
+
+      case 'active': {
         content.style.height = `${content.scrollHeight - accordionItemContent.scrollHeight}px`
         break
+      }
       }
     }) as EventListener)
   })
@@ -63,7 +72,7 @@ const accordionClose = (value: string): void => {
 
     const content = accordion.querySelector('*[data-accordion-content]') as HTMLElement
 
-    if (accordion.dataset.accordion == 'active') {
+    if (accordion.dataset.accordion === 'active') {
       accordion.dataset.accordion = 'hidden'
       content.style.height = '0'
     }

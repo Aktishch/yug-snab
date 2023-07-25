@@ -8,20 +8,18 @@ const init = (): void => {
   const nav = smartMenu.querySelector('*[data-smart-nav]') as HTMLButtonElement
   const count = smartMenu.querySelector('*[data-smart-count]') as HTMLElement
   const list = smartMenu.querySelector('*[data-smart-list]') as HTMLElement
-
   const breaks: number[] = []
 
   const updateSmartMenu = (): void => {
+    const lengthWidth: number = length.offsetWidth
     const smartMenuWidth: number = nav.classList.contains('hidden')
       ? smartMenu.offsetWidth
       : smartMenu.offsetWidth - nav.offsetWidth
-    const lengthWidth: number = length.offsetWidth
 
     if (smartMenuWidth > 0 && smartMenuWidth < lengthWidth) {
       breaks.push(lengthWidth)
       list.prepend(length.lastElementChild as HTMLElement)
       count.innerText = String(breaks.length)
-
       updateSmartMenu()
     } else {
       if (smartMenuWidth > breaks[breaks.length - 1]) {
@@ -31,11 +29,11 @@ const init = (): void => {
       }
     }
 
-    (list.querySelectorAll('li') as NodeListOf<Element>).length == 0
+    (list.querySelectorAll('li') as NodeListOf<Element>).length === 0
       ? nav.classList.add('hidden')
       : nav.classList.remove('hidden')
 
-    lengthWidth == 0 ? title.classList.remove('hidden') : title.classList.add('hidden')
+    lengthWidth === 0 ? title.classList.remove('hidden') : title.classList.add('hidden')
   }
 
   updateSmartMenu()

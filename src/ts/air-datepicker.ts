@@ -5,9 +5,12 @@ import filter from './filter'
 
 declare global {
   interface Window {
+    AirDatepicker: typeof AirDatepicker
     excludeDates: number[]
   }
 }
+
+window.AirDatepicker = AirDatepicker
 
 const init = (): void => {
   const datepickers = document.querySelectorAll('*[data-datepicker]') as NodeListOf<Element>
@@ -26,7 +29,7 @@ const init = (): void => {
     }
   }
 
-  new AirDatepicker('#calendar', {
+  new window.AirDatepicker('#calendar', {
     locale: localeRu,
     onRenderCell: renderCellHandler,
     selectedDates: [new Date()],
@@ -44,7 +47,7 @@ const init = (): void => {
     const inputMin = datepicker.querySelector('*[data-input="min"]') as HTMLInputElement
     const inputMax = datepicker.querySelector('*[data-input="max"]') as HTMLInputElement
 
-    const min = new AirDatepicker(inputMin, {
+    const min = new window.AirDatepicker(inputMin, {
       onSelect({ date }) {
         max.update({
           minDate: String(date),
@@ -57,7 +60,7 @@ const init = (): void => {
       position: 'bottom left' || inputMin.dataset.position,
     }) as AirDatepicker<HTMLInputElement>
 
-    const max = new AirDatepicker(inputMax, {
+    const max = new window.AirDatepicker(inputMax, {
       onSelect({ date }) {
         min.update({
           maxDate: String(date),

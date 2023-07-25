@@ -7,28 +7,29 @@ const scrollTo = (event: Event): void => {
   const id = String(link.getAttribute('href'))
   const block = document.querySelector(id) as HTMLElement
 
-  if (link.dataset.scroll == 'top') {
+  switch (link.dataset.scroll) {
+  case 'top': {
     const header = document.querySelector('*[data-header]') as HTMLElement
-
-    let offsetTop: number
-
-    if (header) {
-      offsetTop = block.getBoundingClientRect().top + scrolledPage.init().top - header.offsetHeight
-    } else {
-      offsetTop = block.getBoundingClientRect().top + scrolledPage.init().top
-    }
+    const offsetTop: number = header
+      ? block.getBoundingClientRect().top + scrolledPage.init().top - header.offsetHeight
+      : block.getBoundingClientRect().top + scrolledPage.init().top
 
     window.scrollTo({
       top: offsetTop,
       behavior: 'smooth',
     })
+
+    break
   }
 
-  if (link.dataset.scroll == 'center') {
+  case 'center': {
     block.scrollIntoView({
       block: 'center',
       behavior: 'smooth',
     })
+
+    break
+  }
   }
 }
 

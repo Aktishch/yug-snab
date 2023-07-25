@@ -1,7 +1,6 @@
 const init = (): void => {
   const html = document.documentElement as HTMLElement
   const toggles = html.querySelectorAll('*[data-theme="toggle"]') as NodeListOf<Element>
-
   let theme = 'light'
 
   const togglesChecked = (check: boolean): void => {
@@ -13,32 +12,40 @@ const init = (): void => {
   }
 
   const variationTheme = (): void => {
-    if (!html.classList.contains('dark')) {
-      theme = 'dark'
-      localStorage.setItem('theme', theme)
-      html.classList.add('dark')
-
-      togglesChecked(true)
-    } else {
+    switch (html.classList.contains('dark')) {
+    case true: {
       theme = 'light'
       localStorage.setItem('theme', theme)
       html.classList.remove('dark')
-
       togglesChecked(false)
+      break
+    }
+
+    case false: {
+      theme = 'dark'
+      localStorage.setItem('theme', theme)
+      html.classList.add('dark')
+      togglesChecked(true)
+      break
+    }
     }
   }
 
   if (localStorage.getItem('theme')) {
     theme = String(localStorage.getItem('theme'))
 
-    if (theme == 'dark') {
-      html.classList.add('dark')
-
-      togglesChecked(true)
-    } else {
+    switch (theme) {
+    case 'light': {
       html.classList.remove('dark')
-
       togglesChecked(false)
+      break
+    }
+
+    case 'dark': {
+      html.classList.add('dark')
+      togglesChecked(true)
+      break
+    }
     }
   }
 
@@ -49,7 +56,7 @@ const init = (): void => {
   })
 
   document.addEventListener('keyup', ((event: KeyboardEvent): void => {
-    if (event.altKey && event.code == 'Digit5') variationTheme()
+    if (event.altKey && event.code === 'Digit5') variationTheme()
   }) as EventListener)
 }
 

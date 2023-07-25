@@ -30,7 +30,6 @@ const init = (form: HTMLFormElement): boolean => {
       const maxLengthInputTel = (numb: number): void => {
         if (input.value.length > 0 && input.value.length < numb) {
           error.innerText = 'Введите корректный номер!'
-
           inputError()
         }
       }
@@ -47,10 +46,12 @@ const init = (form: HTMLFormElement): boolean => {
       }
 
       switch (input.dataset.input) {
-      case 'name':
+      case 'name': {
         if (input.value.length === 1) inputError()
         break
-      case 'tel':
+      }
+
+      case 'tel': {
         if (input.value[1] === '7') {
           maxLengthInputTel(18)
         } else if (input.value[0] === '8') {
@@ -62,13 +63,19 @@ const init = (form: HTMLFormElement): boolean => {
         }
 
         break
-      case 'email':
+      }
+
+      case 'email': {
         if (emailFormat(input.value)) inputError()
         break
-      case 'select':
+      }
+
+      case 'select': {
         if (input.value === 'empty') inputError()
         break
-      case 'text':
+      }
+
+      case 'text': {
         if (input.value.length < 10) {
           error.innerText = 'Введите не менее 10 символов!'
           inputError()
@@ -77,9 +84,12 @@ const init = (form: HTMLFormElement): boolean => {
         }
 
         break
-      case 'switch':
+      }
+
+      case 'switch': {
         if (input.checked === false) inputError()
         break
+      }
       }
 
       input.addEventListener(

@@ -11,7 +11,7 @@ const init = (): void => {
     show.addEventListener('click', ((): void => {
       const items = listing.querySelectorAll('*[data-listing-item]') as NodeListOf<Element>
       const count: number =
-        listing.dataset.listing != '' || undefined || null ? Number(listing.dataset.listing) : items.length
+        listing.dataset.listing !== '' || undefined || null ? Number(listing.dataset.listing) : items.length
 
       for (let i = 0; i < count; i++) {
         if (items[i] && items[i].classList.contains('hidden')) items[i].classList.remove('hidden')
@@ -20,7 +20,7 @@ const init = (): void => {
 
         if (items[i]) items[i].removeAttribute('data-listing-item')
 
-        if (!items[i] || items.length == count) show.remove()
+        if (!items[i] || items.length === count) show.remove()
       }
     }) as EventListener)
   })

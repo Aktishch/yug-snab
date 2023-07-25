@@ -12,26 +12,21 @@ const init = (): void => {
     if (!flag) return
 
     flag = false
-
     setTimeout((): boolean => (flag = true), 300)
 
     const snowflake = document.createElement('span') as HTMLSpanElement
-
+    const size: number = Math.random() * 60
     const coordinates: coordinates = {
       top: event.clientY,
       left: event.clientX,
     }
 
-    const size: number = Math.random() * 60
-
     snowflake.classList.add('snowflake')
-    snowflake.style.top = `${coordinates.top}px`
-    snowflake.style.left = `${coordinates.left}px`
     snowflake.style.width = `${20 + size}px`
     snowflake.style.height = `${20 + size}px`
-
+    snowflake.style.top = `${coordinates.top}px`
+    snowflake.style.left = `${coordinates.left}px`
     snow.appendChild(snowflake)
-
     setTimeout((): void => snowflake.remove(), 3000)
   }
 

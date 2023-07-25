@@ -18,29 +18,24 @@ const init = (): void => {
       el: '.gallery-slider .swiper-pagination',
       clickable: true,
     },
-
     navigation: {
       prevEl: '.gallery-slider .swiper-button-prev',
       nextEl: '.gallery-slider .swiper-button-next',
     },
-
     effect: 'coverflow',
     slidesPerView: 1.3,
     spaceBetween: 20,
     grabCursor: true,
     loop: true,
     freeMode: true,
-
     breakpoints: {
       [media.sm]: {
         slidesPerView: 2,
       },
-
       [media.lg]: {
         slidesPerView: 3,
       },
     },
-
     autoplay: {
       delay: 3000,
       stopOnLastSlide: false,
@@ -53,27 +48,22 @@ const init = (): void => {
       el: '.products-slider .swiper-pagination',
       clickable: true,
     },
-
     navigation: {
       prevEl: '.products-slider .swiper-button-prev',
       nextEl: '.products-slider .swiper-button-next',
     },
-
     slidesPerView: 1.3,
     slidesPerGroup: 1,
     spaceBetween: 20,
     grabCursor: true,
     watchSlidesProgress: true,
-
     breakpoints: {
       [media.sm]: {
         slidesPerView: 2,
       },
-
       [media.lg]: {
         slidesPerView: 3,
       },
-
       [media.xl]: {
         slidesPerView: 4,
       },
@@ -92,29 +82,24 @@ const init = (): void => {
       prevEl: '.quiz-slider .swiper-button-prev',
       nextEl: '.quiz-slider .swiper-button-next',
     },
-
     pagination: {
       el: '.quiz-slider .swiper-pagination',
       type: 'custom',
-
       renderCustom: (swiper: Swiper, current: number, total: number): number => {
         return total - current
       },
     },
-
     slidesPerView: 1,
     slidesPerGroup: 1,
     spaceBetween: 30,
     allowTouchMove: false,
     watchSlidesProgress: true,
-
     on: {
       slideChange: (swiper: Swiper): void => {
         quizImages.slideTo(swiper.activeIndex)
-
         quiz.checkQuizSlide(swiper.visibleSlides[0])
 
-        if (swiper.visibleSlides[0] == swiper.slides[swiper.slides.length - 1]) {
+        if (swiper.visibleSlides[0] === swiper.slides[swiper.slides.length - 1]) {
           (swiper.el.closest('[data-quiz]') as HTMLElement).setAttribute('data-quiz-end', '')
         } else {
           (swiper.el.closest('[data-quiz]') as HTMLElement).removeAttribute('data-quiz-end')
@@ -137,7 +122,6 @@ const init = (): void => {
     spaceBetween: 20,
     speed: 1000,
     grabCursor: true,
-
     breakpoints: {
       [media.md]: {
         slidesPerView: 4,
@@ -159,11 +143,9 @@ const init = (): void => {
     spaceBetween: 30,
     speed: 1000,
     grabCursor: true,
-
     thumbs: {
       swiper: descriptionBullets,
     },
-
     on: {
       slideChange: (swiper: Swiper): void => {
         descriptionBg.slideTo(swiper.activeIndex)

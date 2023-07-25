@@ -4,7 +4,13 @@ import formValidate from './functions/form-validate'
 const formSubmit = (event: Event, data: File[]): void => {
   const form = event.target as HTMLFormElement
 
-  if (form.dataset.form == 'submit' || form.dataset.form == 'params') {
+  switch (form.dataset.form) {
+  case 'action': {
+    if (!formValidate.init(form)) event.preventDefault()
+    break
+  }
+
+  default: {
     event.preventDefault()
 
     if (!formValidate.init(form)) return
@@ -12,7 +18,6 @@ const formSubmit = (event: Event, data: File[]): void => {
     const formData: FormData = new FormData(form)
     const searchParams = new URLSearchParams() as URLSearchParams
     const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement
-
     let requestUrl = ''
 
     for (const pair of formData.entries()) {
@@ -20,15 +25,15 @@ const formSubmit = (event: Event, data: File[]): void => {
     }
 
     if (form.hasAttribute('data-files')) {
-      if (data != null) for (let i = 0; i < data.length; i++) formData.append('file[]', data[i])
+      if (data !== null) for (let i = 0; i < data.length; i++) formData.append('file[]', data[i])
     }
 
     const queryString: string = searchParams.toString()
 
-    if (form.dataset.form == 'submit') {
+    switch (form.dataset.form) {
+    case 'submit': {
       requestUrl = './ajax/submit-handler.php'
       submitBtn.setAttribute('disabled', 'disabled')
-
       fancybox.preloader()
 
       fetch(requestUrl, {
@@ -40,11 +45,8 @@ const formSubmit = (event: Event, data: File[]): void => {
         })
         .then((): void => {
           fancybox.close()
-
           fancybox.open('./dialogs/dialog-submit.html')
-
           form.reset()
-
           submitBtn.removeAttribute('disabled')
 
           if (form.hasAttribute('data-files')) {
@@ -58,17 +60,17 @@ const formSubmit = (event: Event, data: File[]): void => {
           }
         })
         .catch((error: string): void => console.log('The form has not been sent', error))
+      break
     }
 
-    if (form.dataset.form == 'params') {
+    case 'params': {
       requestUrl = `./dialogs/dialog-authorization.html?${queryString}`
-
       fancybox.close()
-
       fancybox.open(requestUrl)
+      break
     }
-  } else if (form.dataset.form == 'action') {
-    if (!formValidate.init(form)) event.preventDefault()
+    }
+  }
   }
 }
 

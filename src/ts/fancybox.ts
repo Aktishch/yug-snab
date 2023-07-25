@@ -21,17 +21,13 @@ const init = (): void => {
 
   window.Fancybox.bind('[data-fancybox-dialog]', {
     dragToClose: false,
-
     on: {
-      done: (): void => {
-        waved.init()
-      },
+      done: (): void => waved.init(),
     },
   })
 
   window.Fancybox.bind('[data-fancybox-calendar]', {
     dragToClose: false,
-
     on: {
       done: (): void => {
         airDatepicker.init()
@@ -50,14 +46,10 @@ const open = (requestUrl: string): void => {
         type: 'ajax',
       },
     ],
-
     {
       dragToClose: false,
-
       on: {
-        done: (): void => {
-          waved.init()
-        },
+        done: (): void => waved.init(),
       },
     }
   )
@@ -75,7 +67,6 @@ const preloader = (): void => {
         type: 'ajax',
       },
     ],
-
     {
       dragToClose: false,
       closeButton: false,
@@ -92,16 +83,12 @@ const warning = (): void => {
         type: 'ajax',
       },
     ],
-
     {
       dragToClose: false,
       closeButton: false,
       backdropClick: true,
-
       on: {
-        done: (): void => {
-          waved.init()
-        },
+        done: (): void => waved.init(),
       },
     }
   )

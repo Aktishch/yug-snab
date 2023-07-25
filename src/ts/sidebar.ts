@@ -3,13 +3,11 @@ import media from '../ts/functions/media'
 
 const openSidebar = (sidebar: HTMLElement): void => {
   scrollbar.hidden()
-
   sidebar.dataset.sidebar = 'open'
 }
 
 const closeSidebar = (sidebar: HTMLElement): void => {
   scrollbar.show()
-
   sidebar.dataset.sidebar = 'close'
 }
 

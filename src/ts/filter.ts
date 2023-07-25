@@ -1,7 +1,7 @@
 const filtering = (name: string, cards: NodeListOf<Element>): void => {
   cards.forEach((element: Element): void => {
     const card = element as HTMLElement
-    const absence: boolean = card.dataset.filterCard != name
+    const absence: boolean = card.dataset.filterCard !== name
     const showAll: boolean = name.toLowerCase() === 'all'
 
     if (absence && !showAll) {
@@ -9,7 +9,6 @@ const filtering = (name: string, cards: NodeListOf<Element>): void => {
     } else {
       card.classList.remove('hidden')
       card.classList.add('filter-show')
-
       setTimeout((): void => card.classList.remove('filter-show'), 300)
     }
   })
@@ -59,7 +58,7 @@ const init = (): void => {
       }) as EventListener)
     })
 
-    if (hash && hash != '') {
+    if (hash && hash !== '') {
       for (const [index, card] of cards.entries()) {
         if (card.querySelector(`#${hash}`)) {
           const category = categories[index] as HTMLElement

@@ -4,7 +4,6 @@ const init = (): void => {
   if (!title) return
 
   const text: string | null = title.textContent
-
   let timer: NodeJS.Timeout
 
   window.addEventListener('blur', ((): void => {
@@ -15,7 +14,6 @@ const init = (): void => {
 
   window.addEventListener('focus', ((): void => {
     clearTimeout(timer)
-
     title.innerText = String(text)
   }) as EventListener)
 }
