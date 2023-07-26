@@ -184,11 +184,11 @@
 
 <!-- Горизорнтальный скролл -->
 
-<section class="scrolling bg-white dark:bg-black" data-scrolling>
+<section class="scrolling bg-white dark:bg-black" data-scrolling data-smooth-wrapper>
   <div class="container flex flex-col items-start mb-5 md:md-10 pb-0">
     <h2 class="font-alt font-bold text-36 lg:text-48 leading-2 duration-5 anim anim--up" data-anim="hidden" data-movement="blend">Horizontal scroll</h2>
   </div>
-  <div class="container flex gap-5 md:gap-10 md:sticky md:top-40 scroll-smooth overflow-x-auto md:overflow-x-hidden pt-0" data-scrolling-horizontal>
+  <div class="container flex gap-5 md:gap-10 md:sticky md:top-40 scroll-smooth overflow-x-auto md:overflow-x-hidden pt-0" data-scrolling-horizontal data-smooth-sticky>
     <% for (var i = 0; i < 6; i++) { %>
     <a class="pack pack-half bg-grey dark:bg-dark rounded-6 shadow-md w-full min-w-[320px] md:min-w-[800px]" data-movement="light" data-fancybox="horizontal" href="https://picsum.photos/1040/520?random=<%= i %>">
       <div class="loader">

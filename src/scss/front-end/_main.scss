@@ -155,16 +155,6 @@
 
 // Фильтер
 .filtering {
-  &__circle {
-    &--grey {
-      transform: translate(calc(var(--x) * 30), calc(var(--y) * 30));
-    }
-
-    &--white {
-      transform: translate(calc(var(--x) * -30), calc(var(--y) * -30));
-    }
-  }
-
   &__category.filter-active {
     @apply text-white bg-second;
 

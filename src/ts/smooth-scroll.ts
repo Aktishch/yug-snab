@@ -10,9 +10,9 @@ const init = (): void => {
   const html = document.documentElement as HTMLElement
   const body = document.body as HTMLBodyElement
   const wrappers = smoothScroll.querySelectorAll('*[data-smooth-wrapper]') as NodeListOf<Element>
-  const scrollSpeed: number = smoothScroll.dataset.smoothSpeed ? Number(smoothScroll.dataset.smoothSpeed) / 100 : 0.02
+  const speed: number = smoothScroll.dataset.smoothSpeed ? Number(smoothScroll.dataset.smoothSpeed) / 100 : 0.02
+  let smoothSpeed: number = speed
   let offset = 0
-  let speed: number = scrollSpeed
 
   const setBodyHeight = (): void => {
     const height: number = smoothScroll.getBoundingClientRect().height - 1
@@ -22,24 +22,23 @@ const init = (): void => {
 
   const createSmoothScroll = (): void => {
     setBodyHeight()
-    offset += (scrolledPage.init().top - offset) * speed
+    offset += (scrolledPage.init().top - offset) * smoothSpeed
 
     const translateY = `translateY(-${offset}px)`
 
     smoothScroll.style.transform = translateY
     sessionStorage.setItem('translateY', translateY)
     animation.onScroll()
-
     window.requestAnimationFrame(createSmoothScroll)
   }
 
   if (performance.navigation.type === 1 && sessionStorage.getItem('translateY')) {
     setBodyHeight()
-    speed = 1
+    smoothSpeed = 1
     smoothScroll.style.transform = String(sessionStorage.getItem('translateY'))
 
     setTimeout((): void => {
-      speed = scrollSpeed
+      smoothSpeed = speed
     }, 500)
   }
 
@@ -54,42 +53,65 @@ const init = (): void => {
 
     if (!wrapper) return
 
+    const stickys = wrapper.querySelectorAll('*[data-smooth-sticky]') as NodeListOf<Element>
     const layers = wrapper.querySelectorAll('*[data-smooth-layer]') as NodeListOf<Element>
+
+    stickys.forEach((element: Element): void => {
+      const sticky = element as HTMLElement
+
+      if (!sticky) return
+
+      let stickyPosition = 0
+
+      const createSmothSticky = (): void => {
+        if (
+          wrapper.getBoundingClientRect().top < 0 &&
+          scrolledPage.init().top < wrapper.offsetTop + wrapper.offsetHeight
+        ) {
+          stickyPosition += (scrolledPage.init().top - wrapper.offsetTop - stickyPosition) * speed
+          sticky.style.transform = `translateY(${stickyPosition}px)`
+        }
+
+        window.requestAnimationFrame(createSmothSticky)
+      }
+
+      window.requestAnimationFrame(createSmothSticky)
+    })
 
     layers.forEach((element: Element): void => {
       const layer = element as HTMLElement
 
       if (!layer) return
 
-      let position = 0
+      const layerSpeed: number = layer.dataset.smoothSpeed ? Number(layer.dataset.smoothSpeed) / 100 : 0.02
+      const layerDepth: number = layer.dataset.smoothDepth ? Number(layer.dataset.smoothDepth) : 1
+      let layerPosition = 0
 
       const createSmoothLayer = (): void => {
         if (
           wrapper.getBoundingClientRect().top - window.screen.height <= 0 &&
           scrolledPage.init().top < wrapper.offsetTop + wrapper.offsetHeight
         ) {
-          const layerSpeed: number = layer.dataset.smoothSpeed ? Number(layer.dataset.smoothSpeed) / 100 : 0.02
-
-          position += (scrolledPage.init().top - wrapper.offsetTop - position) * layerSpeed
+          layerPosition += (scrolledPage.init().top - wrapper.offsetTop - layerPosition) * layerSpeed
 
           switch (layer.dataset.smoothLayer) {
           case 'top': {
-            layer.style.transform = `translateY(${-position}px)`
+            layer.style.transform = `translateY(${-layerPosition / layerDepth}px)`
             break
           }
 
           case 'bottom': {
-            layer.style.transform = `translateY(${position}px)`
+            layer.style.transform = `translateY(${layerPosition / layerDepth}px)`
             break
           }
 
           case 'left': {
-            layer.style.transform = `translateX(${-position}px)`
+            layer.style.transform = `translateX(${-layerPosition / layerDepth}px)`
             break
           }
 
           case 'right': {
-            layer.style.transform = `translateX(${position}px)`
+            layer.style.transform = `translateX(${layerPosition / layerDepth}px)`
             break
           }
           }
@@ -101,22 +123,6 @@ const init = (): void => {
       window.requestAnimationFrame(createSmoothLayer)
     })
   })
-
-  // let fff = 0
-
-  // const scrollSticky = (): void => {
-  //   const articles = document.querySelector('.articles') as HTMLElement
-
-  //   fff += (scrolledPage.init().top - articles.offsetTop - fff) * speed
-
-  //   if (fff > 0 && fff < articles.offsetHeight + articles.offsetTop) {
-  //     articles.style.transform = `translateY(${fff}px)`
-  //   }
-
-  //   window.requestAnimationFrame(scrollSticky)
-  // }
-
-  // window.requestAnimationFrame(scrollSticky)
 }
 
 export default { init }
