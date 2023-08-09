@@ -76,7 +76,7 @@ const init = (form: HTMLFormElement): boolean => {
       }
 
       case 'text': {
-        if (input.value.length < 10) {
+        if (input.value.length > 0 && input.value.length < 10) {
           error.innerText = 'Введите не менее 10 символов!'
           inputError()
         } else {

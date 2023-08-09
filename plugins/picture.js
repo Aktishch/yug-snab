@@ -25,6 +25,13 @@ module.exports = plugin(
           },
         },
       },
+
+      '.icon': {
+        display: 'block',
+        minWidth: '1em',
+        width: '1em',
+        height: '1em',
+      },
     })
 
     matchComponents(

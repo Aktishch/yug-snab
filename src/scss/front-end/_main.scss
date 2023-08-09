@@ -16,32 +16,6 @@
 
 // Меню
 .menu {
-  &[data-sidebar="close"] {
-    @apply invisible opacity-0;
-  }
-
-  &[data-sidebar="close"] &__content {
-    transform: translateX(-100%);
-
-    @apply invisible opacity-0;
-  }
-
-  &[data-sidebar="close"] &__head {
-    transform: translateY(-80px);
-  }
-
-  &[data-sidebar="close"] &__nav {
-    transform: translateX(-220px);
-
-    @apply invisible opacity-0;
-  }
-
-  &[data-sidebar="close"] &__footer {
-    transform: translateY(-50px);
-
-    @apply invisible opacity-0;
-  }
-
   &[data-sidebar="open"] {
     @apply visible opacity-100;
   }
@@ -70,6 +44,19 @@
 
   &__content {
     box-shadow: 0 0 0 100vw theme("colors.black.DEFAULT / 50%");
+    transform : translateX(-100%);
+  }
+
+  &__head {
+    transform: translateY(-80px);
+  }
+
+  &__nav {
+    transform: translateX(-220px);
+  }
+
+  &__footer {
+    transform: translateY(-50px);
   }
 
   &__accordion[data-accordion="active"] &__arrow {
@@ -81,15 +68,8 @@
 .social {
   left: calc(100vw - 150px);
 
-  &__round {
-
-    &[data-social-round="show"] {
-      transform: scale(1) rotate(0);
-    }
-
-    &[data-social-round="hidden"] {
-      transform: scale(0) rotate(-180deg);
-    }
+  &__round[data-social-round="hidden"] {
+    transform: scale(0) rotate(-180deg);
   }
 
   &__btn {
@@ -129,10 +109,8 @@
 }
 
 // Корзина
-.basket {
-  &:not([data-basket="show"]) {
-    transform: translateY(-40%);
-  }
+.basket[data-basket="hidden"] {
+  transform: translateY(-40%);
 }
 
 // В корзину

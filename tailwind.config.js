@@ -220,7 +220,7 @@ module.exports = {
     require('./plugins/dialog'),
     require('./plugins/card'),
     require('./plugins/pack'),
-    require('./plugins/image'),
+    require('./plugins/picture'),
     require('./plugins/form'),
     require('./plugins/input'),
     require('./plugins/button'),

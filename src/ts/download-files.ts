@@ -73,7 +73,7 @@ const init = (): File[] => {
       }
 
       switch (data.length) {
-      case 3: {
+      case 0: {
         input.value = ''
         text.innerText = 'Загрузить файлы'
         listing.classList.remove('mb-5')

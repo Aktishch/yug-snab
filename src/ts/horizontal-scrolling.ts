@@ -42,7 +42,9 @@ const setHorizontalScrolling = (): void => {
 }
 
 const scrollingInViewport = (): void => {
-  if (window.screen.width < media.md) {
+  const html = document.documentElement as HTMLElement
+
+  if (html.clientWidth < media.md) {
     document.removeEventListener('wheel', setHorizontalScrolling as EventListener)
     document.removeEventListener('scroll', setHorizontalScrolling as EventListener)
   } else {

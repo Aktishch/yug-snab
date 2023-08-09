@@ -10,9 +10,9 @@
 <!-- Главный блок -->
 
 <main class="container flex flex-col items-center justify-center bg-white dark:bg-black min-h-[500px] xl:min-h-[600px]" id="header">
-  <img class="block mb-10 duration-10 anim anim--up" data-anim="hidden" src="img/pictures/logo.svg" alt="">
-  <h1 class="font-alt font-bold text-center text-48 lg:text-6xl leading-2 mb-5 md:mb-10 duration-5 delay-2 anim anim--up" data-anim="hidden" data-movement="blend">Main block</h1>
-  <div class="w-full duration-5 delay-4 anim anim--up" data-anim="hidden">
+  <img class="block mb-10 duration-10 anim-up" data-anim="hidden" src="img/pictures/logo.svg" alt="">
+  <h1 class="font-alt font-bold text-center text-48 lg:text-6xl leading-2 mb-5 md:mb-10 duration-5 delay-2 anim-up" data-anim="hidden" data-movement="blend">Main block</h1>
+  <div class="w-full duration-5 delay-4 anim-up" data-anim="hidden">
     <a class="btn btn-primary btn-lg btn-fill btn-glow w-full max-w-[200px] mx-auto" data-waved="light" data-scroll="top" href="#content">Show more</a>
   </div>
 </main>
@@ -41,11 +41,11 @@
 ] %>
 
 <section class="container container--xs container--distance flex flex-col items-center justify-center bg-grey dark:bg-dark" data-listing="1" id="content">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 duration-5 anim anim--up" data-anim="hidden" data-movement="blend">Cards</h2>
-  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 duration-5 anim anim--up" data-anim="hidden" data-movement="blend">Construction and effect</h3>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 duration-5 anim-up" data-anim="hidden" data-movement="blend">Cards</h2>
+  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 duration-5 anim-up" data-anim="hidden" data-movement="blend">Construction and effect</h3>
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-8 w-full mb-5 md:md-10">
     <% for (var i = 0; i < 3; i++) { %>
-    <div class="duration-5 anim anim--up" data-anim="hidden">
+    <div class="duration-5 anim-up" data-anim="hidden">
       <article class="card dark:bg-black h-full">
         <div class="pack pack-rect-md bg-grey dark:bg-dark" data-movement="light">
           <div class="loader">
@@ -70,7 +70,7 @@
   </div>
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-8 w-full">
     <% for (var i = 3; i < articles.length; i++) { %>
-    <div class="hidden sm:block duration-5 anim anim--up" data-anim="hidden" data-listing-item>
+    <div class="hidden sm:block duration-5 anim-up" data-anim="hidden" data-listing-item>
       <article class="inverted h-full">
         <div class="inverted-before card dark:bg-black">
           <div class="pack pack-half bg-grey dark:bg-dark">
@@ -100,7 +100,7 @@
     </div>
     <% } %>
   </div>
-  <div class="w-full duration-5 anim anim--up" data-anim="hidden">
+  <div class="w-full duration-5 anim-up" data-anim="hidden">
     <button class="btn btn-second btn-lg btn-fade sm:hidden max-w-[200px] w-full mt-5 mx-auto" data-listing-show data-waved="dark">Show more</button>
   </div>
 </section>
@@ -110,8 +110,8 @@
 <% var buttons = ['', 'btn-contur', 'btn-fade', 'btn-contur btn-fade', 'btn-fill', 'btn-light', 'btn-xxl', 'btn-xl', 'btn-lg', 'btn-md', 'btn-sm', 'btn-xs', 'btn-contur btn-swipe', 'btn-fill btn-glow', 'data-waved="light"', 'data-waved="dark"', 'data-bubbles="hidden"', 'btn-rect', 'btn-frame', 'btn-lines'] %>
 
 <section class="container container--xs flex flex-col items-center justify-center bg-white dark:bg-black overflow-hidden">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 duration-5 anim anim--up" data-anim="hidden" data-movement="blend">Buttons</h2>
-  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 duration-5 anim anim--up" data-anim="hidden" data-movement="blend">Buttons standard</h3>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 duration-5 anim-up" data-anim="hidden" data-movement="blend">Buttons</h2>
+  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 duration-5 anim-up" data-anim="hidden" data-movement="blend">Buttons standard</h3>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-5 md:mb-10">
     <% for (var i = 0; i < 6; i++) { %>
     <button class="btn btn-primary btn-lg <%= buttons[i] %>">btn--primary <%= buttons[i] %></button>
@@ -164,11 +164,11 @@
 ] %>
 
 <section class="documents container container--distance flex flex-col items-center justify-center bg-grey dark:bg-dark">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 duration-5 anim anim--up" data-anim="hidden" data-movement="blend">Accordion</h2>
-  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 duration-5 anim anim--up" data-anim="hidden" data-movement="blend">Drop-down list</h3>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 duration-5 anim-up" data-anim="hidden" data-movement="blend">Accordion</h2>
+  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 duration-5 anim-up" data-anim="hidden" data-movement="blend">Drop-down list</h3>
   <div class="flex flex-col gap-5 w-full">
     <% for (var i = 0; i < accordion.length; i++) { %>
-    <div class="documents__accordion relative bg-second bg-opacity-10 rounded-4 shadow-md overflow-hidden py-4 md:py-6 px-4 duration-5 anim anim--up" data-anim="hidden" data-accordion="<%= accordion[i].data %>">
+    <div class="documents__accordion relative bg-second bg-opacity-10 rounded-4 shadow-md overflow-hidden py-4 md:py-6 px-4 duration-5 anim-up" data-anim="hidden" data-accordion="<%= accordion[i].data %>">
       <div class="flex items-center justify-between gap-4">
         <h4 class="font-alt font-semibold text-16 md:text-20">Documents - <%= accordion[i].number %></h4>
         <button class="btn btn-primary btn-fill text-14 rounded-max w-9 h-9" data-accordion-toggle data-waved="light">
@@ -230,8 +230,8 @@
 ] %>
 
 <section class="filtering container flex flex-col items-center bg-white dark:bg-black text-white bg-no-repeat bg-center bg-cover overflow-hidden min-h-screen" data-smooth-wrapper data-parallax data-section data-bg="img/pictures/town-grey.jpg" data-bg-webp="img/pictures/town-grey.webp">
-  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 duration-5 anim anim--up" data-anim="hidden" data-movement="blend">Filter</h2>
-  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 duration-5 anim anim--up" data-anim="hidden" data-movement="blend">paralax, form and other...</h3>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 duration-5 anim-up" data-anim="hidden" data-movement="blend">Filter</h2>
+  <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 duration-5 anim-up" data-anim="hidden" data-movement="blend">paralax, form and other...</h3>
   <div class="relative w-full max-w-xl mx-auto" data-filter>
     <picture>
       <img class="icon absolute z-1 top-20 -left-8 text-6xl drop-shadow-md pointer-events-none" data-parallax-layer="auto" data-parallax-speed="4" data-parallax-depth="2" src="img/pictures/circle-grey.png" alt="">
@@ -242,14 +242,14 @@
     <picture>
       <img class="icon absolute z-1 bottom-0 -right-7 text-6xl drop-shadow-md pointer-events-none" data-smooth-layer="bottom" data-smooth-speed="1" data-smooth-depth="2" src="img/pictures/circle-red.png" alt="">
     </picture>
-    <div class="flex flex-col md:flex-row items-center justify-between gap-0 md:gap-4 relative bg-grey md:bg-opacity-0 text-second md:text-white rounded-4 md:rounded-none md:border-b md:border-solid md:border-white overflow-hidden mb-5 md:mb-10 md:pb-4 duration-5 anim anim--up" data-anim="hidden">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-0 md:gap-4 relative bg-grey md:bg-opacity-0 text-second md:text-white rounded-4 md:rounded-none md:border-b md:border-solid md:border-white overflow-hidden mb-5 md:mb-10 md:pb-4 duration-5 anim-up" data-anim="hidden">
       <div class="filtering__category filter-active flex-grow text-center text-20 cursor-pointer w-full p-4 md:p-0" data-filter-category="category-1">Text-style</div>
       <div class="filtering__category flex-grow text-center text-20 cursor-pointer w-full p-4 md:p-0" data-filter-category="category-2">Form-validate</div>
       <div class="filtering__category flex-grow text-center text-20 cursor-pointer w-full p-4 md:p-0" data-filter-category="category-3">Switches</div>
       <div class="filtering__category flex-grow text-center text-20 cursor-pointer w-full p-4 md:p-0" data-filter-category="category-4">File</div>
       <span class="hidden md:block absolute left-0 bottom-0 bg-primary rounded-t-2 h-1 ease-linear duration-3" data-filter-line></span>
     </div>
-    <div class="bg-white text-black rounded-6 shadow-md p-7 md:p-10 duration-5 anim anim--fade" data-anim="hidden">
+    <div class="bg-white text-black rounded-6 shadow-md p-7 md:p-10 duration-5 anim-fade" data-anim="hidden">
       <div class="filtering__card" data-filter-card="category-1">
         <ul class="flex flex-col gap-4 list-disc list-inside text-primary">
           <% for (var i = 0; i < numbers.length; i++) { %>

@@ -64,8 +64,8 @@
 
   <% var social = ['ok', 'yt', 'inst', 'tw', 'fb', 'vk'] %>
 
-  <div class="menu fixed inset-0 z-6 duration-1" data-sidebar="close" data-sidebar-resize="lg" id="menu">
-    <div class="menu__content flex flex-col bg-black bg-opacity-90 overflow-auto backdrop-blur-sm w-full max-w-[375px] h-full duration-3">
+  <div class="menu fixed inset-0 z-6 invisible opacity-0 duration-1" data-sidebar="close" data-sidebar-resize="lg" id="menu">
+    <div class="menu__content flex flex-col bg-black bg-opacity-90 invisible opacity-0 overflow-auto backdrop-blur-sm w-full max-w-[375px] h-full duration-3">
       <div class="menu__head flex items-center justify-between gap-2 bg-black p-4 duration-5 delay-3">
         <a class="btn btn-white w-36" data-waved="light" href="/">
           <picture>
@@ -80,7 +80,7 @@
           </svg>
         </button>
       </div>
-      <div class="menu__nav flex flex-col items-start gap-4 text-white pt-4 pb-10 px-4 duration-9 delay-5">
+      <div class="menu__nav flex flex-col items-start gap-4 text-white invisible opacity-0 pt-4 pb-10 px-4 duration-9 delay-5">
         <a class="hover:underline underline-offset-4 text-20" href="index.html">Front-page</a>
         <a class="hover:underline underline-offset-4 text-20" href="primary.html">Primary</a>
         <a class="hover:underline underline-offset-4 text-20" href="second.html">Second</a>
@@ -100,7 +100,7 @@
           </div>
         </div>
       </div>
-      <div class="menu__footer mt-auto px-4 pt-4 pb-10 duration-5 delay-9">
+      <div class="menu__footer invisible opacity-0 mt-auto px-4 pt-4 pb-10 duration-5 delay-9">
         <div class="flex items-center justify-center gap-4">
           <% for (var i = 0; i < social.length; i++) { %>
           <button class="btn btn-second text-30 rounded-max" data-waved="dark">
@@ -184,7 +184,7 @@
 
     <!-- Умное меню -->
 
-    <nav class="container <%= data.status ? '' : 'hidden' %> relative z-1 py-4 duration-6 anim anim--down" data-anim="hidden">
+    <nav class="container <%= data.status ? '' : 'hidden' %> relative z-1 py-4 duration-6 anim-down" data-anim="hidden">
       <div class="flex items-center justify-between w-full max-w-full" data-smart>
         <h2 class="font-alt font-bold text-18" data-smart-title>Smart-menu items</h2>
         <ul class="flex justify-between gap-3" data-smart-length>

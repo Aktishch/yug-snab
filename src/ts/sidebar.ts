@@ -42,6 +42,7 @@ const init = (): void => {
   }) as EventListener)
 
   window.addEventListener('resize', ((): void => {
+    const html = document.documentElement as HTMLElement
     const sidebars = document.querySelectorAll('*[data-sidebar]') as NodeListOf<Element>
 
     sidebars.forEach((element: Element): void => {
@@ -50,7 +51,7 @@ const init = (): void => {
       if (sidebar.dataset.sidebarResize) {
         const breakpoint: number = media[sidebar.dataset.sidebarResize]
 
-        if (window.screen.width > breakpoint) closeSidebar(sidebar)
+        if (html.clientWidth > breakpoint) closeSidebar(sidebar)
       }
     })
   }) as EventListener)

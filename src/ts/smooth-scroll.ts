@@ -66,7 +66,7 @@ const init = (): void => {
       const createSmothSticky = (): void => {
         if (
           wrapper.getBoundingClientRect().top < 0 &&
-          scrolledPage.init().top < wrapper.offsetTop + wrapper.offsetHeight
+          wrapper.getBoundingClientRect().bottom - window.screen.height > 0
         ) {
           stickyPosition += (scrolledPage.init().top - wrapper.offsetTop - stickyPosition) * speed
           sticky.style.transform = `translateY(${stickyPosition}px)`

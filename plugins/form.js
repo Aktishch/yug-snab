@@ -29,7 +29,8 @@ module.exports = plugin(({ addComponents, theme }) => {
         pointerEvents: 'none',
 
         '&--pointer': {
-          pointerEvents: 'all',
+          pointerEvents: 'auto',
+          cursor: 'pointer',
         },
 
         '&--left': {

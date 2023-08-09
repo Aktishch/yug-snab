@@ -4,7 +4,7 @@ const { parseColor, formatColor } = require('tailwindcss/lib/util/color')
 module.exports = plugin(({ addComponents, matchComponents, theme }) => {
   addComponents({
     '.btn': {
-      '& *': {
+      '*': {
         pointerEvents: 'none',
       },
 
@@ -13,6 +13,7 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
       color: 'var(--btn-color)',
       fontSize: theme('fontSize.16'),
       fontWeight: 600,
+      textAlign: 'center',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
