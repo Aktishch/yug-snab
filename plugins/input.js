@@ -6,19 +6,20 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
     '.input-cover': {
       display: 'flex',
       width: '100%',
+      '--input-radius': '8px',
 
       '& .input': {
         flexGrow: 1,
       },
 
       '& .input:first-child': {
-        borderTopLeftRadius: '8px',
-        borderBottomLeftRadius: '8px',
+        borderTopLeftRadius: 'var(--input-radius)',
+        borderBottomLeftRadius: 'var(--input-radius)',
       },
 
       '& .input:last-child': {
-        borderTopRightRadius: '8px',
-        borderBottomRightRadius: '8px',
+        borderTopRightRadius: 'var(--input-radius)',
+        borderBottomRightRadius: 'var(--input-radius)',
       },
     },
 
@@ -43,12 +44,12 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
         opacity: 0.5,
       },
 
-      '&--fade': {
+      '&-fade': {
         '--input-text': theme('colors.white.DEFAULT'),
         backgroundColor: 'transparent',
       },
 
-      '&--error': {
+      '&-error': {
         borderColor: theme('colors.red.DEFAULT'),
       },
 
@@ -63,6 +64,20 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
       },
     },
   })
+
+  matchComponents(
+    {
+      'input-cover': (radius) => {
+        return {
+          '--input-radius': radius,
+        }
+      },
+    },
+
+    {
+      values: theme('borderRadius'),
+    }
+  )
 
   matchComponents(
     {

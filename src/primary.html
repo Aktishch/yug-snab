@@ -79,7 +79,7 @@
   }
 ] %>
 
-<section class="container container--distance flex flex-col items-center justify-center bg-grey dark:bg-dark overflow-hidden">
+<section class="container container-distance flex flex-col items-center justify-center bg-grey dark:bg-dark overflow-hidden">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:md-10 duration-5 anim-up" data-anim="hidden" data-movement="blend">Products</h2>
   <div class="inverted w-full mb-7" data-inverted="before">
     <div class="inverted-before">
@@ -100,7 +100,7 @@
                 <option>Meat</option>
                 <option>Potatoes</option>
               </datalist>
-              <button class="form-icon form-icon--pointer form-icon--left text-black text-20 opacity-30" type="submit">
+              <button class="form-icon form-icon-pointer form-icon-left text-black text-20 opacity-30" type="submit">
                 <svg class="icon">
                   <use xlink:href="img/icons.svg#search"></use>
                 </svg>
@@ -117,7 +117,7 @@
       <div class="swiper-wrapper">
         <% for (var i = 0; i < products.length; i++) { %>
         <div class="swiper-slide h-auto">
-          <div class="product card card--active dark:bg-black cursor-pointer h-full p-1" data-product>
+          <div class="product card card-active dark:bg-black cursor-pointer h-full p-1" data-product>
             <div class="pack pack-rect-md bg-grey dark:bg-dark rounded-4">
               <div class="loader">
                 <span class="loader-progress">
@@ -208,7 +208,7 @@
 
 <!-- Квиз -->
 
-<section class="quiz container container--xs container--distance bg-grey dark:bg-dark">
+<section class="quiz container container-xs container-distance bg-grey dark:bg-dark">
   <div class="flex justify-between relative bg-white dark:bg-black rounded-4 shadow-md overflow-hidden p-5 md:p-10 duration-5 anim-fade" data-anim="hidden">
     <form class="form md:max-w-[270px] lg:max-w-[450px] w-full" data-form="params">
       <div class="quiz-slider flex flex-col h-full" data-quiz="stop">
@@ -218,9 +218,9 @@
               <div class="flex flex-col h-full">
                 <h4 class="font-semibold text-24 mb-5">Radio:</h4>
                 <div class="flex items-center gap-5">
-                  <input class="switch switch--radio" type="radio" value="radio-1" name="radio">
-                  <input class="switch switch--radio" type="radio" value="radio-2" name="radio">
-                  <input class="switch switch--radio" type="radio" value="radio-3" name="radio">
+                  <input class="switch switch-radio" type="radio" value="radio-1" name="radio">
+                  <input class="switch switch-radio" type="radio" value="radio-2" name="radio">
+                  <input class="switch switch-radio" type="radio" value="radio-3" name="radio">
                 </div>
               </div>
             </div>
@@ -228,8 +228,8 @@
               <div class="flex flex-col h-full">
                 <h4 class="font-semibold text-24 mb-5">Checkbox:</h4>
                 <div class="flex items-center gap-5">
-                  <input class="switch switch--checkbox" type="checkbox" value="checkbox-1" name="checkbox[]">
-                  <input class="switch switch--checkbox" type="checkbox" value="checkbox-2" name="checkbox[]">
+                  <input class="switch switch-checkbox" type="checkbox" value="checkbox-1" name="checkbox[]">
+                  <input class="switch switch-checkbox" type="checkbox" value="checkbox-2" name="checkbox[]">
                 </div>
               </div>
             </div>
@@ -305,7 +305,7 @@
 
 <!-- Описание -->
 
-<section class="description container container--xs relative bg-white dark:bg-black overflow-hidden">
+<section class="description container container-xs relative bg-white dark:bg-black overflow-hidden">
   <div class="absolute inset-0 overflow-hidden">
     <div class="description-bg relative h-full duration-10 delay-2">
       <div class="swiper h-full">

@@ -9,63 +9,63 @@
     width: thin;
     color: theme("colors.primary.DEFAULT") theme("colors.black.DEFAULT");
   }
+}
 
-  &::-webkit-scrollbar {
-    @media(pointer: fine) {
-      @apply w-4;
+::-webkit-scrollbar {
+  @media(pointer: fine) {
+    @apply w-4;
 
-      &-track {
-        @apply bg-black;
+    &-track {
+      @apply bg-black;
 
-        &-piece {
-          @apply my-2;
+      &-piece {
+        @apply my-2;
+      }
+    }
+
+    &-thumb {
+
+      &:active {
+        box-shadow: inset 0 8px 8px theme("colors.black.DEFAULT / 50%");
+      }
+
+      @apply bg-primary rounded-2 border-4 border-solid border-black;
+    }
+
+    &-corner {
+      @apply bg-black;
+    }
+
+    &-button {
+      @apply bg-primary;
+
+      &:vertical {
+        &:decrement:start {
+          @include scrollbar(120, 240, 0);
+        }
+
+        &:increment:end {
+          @include scrollbar(300, 60, 180);
+        }
+
+        &:increment:start,
+        &:decrement:end {
+          @apply hidden;
         }
       }
 
-      &-thumb {
-
-        &:active {
-          box-shadow: inset 0 8px 8px theme("colors.black.DEFAULT / 50%");
+      &:horizontal {
+        &:decrement:start {
+          @include scrollbar(30, 150, -90);
         }
 
-        @apply bg-primary rounded-2 border-4 border-solid border-black;
-      }
-
-      &-corner {
-        @apply bg-black;
-      }
-
-      &-button {
-        @apply bg-primary;
-
-        &:vertical {
-          &:decrement:start {
-            @include scrollbar(120, 240, 0);
-          }
-
-          &:increment:end {
-            @include scrollbar(300, 60, 180);
-          }
-
-          &:increment:start,
-          &:decrement:end {
-            @apply hidden;
-          }
+        &:increment:end {
+          @include scrollbar(210, 330, 90);
         }
 
-        &:horizontal {
-          &:decrement:start {
-            @include scrollbar(30, 150, -90);
-          }
-
-          &:increment:end {
-            @include scrollbar(210, 330, 90);
-          }
-
-          &:increment:start,
-          &:decrement:end {
-            @apply hidden;
-          }
+        &:increment:start,
+        &:decrement:end {
+          @apply hidden;
         }
       }
     }

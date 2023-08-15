@@ -15,7 +15,7 @@ module.exports = plugin(({ addComponents, theme }) => {
       transition: 'box-shadow 0.2s ease, transform 0.2s ease',
       overflow: 'hidden',
 
-      '&--active': {
+      '&-active': {
         '&:active': {
           transform: 'translateY(4px)',
         },

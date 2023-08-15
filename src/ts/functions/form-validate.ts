@@ -22,7 +22,7 @@ const init = (form: HTMLFormElement): boolean => {
 
       const inputError = (): void => {
         input.focus()
-        input.classList.add('input--error')
+        input.classList.add('input-error')
         error.classList.add('visible', 'opacity-100')
         validate = false
       }
@@ -41,7 +41,7 @@ const init = (form: HTMLFormElement): boolean => {
       if (input.value === null || input.value === '' || input.value.length === 0) {
         inputError()
       } else {
-        input.classList.remove('input--error')
+        input.classList.remove('input-error')
         error.classList.remove('visible', 'opacity-100')
       }
 
@@ -96,7 +96,7 @@ const init = (form: HTMLFormElement): boolean => {
         'input',
         ((): void => {
           if (input.value.length > 0) {
-            input.classList.remove('input--error')
+            input.classList.remove('input-error')
             error.classList.remove('visible', 'opacity-100')
           }
         }) as EventListener,

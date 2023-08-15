@@ -8,7 +8,7 @@ module.exports = plugin(({ addComponents, theme }) => {
       padding: 'var(--padding-block) calc(50% - ((var(--padding-inline)) / 2))',
 
       [`@media (min-width: ${theme('screens.xs')})`]: {
-        '&--xs': {
+        '&-xs': {
           '--padding-inline': 'var(--xs)',
         },
       },
@@ -32,7 +32,7 @@ module.exports = plugin(({ addComponents, theme }) => {
         '--padding-block': '80px',
         '--padding-inline': 'var(--xl)',
 
-        '&--distance': {
+        '&-distance': {
           '--width': 'var(--xl)',
           '--distance': '20px',
           '--padding-inline': 'calc(var(--width) + (var(--distance) * 2))',

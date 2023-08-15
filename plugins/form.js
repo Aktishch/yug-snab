@@ -28,16 +28,16 @@ module.exports = plugin(({ addComponents, theme }) => {
         height: '100%',
         pointerEvents: 'none',
 
-        '&--pointer': {
+        '&-pointer': {
           pointerEvents: 'auto',
           cursor: 'pointer',
         },
 
-        '&--left': {
+        '&-left': {
           left: 0,
         },
 
-        '&--right': {
+        '&-right': {
           right: 0,
         },
       },

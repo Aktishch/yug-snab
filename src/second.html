@@ -38,7 +38,7 @@
 
 <!-- Сравнение -->
 
-<section class="container container--distance flex flex-col items-center justify-between bg-grey dark:bg-dark">
+<section class="container container-distance flex flex-col items-center justify-between bg-grey dark:bg-dark">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10 duration-5 anim-up" data-anim="hidden" data-movement="blend">Comparison</h2>
   <div class="relative bg-grey dark:bg-dark rounded-4 overflow-hidden w-full duration-5 anim-fade" data-anim="hidden" data-compare>
     <div class="loader">
@@ -70,7 +70,7 @@
 
 <!-- Сортировка -->
 
-<section class="container container--xs flex flex-col items-center justify-center bg-white dark:bg-black">
+<section class="container container-xs flex flex-col items-center justify-center bg-white dark:bg-black">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10 duration-5 anim-up" data-anim="hidden" data-movement="blend">Sorting</h2>
   <div class="filtering w-full max-w-xl mx-auto" data-filter>
     <div class="flex flex-col md:flex-row items-center justify-between gap-0 md:gap-4 relative bg-grey md:bg-opacity-0 text-second md:text-black dark:text-white rounded-4 md:rounded-none md:border-b md:border-solid md:border-white overflow-hidden mb-5 md:mb-10 md:pb-4 duration-5 anim-up" data-anim="hidden">
@@ -95,7 +95,7 @@
 
 <!-- Счетчик -->
 
-<section class="container container--xs container--distance flex flex-col items-center justify-center bg-grey dark:bg-dark">
+<section class="container container-xs container-distance flex flex-col items-center justify-center bg-grey dark:bg-dark">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10 duration-5 anim-up" data-anim="hidden" data-movement="blend">Counter of time</h2>
   <div class="flex items-center justify-center bg-white dark:bg-black text-primary rounded-6 shadow-md w-full py-7 md:py-10 px-4 md:px-10 duration-5 anim-up" data-anim="hidden" data-counter>
     <h3 class="hidden font-alt font-semibold text-center text-20 md:text-30 leading-2 w-full" data-counter-subtitle>Times up</h3>
@@ -122,7 +122,7 @@
 
 <!-- Время -->
 
-<section class="timer container container--xs flex flex-col items-center justify-center bg-white dark:bg-black">
+<section class="timer container container-xs flex flex-col items-center justify-center bg-white dark:bg-black">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10 duration-5 anim-up" data-anim="hidden" data-movement="blend">Timer</h2>
   <div class="flex flex-col items-center justify-center relative bg-primary rounded-max w-full max-w-[300px] h-[300px] mx-auto" data-timer>
     <div class="timer__stopwatch flex flex-col items-center absolute top-0 left-0 right-0 text-second origin-bottom pointer-events-none w-0.5 h-1/2 mx-auto ease-in-out duration-1" data-timer-stopwatch></div>
@@ -140,27 +140,14 @@
 
 <!-- Открытка -->
 
-<section class="container container--distance flex flex-col items-center justify-center bg-grey dark:bg-dark overflow-hidden">
+<section class="container container-distance flex flex-col items-center justify-center bg-grey dark:bg-dark overflow-hidden">
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-5 md:mb-10 duration-5 anim-up" data-anim="hidden" data-movement="blend">Postcards</h2>
   <div class="postcards flex flex-wrap items-center justify-center gap-10 w-full">
     <% for (var i = 0; i < 3; i++) { %>
-    <ul class="postcards-item relative bg-grey ease-linear duration-4">
-      <div class="loader">
-        <span class="loader-progress">
-          <svg class="loader-icon icon">
-            <use xlink:href="img/icons.svg#loader"></use>
-          </svg>
-        </span>
-      </div>
-      <li class="postcards-particle postcards-particle--1 absolute w-full h-full" data-bg="img/pictures/town.jpg"></li>
-      <li class="postcards-particle postcards-particle--2 absolute w-full h-full" data-bg="img/pictures/town.jpg"></li>
-      <li class="postcards-particle postcards-particle--3 absolute w-full h-full" data-bg="img/pictures/town.jpg"></li>
-      <li class="postcards-particle postcards-particle--4 absolute w-full h-full" data-bg="img/pictures/town.jpg"></li>
-      <li class="postcards-particle postcards-particle--5 absolute w-full h-full" data-bg="img/pictures/town.jpg"></li>
-      <li class="postcards-particle postcards-particle--6 absolute w-full h-full" data-bg="img/pictures/town.jpg"></li>
-      <li class="postcards-particle postcards-particle--7 absolute w-full h-full" data-bg="img/pictures/town.jpg"></li>
-      <li class="postcards-particle postcards-particle--8 absolute w-full h-full" data-bg="img/pictures/town.jpg"></li>
-      <li class="postcards-particle postcards-particle--9 absolute w-full h-full" data-bg="img/pictures/town.jpg"></li>
+    <ul class="postcards-item">
+      <% for (var j = 0; j < 9; j++) { %>
+      <li class="postcards-particle" data-bg="img/pictures/town.jpg"></li>
+      <% } %>
     </ul>
     <% } %>
   </div>

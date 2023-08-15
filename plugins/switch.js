@@ -30,7 +30,7 @@ module.exports = plugin(({ addComponents, theme }) => {
         },
       },
 
-      '&--checkbox': {
+      '&-checkbox': {
         minWidth: '24px',
         width: '24px',
         height: '24px',
@@ -58,7 +58,7 @@ module.exports = plugin(({ addComponents, theme }) => {
         },
       },
 
-      '&--radio': {
+      '&-radio': {
         minWidth: '20px',
         width: '20px',
         height: '20px',
@@ -84,7 +84,7 @@ module.exports = plugin(({ addComponents, theme }) => {
         },
       },
 
-      '&--checkbox, &--radio': {
+      '&-checkbox, &-radio': {
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -105,7 +105,7 @@ module.exports = plugin(({ addComponents, theme }) => {
         },
       },
 
-      '&--toggle': {
+      '&-toggle': {
         minWidth: '80px',
         width: '80px',
         height: '36px',
