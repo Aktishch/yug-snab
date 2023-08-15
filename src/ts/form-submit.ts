@@ -70,6 +70,8 @@ const formSubmit = (event: Event, data: File[]): void => {
       break
     }
     }
+
+    break
   }
   }
 }
