@@ -134,10 +134,10 @@
 // Фильтер
 .filtering {
   &__category.filter-active {
-    @apply text-white bg-second;
+    @apply text-white bg-second pointer-events-none;
 
     @screen md {
-      @apply font-bold bg-opacity-0;
+      @apply font-bold text-primary bg-opacity-0;
     }
   }
 

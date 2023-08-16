@@ -1,15 +1,21 @@
 const filtering = (name: string, cards: NodeListOf<Element>): void => {
   cards.forEach((element: Element): void => {
     const card = element as HTMLElement
-    const absence: boolean = card.dataset.filterCard !== name
+    const absence: boolean = String(card.dataset.filterCard).split(' ').includes(name) === false
     const showAll: boolean = name.toLowerCase() === 'all'
 
-    if (absence && !showAll) {
+    switch (absence && !showAll) {
+    case true: {
       card.classList.add('hidden')
-    } else {
+      break
+    }
+
+    case false: {
       card.classList.remove('hidden')
       card.classList.add('filter-show')
       setTimeout((): void => card.classList.remove('filter-show'), 300)
+      break
+    }
     }
   })
 }
@@ -28,19 +34,12 @@ const init = (): void => {
     const line = filter.querySelector('*[data-filter-line]') as HTMLElement
     const cards = filter.querySelectorAll('*[data-filter-card]') as NodeListOf<Element>
 
-    if (line) {
-      line.style.width = `${(categoryActive[0] as HTMLElement).offsetWidth}px`
-      line.style.left = `${(categoryActive[0] as HTMLElement).offsetLeft}px`
-    }
-
     const currentCard = (category: HTMLElement): void => {
       const active = categoryActive[0] as HTMLElement
       const name = String(category.dataset.filterCategory)
 
-      if (active) {
-        active.className = active.className.replace('filter-active', '')
-        category.classList.add('filter-active')
-      }
+      active.className = active.className.replace('filter-active', '')
+      category.classList.add('filter-active')
 
       if (line) {
         line.style.width = `${category.offsetWidth}px`
@@ -50,8 +49,12 @@ const init = (): void => {
       filtering(name, cards)
     }
 
+    currentCard(categoryActive[0] as HTMLElement)
+
     categories.forEach((element: Element): void => {
       const category = element as HTMLElement
+
+      if (!category) return
 
       category.addEventListener('click', ((): void => {
         currentCard(category)

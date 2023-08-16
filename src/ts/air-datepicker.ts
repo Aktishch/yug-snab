@@ -14,16 +14,18 @@ window.AirDatepicker = AirDatepicker
 
 const init = (): void => {
   const datepickers = document.querySelectorAll('*[data-datepicker]') as NodeListOf<Element>
-  const excludeDates: number[] = [+new Date(2023, 5, 5), +new Date(2023, 5, 7), +new Date(2023, 5, 10)]
+  const excludeDates: number[] = [+new Date(2023, 7, 5), +new Date(2023, 7, 7), +new Date(2023, 8, 10)]
 
   window.excludeDates = excludeDates
 
   const renderCellHandler = ({ date, cellType }) => {
     if (cellType === 'day') {
       return {
-        classes: window.excludeDates.includes(+date) ? 'btn btn-primary btn-fill text-14' : 'pointer-events-none',
+        classes: window.excludeDates.includes(+date)
+          ? 'filter-active btn btn-primary btn-fill text-14'
+          : 'pointer-events-none',
         attrs: {
-          'data-filter-category': `category-${date.getDate()}-${+date.getMonth()}`,
+          'data-filter-category': `date-${date.getDate()}-${date.getMonth() + 1}`,
         },
       }
     }

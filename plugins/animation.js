@@ -2,16 +2,24 @@ const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin(
   ({ addComponents, theme }) => {
+    let anim = {
+      '.anim': {
+        transition: '0.3s ease',
+      },
+    }
+
     Object.entries(theme('animOccurrence')).map(([key, value]) => {
-      addComponents({
+      anim = {
+        ...anim,
         [`.anim-${key}:not([data-anim="show"])`]: {
           transform: `${value}`,
           visibility: 'hidden',
           opacity: 0,
-          transitionDuration: '0.3s',
         },
-      })
+      }
     })
+
+    addComponents(anim)
   },
 
   {
