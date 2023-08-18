@@ -26,8 +26,8 @@ import filter from './ts/filter'
 import outNumber from './ts/out-number'
 import writeText from './ts/write-text'
 import downloadFiles from './ts/download-files'
-import formSubmit from './ts/form-submit'
-import formSave from './ts/form-save'
+import submitHandler from './ts/submit-handler'
+import dataSave from './ts/data-save'
 import dragAndDrop from './ts/drag-and-drop'
 import choiceFile from './ts/choice-file'
 import copyLink from './ts/copy-link'
@@ -77,8 +77,8 @@ window.addEventListener('DOMContentLoaded', ((): void => {
   filter.init()
   outNumber.init()
   writeText.init()
-  formSubmit.init(downloadFiles.init())
-  formSave.init()
+  submitHandler.init(downloadFiles.init())
+  dataSave.init()
   dragAndDrop.init()
   choiceFile.init()
   copyLink.init()

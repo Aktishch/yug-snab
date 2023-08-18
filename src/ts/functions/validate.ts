@@ -14,11 +14,16 @@ const init = (form: HTMLFormElement): boolean => {
 
   labels.forEach((element: Element): void => {
     const label = element as HTMLLabelElement
+
+    if (!label) return
+
     const inputs = label.querySelectorAll('*[data-input]') as NodeListOf<Element>
     const error = label.querySelector('*[data-error]') as HTMLElement
 
     inputs.forEach((element: Element): void => {
       const input = element as HTMLInputElement
+
+      if (!input && !error) return
 
       const inputError = (): void => {
         input.focus()

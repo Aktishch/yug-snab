@@ -1,8 +1,6 @@
 <% var data = {
-
   title: 'My library',
   status: true
-
 } %>
 
 <%= _.template(require('./includes/header.html').default)({data}) %>
@@ -265,7 +263,7 @@
         </p>
       </div>
       <div class="filtering__card" data-filter-card="form-validate">
-        <form class="form w-full max-w-[400px] mx-auto" data-form="submit" data-files data-datepicker id="form-data">
+        <form class="form w-full max-w-[400px] mx-auto" data-form="submit" data-files data-datepicker id="data-save">
           <input type="hidden" value="Главная" name="theme">
           <label class="form-label mb-5" data-label="input">
             <span class="text-20 mb-3">Name</span>

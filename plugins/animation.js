@@ -8,6 +8,13 @@ module.exports = plugin(
       },
     }
 
+    let clipPath = {
+      '.clip-path': {
+        transition: '0.3s ease',
+        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+      },
+    }
+
     Object.entries(theme('animOccurrence')).map(([key, value]) => {
       anim = {
         ...anim,
@@ -19,7 +26,17 @@ module.exports = plugin(
       }
     })
 
+    Object.entries(theme('clipPath')).map(([key, value]) => {
+      clipPath = {
+        ...clipPath,
+        [`.clip-path-${key}:not([data-anim="show"])`]: {
+          clipPath: `${value}`,
+        },
+      }
+    })
+
     addComponents(anim)
+    addComponents(clipPath)
   },
 
   {
@@ -33,6 +50,13 @@ module.exports = plugin(
         down: 'translateY(-50px)',
         left: 'translateX(50px)',
         right: 'translateX(-50px)',
+      },
+
+      clipPath: {
+        up: 'polygon(0 0, 100% 0, 100% 0, 0 0)',
+        down: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)',
+        left: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
+        right: 'polygon(0 0, 0 0, 0 100%, 0 100%)',
       },
     },
   }

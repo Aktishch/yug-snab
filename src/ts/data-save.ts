@@ -1,4 +1,4 @@
-const formSave = (id: string): void => {
+const dataSave = (id: string): void => {
   const form = document.querySelector(`#${id}`) as HTMLFormElement
 
   if (!form) return
@@ -31,7 +31,7 @@ const formSave = (id: string): void => {
 }
 
 const init = (): void => {
-  formSave('form-data')
+  dataSave('data-save')
 }
 
 export default { init }

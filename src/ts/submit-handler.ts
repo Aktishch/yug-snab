@@ -1,19 +1,19 @@
 import fancybox from './fancybox'
-import formValidate from './functions/form-validate'
+import validate from './functions/validate'
 
-const formSubmit = (event: Event, data: File[]): void => {
+const submitHandler = (event: Event, data: File[]): void => {
   const form = event.target as HTMLFormElement
 
   switch (form.dataset.form) {
   case 'action': {
-    if (!formValidate.init(form)) event.preventDefault()
+    if (!validate.init(form)) event.preventDefault()
     break
   }
 
   default: {
     event.preventDefault()
 
-    if (!formValidate.init(form)) return
+    if (!validate.init(form)) return
 
     const formData: FormData = new FormData(form)
     const searchParams = new URLSearchParams() as URLSearchParams
@@ -78,7 +78,7 @@ const formSubmit = (event: Event, data: File[]): void => {
 
 const init = (data: File[]): void => {
   document.addEventListener('submit', ((event: Event): void => {
-    if ((event.target as HTMLFormElement).hasAttribute('data-form')) formSubmit(event, data)
+    if ((event.target as HTMLFormElement).hasAttribute('data-form')) submitHandler(event, data)
   }) as EventListener)
 }
 

@@ -1,8 +1,9 @@
 const visibilityPassword = (event: Event): void => {
-  const wrapper = (event.target as HTMLElement).closest('[data-form-wrapper]') as HTMLElement
-  const input = wrapper.querySelector('*[data-input="password"]') as HTMLInputElement
-  const icon = wrapper.querySelector('*[data-password] use') as SVGUseElement
-  const src: string = wrapper.dataset.formWrapper || ''
+  const label = (event.target as HTMLElement).closest('[data-label]') as HTMLElement
+  const input = label.querySelector('*[data-input="password"]') as HTMLInputElement
+  const password = label.querySelector('*[data-password]') as HTMLElement
+  const icon = password.querySelector('use') as SVGUseElement
+  const src: string = password.dataset.password || ''
 
   switch (input.type) {
   case 'password': {
