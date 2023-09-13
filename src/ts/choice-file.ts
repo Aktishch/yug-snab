@@ -25,7 +25,7 @@ const choiceFile = (event: Event): void => {
       const requestUrl = './ajax/submit-handler.php'
       const avatar = document.querySelector('*[data-avatar]') as HTMLImageElement
 
-      fancybox.preloader()
+      fancybox.notClosing('./dialogs/dialog-preloader.html')
 
       fetch(requestUrl, {
         method: 'POST',

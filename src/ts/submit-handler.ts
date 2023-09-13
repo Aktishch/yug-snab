@@ -34,7 +34,7 @@ const submitHandler = (event: Event, data: File[]): void => {
     case 'submit': {
       requestUrl = './ajax/submit-handler.php'
       submitBtn.setAttribute('disabled', 'disabled')
-      fancybox.preloader()
+      fancybox.notClosing('./dialogs/dialog-preloader.html')
 
       fetch(requestUrl, {
         method: 'POST',

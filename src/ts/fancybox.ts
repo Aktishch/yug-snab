@@ -55,31 +55,11 @@ const open = (requestUrl: string): void => {
   )
 }
 
-const close = (): void => {
-  window.Fancybox.close()
-}
-
-const preloader = (): void => {
+const notClosing = (requestUrl: string): void => {
   window.Fancybox.show(
     [
       {
-        src: './dialogs/dialog-preloader.html',
-        type: 'ajax',
-      },
-    ],
-    {
-      dragToClose: false,
-      closeButton: false,
-      backdropClick: true,
-    }
-  )
-}
-
-const warning = (): void => {
-  window.Fancybox.show(
-    [
-      {
-        src: './dialogs/dialog-warning.html',
+        src: requestUrl,
         type: 'ajax',
       },
     ],
@@ -94,4 +74,8 @@ const warning = (): void => {
   )
 }
 
-export default { init, open, close, preloader, warning }
+const close = (): void => {
+  window.Fancybox.close()
+}
+
+export default { init, open, notClosing, close }
