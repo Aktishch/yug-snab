@@ -234,3 +234,81 @@
     }
   }
 }
+
+.parallax {
+  &__centered {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    height         : 100%;
+    gap            : 3rem;
+  }
+
+  &__card {
+    position       : relative;
+    width          : 20rem;
+    height         : 28rem;
+    // aspect-ratio: 5 / 7;
+    color          : #ffffff;
+    perspective    : 50rem;
+
+    &::after,
+    &::before {
+      content  : "";
+      position : absolute;
+      inset    : 1.5rem;
+      border   : #e2c044 0.5rem solid;
+      transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 2rem);
+    }
+
+    &::before {
+      z-index: 4;
+    }
+  }
+
+  &__shadow {
+    position           : absolute;
+    inset              : 0;
+    background         : url('https://i.ibb.co/gSBp82C/b-full.png');
+    background-position: center;
+    background-size    : cover;
+    box-shadow         : 0 -1.5rem 2rem -0.5rem rgba(0, 0, 0, 0.7);
+    opacity            : 0.8;
+    transform          : rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 2rem, -2rem);
+    filter             : blur(2rem) saturate(0.9);
+  }
+
+  &__image {
+    position              : absolute;
+    inset                 : 0;
+    background            : linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent 40%), url('https://i.ibb.co/MDBcyMW/b-background.png');
+    background-position   : center;
+    background-size       : cover;
+    // mask-image         : url('https://i.ibb.co/MDBcyMW/b-background.png');
+    // mask-size          : cover;
+    // mask-position      : center;
+
+    &--background {
+      transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 0rem);
+    }
+
+    &--cutout {
+      background   : linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent 40%), url('https://i.ibb.co/bQNgD6y/b-cutout.png');
+      transform    : rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 4rem) scale(0.92);
+      z-index      : 3;
+      // mask-image: url('https://i.ibb.co/bQNgD6y/b-cutout.png');
+    }
+  }
+
+  &__content {
+    display        : flex;
+    justify-content: flex-end;
+    flex-direction : column;
+    position       : absolute;
+    inset          : 0;
+    padding        : 3.5rem;
+
+    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 6rem);
+    z-index  : 4;
+  }
+}

@@ -46,10 +46,12 @@ import timeCounter from './ts/time-counter'
 import timer from './ts/timer'
 import worldMap from './ts/world-map'
 import preloader from './ts/preloader'
+import effect from './ts/effect'
 
 import './scss/style.scss'
 
 window.addEventListener('DOMContentLoaded', ((): void => {
+  effect.init()
   fancybox.init()
   sliderSwiper.init()
   yandexMap.init()
