@@ -10,6 +10,7 @@ const init = (): void => {
     if (!parallax || touchDevice.init()) return
 
     const layers = parallax.querySelectorAll('*[data-parallax-layer]') as NodeListOf<Element>
+    const hovereds = parallax.querySelectorAll('*[data-parallax-hovered]') as NodeListOf<Element>
 
     layers.forEach((element: Element): void => {
       const layer = element as HTMLElement
@@ -57,6 +58,49 @@ const init = (): void => {
 
         currentY = (coordinates.top / height) * 100
         currentX = (coordinates.left / width) * 100
+      }) as EventListener)
+    })
+
+    hovereds.forEach((element: Element): void => {
+      const hovered = element as HTMLElement
+
+      if (!hovered) return
+
+      const perspective: number = hovered.dataset.parallaxHovered ? Number(hovered.dataset.parallaxHovered) : 600
+      const items = hovered.querySelectorAll('*[data-parallax-item]') as NodeListOf<Element>
+      const depth = 10
+      let positionY = 0
+      let positionX = 0
+
+      hovered.style.perspective = `${perspective}px`
+
+      items.forEach((element: Element): void => {
+        const item = element as HTMLElement
+
+        if (!item) return
+
+        const translateZ = item.dataset.parallaxItem ? Number(item.dataset.parallaxItem) : 100
+
+        item.style.transform = `rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) translateZ(${translateZ}px)`
+      })
+
+      hovered.addEventListener('mousemove', ((event: MouseEvent): void => {
+        const rect = (event.target as HTMLElement).getBoundingClientRect() as DOMRect
+        const coordinates: coordinates = {
+          top: (event.clientY - rect.top) / rect.height,
+          left: (event.clientX - rect.left) / rect.width,
+        }
+
+        positionY = coordinates.left * (depth * 2) - depth
+        positionX = coordinates.top * (depth * 2) - depth
+
+        hovered.style.setProperty('--rotate-y', `${-positionY}deg`)
+        hovered.style.setProperty('--rotate-x', `${positionX}deg`)
+      }) as EventListener)
+
+      hovered.addEventListener('mouseleave', ((): void => {
+        hovered.style.setProperty('--rotate-y', '0')
+        hovered.style.setProperty('--rotate-x', '0')
       }) as EventListener)
     })
   })

@@ -15,20 +15,6 @@
   </div>
 </main>
 
-<section class="container parallax">
-  <div class="parallax__centered">
-    <div class="parallax__card">
-      <div class="parallax__shadow"></div>
-      <div class="parallax__image parallax__image--background"></div>
-      <div class="parallax__image parallax__image--cutout"></div>
-      <div class="parallax__content pointer-events-none">
-        <div>Hover me!</div>
-        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Статьи -->
 
 <% var articles = [
@@ -498,6 +484,53 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- Параллакс -->
+
+<% var parallax = [
+  {
+    bg: 'https://i.ibb.co/JpJVJxq/Background.png',
+    img: 'https://i.ibb.co/Dw3q3tZ/cutout.png'
+  },
+  {
+    bg: 'https://i.ibb.co/ZdGBm4K/m-background.png',
+    img: 'https://i.ibb.co/RC70XmC/m-cutout.png'
+  },
+  {
+    bg: 'https://i.ibb.co/MDBcyMW/b-background.png',
+    img: 'https://i.ibb.co/bQNgD6y/b-cutout.png'
+  }
+] %>
+
+<section class="container flex flex-col items-center justify-center bg-white dark:bg-black overflow-hidden" data-parallax>
+  <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-8 duration-5 anim anim-up" data-anim="hidden" data-movement="blend">Parallax hovered</h2>
+  <div class="flex flex-col lg:flex-row items-center lg:justify-between gap-5 md:gap-10">
+    <% for (var i = 0; i < parallax.length; i++) { %>
+    <div class="w-[280px] xl:w-[370px]" data-parallax-hovered="600">
+      <div class="pack pack-sheet bg-grey dark:bg-dark ease-linear duration-3" data-parallax-item="10">
+        <div class="loader">
+          <span class="loader-progress">
+            <svg class="loader-icon icon">
+              <use xlink:href="img/icons.svg#loader"></use>
+            </svg>
+          </span>
+        </div>
+        <picture>
+          <img class="image" src="<%= parallax[i].bg %>" loading="lazy" alt="">
+        </picture>
+        <div class="absolute inset-5 border-8 border-solid border-second ease-linear duration-3" data-parallax-item="100"></div>
+        <picture>
+          <img class="image ease-linear duration-3" src="<%= parallax[i].img %>" data-parallax-item="80" loading="lazy" alt="">
+        </picture>
+        <div class="absolute top-auto bottom-0 left-0 right-0 text-white pointer-events-none p-10 ease-linear duration-3" data-parallax-item="160">
+          <h2 class="font-medium text-20 leading-3 mb-3">Hover me!</h2>
+          <p class="font-normal text-16 leading-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit</p>
+        </div>
+      </div>
+    </div>
+    <% } %>
   </div>
 </section>
 

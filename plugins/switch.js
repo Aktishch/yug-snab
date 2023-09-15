@@ -92,15 +92,19 @@ module.exports = plugin(({ addComponents, theme }) => {
           top: '50%',
           width: '100%',
           height: '100%',
-          opacity: 0,
+          visibility: 'hidden',
           transform: 'translate(-50%, -50%) scale(0)',
           borderRadius: 'inherit',
           backgroundColor: 'currentColor',
+          transition: 'opacity 0.3s linear, transform 0.4s linear',
+          pointerEvents: 'none',
         },
 
         '&:checked': {
           '&::before': {
-            animation: 'switch-checked 0.5s linear both 1',
+            visibility: 'visible',
+            opacity: 0,
+            transform: 'translate(-50%, -50%) scale(3)',
           },
         },
       },
@@ -134,17 +138,6 @@ module.exports = plugin(({ addComponents, theme }) => {
           backgroundColor: 'currentColor',
           transition: 'left 0.4s ease 0.2s, right 0.5s ease, background-color 0.35s ease -0.1s',
         },
-      },
-    },
-
-    '@keyframes switch-checked': {
-      '0%': {
-        opacity: 1,
-      },
-
-      '50%': {
-        opacity: 0,
-        transform: 'translate(-50%, -50%) scale(3)',
       },
     },
   })
