@@ -21,7 +21,8 @@ const generatePlugins = (templateDir) => {
 
       if (extension !== 'html') return null
 
-      if (templateDir == 'src') {
+      switch (templateDir) {
+      case 'src': {
         return new HtmlWebpackPlugin({
           ...htmlWebpackPluginDefaults,
           filename: `${name}.html`,
@@ -31,11 +32,14 @@ const generatePlugins = (templateDir) => {
             collapseWhitespace: false,
           },
         })
-      } else {
+      }
+
+      case 'src/dialogs': {
         return {
           from: `${templateDir}/${name}.${extension}`,
           to: `dialogs/${name}.${extension}`,
         }
+      }
       }
     })
     .filter((item) => item !== null)

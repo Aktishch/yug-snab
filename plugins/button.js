@@ -148,10 +148,9 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
     if (color[0] == '#') color = color.slice(1)
 
     const number = parseInt(color, 16)
-
-    let r = (number >> 16) + amount
-    let g = (number & 0x0000ff) + amount
-    let b = ((number >> 8) & 0x00ff) + amount
+    const r = (number >> 16) + amount
+    const g = (number & 0x0000ff) + amount
+    const b = ((number >> 8) & 0x00ff) + amount
 
     const checkColorValue = (value) => {
       if (value > 255) {
@@ -171,9 +170,9 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
   }
 
   const getColor = (color, amount) => {
-    let r = parseInt(color.substring(1, 3), 16)
-    let g = parseInt(color.substring(3, 5), 16)
-    let b = parseInt(color.substring(5, 7), 16)
+    const r = parseInt(color.substring(1, 3), 16)
+    const g = parseInt(color.substring(3, 5), 16)
+    const b = parseInt(color.substring(5, 7), 16)
 
     const getColorValue = (value) => {
       value = parseInt(value + amount)
