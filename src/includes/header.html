@@ -15,9 +15,7 @@
   <!-- Прелоадер -->
 
   <div class="flex flex-col items-center justify-center fixed z-10 inset-0 bg-white dark:bg-black duration-5" data-preloader>
-    <div class="preloader">
-      <div class="preloader-circle"></div>
-    </div>
+    <%= preloader %>
   </div>
 
   <!-- Прогресс прокрутки страницы -->
@@ -40,9 +38,9 @@
       <div class="nav__accordion relative" data-accordion="hidden" data-accordion-close="scroll">
         <button class="btn btn-second hover:underline underline-offset-4 text-14 font-normal uppercase p-1" data-accordion-toggle data-waved="light">
           Navigation
-          <svg class="nav__arrow icon text-12 ml-2 ease-linear duration-3">
-            <use xlink:href="img/icons.svg#arrow-right"></use>
-          </svg>
+          <span class="nav__arrow text-12 ml-2 ease-linear duration-3">
+            <%= icon({id: 'arrow-right'}) %>
+          </span>
         </button>
         <div class="nav__items absolute top-16 right-0 bg-white rounded-2 shadow-md w-full" data-accordion-content>
           <div class="flex flex-col gap-4 p-4">
@@ -54,9 +52,7 @@
       </div>
     </nav>
     <button class="btn btn-second lg:hidden text-48" data-sidebar-open="menu" data-waved="light">
-      <svg class="icon">
-        <use xlink:href="img/icons.svg#burger"></use>
-      </svg>
+      <%= icon({id: 'burger'}) %>
     </button>
   </header>
 
@@ -75,9 +71,7 @@
         </a>
         <input class="switch switch-toggle" data-theme="toggle" type="checkbox">
         <button class="btn btn-second text-white text-24 p-1" data-sidebar-close="menu" data-waved="light">
-          <svg class="icon">
-            <use xlink:href="img/icons.svg#close"></use>
-          </svg>
+          <%= icon({id: 'close'}) %>
         </button>
       </div>
       <div class="menu__nav flex flex-col items-start gap-4 text-white invisible opacity-0 pt-4 pb-10 px-4 duration-9 delay-5">
@@ -87,9 +81,9 @@
         <div class="menu__accordion" data-accordion="hidden" data-accordion-close="click">
           <button class="flex items-center hover:underline underline-offset-4 text-20" data-accordion-toggle>
             Navigation
-            <svg class="menu__arrow icon text-14 opacity-60 ml-2 ease-linear duration-3">
-              <use xlink:href="img/icons.svg#arrow-right"></use>
-            </svg>
+            <span class="menu__arrow text-14 opacity-60 ml-2 ease-linear duration-3">
+              <%= icon({id: 'arrow-right'}) %>
+            </span>
           </button>
           <div data-accordion-content>
             <div class="flex flex-col items-start gap-2 mt-2 pl-5">
@@ -104,9 +98,7 @@
         <div class="flex items-center justify-center gap-4">
           <% for (var i = 0; i < social.length; i++) { %>
           <button class="btn btn-second text-30 rounded-max" data-waved="dark">
-            <svg class="icon">
-              <use xlink:href="img/icons.svg#<%= social[i] %>"></use>
-            </svg>
+            <%= icon({id: social[i]}) %>
           </button>
           <% } %>
         </div>
@@ -120,9 +112,7 @@
     <div class="social__round absolute inset-0 bg-primary bg-opacity-30 opacity-0 rounded-max overflow-hidden pointer-events-auto ease-in-out duration-4" data-social-round="hidden">
       <% for (var i = 0; i < social.length; i++) { %>
       <button class="btn btn-second absolute text-30 rounded-max" data-social-link data-waved="dark">
-        <svg class="icon">
-          <use xlink:href="img/icons.svg#<%= social[i] %>"></use>
-        </svg>
+        <%= icon({id: social[i]}) %>
       </button>
       <% } %>
     </div>
@@ -146,9 +136,7 @@
     <div class="flex items-center justify-between mb-4">
       <h4 class="font-alt font-semibold text-24 mr-3">Product in basket</h4>
       <button class="btn btn-primary text-18 rounded-1 p-1" data-basket-close data-waved="light">
-        <svg class="icon">
-          <use xlink:href="img/icons.svg#close"></use>
-        </svg>
+        <%= icon({id: 'close'}) %>
       </button>
     </div>
     <div class="flex items-center mb-4">

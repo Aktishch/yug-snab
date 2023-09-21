@@ -1,15 +1,11 @@
 .like {
-  @apply cursor-pointer;
+  @apply block cursor-pointer;
 
   &-heart {
-    @apply flex items-center justify-center bg-white bg-opacity-40 text-24 rounded-max w-10 h-10 ease-linear duration-2;
+    @apply flex items-center justify-center bg-white bg-opacity-40 text-red text-opacity-50 text-24 stroke-red rounded-max w-10 h-10 ease-linear duration-2;
   }
 
-  &-icon {
-    @apply text-red text-opacity-50 stroke-red ease-linear duration-2;
-  }
-
-  &-toggle:checked+&-heart>&-icon {
+  &-toggle:checked+&-heart {
     @apply text-opacity-100;
   }
 }

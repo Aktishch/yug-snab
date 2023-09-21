@@ -4,7 +4,9 @@
     status: false
   }
 
-  var loader = require('./includes/loader.html').default
+  var loader = require('./components/loader.html').default
+  var preloader = require('./components/preloader.html').default
+  var icon = _.template(require('./components/icon.html').default)
   var header = _.template(require('./includes/header.html').default)
   var heading = _.template(require('./includes/heading.html').default)
   var worldMap = require('./includes/world-map.html').default
@@ -12,9 +14,7 @@
   var footer = _.template(require('./includes/footer.html').default)
 %>
 
-<!-- Хедер -->
-
-<%= header({data, loader}) %>
+<%= header({data, loader, preloader, icon}) %>
 
 <!-- Шапка страницы -->
 
@@ -59,9 +59,7 @@
     </picture>
     <div class="flex items-center justify-center absolute top-0 bottom-0 left-2/4 z-2 bg-white dark:bg-black -translate-x-1/2 w-1 h-[95%] my-auto" data-compare-change>
       <button class="btn btn-primary btn-fill text-20 rounded-max cursor-col-resize w-12 min-w-[48px] h-12">
-        <svg class="icon">
-          <use xlink:href="img/icons.svg#arrows"></use>
-        </svg>
+        <%= icon({id: 'arrows'}) %>
       </button>
     </div>
   </div>
@@ -126,9 +124,7 @@
     <time class="text-white text-center text-24 font-semibold mb-5" data-timer-units></time>
     <div class="flex items-center justify-center gap-4">
       <button class="btn btn-second btn-fade text-36 rounded-max w-10 h-10" data-timer-turn data-waved="dark">
-        <svg class="icon">
-          <use xlink:href="img/icons.svg#play"></use>
-        </svg>
+        <%= icon({id: 'play'}) %>
       </button>
       <button class="btn btn-second btn-sm btn-light" data-timer-reset data-waved="dark">Reset</button>
     </div>
@@ -166,7 +162,5 @@
 <!-- Плеер -->
 
 <%= player({loader}) %>
-
-<!-- Футер -->
 
 <%= footer({loader}) %>

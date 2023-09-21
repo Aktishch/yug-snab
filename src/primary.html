@@ -4,16 +4,16 @@
     status: false
   }
 
-  var loader = require('./includes/loader.html').default
+  var loader = require('./components/loader.html').default
+  var preloader = require('./components/preloader.html').default
+  var icon = _.template(require('./components/icon.html').default)
   var header = _.template(require('./includes/header.html').default)
   var heading = _.template(require('./includes/heading.html').default)
   var player = _.template(require('./includes/player.html').default)
   var footer = _.template(require('./includes/footer.html').default)
 %>
 
-<!-- Хедер -->
-
-<%= header({data, loader}) %>
+<%= header({data, loader, preloader, icon}) %>
 
 <!-- Шапка страницы -->
 
@@ -39,14 +39,10 @@
     </div>
     <div class="swiper-pagination md:hidden text-primary mt-10"></div>
     <button class="swiper-button-prev btn btn-primary btn-fill hidden md:flex absolute md:-left-6 rounded-max w-12 h-12" data-waved="light">
-      <svg class="icon">
-        <use xlink:href="img/icons.svg#arrow-left"></use>
-      </svg>
+      <%= icon({id: 'arrow-left'}) %>
     </button>
     <button class="swiper-button-next btn btn-primary btn-fill hidden md:flex absolute md:-right-6 rounded-max w-12 h-12" data-waved="light">
-      <svg class="icon">
-        <use xlink:href="img/icons.svg#arrow-right"></use>
-      </svg>
+      <%= icon({id: 'arrow-right'}) %>
     </button>
   </div>
 </section>
@@ -105,9 +101,7 @@
                 <option>Potatoes</option>
               </datalist>
               <button class="form-icon form-icon-pointer form-icon-left text-black text-20 opacity-30" type="submit">
-                <svg class="icon">
-                  <use xlink:href="img/icons.svg#search"></use>
-                </svg>
+                <%= icon({id: 'search'}) %>
               </button>
             </div>
           </label>
@@ -129,11 +123,9 @@
               </picture>
               <label class="like absolute top-2 right-2">
                 <input class="product__toggle like-toggle hidden" type="checkbox">
-                <span class="product__heart like-heart">
-                  <svg class="like-icon icon">
-                    <use xlink:href="img/icons.svg#like"></use>
-                  </svg>
-                </span>
+                <div class="product__heart like-heart">
+                  <%= icon({id: 'like'}) %>
+                </div>
               </label>
             </div>
             <div class="card-content p-2 md:p-4">
@@ -155,9 +147,9 @@
                 </div>
               </div>
               <button class="btn btn-primary btn-lg btn-fade" data-product-button data-waved="light">
-                <svg class="icon mr-2">
-                  <use xlink:href="img/icons.svg#basket"></use>
-                </svg>
+                <span class="mr-2">
+                  <%= icon({id: 'basket'}) %>
+                </span>
                 Basket
               </button>
             </div>
@@ -168,14 +160,10 @@
     </div>
     <div class="swiper-pagination md:hidden text-primary mt-10"></div>
     <button class="swiper-button-prev btn btn-primary btn-fill hidden md:flex absolute md:-left-6 rounded-max w-12 h-12" data-waved="light">
-      <svg class="icon">
-        <use xlink:href="img/icons.svg#arrow-left"></use>
-      </svg>
+      <%= icon({id: 'arrow-left'}) %>
     </button>
     <button class="swiper-button-next btn btn-primary btn-fill hidden md:flex absolute md:-right-6 rounded-max w-12 h-12" data-waved="light">
-      <svg class="icon">
-        <use xlink:href="img/icons.svg#arrow-right"></use>
-      </svg>
+      <%= icon({id: 'arrow-right'}) %>
     </button>
   </div>
 </section>
@@ -257,16 +245,16 @@
           </div>
           <div class="flex items-center gap-5">
             <button class="swiper-button-prev btn btn-primary btn-lg btn-fill inset-0 w-auto mt-0" data-waved="light">
-              <svg class="icon text-12 mr-2">
-                <use xlink:href="img/icons.svg#arrow-left"></use>
-              </svg>
+              <span class="text-12 mr-2">
+                <%= icon({id: 'arrow-left'}) %>
+              </span>
               Prev
             </button>
             <button class="swiper-button-next btn btn-primary btn-lg btn-fill inset-0 w-auto mt-0" data-waved="light">
               Next
-              <svg class="icon text-12 ml-2">
-                <use xlink:href="img/icons.svg#arrow-right"></use>
-              </svg>
+              <span class="text-12 ml-2">
+                <%= icon({id: 'arrow-right'}) %>
+              </span>
             </button>
           </div>
         </div>
@@ -363,7 +351,5 @@
 <!-- Плеер -->
 
 <%= player({loader}) %>
-
-<!-- Футер -->
 
 <%= footer({loader}) %>

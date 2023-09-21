@@ -73,7 +73,7 @@ module.exports = {
     rules: [
       {
         test: /\.html$/i,
-        include: path.resolve(__dirname, 'src/includes'),
+        include: [path.resolve(__dirname, 'src/includes'), path.resolve(__dirname, 'src/components')],
         use: ['raw-loader'],
       },
 

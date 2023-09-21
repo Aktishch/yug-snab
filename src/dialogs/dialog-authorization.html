@@ -1,3 +1,5 @@
+<% var icon = _.template(require('../components/icon.html').default) %>
+
 <dialog class="dialog dialog-xs dark:bg-black dark:text-white rounded-3 py-10 px-5">
   <form class="form" data-form="action" action="primary.html">
     <input type="hidden" value="Авторизация" name="theme">
@@ -18,13 +20,11 @@
         </div>
         <span class="form-error" data-error>Пожалуйста, введите пароль!</span>
         <div class="form-icon form-icon-pointer form-icon-right text-black text-20" data-password="/">
-          <svg class="icon">
-            <use xlink:href="img/icons.svg#eye-visible"></use>
-          </svg>
+          <%= icon({id: 'eye-visible'}) %>
         </div>
       </div>
     </label>
     <button class="btn btn-second btn-lg btn-fill mb-5" data-waved="dark" type="submit">Enter</button>
-    <div class="hover:underline underline-offset-4 text-second text-18 cursor-pointer  w-max mx-auto" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-politics.html">Privacy policy</div>
+    <div class="hover:underline underline-offset-4 text-second text-18 cursor-pointer w-max mx-auto" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-politics.html">Privacy policy</div>
   </form>
 </dialog>

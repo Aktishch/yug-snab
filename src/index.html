@@ -4,15 +4,15 @@
     status: true
   }
 
-  var loader = require('./includes/loader.html').default
+  var loader = require('./components/loader.html').default
+  var preloader = require('./components/preloader.html').default
+  var icon = _.template(require('./components/icon.html').default)
   var header = _.template(require('./includes/header.html').default)
   var player = _.template(require('./includes/player.html').default)
   var footer = _.template(require('./includes/footer.html').default)
 %>
 
-<!-- Хедер -->
-
-<%= header({data, loader}) %>
+<%= header({data, loader, preloader, icon}) %>
 
 <!-- Главный блок -->
 
@@ -167,19 +167,17 @@
       <div class="flex items-center justify-between gap-4">
         <h4 class="font-alt font-semibold text-16 md:text-20">Documents - <%= accordion[i].number %></h4>
         <button class="btn btn-primary btn-fill text-14 rounded-max w-9 h-9" data-accordion-toggle data-waved="light">
-          <svg class="documents__arrow icon text-14 duration-3">
-            <use xlink:href="img/icons.svg#arrow-right"></use>
-          </svg>
+          <span class="documents__arrow text-14 duration-3">
+            <%= icon({id: 'arrow-right'}) %>
+          </span>
         </button>
       </div>
       <div data-accordion-content>
         <div class="flex flex-col gap-3 pt-4">
           <% for (var j = 0; j < accordion[i].items; j++) { %>
           <a class="flex items-center gap-4 relative hover:underline underline-offset-4 bg-white dark:bg-black rounded-2 p-3" data-waved="dark" href="javascript: ;">
-            <div class="icon flex items-center justify-center bg-primary bg-opacity-10 text-primary text-48 rounded-2">
-              <svg class="icon text-24">
-                <use xlink:href="img/icons.svg#file"></use>
-              </svg>
+            <div class="flex items-center justify-center bg-primary bg-opacity-10 text-primary text-24 rounded-2 w-12 min-w-[48px] h-12">
+              <%= icon({id: 'file'}) %>
             </div>
             <p class="text-14 md:text-16">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
           </a>
@@ -297,9 +295,7 @@
                 <input class="input input-gray input-lg" data-input="max" type="text" name="check-out">
               </div>
               <div class="form-icon form-icon-right text-20">
-                <svg class="icon">
-                  <use xlink:href="img/icons.svg#calendar"></use>
-                </svg>
+                <%= icon({id: 'calendar'}) %>
               </div>
               <span class="form-error" data-error>Пожалуйста, укажите дату!</span>
             </div>
@@ -326,9 +322,7 @@
                 </select>
               </div>
               <div class="form-icon form-icon-right text-12">
-                <svg class="icon">
-                  <use xlink:href="img/icons.svg#arrow-bottom"></use>
-                </svg>
+                <%= icon({id: 'arrow-bottom'}) %>
               </div>
               <span class="form-error" data-error>Пожалуйста, выберите вариант!</span>
             </div>
@@ -392,9 +386,7 @@
             <% for (var i = 5; i > 0; i--) { %>
             <input class="rating-input hidden" id="rating-<%= i %>" type="radio" value="<%= i %>" name="rating">
             <label class="rating-star" for="rating-<%= i %>">
-              <svg class="icon">
-                <use xlink:href="img/icons.svg#star"></use>
-              </svg>
+              <%= icon({id: 'star'}) %>
             </label>
             <% } %>
           </div>
@@ -440,10 +432,8 @@
         <div class="w-full max-w-xs mx-auto" id="copy">
           <div class="flex items-center gap-3 w-full mb-5">
             <div class="pack pack-box bg-primary bg-opacity-40 rounded-max cursor-pointer w-10" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-avatar.html">
-              <div class="flex items-center justify-center absolute inset-0">
-                <svg class="icon text-white text-14">
-                  <use xlink:href="img/icons.svg#user"></use>
-                </svg>
+              <div class="flex items-center justify-center absolute inset-0 text-white text-14">
+                <%= icon({id: 'user'}) %>
               </div>
               <picture>
                 <img class="image" data-avatar src="" alt="">
@@ -528,7 +518,5 @@
 <!-- Плеер -->
 
 <%= player({loader}) %>
-
-<!-- Футер -->
 
 <%= footer({loader}) %>

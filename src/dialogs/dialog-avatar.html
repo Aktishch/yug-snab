@@ -1,6 +1,5 @@
-<%
-  var loader = require('../includes/loader.html').default
-%>
+<% var icon = _.template(require('../components/icon.html').default) %>
+
 <dialog class="dialog dialog-xs dark:bg-black dark:text-white rounded-3 py-10 px-5">
   <form class="form" data-form="avatar">
     <input type="hidden" value="Аватарка" name="theme">
@@ -8,10 +7,9 @@
       <div class="form-wrapper mb-5">
         <div class="pack pack-box bg-primary rounded-max w-1/2 mx-auto">
           <div class="flex items-center justify-center absolute inset-0">
-            <svg class="icon text-white dark:text-black text-7xl md:text-8xl">
-              <use xlink:href="img/icons.svg#user"></use>
-            </svg>
-            <%= loader %>
+            <span class="text-white dark:text-black text-7xl md:text-8xl">
+              <%= icon({id: 'user'}) %>
+            </span>
           </div>
           <picture>
             <img class="image" data-file="image" src="" alt="">
