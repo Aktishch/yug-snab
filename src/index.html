@@ -1,9 +1,18 @@
-<% var data = {
-  title: 'My library',
-  status: true
-} %>
+<%
+  var data = {
+    title: 'My library',
+    status: true
+  }
 
-<%= _.template(require('./includes/header.html').default)({data}) %>
+  var loader = require('./includes/loader.html').default
+  var header = _.template(require('./includes/header.html').default)
+  var player = _.template(require('./includes/player.html').default)
+  var footer = _.template(require('./includes/footer.html').default)
+%>
+
+<!-- Хедер -->
+
+<%= header({data, loader}) %>
 
 <!-- Главный блок -->
 
@@ -46,13 +55,7 @@
     <div class="duration-5 anim anim-up" data-anim="hidden">
       <article class="card dark:bg-black h-full">
         <div class="pack pack-rect-md bg-grey dark:bg-dark" data-movement="light">
-          <div class="loader">
-            <span class="loader-progress">
-              <svg class="loader-icon icon">
-                <use xlink:href="img/icons.svg#loader"></use>
-              </svg>
-            </span>
-          </div>
+          <%= loader %>
           <picture>
             <img class="image image-rise" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
           </picture>
@@ -72,13 +75,7 @@
       <article class="inverted h-full">
         <div class="inverted-before card dark:bg-black">
           <div class="pack pack-half bg-grey dark:bg-dark">
-            <div class="loader">
-              <span class="loader-progress">
-                <svg class="loader-icon icon">
-                  <use xlink:href="img/icons.svg#loader"></use>
-                </svg>
-              </span>
-            </div>
+            <%= loader %>
             <picture>
               <img class="image" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
             </picture>
@@ -510,13 +507,7 @@
     <% for (var i = 0; i < parallax.length; i++) { %>
     <div class="w-[280px] xl:w-[370px]" data-parallax-hovered="600">
       <div class="pack pack-sheet bg-grey dark:bg-dark ease-linear duration-3" data-parallax-item="10">
-        <div class="loader">
-          <span class="loader-progress">
-            <svg class="loader-icon icon">
-              <use xlink:href="img/icons.svg#loader"></use>
-            </svg>
-          </span>
-        </div>
+        <%= loader %>
         <picture>
           <img class="image" src="<%= parallax[i].bg %>" loading="lazy" alt="">
         </picture>
@@ -534,6 +525,10 @@
   </div>
 </section>
 
-<%= _.template(require('./includes/player.html').default)() %>
+<!-- Плеер -->
 
-<%= require('./includes/footer.html').default %>
+<%= player({loader}) %>
+
+<!-- Футер -->
+
+<%= footer({loader}) %>

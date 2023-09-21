@@ -1,11 +1,23 @@
-<% var data = {
-  title: 'Primary page',
-  status: false
-} %>
+<%
+  var data = {
+    title: 'Primary page',
+    status: false
+  }
 
-<%= _.template(require('./includes/header.html').default)({data}) %>
+  var loader = require('./includes/loader.html').default
+  var header = _.template(require('./includes/header.html').default)
+  var heading = _.template(require('./includes/heading.html').default)
+  var player = _.template(require('./includes/player.html').default)
+  var footer = _.template(require('./includes/footer.html').default)
+%>
 
-<%= _.template(require('./includes/heading.html').default)({data}) %>
+<!-- Хедер -->
+
+<%= header({data, loader}) %>
+
+<!-- Шапка страницы -->
+
+<%= heading({data}) %>
 
 <!-- Галерея -->
 
@@ -17,13 +29,7 @@
       <div class="swiper-wrapper">
         <% for (var i = 0; i < 6; i++) { %>
         <a class="swiper-slide pack pack-rect-md bg-grey dark:bg-dark rounded-4 shadow-md" data-movement="light" data-fancybox="gallery" href="https://picsum.photos/1920/780?random=<%= i %>">
-          <div class="loader">
-            <span class="loader-progress">
-              <svg class="loader-icon icon">
-                <use xlink:href="img/icons.svg#loader"></use>
-              </svg>
-            </span>
-          </div>
+          <%= loader %>
           <picture>
             <img class="image image-rise" src="https://picsum.photos/1920/780?random=<%= i %>" loading="lazy" alt="">
           </picture>
@@ -117,13 +123,7 @@
         <div class="swiper-slide h-auto">
           <div class="product card card-active dark:bg-black cursor-pointer h-full p-1" data-product>
             <div class="pack pack-rect-md bg-grey dark:bg-dark rounded-4">
-              <div class="loader">
-                <span class="loader-progress">
-                  <svg class="loader-icon icon">
-                    <use xlink:href="img/icons.svg#loader"></use>
-                  </svg>
-                </span>
-              </div>
+              <%= loader %>
               <picture>
                 <img class="image" data-product-image="https://picsum.photos/600/400?random=<%= i %>" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
               </picture>
@@ -189,13 +189,7 @@
   <div class="container flex gap-5 md:gap-10 md:sticky md:top-40 scroll-smooth overflow-x-auto md:overflow-x-hidden pt-0" data-scrolling-horizontal data-smooth-sticky>
     <% for (var i = 0; i < 6; i++) { %>
     <a class="pack pack-half bg-grey dark:bg-dark rounded-6 shadow-md w-full min-w-[320px] md:min-w-[800px]" data-movement="light" data-fancybox="horizontal" href="https://picsum.photos/1040/520?random=<%= i %>">
-      <div class="loader">
-        <span class="loader-progress">
-          <svg class="loader-icon icon">
-            <use xlink:href="img/icons.svg#loader"></use>
-          </svg>
-        </span>
-      </div>
+      <%= loader %>
       <picture>
         <img class="scrolling__image image ease-in-out duration-3" data-scrolling-image src="https://picsum.photos/1040/520?random=<%= i %>" loading="lazy" alt="">
       </picture>
@@ -283,13 +277,7 @@
         <div class="swiper-wrapper">
           <% for (var i = 0; i < 3; i++) { %>
           <div class="swiper-slide pack pack-box bg-grey dark:bg-dark rounded-3" data-movement="light">
-            <div class="loader">
-              <span class="loader-progress">
-                <svg class="loader-icon icon">
-                  <use xlink:href="img/icons.svg#loader"></use>
-                </svg>
-              </span>
-            </div>
+            <%= loader %>
             <picture>
               <img class="image image-rise" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
             </picture>
@@ -310,13 +298,7 @@
         <div class="swiper-wrapper">
           <% for (var i = 0; i < 6; i++) { %>
           <div class="swiper-slide pack pack-rect-lg bg-grey dark:bg-dark h-full">
-            <div class="loader">
-              <span class="loader-progress">
-                <svg class="loader-icon icon">
-                  <use xlink:href="img/icons.svg#loader"></use>
-                </svg>
-              </span>
-            </div>
+            <%= loader %>
             <picture>
               <img class="image" src="https://picsum.photos/1920/780?random=<%= i %>" loading="lazy" alt="">
             </picture>
@@ -333,13 +315,7 @@
           <div class="swiper-wrapper h-full">
             <% for (var i = 0; i < 6; i++) { %>
             <a class="swiper-slide pack pack-box h-full" data-movement="light" data-fancybox="catalog" href="https://picsum.photos/1920/780?random=<%= i %>">
-              <div class="loader">
-                <span class="loader-progress">
-                  <svg class="loader-icon icon">
-                    <use xlink:href="img/icons.svg#loader"></use>
-                  </svg>
-                </span>
-              </div>
+              <%= loader %>
               <picture>
                 <img class="image image-rise" src="https://picsum.photos/1920/780?random=<%= i %>" loading="lazy" alt="">
               </picture>
@@ -353,13 +329,7 @@
           <div class="swiper-wrapper">
             <% for (var i = 0; i < 6; i++) { %>
             <div class="swiper-slide pack pack-box bg-grey dark:bg-dark rounded-4 cursor-pointer">
-              <div class="loader">
-                <span class="loader-progress">
-                  <svg class="loader-icon icon">
-                    <use xlink:href="img/icons.svg#loader"></use>
-                  </svg>
-                </span>
-              </div>
+              <%= loader %>
               <picture>
                 <img class="image" src="https://picsum.photos/1920/780?random=<%= i %>" loading="lazy" alt="">
               </picture>
@@ -390,6 +360,10 @@
   </div>
 </section>
 
-<%= _.template(require('./includes/player.html').default)() %>
+<!-- Плеер -->
 
-<%= require('./includes/footer.html').default %>
+<%= player({loader}) %>
+
+<!-- Футер -->
+
+<%= footer({loader}) %>

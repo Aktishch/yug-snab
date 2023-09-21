@@ -5,44 +5,29 @@ const CopyPlugin = require('copy-webpack-plugin')
 const fs = require('fs')
 const path = require('path')
 
-const htmlWebpackPluginDefaults = {
-  scriptLoading: 'blocking',
-  inject: 'head',
-}
-
-const generatePlugins = (templateDir) => {
+const generatePlugins = (templateDir, script, src = '') => {
   const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir))
 
   return templateFiles
-    .map((item) => {
-      const parts = item.split('.')
+    .map((templateFile) => {
+      const parts = templateFile.split('.')
       const name = parts[0]
       const extension = parts[1]
 
       if (extension !== 'html') return null
 
-      switch (templateDir) {
-      case 'src': {
-        return new HtmlWebpackPlugin({
-          ...htmlWebpackPluginDefaults,
-          filename: `${name}.html`,
-          template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
+      return new HtmlWebpackPlugin({
+        inject: script,
+        scriptLoading: 'blocking',
+        filename: `${src}${name}.html`,
+        template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
 
-          minify: {
-            collapseWhitespace: false,
-          },
-        })
-      }
-
-      case 'src/dialogs': {
-        return {
-          from: `${templateDir}/${name}.${extension}`,
-          to: `dialogs/${name}.${extension}`,
-        }
-      }
-      }
+        minify: {
+          collapseWhitespace: false,
+        },
+      })
     })
-    .filter((item) => item !== null)
+    .filter((templateFile) => templateFile !== null)
 }
 
 module.exports = {
@@ -53,7 +38,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.js', '.ts'],
 
     alias: {
       '@src': path.resolve(__dirname, 'src/'),
@@ -71,7 +56,8 @@ module.exports = {
   plugins: [
     new CssMinimizerPlugin(),
     new MiniCssExtractPlugin({ filename: 'css/style.css' }),
-    ...generatePlugins('src'),
+    ...generatePlugins('src', 'head'),
+    ...generatePlugins('src/dialogs', false, 'dialogs/'),
 
     new CopyPlugin({
       patterns: [
@@ -79,8 +65,6 @@ module.exports = {
           from: 'src/img/',
           to: 'img/',
         },
-
-        ...generatePlugins('src/dialogs'),
       ],
     }),
   ],
@@ -88,23 +72,23 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.html$/,
-        include: path.resolve(__dirname, 'src/include'),
+        test: /\.html$/i,
+        include: path.resolve(__dirname, 'src/includes'),
         use: ['raw-loader'],
       },
 
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
 
       {
-        test: /\.s[ac]ss$/,
+        test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
 
       {
-        test: /\.m?[jt]s$/,
+        test: /\.m?[jt]s$/i,
         exclude: /(node_modules|bower_components)/,
 
         use: {

@@ -1,3 +1,6 @@
+<%
+  var loader = require('../includes/loader.html').default
+%>
 <dialog class="dialog dialog-xs dark:bg-black dark:text-white rounded-3 py-10 px-5">
   <form class="form" data-form="avatar">
     <input type="hidden" value="Аватарка" name="theme">
@@ -8,6 +11,7 @@
             <svg class="icon text-white dark:text-black text-7xl md:text-8xl">
               <use xlink:href="img/icons.svg#user"></use>
             </svg>
+            <%= loader %>
           </div>
           <picture>
             <img class="image" data-file="image" src="" alt="">
