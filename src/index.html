@@ -4,20 +4,21 @@
     status: true
   }
 
-  var loader = require('./components/loader.html').default
-  var preloader = require('./components/preloader.html').default
   var icon = _.template(require('./components/icon.html').default)
+  var picture = _.template(require('./components/picture.html').default)
+  var loader = _.template(require('./components/loader.html').default)({icon: icon({id: 'loader'})})
+  var preloader = require('./components/preloader.html').default
   var header = _.template(require('./includes/header.html').default)
   var player = _.template(require('./includes/player.html').default)
   var footer = _.template(require('./includes/footer.html').default)
 %>
 
-<%= header({data, loader, preloader, icon}) %>
+<%= header({data, loader, preloader, icon, picture}) %>
 
 <!-- Главный блок -->
 
 <main class="container flex flex-col items-center justify-center bg-white dark:bg-black min-h-[500px] xl:min-h-[600px]" id="header">
-  <img class="block mb-10 duration-10 anim anim-up" data-anim="hidden" src="img/pictures/logo.svg" alt="">
+  <%= picture({src: 'img/pictures/logo', format: '.svg', webp: false, classes: 'block mb-10 duration-10 anim anim-up', data: 'data-anim="hidden"', loading: 'eager'}) %>
   <h1 class="font-alt font-bold text-center text-48 lg:text-6xl leading-2 mb-5 md:mb-10 duration-5 delay-2 anim anim-up" data-anim="hidden" data-movement="blend">Main block</h1>
   <div class="w-full duration-5 delay-4 anim anim-up" data-anim="hidden">
     <a class="btn btn-primary btn-lg btn-fill btn-glow w-full max-w-[200px] mx-auto" data-waved="light" data-scroll="top" href="#content">Show more</a>
@@ -27,24 +28,12 @@
 <!-- Статьи -->
 
 <% var articles = [
-  {
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam repudiandae maxime quia culpa, est voluptatum hic at ipsa error officiis magni dolores molestiae inventore ipsum perferendis reiciendis sunt nesciunt possimus?'
-  },
-  {
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-  },
-  {
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam repudiandae maxime quia culpa, est voluptatum hic at ipsa error officiis magni dolores molestiae inventore ipsum perferendis reiciendis sunt nesciunt possimus? Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-  },
-  {
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam repudiandae maxime quia culpa, est voluptatum hic at ipsa error officiis magni dolores molestiae inventore ipsum perferendis reiciendis sunt nesciunt possimus?'
-  },
-  {
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-  },
-  {
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam repudiandae maxime quia culpa, est voluptatum hic at ipsa error officiis magni dolores molestiae inventore ipsum perferendis reiciendis sunt nesciunt possimus? Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-  }
+  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam repudiandae maxime quia culpa, est voluptatum hic at ipsa error officiis magni dolores molestiae inventore ipsum perferendis reiciendis sunt nesciunt possimus?',
+  'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam repudiandae maxime quia culpa, est voluptatum hic at ipsa error officiis magni dolores molestiae inventore ipsum perferendis reiciendis sunt nesciunt possimus? Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam repudiandae maxime quia culpa, est voluptatum hic at ipsa error officiis magni dolores molestiae inventore ipsum perferendis reiciendis sunt nesciunt possimus?',
+  'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam repudiandae maxime quia culpa, est voluptatum hic at ipsa error officiis magni dolores molestiae inventore ipsum perferendis reiciendis sunt nesciunt possimus? Lorem ipsum dolor sit amet consectetur adipisicing elit.'
 ] %>
 
 <section class="container container-xs container-distance flex flex-col items-center justify-center bg-grey dark:bg-dark" data-listing="1" id="content">
@@ -56,13 +45,11 @@
       <article class="card dark:bg-black h-full">
         <div class="pack pack-rect-md bg-grey dark:bg-dark" data-movement="light">
           <%= loader %>
-          <picture>
-            <img class="image image-rise" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
-          </picture>
+          <%= picture({src: 'img/pictures/town', format: '.jpg', webp: true, classes: 'image image-rise', data: false, loading: 'lazy'}) %>
         </div>
         <div class="card-content py-5 px-3 md:px-5">
           <h4 class="font-alt font-semibold text-24 mb-4">Article <%= i %></h4>
-          <p class="text-justify text-14 md:text-16 leading-5 mb-5"><%= articles[i].text %></p>
+          <p class="text-justify text-14 md:text-16 leading-5 mb-5"><%= articles[i] %></p>
           <button class="btn btn-primary btn-lg btn-fill mt-auto" data-waved="light">Button</button>
         </div>
       </article>
@@ -76,9 +63,7 @@
         <div class="inverted-before card dark:bg-black">
           <div class="pack pack-half bg-grey dark:bg-dark">
             <%= loader %>
-            <picture>
-              <img class="image" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
-            </picture>
+            <%= picture({src: 'img/pictures/town-grey', format: '.jpg', webp: true, classes: 'image', data: false, loading: 'lazy'}) %>
           </div>
           <div class="card-content py-5 px-3 md:px-5">
             <h4 class="font-alt font-semibold text-24">Article <%= i %></h4>
@@ -87,7 +72,7 @@
         <div class="inverted-after card dark:bg-black">
           <div class="card-content py-5 px-3 md:px-5">
             <h4 class="font-alt font-semibold text-24 mb-4">Article <%= i %></h4>
-            <p class="text-justify text-14 md:text-16 leading-5 mb-5"><%= articles[i].text %></p>
+            <p class="text-justify text-14 md:text-16 leading-5 mb-5"><%= articles[i] %></p>
             <button class="btn btn-primary btn-lg btn-fill mt-auto" data-waved="light">Button</button>
           </div>
         </div>
@@ -140,7 +125,7 @@
 
 <!-- Аккордеон -->
 
-<% var accordion = [
+<% var accordions = [
   {
     data: 'active',
     number: '1',
@@ -162,10 +147,10 @@
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 duration-5 anim anim-up" data-anim="hidden" data-movement="blend">Accordion</h2>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 duration-5 anim anim-up" data-anim="hidden" data-movement="blend">Drop-down list</h3>
   <div class="flex flex-col gap-5 w-full">
-    <% for (var i = 0; i < accordion.length; i++) { %>
-    <div class="documents__accordion relative bg-second bg-opacity-10 rounded-4 shadow-md overflow-hidden py-4 md:py-6 px-4 duration-5 anim anim-up" data-anim="hidden" data-accordion="<%= accordion[i].data %>">
+    <% _.forEach((accordions), (accordion) => { %>
+    <div class="documents__accordion relative bg-second bg-opacity-10 rounded-4 shadow-md overflow-hidden py-4 md:py-6 px-4 duration-5 anim anim-up" data-anim="hidden" data-accordion="<%= accordion.data %>">
       <div class="flex items-center justify-between gap-4">
-        <h4 class="font-alt font-semibold text-16 md:text-20">Documents - <%= accordion[i].number %></h4>
+        <h4 class="font-alt font-semibold text-16 md:text-20">Documents - <%= accordion.number %></h4>
         <button class="btn btn-primary btn-fill text-14 rounded-max w-9 h-9" data-accordion-toggle data-waved="light">
           <span class="documents__arrow text-14 duration-3">
             <%= icon({id: 'arrow-right'}) %>
@@ -174,7 +159,7 @@
       </div>
       <div data-accordion-content>
         <div class="flex flex-col gap-3 pt-4">
-          <% for (var j = 0; j < accordion[i].items; j++) { %>
+          <% for (var i = 0; i < accordion.items; i++) { %>
           <a class="flex items-center gap-4 relative hover:underline underline-offset-4 bg-white dark:bg-black rounded-2 p-3" data-waved="dark" href="javascript: ;">
             <div class="flex items-center justify-center bg-primary bg-opacity-10 text-primary text-24 rounded-2 w-12 min-w-[48px] h-12">
               <%= icon({id: 'file'}) %>
@@ -185,7 +170,7 @@
         </div>
       </div>
     </div>
-    <% } %>
+    <% }) %>
   </div>
 </section>
 
@@ -194,31 +179,31 @@
 <% var numbers = [
   {
     text: 'text-36',
-    number: '36'
+    value: '36'
   },
   {
     text: 'text-32',
-    number: '32'
+    value: '32'
   },
   {
     text: 'text-28',
-    number: '28'
+    value: '28'
   },
   {
     text: 'text-24',
-    number: '24'
+    value: '24'
   },
   {
     text: 'text-20',
-    number: '20'
+    value: '20'
   },
   {
     text: 'text-16',
-    number: '16'
+    value: '16'
   },
   {
     text: 'text-12',
-    number: '12'
+    value: '12'
   }
 ] %>
 
@@ -226,15 +211,9 @@
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-3 duration-5 anim anim-up" data-anim="hidden" data-movement="blend">Filter</h2>
   <h3 class="font-semibold text-16 md:text-18 leading-2 mb-5 md:mb-10 duration-5 anim anim-up" data-anim="hidden" data-movement="blend">paralax, form and other...</h3>
   <div class="relative w-full max-w-xl mx-auto" data-filter>
-    <picture>
-      <img class="icon absolute z-1 top-20 -left-8 text-6xl drop-shadow-md pointer-events-none" data-parallax-layer="auto" data-parallax-speed="4" data-parallax-depth="2" src="img/pictures/circle-grey.png" alt="">
-    </picture>
-    <picture>
-      <img class="icon absolute z-1 -bottom-8 -right-8 text-6xl drop-shadow-md pointer-events-none" data-parallax-layer="opposite" data-parallax-speed="4" data-parallax-depth="2" src="img/pictures/circle-white.png" alt="">
-    </picture>
-    <picture>
-      <img class="icon absolute z-1 bottom-0 -right-7 text-6xl drop-shadow-md pointer-events-none" data-smooth-layer="bottom" data-smooth-speed="1" data-smooth-depth="2" src="img/pictures/circle-red.png" alt="">
-    </picture>
+    <%= picture({src: 'img/pictures/circle-grey', format: '.png', webp: false, classes: 'absolute z-1 top-20 -left-8 drop-shadow-md pointer-events-none w-16', data: 'data-parallax-layer="auto" data-parallax-speed="4" data-parallax-depth="2"', loading: 'eager'}) %>
+    <%= picture({src: 'img/pictures/circle-white', format: '.png', webp: false, classes: 'absolute z-1 -bottom-8 -right-8 drop-shadow-md pointer-events-none w-16', data: 'data-parallax-layer="opposite" data-parallax-speed="4" data-parallax-depth="2"', loading: 'eager'}) %>
+    <%= picture({src: 'img/pictures/circle-red', format: '.png', webp: false, classes: 'absolute z-1 bottom-0 -right-7 drop-shadow-md pointer-events-none w-16', data: 'data-smooth-layer="bottom" data-smooth-speed="1" data-smooth-depth="2"', loading: 'eager'}) %>
     <div class="flex flex-col md:flex-row items-center justify-between gap-0 md:gap-4 relative bg-grey md:bg-opacity-0 text-second md:text-white rounded-4 md:rounded-none md:border-b md:border-solid md:border-white overflow-hidden mb-5 md:mb-10 md:pb-4 duration-5 anim anim-up" data-anim="hidden">
       <div class="filtering__category filter-active flex-grow text-center text-20 cursor-pointer w-full p-4 md:p-0" data-filter-category="text-style">Text-style</div>
       <div class="filtering__category flex-grow text-center text-20 cursor-pointer w-full p-4 md:p-0" data-filter-category="form-validate">Form-validate</div>
@@ -245,13 +224,13 @@
     <div class="bg-white text-black rounded-6 shadow-md p-7 md:p-10 duration-5 anim anim-fade" data-anim="hidden">
       <div class="filtering__card" data-filter-card="text-style">
         <ul class="flex flex-col gap-4 list-disc list-inside text-primary">
-          <% for (var i = 0; i < numbers.length; i++) { %>
+          <% _.forEach((numbers), (number) => { %>
           <li>
-            <span class="text-second <%= numbers[i].text %>">
-              --text-<span data-number="<%= numbers[i].number %>" data-number-step="1" data-number-time="2" data-number-fixed="0">0</span>
+            <span class="text-second <%= number.text %>">
+              --text-<span data-number="<%= number.value %>" data-number-step="1" data-number-time="2" data-number-fixed="0">0</span>
             </span>
           </li>
-          <% } %>
+          <% }) %>
         </ul>
         <p class="text-primary mt-5">
           <q class="bg-grey font-semibold text-justify text-18 leading-9 box-decoration-clone shadow-md rounded-4 py-1 px-3" data-record="Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ex omnis, ut dolorem dolore enim expedita?" data-record-speed="50"></q>
@@ -435,9 +414,7 @@
               <div class="flex items-center justify-center absolute inset-0 text-white text-14">
                 <%= icon({id: 'user'}) %>
               </div>
-              <picture>
-                <img class="image" data-avatar src="" alt="">
-              </picture>
+              <%= picture({src: '', format: '', webp: false, classes: 'image', data: 'data-avatar', loading: 'auto'}) %>
             </div>
             <h4 class="text-24 font-bold">Name Surname</h4>
           </div>
@@ -446,9 +423,7 @@
             <div class="form-label items-center justify-center" data-label="download">
               <div class="form-wrapper mb-5">
                 <div class="pack pack-box bg-second rounded-4 w-full duration-2" data-drag>
-                  <picture>
-                    <img class="image image-scale-down" data-file="image" src="img/pictures/geo.png" alt="">
-                  </picture>
+                  <%= picture({src: 'img/pictures/geo', format: '.png', webp: false, classes: 'image image-scale-down', data: 'data-file="image"', loading: 'auto'}) %>
                 </div>
                 <span class="form-error" data-error>Пожалуйста, загрузите изображение!</span>
               </div>
@@ -476,47 +451,43 @@
 
 <!-- Параллакс -->
 
-<% var parallax = [
+<% var parallaxes = [
   {
-    bg: 'https://i.ibb.co/JpJVJxq/Background.png',
-    img: 'https://i.ibb.co/Dw3q3tZ/cutout.png'
+    bg: 'https://i.ibb.co/JpJVJxq/Background',
+    img: 'https://i.ibb.co/Dw3q3tZ/cutout'
   },
   {
-    bg: 'https://i.ibb.co/ZdGBm4K/m-background.png',
-    img: 'https://i.ibb.co/RC70XmC/m-cutout.png'
+    bg: 'https://i.ibb.co/ZdGBm4K/m-background',
+    img: 'https://i.ibb.co/RC70XmC/m-cutout'
   },
   {
-    bg: 'https://i.ibb.co/MDBcyMW/b-background.png',
-    img: 'https://i.ibb.co/bQNgD6y/b-cutout.png'
+    bg: 'https://i.ibb.co/MDBcyMW/b-background',
+    img: 'https://i.ibb.co/bQNgD6y/b-cutout'
   }
 ] %>
 
 <section class="container flex flex-col items-center justify-center bg-white dark:bg-black overflow-hidden" data-parallax>
   <h2 class="font-alt font-bold text-center text-36 lg:text-48 leading-2 mb-8 duration-5 anim anim-up" data-anim="hidden" data-movement="blend">Parallax hovered</h2>
   <div class="flex flex-col lg:flex-row items-center lg:justify-between gap-5 md:gap-10">
-    <% for (var i = 0; i < parallax.length; i++) { %>
+    <% _.forEach((parallaxes), (parallax) => { %>
     <div class="w-[280px] xl:w-[370px]" data-parallax-hovered="600">
       <div class="pack pack-sheet bg-grey dark:bg-dark ease-linear duration-3" data-parallax-item="10">
         <%= loader %>
-        <picture>
-          <img class="image" src="<%= parallax[i].bg %>" loading="lazy" alt="">
-        </picture>
+        <%= picture({src: parallax.bg, format: '.png', webp: false, classes: 'image', data: false, loading: 'auto'}) %>
         <div class="absolute inset-5 border-8 border-solid border-second ease-linear duration-3" data-parallax-item="100"></div>
-        <picture>
-          <img class="image ease-linear duration-3" src="<%= parallax[i].img %>" data-parallax-item="80" loading="lazy" alt="">
-        </picture>
+        <%= picture({src: parallax.img, format: '.png', webp: false, classes: 'image ease-linear duration-3', data: 'data-parallax-item="80"', loading: 'auto'}) %>
         <div class="absolute top-auto bottom-0 left-0 right-0 text-white pointer-events-none p-10 ease-linear duration-3" data-parallax-item="160">
           <h2 class="font-medium text-20 leading-3 mb-3">Hover me!</h2>
           <p class="font-normal text-16 leading-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit</p>
         </div>
       </div>
     </div>
-    <% } %>
+    <% }) %>
   </div>
 </section>
 
 <!-- Плеер -->
 
-<%= player({loader}) %>
+<%= player({loader, icon, picture}) %>
 
-<%= footer({loader}) %>
+<%= footer({loader, picture}) %>

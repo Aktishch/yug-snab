@@ -38,7 +38,11 @@ const init = (): void => {
   })
 
   document.addEventListener('click', ((event: Event): void => {
-    if ((event.target as HTMLElement).closest('#calendar')) filter.init()
+    if ((event.target as HTMLElement).closest('#calendar')) {
+      const calendar = (event.target as HTMLElement).closest('#calendar') as HTMLElement
+
+      if (calendar.querySelector('.filter-active')) filter.init()
+    }
   }) as EventListener)
 
   datepickers.forEach((element: Element): void => {

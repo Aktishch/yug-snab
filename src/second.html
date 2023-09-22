@@ -4,9 +4,10 @@
     status: false
   }
 
-  var loader = require('./components/loader.html').default
-  var preloader = require('./components/preloader.html').default
   var icon = _.template(require('./components/icon.html').default)
+  var picture = _.template(require('./components/picture.html').default)
+  var loader = _.template(require('./components/loader.html').default)({icon: icon({id: 'loader'})})
+  var preloader = require('./components/preloader.html').default
   var header = _.template(require('./includes/header.html').default)
   var heading = _.template(require('./includes/heading.html').default)
   var worldMap = require('./includes/world-map.html').default
@@ -14,7 +15,7 @@
   var footer = _.template(require('./includes/footer.html').default)
 %>
 
-<%= header({data, loader, preloader, icon}) %>
+<%= header({data, loader, preloader, icon, picture}) %>
 
 <!-- Шапка страницы -->
 
@@ -30,11 +31,9 @@
   <div class="grid grid-flow-row-dense grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5 lg:gap-8 w-full">
     <% for (var i = 0; i < grid.length; i++) { %>
     <div class="<%= grid[i] %> duration-10 anim anim-circle" data-anim="hidden">
-      <a class="pack pack-box bg-grey dark:bg-dark rounded-3 shadow-md h-full" data-movement="light" data-fancybox="grid" href="https://picsum.photos/600/400?random=<%= i %>">
+      <a class="pack pack-box bg-grey dark:bg-dark rounded-3 shadow-md h-full" data-movement="light" data-fancybox="grid" href="img/pictures/town-grey.jpg">
         <%= loader %>
-        <picture>
-          <img class="image image-rise" src="https://picsum.photos/600/400?random=<%= i %>" loading="lazy" alt="">
-        </picture>
+        <%= picture({src: 'img/pictures/town-grey', format: '.jpg', webp: true, classes: 'image image-rise', data: false, loading: 'lazy'}) %>
       </a>
     </div>
     <% } %>
@@ -48,15 +47,9 @@
   <div class="relative bg-grey dark:bg-dark rounded-4 overflow-hidden w-full duration-5 anim anim-fade" data-anim="hidden" data-compare>
     <%= loader %>
     <div class="pack pack-half absolute z-1 w-1/2 h-full" data-compare-before>
-      <picture>
-        <source srcset="img/pictures/town-grey.webp" type="image/webp">
-        <img class="image" data-compare-image src="img/pictures/town-grey.jpg" loading="lazy" alt="">
-      </picture>
+      <%= picture({src: 'img/pictures/town-grey', format: '.jpg', webp: true, classes: 'image', data: 'data-compare-image', loading: 'lazy'}) %>
     </div>
-    <picture>
-      <source srcset="img/pictures/town.webp" type="image/webp">
-      <img class="block relative w-full h-full" src="img/pictures/town.jpg" loading="lazy" alt="">
-    </picture>
+    <%= picture({src: 'img/pictures/town', format: '.jpg', webp: true, classes: 'block relative w-full h-full', data: false, loading: 'lazy'}) %>
     <div class="flex items-center justify-center absolute top-0 bottom-0 left-2/4 z-2 bg-white dark:bg-black -translate-x-1/2 w-1 h-[95%] my-auto" data-compare-change>
       <button class="btn btn-primary btn-fill text-20 rounded-max cursor-col-resize w-12 min-w-[48px] h-12">
         <%= icon({id: 'arrows'}) %>
@@ -153,7 +146,7 @@
   <div class="bg-grey dark:bg-dark rounded-5 p-5 lg:p-10 duration-5 anim anim-fade" data-anim="hidden" id="country">
     <%= worldMap %>
     <div class="flex items-center justify-center mt-5 md:mt-10">
-      <img class="icon text-40 md:text-50 mr-5" data-world-flag src="img/pictures/russia.svg" alt="">
+      <%= picture({src: 'img/pictures/russia', format: '.svg', webp: false, classes: 'block w-10 md:w-12 mr-5', data: 'data-world-flag', loading: 'eager'}) %>
       <h4 class="font-bold text-18 md:text-24" data-world-title>Россия</h4>
     </div>
   </div>
@@ -161,6 +154,6 @@
 
 <!-- Плеер -->
 
-<%= player({loader}) %>
+<%= player({loader, icon, picture}) %>
 
-<%= footer({loader}) %>
+<%= footer({loader, picture}) %>

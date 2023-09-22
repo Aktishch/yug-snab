@@ -4,7 +4,7 @@ module.exports = plugin(({ addComponents, theme }) => {
   addComponents({
     '.container': {
       '--padding-block': '40px',
-      '--padding-inline': '100vw - 30px',
+      '--padding-inline': '100vw - 32px',
       padding: 'var(--padding-block) calc(50% - ((var(--padding-inline)) / 2))',
 
       [`@media (min-width: ${theme('screens.xs')})`]: {

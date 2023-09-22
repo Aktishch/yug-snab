@@ -9,10 +9,7 @@
 
 <footer class="container flex flex-wrap flex-col md:flex-row items-center justify-between gap-4 bg-black text-second pt-4 pb-10 md:pb-4" id="footer">
   <a class="btn btn-white w-36" data-waved="light" href="/">
-    <picture>
-      <source srcset="img/pictures/logo.webp" type="image/webp">
-      <img class="w-full" src="img/pictures/logo.png" alt="">
-    </picture>
+    <%= picture({src: 'img/pictures/logo', format: '.png', webp: true, classes: 'w-full', data: false, loading: 'auto'}) %>
   </a>
   <address class="text-center text-16 leading-4">​Рождественская набережная, <br> 45/1​5 офис; 3 этаж</address>
   <span class="btn btn-second text-18 w-max p-1" data-waved="light" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-politics.html">Privacy policy</span>

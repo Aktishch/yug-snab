@@ -24,17 +24,45 @@
 
   <!-- Шапка документа -->
 
+  <% var nav = {
+    pages: [
+      {
+        link: 'index.html',
+        text: 'Front-page'
+      },
+      {
+        link: 'primary.html',
+        text: 'Primary-page'
+      },
+      {
+        link: 'second.html',
+        text: 'Second-page'
+      }
+    ],
+    blocks: [
+      {
+        id: '#header',
+        text: 'Header'
+      },
+      {
+        id: '#player',
+        text: 'Player'
+      },
+      {
+        id: '#footer',
+        text: 'Footer'
+      }
+    ]
+  } %>
+
   <header class="header container flex items-center justify-between gap-5 fixed z-3 top-0 left-0 right-0 bg-black py-4 duration-3" data-header>
     <a class="btn btn-white w-36" data-waved="light" href="/">
-      <picture>
-        <source srcset="img/pictures/logo.webp" type="image/webp">
-        <img class="w-full" src="img/pictures/logo.png" alt="">
-      </picture>
+      <%= picture({src: 'img/pictures/logo', format: '.png', webp: true, classes: 'w-full', data: false, loading: 'auto'}) %>
     </a>
     <nav class="nav hidden lg:flex items-center justify-between gap-4 w-full max-w-[800px] ml-auto">
-      <a class="btn btn-second hover:underline underline-offset-4 text-14 font-normal uppercase p-1" data-waved="light" href="index.html">Front-page</a>
-      <a class="btn btn-second hover:underline underline-offset-4 text-14 font-normal uppercase p-1" data-waved="light" href="primary.html">Primary-page</a>
-      <a class="btn btn-second hover:underline underline-offset-4 text-14 font-normal uppercase p-1" data-waved="light" href="second.html">Second-page</a>
+      <% _.forEach((nav.pages), (page) => { %>
+      <a class="btn btn-second hover:underline underline-offset-4 text-14 font-normal uppercase p-1" data-waved="light" href="<%= page.link %>"><%= page.text %></a>
+      <% }) %>
       <div class="nav__accordion relative" data-accordion="hidden" data-accordion-close="scroll">
         <button class="btn btn-second hover:underline underline-offset-4 text-14 font-normal uppercase p-1" data-accordion-toggle data-waved="light">
           Navigation
@@ -44,9 +72,9 @@
         </button>
         <div class="nav__items absolute top-16 right-0 bg-white rounded-2 shadow-md w-full" data-accordion-content>
           <div class="flex flex-col gap-4 p-4">
-            <a class="btn btn-gray hover:underline underline-offset-4 text-14" data-waved="dark" data-scroll="top" href="#header">Header</a>
-            <a class="btn btn-gray hover:underline underline-offset-4 text-14" data-waved="dark" data-scroll="top" href="#player">Player</a>
-            <a class="btn btn-gray hover:underline underline-offset-4 text-14" data-waved="dark" data-scroll="top" href="#footer">Footer</a>
+            <% _.forEach((nav.blocks), (block) => { %>
+            <a class="btn btn-gray hover:underline underline-offset-4 text-14" data-waved="dark" data-scroll="top" href="<%= block.id %>"><%= block.text %></a>
+            <% }) %>
           </div>
         </div>
       </div>
@@ -64,10 +92,7 @@
     <div class="menu__content flex flex-col bg-black bg-opacity-90 invisible opacity-0 overflow-auto backdrop-blur-sm w-full max-w-[375px] h-full duration-3">
       <div class="menu__head flex items-center justify-between gap-2 bg-black p-4 duration-5 delay-3">
         <a class="btn btn-white w-36" data-waved="light" href="/">
-          <picture>
-            <source srcset="img/pictures/logo.webp" type="image/webp">
-            <img class="w-full" src="img/pictures/logo.png" alt="">
-          </picture>
+          <%= picture({src: 'img/pictures/logo', format: '.png', webp: true, classes: 'w-full', data: false, loading: 'auto'}) %>
         </a>
         <input class="switch switch-toggle" data-theme="toggle" type="checkbox">
         <button class="btn btn-second text-white text-24 p-1" data-sidebar-close="menu" data-waved="light">
@@ -75,9 +100,9 @@
         </button>
       </div>
       <div class="menu__nav flex flex-col items-start gap-4 text-white invisible opacity-0 pt-4 pb-10 px-4 duration-9 delay-5">
-        <a class="hover:underline underline-offset-4 text-20" href="index.html">Front-page</a>
-        <a class="hover:underline underline-offset-4 text-20" href="primary.html">Primary</a>
-        <a class="hover:underline underline-offset-4 text-20" href="second.html">Second</a>
+        <% _.forEach((nav.pages), (page) => { %>
+        <a class="hover:underline underline-offset-4 text-20" href="<%= page.link %>"><%= page.text %></a>
+        <% }) %>
         <div class="menu__accordion" data-accordion="hidden" data-accordion-close="click">
           <button class="flex items-center hover:underline underline-offset-4 text-20" data-accordion-toggle>
             Navigation
@@ -87,9 +112,9 @@
           </button>
           <div data-accordion-content>
             <div class="flex flex-col items-start gap-2 mt-2 pl-5">
-              <a class="hover:underline underline-offset-4 text-18" data-scroll="top" href="#header">Header</a>
-              <a class="hover:underline underline-offset-4 text-18" data-scroll="top" href="#player">Player</a>
-              <a class="hover:underline underline-offset-4 text-18" data-scroll="top" href="#header">Header</a>
+              <% _.forEach((nav.blocks), (block) => { %>
+              <a class="hover:underline underline-offset-4 text-18" data-scroll="top" href="<%= block.id %>"><%= block.text %></a>
+              <% }) %>
             </div>
           </div>
         </div>
@@ -142,9 +167,7 @@
     <div class="flex items-center mb-4">
       <div class="pack pack-box bg-grey rounded-4 w-full max-w-[100px] mr-5">
         <%= loader %>
-        <picture>
-          <img class="image" data-basket-image src="https://picsum.photos/600/400?random=5" loading="lazy" alt="">
-        </picture>
+        <%= picture({src: 'img/pictures/town', format: '.jpg', webp: false, classes: 'image', data: 'data-basket-image', loading: 'lazy'}) %>
       </div>
       <div class="flex flex-col">
         <span class="font-bold text-18 md:text-20 mb-3" data-basket-name>Name 4</span>
