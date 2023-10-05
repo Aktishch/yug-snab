@@ -1,62 +1,56 @@
-const phoneMask = (event: Event): void => {
-  const input = event.target as HTMLInputElement
-  const matrix = '+7 (___) ___-__-__'
-  const replace: string = matrix.replace(/\D/g, '')
-  let values: string = input.value.replace(/\D/g, '')
-  let length = 0
-
-  if (replace.length >= values.length) values = replace
-
-  input.value = matrix.replace(/./g, (value: string): string => {
-    return /[_\d]/.test(value) && length < values.length
-      ? values.charAt(length++)
-      : length >= values.length
-        ? ''
-        : value
-  })
-
-  input.addEventListener('blur', ((): void => {
-    if (input.value.length === 2) input.value = ''
-  }) as EventListener)
-}
-
 const getValue = (input: HTMLInputElement): string => {
   return input.value.replace(/\D/g, '')
+}
+
+const formatterValue = (value: string): string => {
+  if (value[0] === '9') value = '7' + value
+
+  const firstVal = value[0] === '8' ? '8' : '+7'
+  let formatted: string
+
+  formatted = firstVal + ' '
+
+  if (value.length > 1) formatted += '(' + value.substring(1, 4)
+
+  if (value.length >= 5) formatted += ') ' + value.substring(4, 7)
+
+  if (value.length >= 8) formatted += '-' + value.substring(7, 9)
+
+  if (value.length >= 10) formatted += '-' + value.substring(9, 11)
+
+  return formatted
 }
 
 const onInput = (event: InputEvent): '' | undefined => {
   const input = event.target as HTMLInputElement
   const selection: number | null = input.selectionStart
-  let value: string = getValue(input)
-  let formatted: string
+  const value: string = getValue(input)
 
   if (!value) return (input.value = '')
 
   if (input.value.length !== selection) {
-    if (event.data && /\D/g.test(event.data)) input.value = value
+    if (event.data) input.value = formatterValue(value)
 
     return
   }
 
-  if (['7', '8', '9'].indexOf(value[0]) > -1) {
-    if (value[0] === '9') value = '7' + value
+  input.value = formatterValue(value)
+}
 
-    const firstVal = value[0] === '8' ? '8' : '+7'
+const onKeyUp = (event: KeyboardEvent): void => {
+  const input = event.target as HTMLInputElement
 
-    formatted = input.value = firstVal + ' '
-
-    if (value.length > 1) formatted += '(' + value.substring(1, 4)
-
-    if (value.length >= 5) formatted += ') ' + value.substring(4, 7)
-
-    if (value.length >= 8) formatted += '-' + value.substring(7, 9)
-
-    if (value.length >= 10) formatted += '-' + value.substring(9, 11)
-  } else {
-    formatted = '+' + value.substring(0, 16)
+  switch (input.value[0]) {
+  case '8': {
+    input.maxLength = 17
+    break
   }
 
-  input.value = formatted
+  default: {
+    input.maxLength = 18
+    break
+  }
+  }
 }
 
 const onKeyDown = (event: KeyboardEvent): void => {
@@ -81,17 +75,35 @@ const onPaste = (event: ClipboardEvent): void => {
 }
 
 const init = (): void => {
-  document.addEventListener('input', ((event: InputEvent): void => {
-    if ((event.target as HTMLInputElement).getAttribute('type') === 'tel') onInput(event)
-  }) as EventListener)
+  const phoneEvents: string[] = ['input', 'keyup', 'keydown', 'paste']
 
-  document.addEventListener('keydown', ((event: KeyboardEvent): void => {
-    if ((event.target as HTMLInputElement).getAttribute('type') === 'tel') onKeyDown(event)
-  }) as EventListener)
+  phoneEvents.forEach((phoneEvent: string): void => {
+    document.addEventListener(phoneEvent, ((event: Event): void => {
+      if ((event.target as HTMLInputElement).getAttribute('type') === 'tel') {
+        switch (event.type) {
+        case 'input': {
+          onInput(event as InputEvent)
+          break
+        }
 
-  document.addEventListener('paste', ((event: ClipboardEvent): void => {
-    if ((event.target as HTMLInputElement).getAttribute('type') === 'tel') onPaste(event)
-  }) as EventListener)
+        case 'keyup': {
+          onKeyUp(event as KeyboardEvent)
+          break
+        }
+
+        case 'keydown': {
+          onKeyDown(event as KeyboardEvent)
+          break
+        }
+
+        case 'paste': {
+          onPaste(event as ClipboardEvent)
+          break
+        }
+        }
+      }
+    }) as EventListener)
+  })
 }
 
 export default { init }

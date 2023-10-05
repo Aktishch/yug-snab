@@ -4,7 +4,7 @@
     "es2021": true
   },
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
-  "ignorePatterns": ["webpack.config.js", "tailwind.config.js", "postcss.config.js", "tailwind.form.js", "plugins"],
+  "ignorePatterns": ["webpack.config.js", "tailwind.config.js", "postcss.config.js", "plugins"],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

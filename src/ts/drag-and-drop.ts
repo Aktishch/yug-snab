@@ -3,7 +3,7 @@ import fileHandler from './functions/file-handler'
 const init = (): void => {
   const dragEvents: string[] = ['dragenter', 'dragover', 'dragleave', 'drop']
 
-  dragEvents.forEach((dragEvent): void => {
+  dragEvents.forEach((dragEvent: string): void => {
     document.addEventListener(dragEvent, ((event: DragEvent): void => {
       if ((event.target as HTMLElement).closest('[data-drag]')) {
         event.preventDefault()

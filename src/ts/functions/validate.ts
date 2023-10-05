@@ -57,14 +57,21 @@ const init = (form: HTMLFormElement): boolean => {
       }
 
       case 'tel': {
-        if (input.value[1] === '7') {
-          maxLengthInputTel(18)
-        } else if (input.value[0] === '8') {
+        switch (input.value[0]) {
+        case '8': {
           maxLengthInputTel(17)
-        } else if (input.value[1] !== '7') {
-          maxLengthInputTel(11)
-        } else {
+          break
+        }
+
+        case '+': {
+          maxLengthInputTel(18)
+          break
+        }
+
+        default: {
           error.innerText = 'Пожалуйста, введите ваш номер!'
+          break
+        }
         }
 
         break
