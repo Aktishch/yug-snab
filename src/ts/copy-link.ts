@@ -8,10 +8,8 @@ const copyLink = (event: Event): void => {
   }, 100)
 }
 
-const init = (): void => {
+export default (): void => {
   document.addEventListener('click', ((event: Event): void => {
     if ((event.target as HTMLButtonElement).closest('[data-copy-button]')) copyLink(event)
   }) as EventListener)
 }
-
-export default { init }

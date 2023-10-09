@@ -11,12 +11,10 @@ const inputNumber = (event: Event): void => {
   input.value = input.value.replace(/^\.|[^\d.]|\.(?=.*\.)|^0+(?=\d)/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 }
 
-const init = (): void => {
+export default (): void => {
   document.addEventListener('input', ((event: Event): void => {
     if ((event.target as HTMLElement).getAttribute('data-input') === 'name') inputName(event)
 
     if ((event.target as HTMLElement).getAttribute('data-input') === 'number') inputNumber(event)
   }) as EventListener)
 }
-
-export default { init }

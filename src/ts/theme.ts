@@ -1,7 +1,7 @@
-const init = (): void => {
+export default (): void => {
   const html = document.documentElement as HTMLElement
   const toggles = html.querySelectorAll('*[data-theme="toggle"]') as NodeListOf<Element>
-  let theme = 'light'
+  let theme = 'default'
 
   const togglesChecked = (check: boolean): void => {
     toggles.forEach((element: Element): void => {
@@ -14,7 +14,7 @@ const init = (): void => {
   const variationTheme = (): void => {
     switch (html.classList.contains('dark')) {
     case true: {
-      theme = 'light'
+      theme = 'default'
       localStorage.setItem('theme', theme)
       html.classList.remove('dark')
       togglesChecked(false)
@@ -35,7 +35,7 @@ const init = (): void => {
     theme = String(localStorage.getItem('theme'))
 
     switch (theme) {
-    case 'light': {
+    case 'default': {
       html.classList.remove('dark')
       togglesChecked(false)
       break
@@ -59,5 +59,3 @@ const init = (): void => {
     if (event.altKey && event.code === 'Digit5') variationTheme()
   }) as EventListener)
 }
-
-export default { init }

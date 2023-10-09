@@ -74,7 +74,7 @@ const onPaste = (event: ClipboardEvent): void => {
   }
 }
 
-const init = (): void => {
+export default (): void => {
   const phoneEvents: string[] = ['input', 'keyup', 'keydown', 'paste']
 
   phoneEvents.forEach((phoneEvent: string): void => {
@@ -105,5 +105,3 @@ const init = (): void => {
     }) as EventListener)
   })
 }
-
-export default { init }

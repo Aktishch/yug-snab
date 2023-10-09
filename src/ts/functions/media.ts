@@ -7,7 +7,7 @@ type mediaScreen = {
   xxl: number
 }
 
-const media: mediaScreen = {
+export const media: mediaScreen = {
   xs: 459.98,
   sm: 575.98,
   md: 767.98,
@@ -15,5 +15,3 @@ const media: mediaScreen = {
   xl: 1365.98,
   xxl: 2559.98,
 }
-
-export default media

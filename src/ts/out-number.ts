@@ -37,13 +37,8 @@ const scrollToNumbers = (): void => {
 
   if (section && window.screen.height >= section.getBoundingClientRect().top) {
     setOutNumber(section)
-
     document.removeEventListener('scroll', scrollToNumbers as EventListener)
   }
 }
 
-const init = (): void => {
-  document.addEventListener('scroll', scrollToNumbers as EventListener)
-}
-
-export default { init }
+export default (): void => document.addEventListener('scroll', scrollToNumbers as EventListener)

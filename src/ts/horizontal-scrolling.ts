@@ -1,5 +1,5 @@
-import scrolledPage from './functions/scrolled-page'
-import media from './functions/media'
+import { scrolledPage } from './functions/scrolled-page'
+import { media } from './functions/media'
 
 const setScrollingHeight = (): void => {
   const scrollings = document.querySelectorAll('*[data-scrolling]') as NodeListOf<Element>
@@ -26,7 +26,7 @@ const setHorizontalScrolling = (): void => {
 
     const horizontal = scrolling.querySelector('*[data-scrolling-horizontal]') as HTMLElement
     const images = scrolling.querySelectorAll('*[data-scrolling-image]') as NodeListOf<Element>
-    const offsetTop: number = scrolledPage.init().top
+    const offsetTop: number = scrolledPage().top
     const moving: number = (horizontal.scrollLeft / (horizontal.scrollWidth - horizontal.clientWidth)) * 20
 
     horizontal.scrollLeft = offsetTop - scrolling.offsetTop
@@ -42,24 +42,25 @@ const setHorizontalScrolling = (): void => {
 }
 
 const scrollingInViewport = (): void => {
-  const html = document.documentElement as HTMLElement
-
-  if (html.clientWidth < media.md) {
+  switch ((document.documentElement as HTMLElement).clientWidth < media.md) {
+  case true: {
     document.removeEventListener('wheel', setHorizontalScrolling as EventListener)
     document.removeEventListener('scroll', setHorizontalScrolling as EventListener)
-  } else {
+    break
+  }
+
+  case false: {
     document.addEventListener('wheel', setHorizontalScrolling as EventListener)
     document.addEventListener('scroll', setHorizontalScrolling as EventListener)
+    break
+  }
   }
 }
 
-const init = (): void => {
+export default (): void => {
   setScrollingHeight()
   setHorizontalScrolling()
   scrollingInViewport()
-
   window.addEventListener('resize', setScrollingHeight as EventListener)
   window.addEventListener('resize', scrollingInViewport as EventListener)
 }
-
-export default { init }

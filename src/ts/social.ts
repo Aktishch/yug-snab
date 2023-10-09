@@ -1,4 +1,4 @@
-const init = (): void => {
+export default (): void => {
   const social = document.querySelector('*[data-social]') as HTMLElement
 
   if (!social) return
@@ -40,5 +40,3 @@ const init = (): void => {
   btn.addEventListener('click', doubleTap as EventListener)
   btn.addEventListener('touchstart', doubleTap as EventListener)
 }
-
-export default { init }

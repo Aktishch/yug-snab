@@ -1,5 +1,5 @@
-import fancybox from './fancybox'
-import fileHandler from './functions/file-handler'
+import { dialogNotClosing, dialogClose } from './fancybox'
+import { fileHandler } from './functions/file-handler'
 
 const choiceFile = (event: Event): void => {
   const form = (event.target as HTMLInputElement).closest('[data-form]') as HTMLFormElement
@@ -16,7 +16,7 @@ const choiceFile = (event: Event): void => {
   file ? readFile.readAsDataURL(file) : (image.src = '')
 
   readFile.addEventListener('loadend', ((): void => {
-    if (!fileHandler.init(input, error)) return
+    if (!fileHandler(input, error)) return
 
     image.src = String(readFile.result)
 
@@ -25,7 +25,7 @@ const choiceFile = (event: Event): void => {
       const requestUrl = './ajax/submit-handler.php'
       const avatar = document.querySelector('*[data-avatar]') as HTMLImageElement
 
-      fancybox.notClosing('./dialogs/dialog-preloader.html')
+      dialogNotClosing('./dialogs/dialog-preloader.html')
 
       fetch(requestUrl, {
         method: 'POST',
@@ -36,17 +36,15 @@ const choiceFile = (event: Event): void => {
         })
         .then((): void => {
           avatar.src = String(readFile.result)
-          fancybox.close()
+          dialogClose()
         })
         .catch((error: string): void => console.log('The form has not been sent', error))
     }
   }) as EventListener)
 }
 
-const init = (): void => {
+export default (): void => {
   document.addEventListener('change', ((event: Event): void => {
     if ((event.target as HTMLInputElement).getAttribute('data-input') === 'file') choiceFile(event)
   }) as EventListener)
 }
-
-export default { init }

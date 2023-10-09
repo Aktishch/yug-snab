@@ -1,4 +1,4 @@
-import scrolledPage from './functions/scrolled-page'
+import { scrolledPage } from './functions/scrolled-page'
 
 const setProgressLineWidth = (): void => {
   const progressLine = document.querySelector('*[data-progress-line]') as HTMLElement
@@ -6,12 +6,8 @@ const setProgressLineWidth = (): void => {
   if (!progressLine) return
 
   progressLine.style.width = `${Math.floor(
-    (scrolledPage.init().top / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+    (scrolledPage().top / (document.documentElement.scrollHeight - window.innerHeight)) * 100
   )}%`
 }
 
-const init = (): void => {
-  document.addEventListener('scroll', setProgressLineWidth as EventListener)
-}
-
-export default { init }
+export default (): void => document.addEventListener('scroll', setProgressLineWidth as EventListener)

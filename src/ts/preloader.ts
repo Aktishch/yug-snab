@@ -1,4 +1,4 @@
-const init = (): void => {
+export default (): void => {
   const preloader = document.querySelector('*[data-preloader]') as HTMLElement
 
   if (!preloader) return
@@ -6,5 +6,3 @@ const init = (): void => {
   preloader.classList.add('invisible', 'opacity-0')
   setTimeout((): void => preloader.remove(), 500)
 }
-
-export default { init }

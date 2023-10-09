@@ -1,6 +1,6 @@
 import { coordinates } from './coordinates'
 
-const init = (): coordinates => {
+export const scrolledPage = (): coordinates => {
   const coordinates: coordinates = {
     top:
       (window && window.scrollY && window.self.pageYOffset) ||
@@ -12,5 +12,3 @@ const init = (): coordinates => {
 
   return coordinates
 }
-
-export default { init }

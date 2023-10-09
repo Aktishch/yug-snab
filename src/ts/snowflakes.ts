@@ -1,10 +1,10 @@
 import { coordinates } from './functions/coordinates'
-import touchDevice from './functions/touch-device'
+import { touchDevice } from './functions/touch-device'
 
-const init = (): void => {
+export default (): void => {
   const snow = document.querySelector('*[data-snow]') as HTMLElement
 
-  if (!snow || touchDevice.init()) return
+  if (!snow || touchDevice()) return
 
   let flag = true
 
@@ -32,5 +32,3 @@ const init = (): void => {
 
   document.addEventListener('mousemove', createSnowflake as EventListener)
 }
-
-export default { init }

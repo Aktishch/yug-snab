@@ -1,6 +1,6 @@
-import fileHandler from './functions/file-handler'
+import { fileHandler } from './functions/file-handler'
 
-const init = (): void => {
+export default (): void => {
   const dragEvents: string[] = ['dragenter', 'dragover', 'dragleave', 'drop']
 
   dragEvents.forEach((dragEvent: string): void => {
@@ -41,7 +41,7 @@ const init = (): void => {
           file ? readFile.readAsDataURL(file) : (image.src = '')
 
           readFile.addEventListener('loadend', ((): void => {
-            image.src = fileHandler.init(input, error) ? String(readFile.result) : ''
+            image.src = fileHandler(input, error) ? String(readFile.result) : ''
           }) as EventListener)
 
           break
@@ -51,5 +51,3 @@ const init = (): void => {
     }) as EventListener)
   })
 }
-
-export default { init }

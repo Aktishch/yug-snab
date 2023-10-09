@@ -10,10 +10,8 @@ const setBubbles = (event: Event): void => {
   }, 600)
 }
 
-const init = (): void => {
+export default (): void => {
   document.addEventListener('click', ((event: Event): void => {
     if ((event.target as HTMLElement).closest('[data-bubbles]')) setBubbles(event)
   }) as EventListener)
 }
-
-export default { init }

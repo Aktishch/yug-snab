@@ -1,6 +1,6 @@
-import fileHandler from './file-handler'
+import { fileHandler } from './file-handler'
 
-const init = (form: HTMLFormElement): boolean => {
+export const validation = (form: HTMLFormElement): boolean => {
   const labels = form.querySelectorAll('*[data-label="input"]') as NodeListOf<Element>
   const download = form.querySelector('*[data-label="download"]') as HTMLElement
   let validate = true
@@ -9,7 +9,7 @@ const init = (form: HTMLFormElement): boolean => {
     const input = download.querySelector('*[data-input="file"]') as HTMLInputElement
     const error = download.querySelector('*[data-error]') as HTMLElement
 
-    validate = fileHandler.init(input, error)
+    validate = fileHandler(input, error)
   }
 
   labels.forEach((element: Element): void => {
@@ -119,5 +119,3 @@ const init = (form: HTMLFormElement): boolean => {
 
   return validate
 }
-
-export default { init }

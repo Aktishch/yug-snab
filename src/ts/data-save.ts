@@ -30,8 +30,4 @@ const dataSave = (id: string): void => {
   }) as EventListener)
 }
 
-const init = (): void => {
-  dataSave('data-save')
-}
-
-export default { init }
+export default (): void => dataSave('data-save')

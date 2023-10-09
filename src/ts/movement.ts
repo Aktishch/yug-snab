@@ -1,5 +1,5 @@
 import { coordinates } from './functions/coordinates'
-import touchDevice from './functions/touch-device'
+import { touchDevice } from './functions/touch-device'
 
 const setMovement = (event: MouseEvent): void => {
   const item = (event.target as HTMLElement).closest('[data-movement]') as HTMLElement
@@ -13,8 +13,8 @@ const setMovement = (event: MouseEvent): void => {
   item.style.setProperty('--x', `${coordinates.left}px`)
 }
 
-const init = (): void => {
-  if (touchDevice.init()) return
+export default (): void => {
+  if (touchDevice()) return
 
   const items = document.querySelectorAll('*[data-movement]') as NodeListOf<Element>
 
@@ -24,9 +24,6 @@ const init = (): void => {
     if (!item) return
 
     item.classList.add('movement')
-
     item.addEventListener('mousemove', setMovement as EventListener)
   })
 }
-
-export default { init }

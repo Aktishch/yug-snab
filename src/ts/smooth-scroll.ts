@@ -1,11 +1,11 @@
-import touchDevice from './functions/touch-device'
-import scrolledPage from './functions/scrolled-page'
-import animation from './animation'
+import { touchDevice } from './functions/touch-device'
+import { scrolledPage } from './functions/scrolled-page'
+import { animation } from './animation'
 
-const init = (): void => {
+export default (): void => {
   const smoothScroll = document.querySelector('#smooth-scroll') as HTMLElement
 
-  if (!smoothScroll || touchDevice.init()) return
+  if (!smoothScroll || touchDevice()) return
 
   const html = document.documentElement as HTMLElement
   const body = document.body as HTMLBodyElement
@@ -22,13 +22,13 @@ const init = (): void => {
 
   const createSmoothScroll = (): void => {
     setBodyHeight()
-    offset += (scrolledPage.init().top - offset) * smoothSpeed
+    offset += (scrolledPage().top - offset) * smoothSpeed
 
     const translateY = `translateY(-${offset}px)`
 
     smoothScroll.style.transform = translateY
     sessionStorage.setItem('translateY', translateY)
-    animation.onScroll()
+    animation()
     window.requestAnimationFrame(createSmoothScroll)
   }
 
@@ -36,7 +36,6 @@ const init = (): void => {
     setBodyHeight()
     smoothSpeed = 1
     smoothScroll.style.transform = String(sessionStorage.getItem('translateY'))
-
     setTimeout((): void => {
       smoothSpeed = speed
     }, 500)
@@ -45,7 +44,6 @@ const init = (): void => {
   html.classList.add('overflow-x-hidden')
   body.classList.add('overflow-hidden')
   smoothScroll.classList.add('fixed', 'top-0', 'left-0', 'right-0', 'overflow-hidden')
-
   window.requestAnimationFrame(createSmoothScroll)
 
   wrappers.forEach((element: Element): void => {
@@ -68,7 +66,7 @@ const init = (): void => {
           wrapper.getBoundingClientRect().top < 0 &&
           wrapper.getBoundingClientRect().bottom - window.screen.height > 0
         ) {
-          stickyPosition += (scrolledPage.init().top - wrapper.offsetTop - stickyPosition) * speed
+          stickyPosition += (scrolledPage().top - wrapper.offsetTop - stickyPosition) * speed
           sticky.style.transform = `translateY(${stickyPosition}px)`
         }
 
@@ -90,9 +88,9 @@ const init = (): void => {
       const createSmoothLayer = (): void => {
         if (
           wrapper.getBoundingClientRect().top - window.screen.height <= 0 &&
-          scrolledPage.init().top < wrapper.offsetTop + wrapper.offsetHeight
+          scrolledPage().top < wrapper.offsetTop + wrapper.offsetHeight
         ) {
-          layerPosition += (scrolledPage.init().top - wrapper.offsetTop - layerPosition) * layerSpeed
+          layerPosition += (scrolledPage().top - wrapper.offsetTop - layerPosition) * layerSpeed
 
           switch (layer.dataset.smoothLayer) {
           case 'top': {
@@ -124,5 +122,3 @@ const init = (): void => {
     })
   })
 }
-
-export default { init }

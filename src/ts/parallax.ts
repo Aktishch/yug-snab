@@ -1,13 +1,13 @@
 import { coordinates } from './functions/coordinates'
-import touchDevice from './functions/touch-device'
+import { touchDevice } from './functions/touch-device'
 
-const init = (): void => {
+export default (): void => {
   const parallaxes = document.querySelectorAll('*[data-parallax]') as NodeListOf<Element>
 
   parallaxes.forEach((element: Element): void => {
     const parallax = element as HTMLElement
 
-    if (!parallax || touchDevice.init()) return
+    if (!parallax || touchDevice()) return
 
     const layers = parallax.querySelectorAll('*[data-parallax-layer]') as NodeListOf<Element>
     const hovereds = parallax.querySelectorAll('*[data-parallax-hovered]') as NodeListOf<Element>
@@ -105,5 +105,3 @@ const init = (): void => {
     })
   })
 }
-
-export default { init }

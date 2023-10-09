@@ -4,8 +4,6 @@ declare global {
   }
 }
 
-const init = (): boolean => {
+export const touchDevice = (): boolean => {
   return 'ontouchstart' in window || window.navigator.maxTouchPoints > 0 || window.navigator.msMaxTouchPoints > 0
 }
-
-export default { init }

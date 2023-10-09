@@ -79,7 +79,7 @@ const accordionClose = (value: string): void => {
   })
 }
 
-const init = (): void => {
+export default (): void => {
   const accordions = document.querySelectorAll('*[data-accordion]') as NodeListOf<Element>
 
   accordions.forEach((element: Element): void => {
@@ -96,5 +96,3 @@ const init = (): void => {
     accordionClose('scroll')
   }) as EventListener)
 }
-
-export default { init }

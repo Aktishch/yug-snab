@@ -1,19 +1,19 @@
-import fancybox from './fancybox'
-import validate from './functions/validate'
+import { dialogOpen, dialogNotClosing, dialogClose } from './fancybox'
+import { validation } from './functions/validation'
 
 const submitHandler = (event: Event, data: File[]): void => {
   const form = event.target as HTMLFormElement
 
   switch (form.dataset.form) {
   case 'action': {
-    if (!validate.init(form)) event.preventDefault()
+    if (!validation(form)) event.preventDefault()
     break
   }
 
   default: {
     event.preventDefault()
 
-    if (!validate.init(form)) return
+    if (!validation(form)) return
 
     const formData: FormData = new FormData(form)
     const searchParams = new URLSearchParams() as URLSearchParams
@@ -34,7 +34,7 @@ const submitHandler = (event: Event, data: File[]): void => {
     case 'submit': {
       requestUrl = './ajax/submit-handler.php'
       submitBtn.setAttribute('disabled', 'disabled')
-      fancybox.notClosing('./dialogs/dialog-preloader.html')
+      dialogNotClosing('./dialogs/dialog-preloader.html')
 
       fetch(requestUrl, {
         method: 'POST',
@@ -44,8 +44,8 @@ const submitHandler = (event: Event, data: File[]): void => {
           response.text()
         })
         .then((): void => {
-          fancybox.close()
-          fancybox.open('./dialogs/dialog-submit.html')
+          dialogClose()
+          dialogOpen('./dialogs/dialog-submit.html')
           form.reset()
           submitBtn.removeAttribute('disabled')
 
@@ -65,8 +65,8 @@ const submitHandler = (event: Event, data: File[]): void => {
 
     case 'params': {
       requestUrl = `./dialogs/dialog-authorization.html?${queryString}`
-      fancybox.close()
-      fancybox.open(requestUrl)
+      dialogClose()
+      dialogOpen(requestUrl)
       break
     }
     }
@@ -76,10 +76,8 @@ const submitHandler = (event: Event, data: File[]): void => {
   }
 }
 
-const init = (data: File[]): void => {
+export default (data: File[]): void => {
   document.addEventListener('submit', ((event: Event): void => {
     if ((event.target as HTMLFormElement).hasAttribute('data-form')) submitHandler(event, data)
   }) as EventListener)
 }
-
-export default { init }

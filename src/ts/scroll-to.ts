@@ -1,4 +1,4 @@
-import scrolledPage from './functions/scrolled-page'
+import { scrolledPage } from './functions/scrolled-page'
 
 const scrollTo = (event: Event): void => {
   event.preventDefault()
@@ -11,8 +11,8 @@ const scrollTo = (event: Event): void => {
   case 'top': {
     const header = document.querySelector('*[data-header]') as HTMLElement
     const offsetTop: number = header
-      ? block.getBoundingClientRect().top + scrolledPage.init().top - header.offsetHeight
-      : block.getBoundingClientRect().top + scrolledPage.init().top
+      ? block.getBoundingClientRect().top + scrolledPage().top - header.offsetHeight
+      : block.getBoundingClientRect().top + scrolledPage().top
 
     window.scrollTo({
       top: offsetTop,
@@ -33,10 +33,8 @@ const scrollTo = (event: Event): void => {
   }
 }
 
-const init = (): void => {
+export default (): void => {
   document.addEventListener('click', ((event: Event): void => {
     if ((event.target as HTMLElement).hasAttribute('data-scroll')) scrollTo(event)
   }) as EventListener)
 }
-
-export default { init }

@@ -1,17 +1,17 @@
-import scrollbar from './functions/scrollbar'
-import media from '../ts/functions/media'
+import { scrollbarShow, scrollbarHidden } from './functions/scrollbar'
+import { media } from '../ts/functions/media'
 
 const openSidebar = (sidebar: HTMLElement): void => {
-  scrollbar.hidden()
+  scrollbarHidden()
   sidebar.dataset.sidebar = 'open'
 }
 
 const closeSidebar = (sidebar: HTMLElement): void => {
-  scrollbar.show()
+  scrollbarShow()
   sidebar.dataset.sidebar = 'close'
 }
 
-const init = (): void => {
+export default (): void => {
   document.addEventListener('click', ((event: Event): void => {
     if ((event.target as HTMLButtonElement).closest('[data-sidebar-open]')) {
       const open = event.target as HTMLButtonElement
@@ -56,5 +56,3 @@ const init = (): void => {
     })
   }) as EventListener)
 }
-
-export default { init }

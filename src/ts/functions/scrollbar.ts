@@ -1,26 +1,24 @@
-import touchDevice from './touch-device'
+import { touchDevice } from './touch-device'
 
-const show = (): void => {
+export const scrollbarShow = (): void => {
   const html = document.documentElement as HTMLElement
   const smoothScroll = document.querySelector('#smooth-scroll') as HTMLElement
 
-  if (!touchDevice.init()) {
+  if (!touchDevice()) {
     smoothScroll ? (smoothScroll.style.right = '0') : (html.style.marginRight = '0')
   }
 
   html.classList.remove('overflow-hidden')
 }
 
-const hidden = (): void => {
+export const scrollbarHidden = (): void => {
   const html = document.documentElement as HTMLElement
   const smoothScroll = document.querySelector('#smooth-scroll') as HTMLElement
   const scrollbarWidth: number = window.innerWidth - html.clientWidth
 
-  if (!touchDevice.init()) {
+  if (!touchDevice()) {
     smoothScroll ? (smoothScroll.style.right = `${scrollbarWidth}px`) : (html.style.marginRight = `${scrollbarWidth}px`)
   }
 
   html.classList.add('overflow-hidden')
 }
-
-export default { show, hidden }

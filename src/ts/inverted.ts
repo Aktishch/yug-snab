@@ -6,11 +6,9 @@ const invertedToggle = (event: Event, condition: string): void => {
   }
 }
 
-const init = (): void => {
+export default (): void => {
   document.addEventListener('click', ((event: Event): void => {
     invertedToggle(event, 'after')
     invertedToggle(event, 'before')
   }) as EventListener)
 }
-
-export default { init }

@@ -5,7 +5,6 @@ const quantityDecrease = (event: InputEvent): void => {
 
   --value
   input.value = String(value)
-
   if (value < 1) input.value = '1'
 }
 
@@ -18,12 +17,10 @@ const quantityIncrease = (event: InputEvent): void => {
   input.value = String(value)
 }
 
-const init = (): void => {
+export default (): void => {
   document.addEventListener('click', ((event: InputEvent): void => {
     if ((event.target as HTMLElement).closest('[data-quantity-decrease]')) quantityDecrease(event)
 
     if ((event.target as HTMLElement).closest('[data-quantity-increase]')) quantityIncrease(event)
   }) as EventListener)
 }
-
-export default { init }

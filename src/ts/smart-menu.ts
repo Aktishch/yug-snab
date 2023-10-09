@@ -1,4 +1,4 @@
-const init = (): void => {
+export default (): void => {
   const smartMenu = document.querySelector('*[data-smart]') as HTMLElement
 
   if (!smartMenu) return
@@ -37,8 +37,5 @@ const init = (): void => {
   }
 
   updateSmartMenu()
-
   window.addEventListener('resize', updateSmartMenu as EventListener)
 }
-
-export default { init }

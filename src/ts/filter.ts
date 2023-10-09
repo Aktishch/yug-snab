@@ -20,7 +20,7 @@ const filtering = (name: string, cards: NodeListOf<Element>): void => {
   })
 }
 
-const init = (): void => {
+export default (): void => {
   const filters = document.querySelectorAll('*[data-filter]') as NodeListOf<Element>
 
   filters.forEach((element: Element): void => {
@@ -72,5 +72,3 @@ const init = (): void => {
     }
   })
 }
-
-export default { init }

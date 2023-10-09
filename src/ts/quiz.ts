@@ -1,4 +1,4 @@
-const checkQuizSlide = (slide: HTMLElement): void => {
+export const checkQuizSlide = (slide: HTMLElement): void => {
   const quiz = slide.closest('[data-quiz]') as HTMLElement
   const inputs: (HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement)[] = [
     ...slide.querySelectorAll('input'),
@@ -26,7 +26,7 @@ const checkQuizSlide = (slide: HTMLElement): void => {
   empty ? (quiz.dataset.quiz = 'stop') : (quiz.dataset.quiz = 'auto')
 }
 
-const init = (): void => {
+export default (): void => {
   document.addEventListener('input', ((event: InputEvent): void => {
     const slide = (event.target as HTMLInputElement).closest('[data-quiz-slide]') as HTMLElement
 
@@ -34,4 +34,4 @@ const init = (): void => {
   }) as EventListener)
 }
 
-export default { init, checkQuizSlide }
+// export default { init, checkQuizSlide }

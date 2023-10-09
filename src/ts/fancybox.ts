@@ -11,34 +11,7 @@ declare global {
 
 window.Fancybox = Fancybox
 
-const init = (): void => {
-  window.Fancybox.defaults.mainClass = 'fancybox-custom'
-  window.Fancybox.defaults.trapFocus = false
-  window.Fancybox.defaults.autoFocus = false
-  window.Fancybox.defaults.placeFocusBack = false
-
-  window.Fancybox.bind('[data-fancybox]')
-
-  window.Fancybox.bind('[data-fancybox-dialog]', {
-    dragToClose: false,
-    on: {
-      done: (): void => waved.init(),
-    },
-  })
-
-  window.Fancybox.bind('[data-fancybox-calendar]', {
-    dragToClose: false,
-    on: {
-      done: (): void => {
-        airDatepicker.init()
-        filter.init()
-        waved.init()
-      },
-    },
-  })
-}
-
-const open = (requestUrl: string): void => {
+export const dialogOpen = (requestUrl: string): void => {
   window.Fancybox.show(
     [
       {
@@ -49,13 +22,13 @@ const open = (requestUrl: string): void => {
     {
       dragToClose: false,
       on: {
-        done: (): void => waved.init(),
+        done: (): void => waved(),
       },
     }
   )
 }
 
-const notClosing = (requestUrl: string): void => {
+export const dialogNotClosing = (requestUrl: string): void => {
   window.Fancybox.show(
     [
       {
@@ -68,14 +41,37 @@ const notClosing = (requestUrl: string): void => {
       closeButton: false,
       backdropClick: true,
       on: {
-        done: (): void => waved.init(),
+        done: (): void => waved(),
       },
     }
   )
 }
 
-const close = (): void => {
-  window.Fancybox.close()
-}
+export const dialogClose = (): void => window.Fancybox.close()
 
-export default { init, open, notClosing, close }
+export default (): void => {
+  window.Fancybox.defaults.mainClass = 'fancybox-custom'
+  window.Fancybox.defaults.trapFocus = false
+  window.Fancybox.defaults.autoFocus = false
+  window.Fancybox.defaults.placeFocusBack = false
+
+  window.Fancybox.bind('[data-fancybox]')
+
+  window.Fancybox.bind('[data-fancybox-dialog]', {
+    dragToClose: false,
+    on: {
+      done: (): void => waved(),
+    },
+  })
+
+  window.Fancybox.bind('[data-fancybox-calendar]', {
+    dragToClose: false,
+    on: {
+      done: (): void => {
+        airDatepicker()
+        filter()
+        waved()
+      },
+    },
+  })
+}

@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-const init = (): void => {
+export default (): void => {
   const yandexMap = document.querySelector('#yandex-map') as HTMLElement
 
   if (!yandexMap) return
@@ -55,5 +55,3 @@ const init = (): void => {
     })
     .catch((error: string) => console.log('Failed to load Yandex Maps', error))
 }
-
-export default { init }

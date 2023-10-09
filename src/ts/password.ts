@@ -20,10 +20,8 @@ const visibilityPassword = (event: Event): void => {
   }
 }
 
-const init = (): void => {
+export default (): void => {
   document.addEventListener('click', ((event: Event): void => {
     if ((event.target as HTMLElement).closest('[data-password]')) visibilityPassword(event)
   }) as EventListener)
 }
-
-export default { init }

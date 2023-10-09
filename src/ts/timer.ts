@@ -1,6 +1,6 @@
-import timeFormat from './functions/time-format'
+import { timeFormat } from './functions/time-format'
 
-const init = (): void => {
+export default (): void => {
   const timer = document.querySelector('*[data-timer]') as HTMLElement
 
   if (!timer) return
@@ -32,7 +32,7 @@ const init = (): void => {
         seconds = 0
       }
 
-      units.innerText = `${timeFormat.init(hours)}:${timeFormat.init(minutes)}:${timeFormat.init(seconds)}`
+      units.innerText = `${timeFormat(hours)}:${timeFormat(minutes)}:${timeFormat(seconds)}`
       setTimeout(setTime, 1000)
     }
   }
@@ -69,9 +69,6 @@ const init = (): void => {
   }, 1000)
 
   units.innerText = '00:00:00'
-
   turn.addEventListener('click', statusTimer as EventListener)
   reset.addEventListener('click', timerReset as EventListener)
 }
-
-export default { init }

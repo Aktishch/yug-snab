@@ -1,6 +1,6 @@
-import scrollbar from './functions/scrollbar'
+import { scrollbarShow, scrollbarHidden } from './functions/scrollbar'
 
-const init = (): void => {
+export default (): void => {
   const compares = document.querySelectorAll('*[data-compare]') as NodeListOf<Element>
 
   compares.forEach((element: Element): void => {
@@ -21,13 +21,13 @@ const init = (): void => {
 
     const compareStart = (event: Event): void => {
       if ((event.target as HTMLElement).closest('[data-compare-change]')) {
-        scrollbar.hidden()
+        scrollbarHidden()
         active = true
       }
     }
 
     const compareEnd = (): void => {
-      scrollbar.show()
+      scrollbarShow()
       active = false
     }
 
@@ -71,5 +71,3 @@ const init = (): void => {
     compare.addEventListener('touchmove', compareMove as EventListener)
   })
 }
-
-export default { init }

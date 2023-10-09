@@ -1,5 +1,5 @@
 import { coordinates } from './functions/coordinates'
-import scrollbar from './functions/scrollbar'
+import { scrollbarShow, scrollbarHidden } from './functions/scrollbar'
 
 const setTranslate = (element: HTMLElement, positionX: number, positionY: number): void => {
   element.style.transform = `translate(${positionX}px, ${positionY}px)`
@@ -79,20 +79,16 @@ const setDraggable = (id: string): void => {
     getDragPosition()
   }
 
-  draggable.addEventListener('touchstart', scrollbar.hidden as EventListener)
-  draggable.addEventListener('touchend', scrollbar.show as EventListener)
-  draggable.addEventListener('mousedown', scrollbar.hidden as EventListener)
-  draggable.addEventListener('mouseup', scrollbar.show as EventListener)
-  body.addEventListener('touchstart', dragStart as EventListener, false)
-  body.addEventListener('touchmove', dragMove as EventListener, false)
-  body.addEventListener('touchend', dragEnd as EventListener, false)
-  body.addEventListener('mousedown', dragStart as EventListener, false)
-  body.addEventListener('mousemove', dragMove as EventListener, false)
-  body.addEventListener('mouseup', dragEnd as EventListener, false)
+  draggable.addEventListener('touchstart', scrollbarHidden as EventListener)
+  draggable.addEventListener('touchend', scrollbarShow as EventListener)
+  draggable.addEventListener('mousedown', scrollbarHidden as EventListener)
+  draggable.addEventListener('mouseup', scrollbarShow as EventListener)
+  body.addEventListener('touchstart', dragStart as EventListener)
+  body.addEventListener('touchmove', dragMove as EventListener)
+  body.addEventListener('touchend', dragEnd as EventListener)
+  body.addEventListener('mousedown', dragStart as EventListener)
+  body.addEventListener('mousemove', dragMove as EventListener)
+  body.addEventListener('mouseup', dragEnd as EventListener)
 }
 
-const init = (): void => {
-  setDraggable('draggable')
-}
-
-export default { init }
+export default (): void => setDraggable('draggable')

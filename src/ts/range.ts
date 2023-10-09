@@ -25,7 +25,7 @@ const getPosition = (num: number, input: HTMLInputElement, progress: HTMLElement
   bubble.innerHTML = String(value)
 }
 
-const init = (): void => {
+export default (): void => {
   const ranges = document.querySelectorAll('*[data-range]') as NodeListOf<Element>
 
   ranges.forEach((element: Element): void => {
@@ -123,5 +123,3 @@ const init = (): void => {
     }
   })
 }
-
-export default { init }

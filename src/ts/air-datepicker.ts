@@ -1,6 +1,6 @@
 import AirDatepicker from 'air-datepicker'
 import localeRu from 'air-datepicker/locale/ru'
-import touchDevice from './functions/touch-device'
+import { touchDevice } from './functions/touch-device'
 import filter from './filter'
 
 declare global {
@@ -12,9 +12,9 @@ declare global {
 
 window.AirDatepicker = AirDatepicker
 
-const init = (): void => {
+export default (): void => {
   const datepickers = document.querySelectorAll('*[data-datepicker]') as NodeListOf<Element>
-  const excludeDates: number[] = [+new Date(2023, 7, 5), +new Date(2023, 7, 7), +new Date(2023, 8, 10)]
+  const excludeDates: number[] = [+new Date(2023, 9, 5), +new Date(2023, 9, 7), +new Date(2023, 10, 10)]
 
   window.excludeDates = excludeDates
 
@@ -41,7 +41,7 @@ const init = (): void => {
     if ((event.target as HTMLElement).closest('#calendar')) {
       const calendar = (event.target as HTMLElement).closest('#calendar') as HTMLElement
 
-      if (calendar.querySelector('.filter-active')) filter.init()
+      if (calendar.querySelector('.filter-active')) filter()
     }
   }) as EventListener)
 
@@ -60,7 +60,7 @@ const init = (): void => {
         })
       },
       locale: localeRu,
-      isMobile: touchDevice.init(),
+      isMobile: touchDevice(),
       autoClose: true,
       minDate: new Date(),
       position: 'bottom left' || inputMin.dataset.position,
@@ -73,12 +73,10 @@ const init = (): void => {
         })
       },
       locale: localeRu,
-      isMobile: touchDevice.init(),
+      isMobile: touchDevice(),
       autoClose: true,
       minDate: new Date(),
       position: 'bottom left' || inputMax.dataset.position,
     }) as AirDatepicker<HTMLInputElement>
   })
 }
-
-export default { init }

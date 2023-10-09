@@ -1,5 +1,5 @@
 import { coordinates } from './functions/coordinates'
-import touchDevice from './functions/touch-device'
+import { touchDevice } from './functions/touch-device'
 
 const setWaved = (event: Event): void => {
   const item = (event.target as HTMLElement).closest('[data-waved]') as HTMLElement
@@ -21,24 +21,20 @@ const setWaved = (event: Event): void => {
 
   switch (event.type) {
   case 'touchstart': {
-    if (!touchDevice.init()) return
-
+    if (!touchDevice()) return
     createCircle((event as TouchEvent).touches[0].clientY, (event as TouchEvent).touches[0].clientX)
-
     break
   }
 
   case 'mousedown': {
-    if (touchDevice.init()) return
-
+    if (touchDevice()) return
     createCircle((event as MouseEvent).clientY, (event as MouseEvent).clientX)
-
     break
   }
   }
 }
 
-const init = (): void => {
+export default (): void => {
   const items = document.querySelectorAll('*[data-waved]') as NodeListOf<Element>
 
   items.forEach((element: Element): void => {
@@ -50,10 +46,7 @@ const init = (): void => {
 
     waved.classList.add('waved')
     item.appendChild(waved)
-
     item.addEventListener('touchstart', setWaved as EventListener)
     item.addEventListener('mousedown', setWaved as EventListener)
   })
 }
-
-export default { init }

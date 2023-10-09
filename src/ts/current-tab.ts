@@ -1,4 +1,4 @@
-const init = (): void => {
+export default (): void => {
   const title = document.querySelector('title') as HTMLTitleElement
 
   if (!title) return
@@ -17,5 +17,3 @@ const init = (): void => {
     title.innerText = String(text)
   }) as EventListener)
 }
-
-export default { init }

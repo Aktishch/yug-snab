@@ -10,7 +10,6 @@ const writeText = (section: HTMLElement): void => {
   const interval: NodeJS.Timer = setInterval(
     (): void => {
       if (!letters[0]) return clearInterval(interval)
-
       record.innerHTML += letters.shift()
     },
     recordSpeed !== undefined ? recordSpeed : 100
@@ -22,13 +21,8 @@ const scrollToText = (): void => {
 
   if (section && window.screen.height >= section.getBoundingClientRect().top) {
     writeText(section)
-
     document.removeEventListener('scroll', scrollToText as EventListener)
   }
 }
 
-const init = (): void => {
-  document.addEventListener('scroll', scrollToText as EventListener)
-}
-
-export default { init }
+export default (): void => document.addEventListener('scroll', scrollToText as EventListener)

@@ -1,5 +1,5 @@
-import scrollbar from './functions/scrollbar'
-import timeFormat from './functions/time-format'
+import { scrollbarShow, scrollbarHidden } from './functions/scrollbar'
+import { timeFormat } from './functions/time-format'
 
 interface compositionCondition {
   status: string
@@ -162,13 +162,13 @@ const setPlayer = (id: string, playlist: playlistDetail[]): void => {
 
   const progressStart = (event: Event): void => {
     if ((event.target as HTMLElement).closest('[data-player-progress]')) {
-      scrollbar.hidden()
+      scrollbarHidden()
       active = true
     }
   }
 
   const progressEnd = (): void => {
-    scrollbar.show()
+    scrollbarShow()
     active = false
   }
 
@@ -253,7 +253,7 @@ const setPlayer = (id: string, playlist: playlistDetail[]): void => {
     }
     }
 
-    if (time) time.innerText = `${timeFormat.init(minutes)}:${timeFormat.init(seconds)}`
+    if (time) time.innerText = `${timeFormat(minutes)}:${timeFormat(seconds)}`
   }
 
   const audioStart = (event: Event): void => {
@@ -372,10 +372,7 @@ const playOnlyOne = (event: Event): void => {
   }
 }
 
-const init = (): void => {
+export default (): void => {
   setPlayer('player', playlist)
-
   document.addEventListener('play', playOnlyOne as EventListener, true)
 }
-
-export default { init }

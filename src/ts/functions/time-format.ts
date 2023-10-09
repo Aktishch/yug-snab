@@ -1,9 +1,11 @@
-const init = (number: number): string => {
-  if (number < 10 || number === 0) {
+export const timeFormat = (number: number): string => {
+  switch (number < 10 || number === 0) {
+  case true: {
     return `0${number}`
-  } else {
+  }
+
+  case false: {
     return `${number}`
   }
+  }
 }
-
-export default { init }

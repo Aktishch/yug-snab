@@ -1,6 +1,6 @@
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay, Grid, Thumbs, EffectCoverflow, EffectCube } from 'swiper'
-import media from './functions/media'
-import quiz from './quiz'
+import { media } from './functions/media'
+import { checkQuizSlide } from './quiz'
 
 declare global {
   interface Window {
@@ -12,7 +12,7 @@ Swiper.use([Navigation, Pagination, Scrollbar, Autoplay, Grid, Thumbs, EffectCov
 Swiper.defaults.touchStartPreventDefault = false
 window.Swiper = Swiper
 
-const init = (): void => {
+export default (): void => {
   new window.Swiper('.gallery-slider .swiper', {
     pagination: {
       el: '.gallery-slider .swiper-pagination',
@@ -97,12 +97,18 @@ const init = (): void => {
     on: {
       slideChange: (swiper: Swiper): void => {
         quizImages.slideTo(swiper.activeIndex)
-        quiz.checkQuizSlide(swiper.visibleSlides[0])
+        checkQuizSlide(swiper.visibleSlides[0])
 
-        if (swiper.visibleSlides[0] === swiper.slides[swiper.slides.length - 1]) {
+        switch (swiper.visibleSlides[0] === swiper.slides[swiper.slides.length - 1]) {
+        case true: {
           (swiper.el.closest('[data-quiz]') as HTMLElement).setAttribute('data-quiz-end', '')
-        } else {
+          break
+        }
+
+        case false: {
           (swiper.el.closest('[data-quiz]') as HTMLElement).removeAttribute('data-quiz-end')
+          break
+        }
         }
       },
     },
@@ -154,5 +160,3 @@ const init = (): void => {
     },
   }) as Swiper
 }
-
-export default { init }

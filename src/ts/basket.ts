@@ -1,6 +1,6 @@
 import { coordinates } from './functions/coordinates'
 
-const init = (): void => {
+export default (): void => {
   const basket = document.querySelector('*[data-basket]') as HTMLElement
 
   if (!basket) return
@@ -55,7 +55,6 @@ const init = (): void => {
       <svg class="icon text-second text-16">
         <use xlink:href="img/icons.svg#basket"></use>
       </svg>`
-
     body.appendChild(inBasket)
     setTimeout((): void => inBasket.remove(), 2000)
   }
@@ -105,5 +104,3 @@ const init = (): void => {
     productBtn.addEventListener('click', createAnimInBasket as EventListener)
   })
 }
-
-export default { init }

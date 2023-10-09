@@ -1,4 +1,4 @@
-const init = (): void => {
+export default (): void => {
   const counter = document.querySelector('*[data-counter]') as HTMLElement
 
   if (!counter) return
@@ -38,5 +38,3 @@ const init = (): void => {
 
   getTimeCounter()
 }
-
-export default { init }

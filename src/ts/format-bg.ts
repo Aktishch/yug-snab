@@ -15,13 +15,11 @@ const createBackground = (data: string): void => {
 
     if (!item) return
 
-    const src = String(item.getAttribute(`${data}`))
-
-    item.style.backgroundImage = `url('${src}')`
+    item.style.backgroundImage = `url('${item.getAttribute(`${data}`)}')`
   })
 }
 
-const init = (): void => {
+export default (): void => {
   const firefox: RegExpMatchArray | null = window.navigator.userAgent.match(/Firefox\/([0-9]+)\./)
   const firefoxVersion: number = firefox ? Number(firefox[1]) : 0
 
@@ -29,5 +27,3 @@ const init = (): void => {
 
   if (canUseWebp() || firefoxVersion >= 65) createBackground('data-bg-webp')
 }
-
-export default { init }

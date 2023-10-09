@@ -1,6 +1,6 @@
-import fileHandler from './functions/file-handler'
+import { fileHandler } from './functions/file-handler'
 
-const init = (): File[] => {
+export default (): File[] => {
   const data: File[] = []
 
   document.addEventListener('change', ((event: Event): void => {
@@ -19,7 +19,7 @@ const init = (): File[] => {
 
       item.classList.add('flex', 'items-center', 'justify-between', 'gap-5')
 
-      if (fileHandler.init(input, error)) {
+      if (fileHandler(input, error)) {
         for (let i = 0; i < files.length; i++) {
           data.push(files[i])
           item.setAttribute('data-files-item', '')
@@ -29,8 +29,7 @@ const init = (): File[] => {
               <svg class="icon">
                 <use xlink:href="img/icons.svg#close"></use>
               </svg>
-            </button>
-          `
+            </button>`
           listing.appendChild(item)
 
           if (!listing.classList.contains('mb-5')) listing.classList.add('mb-5')
@@ -91,5 +90,3 @@ const init = (): File[] => {
 
   return data
 }
-
-export default { init }

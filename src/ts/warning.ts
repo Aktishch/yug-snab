@@ -1,13 +1,13 @@
-import fancybox from './fancybox'
+import { dialogNotClosing, dialogClose } from './fancybox'
 
-const init = (): void => {
+export default (): void => {
   if (!sessionStorage.getItem('warning') && sessionStorage.getItem('warning') !== 'positive')
-    setTimeout((): void => fancybox.notClosing('./dialogs/dialog-warning.html'), 2000)
+    setTimeout((): void => dialogNotClosing('./dialogs/dialog-warning.html'), 2000)
 
   document.addEventListener('click', ((event: Event): void => {
     if ((event.target as HTMLButtonElement).hasAttribute('data-positive')) {
       sessionStorage.setItem('warning', 'positive')
-      fancybox.close()
+      dialogClose()
     }
   }) as EventListener)
 
@@ -20,5 +20,3 @@ const init = (): void => {
     }
   }) as EventListener)
 }
-
-export default { init }

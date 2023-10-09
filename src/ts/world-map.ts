@@ -1,4 +1,4 @@
-const init = (): void => {
+export default (): void => {
   const world = document.querySelector('*[data-world]') as HTMLElement
 
   if (!world) return
@@ -64,5 +64,3 @@ const init = (): void => {
     country.addEventListener('click', currentCountry as EventListener)
   })
 }
-
-export default { init }

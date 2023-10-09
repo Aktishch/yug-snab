@@ -1,4 +1,4 @@
-const init = (): void => {
+export default (): void => {
   const listings = document.querySelectorAll('*[data-listing]') as NodeListOf<Element>
 
   listings.forEach((element: Element): void => {
@@ -25,5 +25,3 @@ const init = (): void => {
     }) as EventListener)
   })
 }
-
-export default { init }
