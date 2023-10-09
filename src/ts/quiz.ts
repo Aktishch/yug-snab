@@ -33,5 +33,3 @@ export default (): void => {
     if (slide) checkQuizSlide(slide)
   }) as EventListener)
 }
-
-// export default { init, checkQuizSlide }
