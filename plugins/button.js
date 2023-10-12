@@ -118,7 +118,7 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
           '--btn-color': color.DEFAULT,
           '--btn-fade': formatColor({ mode: 'rgba', color: parsed.color, alpha: 0.3 }),
           '--btn-focus': formatColor({ mode: 'rgba', color: parsed.color, alpha: 0.4 }),
-          '--btn-hovered': checkColor(hex, -amount) != false ? getColor(hex, -amount) : getColor(hex, amount),
+          '--btn-hovered': checkColor(hex, -amount) !== '0' ? getColor(hex, -amount) : getColor(hex, amount),
         }
       },
     },
@@ -180,7 +180,7 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
       value = value > 0 ? value : 0
       value = Math.round(value)
 
-      return value.toString(16).length == 1 ? '0' + value.toString(16) : value.toString(16)
+      return value.toString(16).length === 1 ? '0' + value.toString(16) : value.toString(16)
     }
 
     const red = getColorValue(r)
