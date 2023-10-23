@@ -2,17 +2,25 @@ const setAccordion = (element: HTMLElement): void => {
   const accordion = element as HTMLElement
   const toggle = accordion.querySelector('*[data-accordion-toggle]') as HTMLElement
   const content = accordion.querySelector('*[data-accordion-content]') as HTMLElement
-  const accordionItems = accordion.querySelectorAll('*[data-accordion]') as NodeListOf<Element>
+  let timeOut: NodeJS.Timeout
 
   const setAccordionHeight = (): void => {
+    if (timeOut) clearTimeout(timeOut)
+
+    content.style.height = `${content.scrollHeight}px`
+
     switch (accordion.dataset.accordion) {
     case 'hidden': {
-      content.style.height = '0'
+      timeOut = setTimeout((): void => {
+        content.style.height = '0'
+      }, 10)
       break
     }
 
     case 'active': {
-      content.style.height = `${content.scrollHeight}px`
+      timeOut = setTimeout((): void => {
+        content.style.height = ''
+      }, 300)
       break
     }
     }
@@ -38,45 +46,32 @@ const setAccordion = (element: HTMLElement): void => {
     }
   }) as EventListener)
 
-  accordionItems.forEach((element: Element): void => {
-    const accordionItem = element as HTMLElement
-
-    if (!accordionItem) return
-
-    const accordionItemToggle = accordionItem.querySelector('*[data-accordion-toggle]') as HTMLElement
-    const accordionItemContent = accordionItem.querySelector('*[data-accordion-content]') as HTMLElement
-
-    accordionItemToggle.addEventListener('click', ((): void => {
-      switch (accordionItem.dataset.accordion) {
-      case 'hidden': {
-        content.style.height = `${content.scrollHeight + accordionItemContent.scrollHeight}px`
-        break
-      }
-
-      case 'active': {
-        content.style.height = `${content.scrollHeight - accordionItemContent.scrollHeight}px`
-        break
-      }
+  switch (accordion.dataset.accordionClose) {
+  case 'click': {
+    document.addEventListener('click', ((event: Event): void => {
+      if (
+        (event.target as HTMLElement).closest('[data-accordion-close="click"]') !== accordion &&
+          accordion.dataset.accordion === 'active'
+      ) {
+        accordion.dataset.accordion = 'hidden'
+        setAccordionHeight()
       }
     }) as EventListener)
-  })
-}
 
-const accordionClose = (value: string): void => {
-  const accordions = document.querySelectorAll(`*[data-accordion-close="${value}"]`) as NodeListOf<Element>
+    break
+  }
 
-  accordions.forEach((element: Element): void => {
-    const accordion = element as HTMLElement
+  case 'scroll': {
+    document.addEventListener('scroll', ((): void => {
+      if (accordion.dataset.accordion === 'active') {
+        accordion.dataset.accordion = 'hidden'
+        setAccordionHeight()
+      }
+    }) as EventListener)
 
-    if (!accordion) return
-
-    const content = accordion.querySelector('*[data-accordion-content]') as HTMLElement
-
-    if (accordion.dataset.accordion === 'active') {
-      accordion.dataset.accordion = 'hidden'
-      content.style.height = '0'
-    }
-  })
+    break
+  }
+  }
 }
 
 export default (): void => {
@@ -87,12 +82,4 @@ export default (): void => {
 
     if (accordion) setAccordion(accordion)
   })
-
-  document.addEventListener('click', ((event: Event): void => {
-    if (!(event.target as HTMLElement).closest('[data-accordion-close="click"]')) accordionClose('click')
-  }) as EventListener)
-
-  document.addEventListener('scroll', ((): void => {
-    accordionClose('scroll')
-  }) as EventListener)
 }

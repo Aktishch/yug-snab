@@ -119,6 +119,22 @@
   &--squares {
     @apply flex-wrap gap-1 w-16;
   }
+
+  &--pulse {
+
+    &::before,
+    &::after {
+      animation: preloader-pulse 1s ease-out infinite;
+
+      @apply content-auto absolute inset-0 border-4 border-solid border-current rounded-max w-full h-full;
+    }
+
+    &::after {
+      animation-delay: -0.5s;
+    }
+
+    @apply relative w-20 h-20;
+  }
 }
 
 @keyframes progress {
@@ -202,5 +218,20 @@
   50%,
   75% {
     @apply opacity-40;
+  }
+}
+
+@keyframes preloader-pulse {
+
+  0% {
+    transform: scale(0);
+
+    @apply opacity-100;
+  }
+
+  100% {
+    transform: scale(1);
+
+    @apply opacity-0;
   }
 }
