@@ -4,31 +4,39 @@ const setAccordion = (element: HTMLElement): void => {
   const content = accordion.querySelector('*[data-accordion-content]') as HTMLElement
   let timeOut: NodeJS.Timeout
 
-  const setAccordionHeight = (): void => {
+  const setAccordionHeight = (duration = true): void => {
     if (timeOut) clearTimeout(timeOut)
 
+    const transition: number = duration ? Math.max(content.scrollHeight / 2, 100) : 0
+
     content.style.height = `${content.scrollHeight}px`
+    content.style.transitionDuration = duration ? `${transition / 1000}s` : '0s'
 
     switch (accordion.dataset.accordion) {
     case 'hidden': {
-      timeOut = setTimeout((): void => {
-        content.style.height = '0'
-      }, 10)
+      content.classList.add('overflow-hidden')
+
+      timeOut = setTimeout(
+        (): void => {
+          content.style.height = '0'
+        },
+        duration ? 10 : 0
+      )
       break
     }
 
     case 'active': {
       timeOut = setTimeout((): void => {
         content.style.height = ''
-      }, 300)
+        content.classList.remove('overflow-hidden')
+      }, transition)
       break
     }
     }
   }
 
   toggle.classList.add('cursor-pointer')
-  content.classList.add('overflow-hidden', 'duration-3')
-  setAccordionHeight()
+  setAccordionHeight(false)
 
   toggle.addEventListener('click', ((): void => {
     switch (accordion.dataset.accordion) {
@@ -70,6 +78,10 @@ const setAccordion = (element: HTMLElement): void => {
     }) as EventListener)
 
     break
+  }
+
+  default: {
+    return
   }
   }
 }
