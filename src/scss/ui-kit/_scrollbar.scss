@@ -1,13 +1,7 @@
-@mixin scrollbar($rotate-1, $rotate-2, $rotate-3) {
-  background-image: linear-gradient(#{$rotate-1}deg, theme("colors.black.DEFAULT") 35%, transparent 41%),
-  linear-gradient(#{$rotate-2}deg, theme("colors.black.DEFAULT") 35%, transparent 41%),
-  linear-gradient(#{$rotate-3}deg, theme("colors.black.DEFAULT") 35%, transparent 41%);
-}
-
 * {
   scrollbar: {
     width: thin;
-    color: theme("colors.primary.DEFAULT") theme("colors.black.DEFAULT");
+    color: theme("colors.grey.DEFAULT") theme("colors.primary.DEFAULT");
   }
 }
 
@@ -16,7 +10,7 @@
     @apply w-4;
 
     &-track {
-      @apply bg-black;
+      @apply bg-primary;
 
       &-piece {
         @apply my-2;
@@ -29,45 +23,11 @@
         box-shadow: inset 0 8px 8px theme("colors.black.DEFAULT / 50%");
       }
 
-      @apply bg-primary rounded-2 border-4 border-solid border-black;
+      @apply bg-grey rounded-2 border-4 border-solid border-primary;
     }
 
     &-corner {
-      @apply bg-black;
-    }
-
-    &-button {
       @apply bg-primary;
-
-      &:vertical {
-        &:decrement:start {
-          @include scrollbar(120, 240, 0);
-        }
-
-        &:increment:end {
-          @include scrollbar(300, 60, 180);
-        }
-
-        &:increment:start,
-        &:decrement:end {
-          @apply hidden;
-        }
-      }
-
-      &:horizontal {
-        &:decrement:start {
-          @include scrollbar(30, 150, -90);
-        }
-
-        &:increment:end {
-          @include scrollbar(210, 330, 90);
-        }
-
-        &:increment:start,
-        &:decrement:end {
-          @apply hidden;
-        }
-      }
     }
   }
 }

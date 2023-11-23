@@ -3,8 +3,6 @@
 module.exports = {
   content: ['./src/**/*.html', './src/ts/**/*.ts'],
 
-  darkMode: 'class',
-
   corePlugins: {
     container: false,
   },
@@ -25,15 +23,15 @@ module.exports = {
 
     colors: {
       primary: {
-        DEFAULT: '#af1a4c',
+        DEFAULT: '#0650A5',
       },
 
       second: {
-        DEFAULT: '#d7a751',
+        DEFAULT: '#044992',
       },
 
       black: {
-        DEFAULT: '#000000',
+        DEFAULT: '#1E1E1E',
       },
 
       white: {
@@ -41,23 +39,23 @@ module.exports = {
       },
 
       gray: {
-        DEFAULT: '#b2b2b2',
+        DEFAULT: '#D3D9E2',
       },
 
       grey: {
-        DEFAULT: '#f6f7f9',
+        DEFAULT: '#F1F3F6',
       },
 
-      dark: {
-        DEFAULT: '#303030',
+      blue: {
+        DEFAULT: '#4698FF',
       },
 
       red: {
-        DEFAULT: '#be1b1b',
+        DEFAULT: '#AD2727',
       },
 
       green: {
-        DEFAULT: '#27ae60',
+        DEFAULT: '#26D044',
       },
     },
 
@@ -212,10 +210,10 @@ module.exports = {
     },
 
     size: {
-      xs: '28px',
-      sm: '36px',
-      md: '40px',
-      lg: '45px',
+      xs: '230px',
+      sm: '38px',
+      md: '46px',
+      lg: '52px',
       xl: '56px',
       xxl: '64px',
     },
@@ -230,7 +228,7 @@ module.exports = {
     require('./plugins/form'),
     require('./plugins/input'),
     require('./plugins/button'),
-    require('./plugins/switch'),
+    // require('./plugins/switch'),
     require('./plugins/animation'),
   ],
 }

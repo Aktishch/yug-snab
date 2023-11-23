@@ -3,29 +3,29 @@
 @tailwind utilities;
 
 @layer base {
-  @import "@fancyapps/ui/dist/fancybox/fancybox.css";
+  // @import "@fancyapps/ui/dist/fancybox/fancybox.css";
   @import "swiper/swiper-bundle.min.css";
-  @import "air-datepicker/air-datepicker.css";
+  // @import "air-datepicker/air-datepicker.css";
   @import "./ui-kit/fonts";
   @import "./ui-kit/basic";
   @import "./ui-kit/scrollbar";
   @import "./ui-kit/custom";
   @import "./ui-kit/waved";
-  @import "./ui-kit/movement";
+  // @import "./ui-kit/movement";
 }
 
 @layer components {
-  @import "./ui-kit/inverted";
-  @import "./ui-kit/postcards";
-  @import "./ui-kit/like";
+  // @import "./ui-kit/inverted";
+  // @import "./ui-kit/postcards";
+  // @import "./ui-kit/like";
   @import "./ui-kit/load";
-  @import "./ui-kit/button-swipe";
-  @import "./ui-kit/button-glow";
-  @import "./ui-kit/button-bubles";
-  @import "./ui-kit/button-border";
-  @import "./ui-kit/quantity";
-  @import "./ui-kit/rating";
-  @import "./ui-kit/range";
+  // @import "./ui-kit/button-swipe";
+  // @import "./ui-kit/button-glow";
+  // @import "./ui-kit/button-bubles";
+  // @import "./ui-kit/button-border";
+  // @import "./ui-kit/quantity";
+  // @import "./ui-kit/rating";
+  // @import "./ui-kit/range";
 }
 
 @import "./front-end/main";

@@ -6,206 +6,48 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="autor" content="//STDKIT">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="theme-color" content="#ffffff">
   <title><%= data.title %></title>
 </head>
 
-<body class="dark:bg-black dark:text-white">
+<body>
 
   <!-- Прелоадер -->
 
-  <div class="flex flex-col items-center justify-center fixed z-10 inset-0 bg-white dark:bg-black duration-5" data-preloader>
+  <div class="flex flex-col items-center justify-center fixed z-10 inset-0 bg-white duration-5" data-preloader>
     <%= preloader %>
   </div>
 
-  <!-- Прогресс прокрутки страницы -->
-
-  <div class="hidden lg:block fixed inset-0 z-4 bg-primary w-0 h-1 duration-2" data-progress-line></div>
-
   <!-- Шапка документа -->
 
-  <% var nav = {
-    pages: [
-      {
-        link: 'index.html',
-        text: 'Front-page'
-      },
-      {
-        link: 'primary.html',
-        text: 'Primary-page'
-      },
-      {
-        link: 'second.html',
-        text: 'Second-page'
-      }
-    ],
-    blocks: [
-      {
-        id: '#header',
-        text: 'Header'
-      },
-      {
-        id: '#player',
-        text: 'Player'
-      },
-      {
-        id: '#footer',
-        text: 'Footer'
-      }
-    ]
-  } %>
-
-  <header class="header container flex items-center justify-between gap-5 fixed z-3 top-0 left-0 right-0 bg-black py-4 duration-3" data-header>
-    <a class="btn btn-white w-36" data-waved="light" href="/">
-      <%= picture({src: 'img/pictures/logo', format: '.png', webp: true, classes: 'w-full', data: false, loading: 'auto'}) %>
+  <header class="container flex items-center justify-between gap-3 sticky z-3 top-0 left-0 right-0 bg-white py-2 sm:py-3 duration-3" data-header>
+    <a class="btn btn-white w-44 sm:w-52" data-waved="dark" href="/">
+      <%= picture({src: 'img/pictures/logo-text-black', format: '.png', webp: true, classes: 'w-full', data: false, loading: 'auto'}) %>
     </a>
-    <nav class="nav hidden lg:flex items-center justify-between gap-4 w-full max-w-[800px] ml-auto">
-      <% _.forEach((nav.pages), (page) => { %>
-      <a class="btn btn-second hover:underline underline-offset-4 text-14 font-normal uppercase p-1" data-waved="light" href="<%= page.link %>"><%= page.text %></a>
-      <% }) %>
-      <div class="nav__accordion relative" data-accordion="hidden" data-accordion-close="scroll">
-        <button class="btn btn-second hover:underline underline-offset-4 text-14 font-normal uppercase p-1" data-accordion-toggle data-waved="light">
-          Navigation
-          <span class="nav__arrow text-12 ml-2 ease-linear duration-3">
-            <%= icon({id: 'arrow-right'}) %>
-          </span>
-        </button>
-        <div class="nav__items absolute top-16 right-0 bg-white rounded-2 shadow-md w-full" data-accordion-content>
-          <div class="flex flex-col gap-4 p-4">
-            <% _.forEach((nav.blocks), (block) => { %>
-            <a class="btn btn-gray hover:underline underline-offset-4 text-14" data-waved="dark" data-scroll="top" href="<%= block.id %>"><%= block.text %></a>
-            <% }) %>
-          </div>
-        </div>
+    <div class="hidden lg:flex items-center">
+      <div class="flex items-center justify-center bg-second gradient text-white text-18 rounded-2 w-8 h-8 mr-4">
+        <%= icon({id: 'geo'}) %>
       </div>
-    </nav>
-    <button class="btn btn-second lg:hidden text-48" data-sidebar-open="menu" data-waved="light">
-      <%= icon({id: 'burger'}) %>
-    </button>
+      <div class="flex flex-col">
+        <span class="font-semibold text-18 leading-2">г. Краснодар</span>
+        <span class="font-normal text-18 leading-2 opacity-60">ул. Инертно-Песочная, 11</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <a class="btn btn-green btn-fill rounded-2 text-18 w-8 h-8" data-waved="light" href="" target="_blank">
+        <%= icon({id: 'wa'}) %>
+      </a>
+      <a class="btn btn-white rounded-2 overflow-hidden" data-waved="dark" href="tel: 8 (900) 000-00-00">
+        <div class="flex items-center justify-center bg-second gradient text-white text-18 rounded-2 w-8 h-8">
+          <%= icon({id: 'phone'}) %>
+        </div>
+        <span class="hidden sm:inline-block font-semibold text-black text-18 ml-2">8 (900) 000-00-00</span>
+      </a>
+    </div>
   </header>
-
-  <!-- Меню -->
-
-  <% var social = ['ok', 'yt', 'inst', 'tw', 'fb', 'vk'] %>
-
-  <div class="menu fixed inset-0 z-6 invisible opacity-0 duration-1" data-sidebar="close" data-sidebar-resize="lg" id="menu">
-    <div class="menu__content flex flex-col bg-black bg-opacity-90 invisible opacity-0 overflow-auto backdrop-blur-sm w-full max-w-[375px] h-full duration-3">
-      <div class="menu__head flex items-center justify-between gap-2 bg-black p-4 duration-5 delay-3">
-        <a class="btn btn-white w-36" data-waved="light" href="/">
-          <%= picture({src: 'img/pictures/logo', format: '.png', webp: true, classes: 'w-full', data: false, loading: 'auto'}) %>
-        </a>
-        <input class="switch switch-toggle" data-theme="toggle" type="checkbox">
-        <button class="btn btn-second text-white text-24 p-1" data-sidebar-close="menu" data-waved="light">
-          <%= icon({id: 'close'}) %>
-        </button>
-      </div>
-      <div class="menu__nav flex flex-col items-start gap-4 text-white invisible opacity-0 pt-4 pb-10 px-4 duration-9 delay-5">
-        <% _.forEach((nav.pages), (page) => { %>
-        <a class="hover:underline underline-offset-4 text-20" href="<%= page.link %>"><%= page.text %></a>
-        <% }) %>
-        <div class="menu__accordion" data-accordion="hidden" data-accordion-close="click">
-          <button class="flex items-center hover:underline underline-offset-4 text-20" data-accordion-toggle>
-            Navigation
-            <span class="menu__arrow text-14 opacity-60 ml-2 ease-linear duration-3">
-              <%= icon({id: 'arrow-right'}) %>
-            </span>
-          </button>
-          <div data-accordion-content>
-            <div class="flex flex-col items-start gap-2 mt-2 pl-5">
-              <% _.forEach((nav.blocks), (block) => { %>
-              <a class="hover:underline underline-offset-4 text-18" data-scroll="top" href="<%= block.id %>"><%= block.text %></a>
-              <% }) %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="menu__footer invisible opacity-0 mt-auto px-4 pt-4 pb-10 duration-5 delay-9">
-        <div class="flex items-center justify-center gap-4">
-          <% for (var i = 0; i < social.length; i++) { %>
-          <button class="btn btn-second text-30 rounded-max" data-waved="dark">
-            <%= icon({id: social[i]}) %>
-          </button>
-          <% } %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Перетаскиваемое социальное меню -->
-
-  <nav class="social flex flex-col items-center justify-center fixed z-2 bottom-0 rounded-max pointer-events-none touch-none select-none w-48 h-48" data-social data-draggable>
-    <div class="social__round absolute inset-0 bg-primary bg-opacity-30 opacity-0 rounded-max overflow-hidden pointer-events-auto ease-in-out duration-4" data-social-round="hidden">
-      <% for (var i = 0; i < social.length; i++) { %>
-      <button class="btn btn-second absolute text-30 rounded-max" data-social-link data-waved="dark">
-        <%= icon({id: social[i]}) %>
-      </button>
-      <% } %>
-    </div>
-    <button class="social__btn btn btn-primary btn-contur rounded-max shadow-md overflow-hidden pointer-events-auto w-10 h-10 p-1" data-social-button data-waved="light" id="draggable"></button>
-  </nav>
-
-  <!-- Переключатель темы -->
-
-  <div class="theme hidden lg:flex items-center justify-center fixed bottom-2 z-5 bg-white dark:bg-black rounded-4 border border-solid border-gray dark:border-white shadow-md w-max p-4">
-    <span class="text-14 mr-2">Темная тема</span>
-    <input class="switch switch-toggle" data-theme="toggle" type="checkbox">
-  </div>
-
-  <!-- Снежинки -->
-
-  <div class="fixed inset-0 z-5 pointer-events-none" data-snow></div>
-
-  <!-- Корзина -->
-
-  <div class="basket fixed z-1 top-2/4 left-0 md:left-auto right-0 md:right-10 bg-white dark:bg-black dark:text-white rounded-4 -translate-y-1/2 shadow-md invisible opacity-0 w-full max-w-[320px] mx-auto p-5 duration-3" data-basket="hidden">
-    <div class="flex items-center justify-between mb-4">
-      <h4 class="font-alt font-semibold text-24 mr-3">Product in basket</h4>
-      <button class="btn btn-primary text-18 rounded-1 p-1" data-basket-close data-waved="light">
-        <%= icon({id: 'close'}) %>
-      </button>
-    </div>
-    <div class="flex items-center mb-4">
-      <div class="pack pack-box bg-grey rounded-4 w-full max-w-[100px] mr-5">
-        <%= loader %>
-        <%= picture({src: 'img/pictures/town', format: '.jpg', webp: false, classes: 'image', data: 'data-basket-image', loading: 'lazy'}) %>
-      </div>
-      <div class="flex flex-col">
-        <span class="font-bold text-18 md:text-20 mb-3" data-basket-name>Name 4</span>
-        <span class="text-20 md:text-24" data-basket-quantity>4 шт</span>
-      </div>
-    </div>
-    <div class="flex items-end justify-between gap-2">
-      <div class="flex flex-col">
-        <span class="line-through text-12 md:text-16 opacity-60" data-basket-oldprice>8 000$</span>
-        <span class="font-semibold text-20 md:text-24" data-basket-price>7 000$</span>
-      </div>
-      <button class="btn btn-second btn-lg btn-fade px-10" data-waved="dark">Basket</button>
-    </div>
-  </div>
-
-  <!-- Плавная прокрутка -->
-
-  <div id="smooth-scroll" data-smooth-speed="4">
-
-    <!-- Умное меню -->
-
-    <nav class="container <%= data.status ? '' : 'hidden' %> relative z-1 py-4 duration-6 anim anim-down" data-anim="hidden">
-      <div class="flex items-center justify-between w-full max-w-full" data-smart>
-        <h2 class="font-alt font-bold text-18" data-smart-title>Smart-menu items</h2>
-        <ul class="flex justify-between gap-3" data-smart-length>
-          <% for (var i = 1; i < 9; i++) { %>
-          <li>
-            <button class="btn btn-primary btn-lg btn-light dark:bg-dark font-semibold shadow-md min-w-max" data-waved="dark">Smart-menu item <%= i %></button>
-          </li>
-          <% } %>
-        </ul>
-        <div class="relative min-w-max" data-smart-nav data-accordion="hidden" data-accordion-close="scroll">
-          <button class="btn btn-primary btn-lg btn-fill" data-accordion-toggle data-bubbles="hidden">
-            more <span class="ml-1" data-smart-count>0</span>
-          </button>
-          <div class="absolute top-12 right-0 bg-white dark:bg-opacity-0 rounded-2 shadow-md w-52" data-accordion-content>
-            <ul class="flex flex-col gap-3 p-3" data-smart-list></ul>
-          </div>
-        </div>
-      </div>
-    </nav>

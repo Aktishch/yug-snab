@@ -9,25 +9,13 @@ export default (): void => {
 
   const scrollHeader = (): void => {
     const currentOffsetTop: number = scrolledPage().top
-    const headerHeight: number = header.offsetHeight
 
     prevOffsetTop > currentOffsetTop
-      ? header.style.setProperty('--top', '0')
-      : header.style.setProperty('--top', `-${headerHeight}px`)
+      ? header.classList.remove('-translate-y-full')
+      : header.classList.add('-translate-y-full')
 
     prevOffsetTop = currentOffsetTop
   }
 
   document.addEventListener('scroll', scrollHeader as EventListener)
-
-  const smoothScroll = document.querySelector('#smooth-scroll') as HTMLElement
-
-  if (smoothScroll) {
-    const wrapperResize = (): void => {
-      smoothScroll.style.paddingTop = `${header.offsetHeight}px`
-    }
-
-    wrapperResize()
-    window.addEventListener('resize', wrapperResize as EventListener)
-  }
 }
