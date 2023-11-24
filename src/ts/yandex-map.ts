@@ -16,8 +16,8 @@ export default (): void => {
   ymaps
     .load('https://api-maps.yandex.ru/2.1/?lang=ru_RU')
     .then((maps: maps): void => {
-      const center: number[] = [45.03191007458623, 38.921171499999936]
-      const mark: number[] = [45.03191007458623, 38.921171499999936]
+      const center: number[] = [43.43604457453854, 39.93302499999994]
+      const mark: number[] = [43.43604457453854, 39.93302499999994]
       const inputs: Element[] = [...document.querySelectorAll('[data-suggest-view]')]
 
       const map = new maps.Map(yandexMap, {
@@ -31,8 +31,8 @@ export default (): void => {
         {
           iconLayout: 'default#image',
           iconImageHref: './img/pictures/geo.png',
-          iconImageSize: [40, 50],
-          iconImageOffset: [-20, -25],
+          iconImageSize: [90, 90],
+          iconImageOffset: [-45, -45],
         }
       )
 
@@ -48,7 +48,6 @@ export default (): void => {
       map.controls.remove('trafficControl')
       map.controls.remove('typeSelector')
       map.controls.remove('fullscreenControl')
-      map.controls.remove('zoomControl')
       map.controls.remove('rulerControl')
       map.behaviors.disable(['scrollZoom'])
       map.geoObjects.add(placemark)

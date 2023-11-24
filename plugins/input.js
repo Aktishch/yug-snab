@@ -6,7 +6,7 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
     '.input-cover': {
       display: 'flex',
       width: '100%',
-      '--input-radius': '8px',
+      '--input-radius': '10px',
 
       '& .input': {
         flexGrow: 1,
@@ -87,7 +87,7 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
         if (!parsed.color) return null
 
         return {
-          '--input-color': formatColor({ mode: 'rgba', color: parsed.color, alpha: 0.3 }),
+          '--input-color': formatColor({ mode: 'rgba', color: parsed.color, alpha: 0.6 }),
           '--input-focus': color.DEFAULT,
         }
       },

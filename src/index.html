@@ -80,7 +80,7 @@
               <p class="font-normal text-14 leading-4 opacity-60 mb-5 sm:mb-7">
                 Заказать самосвал для грузовой перевозки щебня, песка и других инертных материалов
               </p>
-              <button class="btn btn-primary btn-lg btn-fill sm:w-max mt-auto" data-waved="light">Подробнее</button>
+              <button class="btn btn-primary btn-md md:btn-lg btn-fill sm:w-max mt-auto" data-waved="light" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-service.html">Подробнее</button>
             </div>
           </div>
         </div>
@@ -102,24 +102,24 @@
           <%= loader %>
           <%= picture({src: 'img/pictures/production', format: '.jpg', webp: true, classes: 'image', data: false, loading: 'lazy'}) %>
         </div>
-        <div class="card-content text-center p-4">
-          <h4 class="font-alt font-medium text-20 leading-4 mb-6">Песок строительный</h4>
-          <p class="font-alt font-bold text-24 leading-4 mb-8">
+        <div class="card-content text-center p-2 sm:p-4">
+          <h4 class="font-alt font-medium text-16 sm:text-18 md:text-20 leading-4 mb-3 sm:mb-6">Песок строительный</h4>
+          <p class="font-alt font-bold text-18 sm:text-20 lg:text-24 leading-4 mb-5 md:mb-8">
             ОТ 1 500 ₽<sub>/тонна</sub>
           </p>
-          <button class="btn btn-primary btn-lg btn-fill mt-auto" data-waved="light">Подробнее</button>
+          <button class="btn btn-primary btn-md md:btn-lg btn-fill mt-auto" data-waved="light">Подробнее</button>
         </div>
       </div>
     </div>
     <% } %>
     <div class="col-2 lg:col-3 duration-5 ease-in-out anim anim-up" data-anim="hidden">
       <div class="card h-full p-2">
-        <div class="card-content flex-row items-center gap-5 lg:gap-10 h-auto">
-          <div class="pack pack-sheet bg-gray rounded-4 w-full max-w-[310px] h-full">
+        <div class="card-content md:flex-row md:items-center gap-3 md:gap-5 lg:gap-10 h-auto">
+          <div class="pack pack-box md:pack-sheet bg-gray rounded-4 w-full md:max-w-[310px] h-full">
             <%= loader %>
-            <%= picture({src: 'img/pictures/document', format: '.png', webp: true, classes: 'image image-scale-down', data: false, loading: 'lazy'}) %>
+            <%= picture({src: 'img/pictures/document', format: '.png', webp: true, classes: 'image image-scale-down p-4 md:p-0', data: false, loading: 'lazy'}) %>
           </div>
-          <div class="flex flex-col w-full max-w-[520px]">
+          <div class="flex flex-col w-full md:max-w-[520px] p-2 md:p-0">
             <h3 class="font-alt font-medium text-22 sm:text-26 lg:text-32 leading-4 border-b border-dashed border-black border-opacity-60 pb-6 lg:pb-8 mb-6 lg:mb-8">Надежность, ответственность и подтвержденное качество</h3>
             <p class="font-normal text-14 sm:text-16 leading-4 opacity-60 mb-5">
               Ответственно подходим к исполнению своих обязанностей.
@@ -137,4 +137,129 @@
   </div>
 </section>
 
-<%= footer({loader, picture}) %>
+<!-- О нас -->
+
+<section class="about container overflow-hidden pb-0">
+  <div class="duration-5 ease-in-out anim anim-left" data-anim="hidden">
+    <div class="card bg-gray p-2 sm:p-4">
+      <div class="card-content xl:flex-row xl:items-center xl:justify-between xl:gap-10">
+        <div class="order-2 xl:order-1 flex flex-col w-full xl:max-w-[600px] py-4 xl:py-0 pl-2 xl:pl-8 pr-2 xl:pr-2">
+          <h2 class="font-alt font-medium text-36 sm:text-42 lg:text-50 leading-3 mb-7 md:mb-10 xl:mb-14">О компании</h2>
+          <p class="font-normal text-14 sm:text-16 leading-4 mb-5">
+            ООО «Корпорация Юг-Снаб» работает в сфере строительства и комплексного обеспечения промышленных объектов.
+          </p>
+          <p class="font-normal text-14 sm:text-16 leading-4 mb-5">
+            Мы являемся молодой, но довольно амбициозной компанией, включающей в себя таких же молодых но уже достаточных опытных специалистов желающих трудится 24/7 с целью сэкономить Ваши деньги.
+          </p>
+          <p class="font-normal text-14 sm:text-16 leading-4">
+            Наличие собственного автопарка и арендованного подвижного состава позволяет существенно снизить себестоимость материала.
+          </p>
+        </div>
+        <div class="order-1 xl:order-2 pack pack-rect-md bg-grey rounded-5 w-full md:max-w-[400px] xl:max-w-[530px]">
+          <%= loader %>
+          <%= picture({src: 'img/pictures/about-bg', format: '.jpg', webp: true, classes: 'image', data: false, loading: 'lazy'}) %>
+          <div class="about__gradient flex items-center justify-center absolute inset-0">
+            <%= picture({src: 'img/pictures/logo-text-white', format: '.png', webp: true, classes: 'image image-scale-down p-8 xl:p-16', data: false, loading: 'auto'}) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Преимущества -->
+
+<% advantages = [
+  {
+    delay: '',
+    icon: 'cargo',
+    text: 'Продажа и доставка любых объёмов'
+  },
+  {
+    delay: 'xl:delay-2',
+    icon: 'time',
+    text: 'Доставка материала в день заказа'
+  },
+  {
+    delay: 'xl:delay-4',
+    icon: 'diploma',
+    text: 'Сертификаты качества на материал'
+  },
+  {
+    delay: 'xl:delay-6',
+    icon: 'ruble',
+    text: 'Любой удобный способ оплаты'
+  }
+] %>
+
+<section class="container">
+  <h2 class="font-alt font-medium text-center text-36 sm:text-42 lg:text-50 leading-3 mb-7 md:mb-10 xl:mb-16 duration-10 ease-in-out clip-path clip-path-down" data-anim="hidden">Преимущества</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+    <% _.forEach((advantages), (advantage) => { %>
+    <div class="flex items-center gap-4 duration-5 <%= advantage.delay %> ease-in-out anim anim-up" data-anim="hidden">
+      <div class="flex items-center justify-center bg-second gradient text-white text-24 md:text-40 rounded-3 w-12 md:w-[75px] min-w-[48px] md:min-w-[75px] h-12 md:h-[75px]">
+        <%= icon({id: advantage.icon}) %>
+      </div>
+      <p class="font-semibold text-16 leading-3"><%= advantage.text %></p>
+    </div>
+    <% }) %>
+  </div>
+</section>
+
+<!-- Контакты -->
+
+<section class="container container-xs bg-grey">
+  <h2 class="font-alt font-medium text-center text-36 sm:text-42 lg:text-50 leading-3 mb-7 md:mb-10 xl:mb-16 duration-10 ease-in-out clip-path clip-path-down" data-anim="hidden">Контакты</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-8">
+    <div class="duration-5 ease-in-out anim anim-up" data-anim="hidden">
+      <div class="card h-full py-10 px-3">
+        <div class="card-content items-center justify-center text-center">
+          <span class="text-second text-40 mb-4">
+            <%= icon({id: 'geo'}) %>
+          </span>
+          <h3 class="font-semibold text-18 md:text-20 lg:text-22 leading-3 mb-3">Адрес</h3>
+          <p class="font-normal text-14 md:text-16 leading-4">г. Краснодар ул. Инертно-Песочная, 11</p>
+        </div>
+      </div>
+    </div>
+    <div class="duration-5 xl:delay-2 ease-in-out anim anim-up" data-anim="hidden">
+      <div class="card h-full py-10 px-3">
+        <div class="card-content items-center justify-center text-center">
+          <div class="flex items-center justify-center gap-2 mb-4">
+            <span class="text-second text-40">
+              <%= icon({id: 'mobile'}) %>
+            </span>
+            <span class="flex items-center justify-center bg-green text-white text-26 rounded-2 w-10 h-10">
+              <%= icon({id: 'wa'}) %>
+            </span>
+          </div>
+          <h3 class="font-semibold text-18 md:text-20 lg:text-22 leading-3 mb-3">Телефоны</h3>
+          <div class="flex items-center justify-center font-normal text-14 md:text-16 leading-4">
+            <a class="hover:underline underline-offset-4 border-r border-solid border-gray pr-2 mr-2" href="tel: 8 (900) 000-00-00">8 (900) 000-00-00</a>
+            <a class="hover:underline underline-offset-4" href="tel: 8 (900) 000-00-00">8 (900) 000-00-00</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="duration-5 xl:delay-4 ease-in-out anim anim-up" data-anim="hidden">
+      <div class="card h-full py-10 px-3">
+        <div class="card-content items-center justify-center text-center">
+          <span class="text-second text-40 mb-4">
+            <%= icon({id: 'email'}) %>
+          </span>
+          <h3 class="font-semibold text-18 md:text-20 lg:text-22 leading-3 mb-3">E-mail</h3>
+          <a class="hover:underline underline-offset-4 font-normal text-14 md:text-16 leading-4" href="mailto: yugsnab@site.ru">yugsnab@site.ru</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Карта -->
+
+<section class="container relative bg-primary bg-opacity-20 overflow-hidden h-96 lg:h-[530px]">
+  <%= loader %>
+  <div class="absolute inset-0 overflow-hidden" id="yandex-map"></div>
+</section>
+
+<%= footer({loader, icon, picture}) %>

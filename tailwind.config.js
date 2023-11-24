@@ -210,7 +210,7 @@ module.exports = {
     },
 
     size: {
-      xs: '230px',
+      xs: '30px',
       sm: '38px',
       md: '46px',
       lg: '52px',

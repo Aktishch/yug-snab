@@ -7,3 +7,10 @@
 .services {
   background-image: linear-gradient(264.05deg, transparent 61.69%, theme("colors.black.DEFAULT / 40%") 100%);
 }
+
+// О нас
+.about {
+  &__gradient {
+    background: linear-gradient(141.21deg, theme("colors.black.DEFAULT / 70%") 40.57%, theme("colors.black.DEFAULT / 20%") 69.79%, transparent 92.49%);
+  }
+}

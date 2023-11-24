@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  // @import "@fancyapps/ui/dist/fancybox/fancybox.css";
+  @import "@fancyapps/ui/dist/fancybox/fancybox.css";
   @import "swiper/swiper-bundle.min.css";
   // @import "air-datepicker/air-datepicker.css";
   @import "./ui-kit/fonts";

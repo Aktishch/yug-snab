@@ -1,0 +1,51 @@
+<%
+  var icon = _.template(require('../components/icon.html').default)
+  var picture = _.template(require('../components/picture.html').default)
+  var loader = _.template(require('../components/loader.html').default)({icon: icon({id: 'loader'})})
+%>
+
+<dialog class="dialog dialog-lg rounded-5 p-0">
+  <div class="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7 bg-grey rounded-t-5 py-4 px-4 md:px-6">
+    <div class="pack pack-box bg-gray rounded-4 w-full max-w-[110px]">
+      <%= loader %>
+      <%= picture({src: 'img/pictures/service', format: '.jpg', webp: true, classes: 'image', data: false, loading: 'lazy'}) %>
+    </div>
+    <div class="flex flex-col">
+      <h2 class="uppercase font-alt font-bold text-18 sm:text-20 lg:text-24 leading-3 mb-2">Доставка самосвалами</h2>
+      <p class="font-normal text-14 sm:text-16 leading-4 opacity-60">Доставка самосвалами грузоподъемностью до 5т, 10т, 25т, 40т</p>
+    </div>
+  </div>
+  <ul class="flex flex-col gap-2 list-disc list-inside p-4 sm:p-6">
+    <% for (var i = 0; i < 5; i++) { %>
+    <li class="font-normal text-14 sm:text-16 leading-3">Минисамосвалы грузоподъемностью до 7тонн - 3шт</li>
+    <% } %>
+  </ul>
+  <div class="bg-grey rounded-b-5 py-4 sm:py-6 md:py-9 px-4 md:px-6">
+    <h3 class="font-alt font-semibold text-18 sm:text-20 lg:text-24 leading-3 mb-5 lg:mb-10">Чтобы заказать услугу, заполните форму</h3>
+    <form class="form mb-5" data-form="submit">
+      <input type="hidden" value="Услуга" name="theme">
+      <div class="grid grid-cols-1 md:grid-cols-5 sm:items-end gap-6">
+        <label class="col-2 form-label" data-label="input">
+          <span class="font-medium text-16 leading-1 mb-2">Ваше имя</span>
+          <div class="form-wrapper">
+            <div class="input-cover">
+              <input class="input input-gray input-lg" data-input="name" type="text" name="name">
+            </div>
+            <span class="form-error" data-error>Пожалуйста, введите ваше имя!</span>
+          </div>
+        </label>
+        <label class="col-2 form-label" data-label="input">
+          <span class="font-medium text-16 leading-1 mb-2">Ваш телефон</span>
+          <div class="form-wrapper">
+            <div class="input-cover">
+              <input class="input input-gray input-lg" data-input="tel" type="tel" placeholder="+7 (" name="tel">
+            </div>
+            <span class="form-error" data-error>Пожалуйста, введите ваш номер!span>
+          </div>
+        </label>
+        <button class="btn btn-primary btn-lg btn-fill" data-waved="light" type="submit">Отправить</button>
+      </div>
+    </form>
+    <div class="hover:underline underline-offset-4 font-normal text-12 opacity-60 cursor-pointer" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-politics.html">Отправляя форму, Вы даете согласие на обработку Ваших персональных данных</div>
+  </div>
+</dialog>
