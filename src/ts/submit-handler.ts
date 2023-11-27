@@ -20,7 +20,7 @@ const submitHandler = (event: Event): void => {
     const requestUrl = './ajax/submit-handler.php'
 
     submitBtn.setAttribute('disabled', 'disabled')
-    dialogNotClosing('./dialogs/dialog-preloader.html')
+    dialogNotClosing('./dialogs/dialog-preloader.php')
 
     fetch(requestUrl, {
       method: 'POST',
@@ -31,7 +31,7 @@ const submitHandler = (event: Event): void => {
       })
       .then((response: Response): void => {
         dialogClose()
-        dialogOpen('./dialogs/dialog-success.html')
+        dialogOpen('./dialogs/dialog-success.php')
         form.reset()
         submitBtn.removeAttribute('disabled')
       })
