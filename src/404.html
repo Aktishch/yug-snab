@@ -1,0 +1,25 @@
+<%
+  var data = {
+    title: '404',
+    status: true
+  }
+
+  var icon = _.template(require('./components/icon.html').default)
+  var picture = _.template(require('./components/picture.html').default)
+  var loader = _.template(require('./components/loader.html').default)({icon: icon({id: 'loader'})})
+  var preloader = require('./components/preloader.html').default
+  var header = _.template(require('./includes/header.html').default)
+  var footer = _.template(require('./includes/footer.html').default)
+%>
+
+<%= header({data, preloader, icon, picture}) %>
+
+<!-- Главный блок -->
+
+<main class="container flex flex-col items-center justify-center bg-grey text-center min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] xl:min-h-[830px]">
+  <h1 class="font-alt font-bold text-primary text-[10rem] lg:text-[14rem] leading-1 mb-7 lg:mb-12">404</h1>
+  <p class="font-normal text-16 leading-4 mb-5 sm:mb-8">Возможно, запрашиваемая вами страница была перенесена или удалена</p>
+  <a class="btn btn-primary btn-lg btn-fill w-full xs:w-auto xs:px-12" data-waved="light" href="/">Вернуться</a>
+</main>
+
+<%= footer({loader, icon, picture}) %>

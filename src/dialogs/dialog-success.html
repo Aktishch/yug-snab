@@ -1,0 +1,11 @@
+<% var icon = _.template(require('../components/icon.html').default) %>
+
+<dialog class="dialog dialog-xs rounded-5 pt-7 sm:pt-10 pb-10 sm:pb-16 px-4 sm:px-6">
+  <div class="flex flex-col items-center justify-center text-center">
+    <span class="text-green text-9xl sm:text-[10rem] mb-5">
+      <%= icon({id: 'success'}) %>
+    </span>
+    <h2 class="font-alt font-semibold text-center text-24 leading-3 mb-3 sm:mb-5">Заявка принята!</h2>
+    <p class="font-normal text-16 leading-4 opacity-60">Скоро наш менеджер свяжется с вами</p>
+  </div>
+</dialog>

@@ -103,11 +103,13 @@
           <%= picture({src: 'img/pictures/production', format: '.jpg', webp: true, classes: 'image', data: false, loading: 'lazy'}) %>
         </div>
         <div class="card-content text-center p-2 sm:p-4">
-          <h4 class="font-alt font-medium text-16 sm:text-18 md:text-20 leading-4 mb-3 sm:mb-6">Песок строительный</h4>
+          <h4 class="font-alt font-medium text-16 sm:text-18 md:text-20 leading-4 mb-3 sm:mb-6">
+            Песок <br> строительный
+          </h4>
           <p class="font-alt font-bold text-18 sm:text-20 lg:text-24 leading-4 mb-5 md:mb-8">
-            ОТ 1 500 ₽<sub>/тонна</sub>
+            ОТ 1 500 ₽<span class="text-14">/тонна</span>
           </p>
-          <button class="btn btn-primary btn-md md:btn-lg btn-fill mt-auto" data-waved="light">Подробнее</button>
+          <button class="btn btn-primary btn-md md:btn-lg btn-fill mt-auto" data-waved="light" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-production.html">Подробнее</button>
         </div>
       </div>
     </div>

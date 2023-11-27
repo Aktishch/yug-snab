@@ -31,7 +31,7 @@ const submitHandler = (event: Event): void => {
       })
       .then((response: Response): void => {
         dialogClose()
-        dialogOpen('./dialogs/dialog-submit.html')
+        dialogOpen('./dialogs/dialog-success.html')
         form.reset()
         submitBtn.removeAttribute('disabled')
       })

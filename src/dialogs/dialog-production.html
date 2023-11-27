@@ -1,0 +1,54 @@
+<%
+  var icon = _.template(require('../components/icon.html').default)
+  var picture = _.template(require('../components/picture.html').default)
+  var loader = _.template(require('../components/loader.html').default)({icon: icon({id: 'loader'})})
+%>
+
+<dialog class="dialog dialog-md rounded-5 p-0">
+  <div class="md:flex md:justify-between">
+    <div class="hidden md:flex items-center bg-grey rounded-l-5 w-full max-w-[340px] p-8">
+      <div class="card w-full h-full">
+        <div class="pack pack-rect-md bg-grey">
+          <%= loader %>
+          <%= picture({src: 'img/pictures/production', format: '.jpg', webp: true, classes: 'image', data: false, loading: 'lazy'}) %>
+        </div>
+        <div class="card-content text-center p-2 sm:p-4">
+          <h4 class="font-alt font-medium text-16 sm:text-18 md:text-20 leading-4 mb-3 sm:mb-6">
+            Песок <br> строительный
+          </h4>
+          <p class="font-alt font-bold text-18 sm:text-20 lg:text-24 leading-4">
+            ОТ 1 500 ₽<span class="text-14">/тонна</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="py-6 px-4 xs:px-7">
+      <h2 class="font-alt font-semibold text-24 leading-3 mb-5 sm:mb-7">
+        Чтобы заказать материал, заполните форму
+      </h2>
+      <form class="form mb-4" data-form="submit">
+        <input type="hidden" value="Продукция" name="theme">
+        <label class="form-label mb-4" data-label="input">
+          <span class="font-medium text-16 leading-1 mb-2">Ваше имя</span>
+          <div class="form-wrapper">
+            <div class="input-cover">
+              <input class="input input-gray input-lg" data-input="name" type="text" name="name">
+            </div>
+            <span class="form-error" data-error>Пожалуйста, введите ваше имя!</span>
+          </div>
+        </label>
+        <label class="form-label mb-5" data-label="input">
+          <span class="font-medium text-16 leading-1 mb-2">Ваш телефон</span>
+          <div class="form-wrapper">
+            <div class="input-cover">
+              <input class="input input-gray input-lg" data-input="tel" type="tel" placeholder="+7 (" name="tel">
+            </div>
+            <span class="form-error" data-error>Пожалуйста, введите ваш номер!span>
+          </div>
+        </label>
+        <button class="btn btn-primary btn-lg btn-fill xs:w-max" data-waved="light" type="submit">Отправить</button>
+      </form>
+      <div class="hover:underline underline-offset-4 font-normal text-12 opacity-60 cursor-pointer" data-fancybox-dialog data-type="ajax" data-src="dialogs/dialog-politics.html">Отправляя форму, Вы даете согласие на обработку Ваших персональных данных</div>
+    </div>
+  </div>
+</dialog>
