@@ -27,11 +27,23 @@ const submitHandler = (event: Event): void => {
       body: formData,
     })
       .then((response: Response): any => {
-        return response.text()
+        return response.json()
       })
       .then((response: Response): void => {
         dialogClose()
-        dialogOpen('./dialogs/dialog-success.php')
+
+        switch (response.status) {
+        case true: {
+          dialogOpen('./dialogs/dialog-success.php')
+          break
+        }
+
+        case false: {
+          dialogOpen('./dialogs/dialog-error.php')
+          break
+        }
+        }
+
         form.reset()
         submitBtn.removeAttribute('disabled')
       })
