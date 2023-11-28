@@ -69,10 +69,12 @@
         <% for (var i = 0; i < 4; i++) { %>
         <div class="swiper-slide h-auto">
           <div class="card card-active text-black h-full p-2 sm:p-4">
-            <div class="pack pack-box bg-grey rounded-4 sm:mb-7">
-              <%= loader %>
-              <%= picture({src: 'img/pictures/service', format: '.jpg', webp: true, classes: 'image image-rise', data: false, loading: 'lazy'}) %>
-            </div>
+            <button class="block w-full">
+              <div class="pack pack-box bg-grey rounded-4 pointer-events-none sm:mb-7">
+                <%= loader %>
+                <%= picture({src: 'img/pictures/service', format: '.jpg', webp: true, classes: 'image', data: false, loading: 'lazy'}) %>
+              </div>
+            </button>
             <div class="card-content py-4 sm:py-0 px-2 sm:px-0">
               <h3 class="font-alt font-semibold text-18 sm:text-20 leading-4 mb-4">
                 Доставка самосвалами грузоподъемностью до 5т, 10т, 25т, 40т
@@ -98,10 +100,12 @@
     <% for (var i = 0; i < 13; i++) { %>
     <div class="duration-5 ease-in-out anim anim-up" data-anim="hidden">
       <div class="card card-active h-full">
-        <div class="pack pack-rect-md bg-grey">
-          <%= loader %>
-          <%= picture({src: 'img/pictures/production', format: '.jpg', webp: true, classes: 'image', data: false, loading: 'lazy'}) %>
-        </div>
+        <button class="block w-full">
+          <div class="pack pack-rect-md bg-grey pointer-events-none">
+            <%= loader %>
+            <%= picture({src: 'img/pictures/production', format: '.jpg', webp: true, classes: 'image', data: false, loading: 'lazy'}) %>
+          </div>
+        </button>
         <div class="card-content text-center p-2 sm:p-4">
           <h4 class="font-alt font-medium text-16 sm:text-18 md:text-20 leading-4 mb-3 sm:mb-6">
             Песок <br> строительный
