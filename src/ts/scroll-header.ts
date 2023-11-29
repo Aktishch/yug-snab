@@ -10,9 +10,11 @@ export default (): void => {
   const scrollHeader = (): void => {
     const currentOffsetTop: number = scrolledPage().top
 
-    prevOffsetTop > currentOffsetTop
-      ? header.classList.remove('-translate-y-full')
-      : header.classList.add('-translate-y-full')
+    if (header.offsetHeight < currentOffsetTop) {
+      prevOffsetTop > currentOffsetTop
+        ? header.classList.remove('-translate-y-full')
+        : header.classList.add('-translate-y-full')
+    }
 
     prevOffsetTop = currentOffsetTop
   }
