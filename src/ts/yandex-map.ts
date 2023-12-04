@@ -16,8 +16,8 @@ export default (): void => {
   ymaps
     .load('https://api-maps.yandex.ru/2.1/?lang=ru_RU')
     .then((maps: maps): void => {
-      const center: number[] = [43.43604457453854, 39.93302499999994]
-      const mark: number[] = [43.43604457453854, 39.93302499999994]
+      const center: number[] = [43.43554615287845, 39.93187165012352]
+      const mark: number[] = [43.43554615287845, 39.93187165012352]
       const inputs: Element[] = [...document.querySelectorAll('[data-suggest-view]')]
 
       const map = new maps.Map(yandexMap, {
